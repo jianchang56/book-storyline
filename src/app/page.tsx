@@ -2,6 +2,7 @@ import { ArrowRight, BookOpen, Clock3, Route, Search, Sparkles } from "lucide-re
 import Link from "next/link";
 import { BookCard } from "@/components/book-card";
 import { BookCover } from "@/components/book-cover";
+import { ResumeReadingLink } from "@/components/resume-reading-link";
 import { SiteHeader } from "@/components/site-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -95,12 +96,7 @@ export default function HomePage() {
                     </ol>
                   </div>
                 </div>
-                <Button asChild className="mt-6 w-full" size="lg">
-                  <Link href="/books/xiyouji">
-                    开始阅读《西游记》
-                    <ArrowRight />
-                  </Link>
-                </Button>
+                <ResumeReadingLink bookSlug={featuredBook.slug} bookTitle={featuredBook.title} />
               </div>
             </div>
           </div>

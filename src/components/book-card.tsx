@@ -1,10 +1,34 @@
+"use client";
+
 import { ArrowUpRight, Clock3 } from "lucide-react";
 import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 import { BookCover } from "@/components/book-cover";
 import { Badge } from "@/components/ui/badge";
 import type { CatalogBook } from "@/lib/catalog";
+import { type ReaderState, readingModeLabels, readReaderState } from "@/lib/reader-storage";
 
 export function BookCard({ book }: { book: CatalogBook }) {
+  const [readerState, setReaderState] = useState<ReaderState | null>(null);
+  const updateReaderState = useCallback(() => {
+    setReaderState(readReaderState(window.localStorage, book.slug));
+  }, [book.slug]);
+
+  useEffect(() => {
+    updateReaderState();
+    window.addEventListener("storyline:reader-updated", updateReaderState);
+    window.addEventListener("pageshow", updateReaderState);
+    return () => {
+      window.removeEventListener("storyline:reader-updated", updateReaderState);
+      window.removeEventListener("pageshow", updateReaderState);
+    };
+  }, [updateReaderState]);
+
+  const progress = readerState ? Math.round(readerState.progress) : 0;
+  const href = {
+    pathname: `/books/${book.slug}`,
+    hash: readerState?.lastSectionId,
+  };
   const content = (
     <>
       <BookCover
@@ -26,9 +50,28 @@ export function BookCard({ book }: { book: CatalogBook }) {
           )}
         </div>
         <p className="mt-3 line-clamp-2 text-sm leading-6 text-muted-foreground">{book.tagline}</p>
-        <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-          <Clock3 className="size-3.5" />约 {book.readingMinutes} 分钟
-        </div>
+        {readerState ? (
+          <div className="mt-4">
+            <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
+              <span className="min-w-0 truncate">继续 · {readerState.lastSectionTitle}</span>
+              <span className="shrink-0 font-mono">{progress}%</span>
+            </div>
+            <div className="mt-2 h-1 overflow-hidden rounded-full bg-muted">
+              <div
+                className="h-full rounded-full bg-story-cinnabar"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <p className="mt-2 text-[11px] text-muted-foreground">
+              {readingModeLabels[readerState.mode].minutes} ·{" "}
+              {readingModeLabels[readerState.mode].label}
+            </p>
+          </div>
+        ) : (
+          <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+            <Clock3 className="size-3.5" />约 {book.readingMinutes} 分钟
+          </div>
+        )}
       </div>
     </>
   );
@@ -36,7 +79,7 @@ export function BookCard({ book }: { book: CatalogBook }) {
   if (book.status === "published") {
     return (
       <Link
-        href="/books/xiyouji"
+        href={href}
         className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       >
         {content}
