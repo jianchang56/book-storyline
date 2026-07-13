@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-story-cinnabar: var(--story-cinnabar);
+  --color-story-jade: var(--story-jade);
+  --font-sans: var(--font-story-sans);
+  --font-display: var(--font-story-display);
+}
+
+:root {
+  --background: #f2f5f4;
+  --foreground: #172226;
+  --card: #fbfcfa;
+  --card-foreground: #172226;
+  --primary: #275b5b;
+  --primary-foreground: #f8fbfa;
+  --secondary: #dfe8e7;
+  --secondary-foreground: #1e4848;
+  --muted: #e8eeed;
+  --muted-foreground: #657477;
+  --accent: #e3eceb;
+  --accent-foreground: #1d4747;
+  --border: #d4dfdd;
+  --input: #cbd8d6;
+  --ring: #347472;
+  --story-cinnabar: #cc684b;
+  --story-jade: #4f7e77;
+  --font-story-sans: "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-story-display: "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
+  --reader-scale: 1;
+}
+
+.dark {
+  --background: #111819;
+  --foreground: #e9eeee;
+  --card: #182122;
+  --card-foreground: #edf2f2;
+  --primary: #73a9a4;
+  --primary-foreground: #10201f;
+  --secondary: #223130;
+  --secondary-foreground: #dce9e7;
+  --muted: #1d292a;
+  --muted-foreground: #9aa9a9;
+  --accent: #243332;
+  --accent-foreground: #eff7f5;
+  --border: #2e3d3d;
+  --input: #354646;
+  --ring: #73a9a4;
+  --story-cinnabar: #e88667;
+  --story-jade: #79aaa2;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 10% -5%,
+      color-mix(in srgb, var(--story-jade) 12%, transparent),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      color-mix(in srgb, var(--story-cinnabar) 10%, transparent),
+      transparent 30rem
+    ),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-story-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--story-cinnabar) 28%, transparent);
+}
+
+.font-display {
+  font-family: var(--font-story-display);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.book-cover::after {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    115deg,
+    transparent 25%,
+    rgb(255 255 255 / 10%) 48%,
+    transparent 62%
+  );
+  content: "";
+  transform: translateX(-130%);
+  transition: transform 600ms ease;
+}
+
+a:hover .book-cover::after {
+  transform: translateX(130%);
+}
+
+.story-spine {
+  position: relative;
+}
+
+.story-spine::before {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 0.68rem;
+  width: 1px;
+  background: linear-gradient(var(--story-cinnabar), var(--story-jade), transparent);
+  content: "";
+}
+
+.chapter-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+.reader-copy {
+  font-family: var(--font-story-display);
+  font-size: calc(1.075rem * var(--reader-scale));
+  line-height: 1.95;
+  letter-spacing: 0.025em;
+}
+
+.reader-copy p + p {
+  margin-top: 1.35em;
+}
+
+@media (min-width: 768px) {
+  .reader-copy {
+    font-size: calc(1.125rem * var(--reader-scale));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

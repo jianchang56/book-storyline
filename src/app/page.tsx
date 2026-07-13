@@ -1,0 +1,153 @@
+import { ArrowRight, BookOpen, Clock3, Route, Search, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { BookCard } from "@/components/book-card";
+import { BookCover } from "@/components/book-cover";
+import { SiteHeader } from "@/components/site-header";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { catalog } from "@/lib/catalog";
+
+const featuredBook = catalog[0];
+const plotStops = [
+  "石猴出世",
+  "拜师学艺",
+  "龙宫取宝",
+  "大闹地府",
+  "齐天大圣",
+  "天庭围剿",
+  "五行山下",
+];
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen">
+      <SiteHeader />
+      <main>
+        <section className="relative overflow-hidden border-b border-border/70">
+          <div className="hero-grid pointer-events-none absolute inset-0 opacity-50" />
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-28">
+            <div>
+              <Badge variant="outline" className="border-primary/20 bg-background/60 text-primary">
+                <Sparkles className="mr-1.5 size-3.5" />
+                忠于原著的故事梗概
+              </Badge>
+              <h1 className="mt-7 max-w-3xl font-display text-5xl leading-[1.08] font-semibold tracking-[0.04em] text-balance sm:text-6xl lg:text-7xl">
+                一条故事线，
+                <span className="text-primary">读完一本书。</span>
+              </h1>
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">
+                删去不推动情节的描写，保留人物选择、关键转折与结果。章节连续展开，不用反复翻页。
+              </p>
+              <form action="/books" className="mt-9 flex max-w-xl gap-3">
+                <div className="relative min-w-0 flex-1">
+                  <Search className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-muted-foreground" />
+                  <Input
+                    name="q"
+                    placeholder="搜索想读的书"
+                    aria-label="搜索想读的书"
+                    className="h-13 bg-card pl-12"
+                  />
+                </div>
+                <Button type="submit" size="lg" className="shrink-0 px-5 sm:px-7">
+                  去书库
+                  <ArrowRight />
+                </Button>
+              </form>
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-2">
+                  <Clock3 className="size-4 text-primary" />约 12 分钟
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Route className="size-4 text-primary" />
+                  完整因果链
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <BookOpen className="size-4 text-primary" />
+                  连续阅读
+                </span>
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-lg">
+              <div className="absolute -top-8 -right-10 size-32 rounded-full bg-story-cinnabar/10 blur-3xl" />
+              <div className="rounded-[2rem] border border-border/80 bg-card/80 p-5 shadow-[0_30px_80px_-50px_rgba(19,48,50,0.55)] backdrop-blur sm:p-7">
+                <div className="grid grid-cols-[8rem_1fr] gap-6 sm:grid-cols-[10rem_1fr]">
+                  <BookCover
+                    title={featuredBook.title}
+                    author={featuredBook.author}
+                    tone={featuredBook.coverTone}
+                  />
+                  <div className="story-spine py-1 pl-7">
+                    <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
+                      七回路线
+                    </p>
+                    <ol className="mt-4 space-y-3.5">
+                      {plotStops.map((stop, index) => (
+                        <li key={stop} className="relative flex items-center gap-3 text-sm">
+                          <span className="absolute -left-[1.69rem] size-2.5 rounded-full border-2 border-card bg-story-cinnabar shadow-[0_0_0_1px_var(--border)]" />
+                          <span className="font-mono text-[10px] text-muted-foreground">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                          <span>{stop}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+                <Button asChild className="mt-6 w-full" size="lg">
+                  <Link href="/books/xiyouji">
+                    开始阅读《西游记》
+                    <ArrowRight />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-sm font-medium tracking-[0.2em] text-primary">书架</p>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-wide sm:text-4xl">
+                从一条清楚的主线开始
+              </h2>
+            </div>
+            <Button asChild variant="ghost" className="hidden sm:inline-flex">
+              <Link href="/books">
+                查看全部
+                <ArrowRight />
+              </Link>
+            </Button>
+          </div>
+          <div className="mt-10 grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+            {catalog.map((book) => (
+              <BookCard key={book.slug} book={book} />
+            ))}
+          </div>
+        </section>
+
+        <section id="about" className="border-y border-border/70 bg-card/55">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-20 sm:px-6 lg:grid-cols-3 lg:px-8">
+            {[
+              ["01", "按因果保留", "谁做了什么、为何发生、造成什么变化，始终沿原著顺序展开。"],
+              ["02", "按章节校验", "章节是内容生产单位，用来检查人物、物品、能力和伏笔的一致性。"],
+              ["03", "按整本阅读", "网页将章节连续呈现，以目录锚点定位，不把短内容切成零碎分页。"],
+            ].map(([number, title, description]) => (
+              <article key={number} className="border-t border-border pt-6">
+                <span className="font-mono text-xs text-story-cinnabar">{number}</span>
+                <h3 className="mt-6 font-display text-2xl font-semibold">{title}</h3>
+                <p className="mt-4 leading-7 text-muted-foreground">{description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+      <footer className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <p>© 2026 故事线</p>
+        <p>AI 辅助整理，发布前人工抽检。</p>
+      </footer>
+    </div>
+  );
+}
