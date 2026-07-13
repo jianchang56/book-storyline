@@ -3,11 +3,11 @@
   "title": "西游记",
   "author": "吴承恩",
   "era": "明",
-  "subtitle": "七回读懂大圣从花果山到五行山",
-  "description": "石猴问世、拜师学艺、龙宫取宝、大闹天宫，直至被如来压在五行山下。沿着七个关键回目，快速读懂孙悟空前半生最重要的因果链。",
+  "subtitle": "一百回读完取经起因、八十一难与五圣成真",
+  "description": "从石猴出世、大闹天宫，到玄奘奉旨西行、四众聚齐、历尽八十一难、取得真经并受封成真。按原著一百回连续梳理完整主因果链。",
   "genres": ["古典小说", "神魔", "冒险"],
-  "readingMinutes": 12,
-  "chapterCount": 7,
+  "readingMinutes": 60,
+  "chapterCount": 100,
   "coverTone": "cinnabar",
   "publishedAt": "2026-07-13"
 }
