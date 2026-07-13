@@ -24,9 +24,18 @@ export type BookSection = {
   paragraphs: string[];
 };
 
+export type StoryArc = {
+  id: string;
+  title: string;
+  startChapter: number;
+  endChapter: number;
+  summary: string;
+};
+
 export type Book = {
   metadata: BookMetadata;
   overview: BookSection;
+  storyArcs: StoryArc[];
   chapters: BookSection[];
 };
 
@@ -53,12 +62,14 @@ export async function getBook(slug: string): Promise<Book | null> {
   const directory = path.join(booksDirectory, slug);
 
   try {
-    const [metadataSource, overviewSource, chapterFiles] = await Promise.all([
+    const [metadataSource, overviewSource, storyArcsSource, chapterFiles] = await Promise.all([
       readFile(path.join(directory, "metadata.json"), "utf8"),
       readFile(path.join(directory, "overview.md"), "utf8"),
+      readFile(path.join(directory, "story-arcs.json"), "utf8"),
       readdir(path.join(directory, "chapters")),
     ]);
     const metadata = JSON.parse(metadataSource) as BookMetadata;
+    const storyArcs = JSON.parse(storyArcsSource) as StoryArc[];
     const sortedChapterFiles = chapterFiles.filter((file) => file.endsWith(".md")).toSorted();
     const chapterSources = await Promise.all(
       sortedChapterFiles.map((file) => readFile(path.join(directory, "chapters", file), "utf8")),
@@ -70,6 +81,7 @@ export async function getBook(slug: string): Promise<Book | null> {
         ...parseBookSection(overviewSource, "全书速览"),
         id: "overview",
       },
+      storyArcs,
       chapters: chapterSources.map((source, index) => ({
         ...parseBookSection(source, `第 ${index + 1} 章`),
         id: `chapter-${index + 1}`,

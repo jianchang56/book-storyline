@@ -25,6 +25,9 @@ describe("getBook", () => {
 
     expect(book).not.toBeNull();
     expect(book?.metadata.chapterCount).toBe(100);
+    expect(book?.storyArcs).toHaveLength(10);
+    expect(book?.storyArcs[0]).toMatchObject({ startChapter: 1, endChapter: 7 });
+    expect(book?.storyArcs.at(-1)).toMatchObject({ startChapter: 96, endChapter: 100 });
     expect(book?.chapters).toHaveLength(100);
     expect(book?.chapters[0]?.title).toBe("第一回　灵根育孕源流出　心性修持大道生");
     expect(book?.chapters.at(-1)?.title).toBe("第一百回　径回东土　五圣成真");
