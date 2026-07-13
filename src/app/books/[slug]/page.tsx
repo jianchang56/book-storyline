@@ -131,11 +131,9 @@ export default async function BookPage({ params }: BookPageProps) {
 
             <div className="mx-auto max-w-[43rem] rounded-[2rem] border border-border bg-card p-7 text-center sm:p-10">
               <p className="text-sm font-medium tracking-[0.18em] text-primary">已读完</p>
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                这条故事线暂时走到五行山下
-              </h2>
+              <h2 className="mt-4 font-display text-3xl font-semibold">一百回取经故事至此圆满</h2>
               <p className="mt-4 leading-7 text-muted-foreground">
-                当前样例覆盖《西游记》前七回。更多作品将在完成逐章校验后进入书库。
+                从石猴出世到五圣成真，原著主因果链已连续呈现。你可以通过目录回到任一回目重读。
               </p>
               <Button asChild variant="outline" className="mt-7">
                 <Link href="/books">返回书库</Link>

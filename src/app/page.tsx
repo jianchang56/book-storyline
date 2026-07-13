@@ -11,12 +11,12 @@ import { catalog } from "@/lib/catalog";
 const featuredBook = catalog[0];
 const plotStops = [
   "石猴出世",
-  "拜师学艺",
-  "龙宫取宝",
-  "大闹地府",
-  "齐天大圣",
-  "天庭围剿",
-  "五行山下",
+  "大闹天宫",
+  "玄奘启程",
+  "四众聚齐",
+  "西行八十一难",
+  "灵山取经",
+  "五圣成真",
 ];
 
 export default function HomePage() {
@@ -56,7 +56,7 @@ export default function HomePage() {
               </form>
               <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-2">
-                  <Clock3 className="size-4 text-primary" />约 12 分钟
+                  <Clock3 className="size-4 text-primary" />约 60 分钟
                 </span>
                 <span className="inline-flex items-center gap-2">
                   <Route className="size-4 text-primary" />
@@ -80,7 +80,7 @@ export default function HomePage() {
                   />
                   <div className="story-spine py-1 pl-7">
                     <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
-                      七回路线
+                      百回主线
                     </p>
                     <ol className="mt-4 space-y-3.5">
                       {plotStops.map((stop, index) => (

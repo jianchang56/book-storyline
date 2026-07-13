@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseBookSection } from "@/lib/books";
+import { getBook, parseBookSection } from "@/lib/books";
 
 describe("parseBookSection", () => {
   it("extracts the markdown heading and paragraphs", () => {
@@ -16,5 +16,17 @@ describe("parseBookSection", () => {
       title: "全书速览",
       paragraphs: ["第一段。 仍在同一段。"],
     });
+  });
+});
+
+describe("getBook", () => {
+  it("loads the complete one-hundred-chapter Journey to the West storyline", async () => {
+    const book = await getBook("xiyouji");
+
+    expect(book).not.toBeNull();
+    expect(book?.metadata.chapterCount).toBe(100);
+    expect(book?.chapters).toHaveLength(100);
+    expect(book?.chapters[0]?.title).toBe("第一回　灵根育孕源流出　心性修持大道生");
+    expect(book?.chapters.at(-1)?.title).toBe("第一百回　径回东土　五圣成真");
   });
 });
