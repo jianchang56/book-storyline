@@ -46,6 +46,8 @@
   --font-story-sans: "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --font-story-display: "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
   --reader-scale: 1;
+  --reader-line-height: 1.95;
+  --reader-measure: 46rem;
 }
 
 .dark {
@@ -152,8 +154,24 @@ a:hover .book-cover::after {
 .reader-copy {
   font-family: var(--font-story-display);
   font-size: calc(1.075rem * var(--reader-scale));
-  line-height: 1.95;
+  line-height: var(--reader-line-height);
   letter-spacing: 0.025em;
+}
+
+.reader-article {
+  width: 100%;
+  max-width: var(--reader-measure);
+}
+
+.reader-focus-mode [data-site-header],
+.reader-focus-mode [data-book-hero],
+.reader-focus-mode [data-reader-sidebar],
+.reader-focus-mode [data-reader-mobile-toolbar] {
+  display: none;
+}
+
+.reader-focus-mode .reader-shell > div:first-child {
+  top: 0;
 }
 
 .reader-copy p + p {
