@@ -103,3 +103,38 @@ skills/book-storyline/
 ## License
 
 本项目采用 [MIT License](LICENSE)。
+
+## 故事线网站
+
+仓库根目录同时包含一个基于 Next.js 的阅读网站，用于展示经过 `book-storyline` skill 整理的故事梗概。内容可以按章节文件保存，但书籍页面会将全部章节合并为连续长文，并保留目录锚点、阅读进度和断点续读。
+
+### 本地开发
+
+```powershell
+pnpm install
+pnpm dev
+```
+
+打开 <http://localhost:3000>。
+
+### 校验
+
+```powershell
+pnpm check
+pnpm typecheck
+pnpm test
+pnpm build
+```
+
+### 网站内容结构
+
+```text
+content/books/<slug>/
+├── metadata.json
+├── overview.md
+└── chapters/
+    ├── 0001.md
+    └── 0002.md
+```
+
+当前网站内置《西游记》前七回作为连续阅读样例。
