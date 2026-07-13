@@ -522,6 +522,15 @@ export function BookReader({ book }: { book: Book }) {
     if (!pendingScrollId) {
       return;
     }
+    const targetMode: ReadingMode =
+      pendingScrollId === "overview"
+        ? "overview"
+        : pendingScrollId.startsWith("arc-")
+          ? "journey"
+          : "complete";
+    if (mode !== targetMode) {
+      return;
+    }
     let secondFrame = 0;
     const firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
@@ -534,7 +543,7 @@ export function BookReader({ book }: { book: Book }) {
       window.cancelAnimationFrame(firstFrame);
       window.cancelAnimationFrame(secondFrame);
     };
-  }, [pendingScrollId]);
+  }, [mode, pendingScrollId]);
 
   useEffect(() => {
     const elements = visibleSections
