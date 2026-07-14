@@ -17,6 +17,12 @@ export function SiteHeader() {
             <Link href="/books">书库</Link>
           </Button>
           <Button asChild variant="ghost">
+            <Link href={{ pathname: "/authors" }}>作者</Link>
+          </Button>
+          <Button asChild variant="ghost">
+            <Link href={{ pathname: "/genres" }}>类型</Link>
+          </Button>
+          <Button asChild variant="ghost">
             <Link href={{ pathname: "/about" }}>关于书脉</Link>
           </Button>
         </nav>
