@@ -827,7 +827,7 @@ export function BookReader({ book }: { book: Book }) {
           <div className="mt-3 min-h-0 overflow-y-auto pr-2">{tocContent}</div>
         </aside>
 
-        <main className="min-w-0 flex-1">
+        <section aria-label="阅读正文" className="min-w-0 flex-1">
           <div className="reader-article mx-auto">
             <div className="mb-14 rounded-[1.75rem] border border-border bg-card/70 p-5 shadow-sm sm:p-6 xl:hidden">
               <p className="mb-3 text-xs font-medium tracking-[0.18em] text-primary">
@@ -1000,7 +1000,7 @@ export function BookReader({ book }: { book: Book }) {
               ) : null}
             </section>
           </div>
-        </main>
+        </section>
       </div>
 
       {!focusMode ? (
