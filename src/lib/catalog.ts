@@ -52,6 +52,16 @@ export const catalog: CatalogBook[] = [
     coverTone: "sand",
     status: "published",
   },
+  {
+    slug: "biancheng",
+    title: "边城",
+    author: "沈从文",
+    tagline: "茶峒渡口的一段朦胧情感与无尽等待。",
+    genres: ["现代小说", "乡土", "爱情"],
+    readingMinutes: 15,
+    coverTone: "jade",
+    status: "published",
+  },
 ];
 
 export function filterCatalog(books: CatalogBook[], query: string) {
