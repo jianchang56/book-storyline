@@ -20,7 +20,7 @@ description: 将 Codex 或其他 Agent 生成的分章故事梗概发布为 Stor
 4. 保留章节作为内容生产、失败重试和 manifest 校验单位，但把发布成品合并到 `20-full.md`。每回使用 H2，确保网站仍能生成稳定的 `chapter-N` 锚点。
 5. 让故事阶段连续覆盖全部章节。阶段边界来自目标、地点、队伍状态或长期冲突的变化，不按固定章数机械切分。
 6. 把三档实际阅读时间写入 `metadata.json`。保持 `00/10/20` 顺序前缀稳定，不把分钟数写进文件名。
-7. 运行确定性校验：
+7. 运行单本确定性校验：
 
    ```powershell
    python skills/publish-storyline-book/scripts/validate_book.py content/<slug>
@@ -32,7 +32,14 @@ description: 将 Codex 或其他 Agent 生成的分章故事梗概发布为 Stor
    --manifest <工作目录>/manifest.json
    ```
 
-8. 修改网站代码时，再运行仓库规定的格式、类型、测试和构建命令。
+8. 更新自动目录并校验全书库：
+
+   ```powershell
+   python skills/publish-storyline-book/scripts/generate_catalog.py content
+   python skills/publish-storyline-book/scripts/validate_library.py content
+   ```
+
+9. 修改网站代码时，再运行仓库规定的格式、类型、测试和构建命令。
 
 ## 迁移旧内容
 
@@ -61,3 +68,4 @@ python skills/publish-storyline-book/scripts/migrate_legacy_book.py content/book
 - 不因目录需要而擅自改写原回目。
 - 不把未校验的章节数、阅读时长或阶段数写入营销文案。
 - 不自动提交用户未授权的原文、临时工作目录或本地笔记。
+- 不手工编辑 `content/catalog.json`；始终从各书 `metadata.json` 重新生成。

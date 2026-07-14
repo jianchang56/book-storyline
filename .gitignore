@@ -11,6 +11,10 @@
 # testing
 /coverage
 
+# python
+__pycache__/
+*.py[cod]
+
 # local
 .DS_Store
 *.pem

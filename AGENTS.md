@@ -36,6 +36,8 @@ content/<slug>/
 
 ```powershell
 python skills/publish-storyline-book/scripts/validate_book.py content/<slug>
+python skills/publish-storyline-book/scripts/generate_catalog.py content
+python skills/publish-storyline-book/scripts/validate_library.py content
 pnpm check
 pnpm typecheck
 pnpm test
@@ -43,6 +45,8 @@ pnpm build
 ```
 
 若有预处理生成的 `manifest.json`，额外传入 `--manifest`，严格核对章节顺序和标题。
+
+`content/catalog.json` 必须由所有书籍的 `metadata.json` 自动生成，不要手工维护。批量发布时先逐书校验，再生成目录，最后运行全书库校验。
 
 ## 前端原则
 

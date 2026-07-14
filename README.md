@@ -120,6 +120,8 @@ pnpm dev
 ### 校验
 
 ```powershell
+python skills/publish-storyline-book/scripts/generate_catalog.py content
+python skills/publish-storyline-book/scripts/validate_library.py content
 pnpm check
 pnpm typecheck
 pnpm test
@@ -140,3 +142,5 @@ content/<slug>/
 ```
 
 `README.md` 方便在 GitHub 直接进入三种阅读档；`00/10/20` 前缀只用于稳定文件顺序，实际预计阅读时间保存在 `metadata.json`。当前网站内置《西游记》一百回完整故事梗概，内容集中在三份 Markdown 中，读者端仍保留阶段目录、回目锚点和单页连续阅读体验。
+
+全站书籍列表保存在自动生成的 `content/catalog.json` 中。新增或更新书籍后重新生成目录并运行全书库校验，不要在前端代码中手工登记书籍。

@@ -13,6 +13,10 @@ content/<slug>/
 
 可以按需增加 `assets/` 和 `source/`，不要把临时生成文件放进发布目录。
 
+## content/catalog.json
+
+全站轻量索引必须由 `scripts/generate_catalog.py` 扫描所有书籍的 `metadata.json` 生成。网站书库和首页只读取该索引，不重复扫描或解析全部正文。不要手工编辑；`validate_library.py` 会检查它是否过期。
+
 ## metadata.json
 
 必须包含：`slug`、`title`、`author`、`era`、`subtitle`、`description`、`genres`、`readingMinutes`、`chapterCount`、`coverTone`、`publishedAt`、`readingModes`。
