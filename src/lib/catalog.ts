@@ -72,6 +72,16 @@ export const catalog: CatalogBook[] = [
     coverTone: "indigo",
     status: "published",
   },
+  {
+    slug: "tangjihde",
+    title: "堂吉诃德",
+    author: "塞万提斯",
+    tagline: "把风车当巨人、客店当城堡的骑士末路。",
+    genres: ["外国文学", "小说", "经典"],
+    readingMinutes: 120,
+    coverTone: "indigo",
+    status: "published",
+  },
 ];
 
 export function filterCatalog(books: CatalogBook[], query: string) {
