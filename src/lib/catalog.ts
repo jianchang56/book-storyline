@@ -82,6 +82,36 @@ export const catalog: CatalogBook[] = [
     coverTone: "indigo",
     status: "published",
   },
+  {
+    slug: "weicheng",
+    title: "围城",
+    author: "钱锺书",
+    tagline: "文凭、情场与婚姻，样样都是困人的城。",
+    genres: ["现代小说", "讽刺", "爱情"],
+    readingMinutes: 15,
+    coverTone: "plum",
+    status: "published",
+  },
+  {
+    slug: "balishumuyuan",
+    title: "巴黎圣母院",
+    author: "雨果",
+    tagline: "圣母院钟楼里的一段美与罪的纠葛。",
+    genres: ["外国文学", "小说", "经典"],
+    readingMinutes: 10,
+    coverTone: "cinnabar",
+    status: "published",
+  },
+  {
+    slug: "daweikebofeier",
+    title: "大卫·科波菲尔",
+    author: "狄更斯",
+    tagline: "一个男孩的成长、漂泊与最终归宿。",
+    genres: ["外国文学", "小说", "成长"],
+    readingMinutes: 60,
+    coverTone: "sand",
+    status: "published",
+  },
 ];
 
 export function filterCatalog(books: CatalogBook[], query: string) {
