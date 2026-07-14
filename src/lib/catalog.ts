@@ -31,18 +31,27 @@ export function filterCatalog(books: CatalogBook[], query: string) {
   });
 }
 
-export function paginateCatalog(books: CatalogBook[], requestedPage: number, pageSize: number) {
-  const totalPages = Math.max(1, Math.ceil(books.length / pageSize));
+export function paginateItems<T>(items: T[], requestedPage: number, pageSize: number) {
+  const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
   const page = Math.min(totalPages, Math.max(1, Math.trunc(requestedPage) || 1));
   const startIndex = (page - 1) * pageSize;
 
   return {
-    books: books.slice(startIndex, startIndex + pageSize),
+    items: items.slice(startIndex, startIndex + pageSize),
     page,
     pageSize,
-    totalBooks: books.length,
+    totalItems: items.length,
     totalPages,
-    startNumber: books.length === 0 ? 0 : startIndex + 1,
-    endNumber: Math.min(startIndex + pageSize, books.length),
+    startNumber: items.length === 0 ? 0 : startIndex + 1,
+    endNumber: Math.min(startIndex + pageSize, items.length),
+  };
+}
+
+export function paginateCatalog(books: CatalogBook[], requestedPage: number, pageSize: number) {
+  const { items, totalItems, ...pagination } = paginateItems(books, requestedPage, pageSize);
+  return {
+    ...pagination,
+    books: items,
+    totalBooks: totalItems,
   };
 }

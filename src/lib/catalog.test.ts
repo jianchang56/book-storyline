@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { catalog, filterCatalog, paginateCatalog } from "@/lib/catalog";
+import { catalog, filterCatalog, paginateCatalog, paginateItems } from "@/lib/catalog";
 
 describe("filterCatalog", () => {
   it("returns all books for an empty query", () => {
@@ -31,6 +31,17 @@ describe("generated catalog", () => {
 });
 
 describe("paginateCatalog", () => {
+  it("paginates generic directory items", () => {
+    expect(paginateItems(["a", "b", "c"], 2, 2)).toMatchObject({
+      items: ["c"],
+      page: 2,
+      totalItems: 3,
+      totalPages: 2,
+      startNumber: 3,
+      endNumber: 3,
+    });
+  });
+
   it("returns one bounded page without losing total counts", () => {
     const result = paginateCatalog(catalog, 2, 12);
 
