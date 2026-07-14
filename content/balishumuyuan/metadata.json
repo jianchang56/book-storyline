@@ -1,0 +1,33 @@
+{
+  "slug": "balishumuyuan",
+  "title": "巴黎圣母院",
+  "author": "雨果",
+  "era": "法国",
+  "subtitle": "圣母院钟楼里的一段美与罪的纠葛",
+  "description": "巴黎圣母院的驼背敲钟人卡西莫多、吉普赛少女爱斯梅拉达与副主教弗罗洛在宗教、欲望与命运中纠缠。一场关于美与丑、善与恶、爱与毁灭的悲剧在巴黎中世纪的天空下展开。",
+  "genres": ["外国文学", "小说", "经典"],
+  "readingMinutes": 10,
+  "chapterCount": 1,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-14",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 10
+    }
+  ]
+}
