@@ -16,3 +16,16 @@ describe("filterCatalog", () => {
     expect(filterCatalog(catalog, "不存在的作品")).toEqual([]);
   });
 });
+
+describe("generated catalog", () => {
+  it("contains unique published books in newest-first order", () => {
+    expect(new Set(catalog.map((book) => book.slug)).size).toBe(catalog.length);
+    expect(catalog.every((book) => book.status === "published")).toBe(true);
+    expect(catalog.map((book) => book.publishedAt)).toEqual(
+      catalog
+        .map((book) => book.publishedAt)
+        .toSorted()
+        .reverse(),
+    );
+  });
+});

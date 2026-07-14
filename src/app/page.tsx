@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { catalog } from "@/lib/catalog";
 
-const featuredBook = catalog[0];
+const featuredBook = catalog.find((book) => book.slug === "xiyouji") ?? catalog[0];
+const shelfBooks = catalog.slice(0, 5);
 const plotStops = [
   "石猴出世",
   "大闹天宫",
@@ -118,7 +119,7 @@ export default function HomePage() {
             </Button>
           </div>
           <div className="mt-10 grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-            {catalog.map((book) => (
+            {shelfBooks.map((book) => (
               <BookCard key={book.slug} book={book} />
             ))}
           </div>
