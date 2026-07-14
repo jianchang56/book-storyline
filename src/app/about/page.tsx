@@ -105,12 +105,6 @@ export default function AboutPage() {
           </Button>
         </section>
       </main>
-      <footer className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>© 2026 书脉</p>
-        <Link href="/books" className="transition-colors hover:text-foreground">
-          返回书库
-        </Link>
-      </footer>
     </div>
   );
 }

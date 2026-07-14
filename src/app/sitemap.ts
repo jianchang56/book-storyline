@@ -10,6 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/authors"), changeFrequency: "weekly", priority: 0.7 },
     { url: absoluteUrl("/genres"), changeFrequency: "weekly", priority: 0.7 },
     { url: absoluteUrl("/about"), changeFrequency: "monthly", priority: 0.5 },
+    { url: absoluteUrl("/feedback"), changeFrequency: "monthly", priority: 0.4 },
+    { url: absoluteUrl("/privacy"), changeFrequency: "yearly", priority: 0.3 },
+    { url: absoluteUrl("/terms"), changeFrequency: "yearly", priority: 0.3 },
+    { url: absoluteUrl("/copyright"), changeFrequency: "yearly", priority: 0.3 },
   ];
   const bookPages: MetadataRoute.Sitemap = catalog.map((book) => ({
     url: absoluteUrl(`/books/${book.slug}`),

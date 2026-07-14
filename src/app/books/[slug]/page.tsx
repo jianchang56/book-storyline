@@ -1,4 +1,4 @@
-import { ArrowLeft, Clock3 } from "lucide-react";
+import { ArrowLeft, BookCheck, CalendarDays, Clock3, MessageSquareWarning } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -145,6 +145,28 @@ export default async function BookPage({ params }: BookPageProps) {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border/70 bg-background">
+          <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <BookCheck className="size-4 text-primary" />
+                覆盖 {book.metadata.chapterCount} 个章节节点
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <CalendarDays className="size-4 text-primary" />
+                发布于 {book.metadata.publishedAt}
+              </span>
+              <span>AI 辅助整理 · 自动校验</span>
+            </div>
+            <Button asChild variant="outline" className="min-h-11 shrink-0 self-start lg:self-auto">
+              <Link href={{ pathname: "/feedback", query: { book: book.metadata.title } }}>
+                <MessageSquareWarning />
+                反馈内容问题
+              </Link>
+            </Button>
           </div>
         </section>
 

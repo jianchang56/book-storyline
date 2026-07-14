@@ -125,10 +125,6 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>© 2026 书脉</p>
-        <p>AI 辅助整理，发布前人工抽检。</p>
-      </footer>
     </div>
   );
 }
