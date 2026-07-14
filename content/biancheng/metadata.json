@@ -1,0 +1,33 @@
+{
+  "slug": "biancheng",
+  "title": "边城",
+  "author": "沈从文",
+  "era": "现代",
+  "subtitle": "八章读完茶峒渡口的爱与等待",
+  "description": "湘西茶峒的小溪边，老船夫与孙女翠翠守着白塔下的渡口。翠翠在接连几个端午里先后遇见顺顺的两个儿子天保与傩送，一段朦胧情感在乡土风物中展开，却以误会、死亡与无望的等待收尾。",
+  "genres": ["现代小说", "乡土", "爱情"],
+  "readingMinutes": 15,
+  "chapterCount": 8,
+  "coverTone": "jade",
+  "publishedAt": "2026-07-14",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 15
+    }
+  ]
+}
