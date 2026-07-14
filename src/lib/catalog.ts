@@ -43,16 +43,6 @@ export const catalog: CatalogBook[] = [
     status: "published",
   },
   {
-    slug: "liaozhai",
-    title: "聊斋志异",
-    author: "蒲松龄",
-    tagline: "狐鬼花妖之外，是人情、欲望与世道的短篇群像。",
-    genres: ["志怪", "短篇", "古典小说"],
-    readingMinutes: 36,
-    coverTone: "jade",
-    status: "preparing",
-  },
-  {
     slug: "shuihuzhuan",
     title: "水浒传",
     author: "施耐庵",
