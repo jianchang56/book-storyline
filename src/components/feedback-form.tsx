@@ -4,6 +4,7 @@ import { Check, Copy, Mail } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { trackEvent } from "@/lib/analytics";
 
 type FeedbackFormProps = {
   initialBook?: string;
@@ -22,6 +23,7 @@ export function FeedbackForm({ initialBook = "", feedbackEmail = "" }: FeedbackF
     const details = String(form.get("details") ?? "").trim();
     const subject = `书脉纠错：${book || "未注明书名"}`;
     const body = [`书名：${book}`, `位置：${location}`, `类型：${type}`, "", details].join("\n");
+    trackEvent("feedback_submitted", { type, has_email: Boolean(feedbackEmail) });
 
     if (feedbackEmail) {
       window.location.href = `mailto:${feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

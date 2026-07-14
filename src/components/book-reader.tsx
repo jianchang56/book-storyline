@@ -24,6 +24,7 @@ import {
   useDeferredValue,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { Button } from "@/components/ui/button";
@@ -37,6 +38,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { trackEvent } from "@/lib/analytics";
 import type { Book, BookSection, StoryArc } from "@/lib/books";
 import {
   createDefaultReaderState,
@@ -414,6 +416,7 @@ export function BookReader({ book }: { book: Book }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [actionMessage, setActionMessage] = useState("");
+  const completedModes = useRef(new Set<ReadingMode>());
   const deferredQuery = useDeferredValue(query.trim());
 
   const arcSections = useMemo<ReaderSection[]>(
@@ -496,12 +499,13 @@ export function BookReader({ book }: { book: Book }) {
             ? arcSections[0]?.id
             : chapterSections[0]?.id;
       startTransition(() => setMode(nextMode));
+      trackEvent("reading_mode_changed", { book_slug: book.metadata.slug, mode: nextMode });
       setModeOpen(false);
       if (targetId) {
         setPendingScrollId(targetId);
       }
     },
-    [arcSections, chapterSections],
+    [arcSections, book.metadata.slug, chapterSections],
   );
 
   useEffect(() => {
@@ -715,6 +719,14 @@ export function BookReader({ book }: { book: Book }) {
     return () => window.clearTimeout(timer);
   }, [actionMessage]);
 
+  useEffect(() => {
+    if (!hydrated || progress < 98 || completedModes.current.has(mode)) {
+      return;
+    }
+    completedModes.current.add(mode);
+    trackEvent("reading_completed", { book_slug: book.metadata.slug, mode });
+  }, [book.metadata.slug, hydrated, mode, progress]);
+
   const toggleBookmark = (id: string) => {
     setBookmarks((current) => {
       const next = new Set(current);
@@ -750,9 +762,19 @@ export function BookReader({ book }: { book: Book }) {
     try {
       if (navigator.share) {
         await navigator.share(shareData);
+        trackEvent("section_shared", {
+          book_slug: book.metadata.slug,
+          section_id: section.id,
+          method: "native",
+        });
         return;
       }
       await navigator.clipboard.writeText(url.toString());
+      trackEvent("section_shared", {
+        book_slug: book.metadata.slug,
+        section_id: section.id,
+        method: "clipboard",
+      });
       setActionMessage("章节链接已复制");
     } catch {
       setActionMessage("未能分享链接");
