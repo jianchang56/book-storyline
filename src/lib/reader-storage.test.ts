@@ -7,6 +7,13 @@ import {
 } from "@/lib/reader-storage";
 
 describe("reader storage", () => {
+  it("uses a section that belongs to the default reading mode", () => {
+    expect(createDefaultReaderState()).toMatchObject({
+      mode: "complete",
+      lastSectionId: "chapter-1",
+    });
+  });
+
   it("uses a versioned per-book key", () => {
     expect(getReaderStorageKey("xiyouji")).toBe(`storyline:reader:v${readerStateVersion}:xiyouji`);
   });

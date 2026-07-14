@@ -34,8 +34,8 @@ export function createDefaultReaderState(): ReaderState {
   return {
     version: readerStateVersion,
     mode: "complete",
-    lastSectionId: "overview",
-    lastSectionTitle: "全书速览",
+    lastSectionId: "chapter-1",
+    lastSectionTitle: "完整梗概开篇",
     progress: 0,
     bookmarks: [],
     readChapters: [],
