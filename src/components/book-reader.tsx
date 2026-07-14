@@ -416,6 +416,7 @@ export function BookReader({ book }: { book: Book }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [actionMessage, setActionMessage] = useState("");
+  const completionRef = useRef<HTMLElement>(null);
   const completedModes = useRef(new Set<ReadingMode>());
   const deferredQuery = useDeferredValue(query.trim());
 
@@ -720,12 +721,27 @@ export function BookReader({ book }: { book: Book }) {
   }, [actionMessage]);
 
   useEffect(() => {
-    if (!hydrated || progress < 98 || completedModes.current.has(mode)) {
+    if (!hydrated || completedModes.current.has(mode)) {
       return;
     }
-    completedModes.current.add(mode);
-    trackEvent("reading_completed", { book_slug: book.metadata.slug, mode });
-  }, [book.metadata.slug, hydrated, mode, progress]);
+    const completion = completionRef.current;
+    if (!completion) {
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) {
+          return;
+        }
+        completedModes.current.add(mode);
+        trackEvent("reading_completed", { book_slug: book.metadata.slug, mode });
+        observer.disconnect();
+      },
+      { threshold: 0.5 },
+    );
+    observer.observe(completion);
+    return () => observer.disconnect();
+  }, [book.metadata.slug, hydrated, mode]);
 
   const toggleBookmark = (id: string) => {
     setBookmarks((current) => {
@@ -938,7 +954,10 @@ export function BookReader({ book }: { book: Book }) {
               })}
             </article>
 
-            <section className="rounded-[2rem] border border-border bg-card p-7 text-center sm:p-10">
+            <section
+              ref={completionRef}
+              className="rounded-[2rem] border border-border bg-card p-7 text-center sm:p-10"
+            >
               <p className="text-sm font-medium tracking-[0.18em] text-primary">
                 {mode === "complete" ? "取经圆满" : "这一档已读完"}
               </p>
