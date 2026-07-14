@@ -774,6 +774,15 @@ export function BookReader({ book }: { book: Book }) {
     }
   };
 
+  const copyCurrentLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setActionMessage("当前链接已复制");
+    } catch {
+      setActionMessage("未能复制链接");
+    }
+  };
+
   const readerStyle = {
     "--reader-scale": String(fontScale),
     "--reader-line-height": lineHeightValues[lineHeight],
@@ -1086,10 +1095,7 @@ export function BookReader({ book }: { book: Book }) {
               variant="ghost"
               size="icon"
               aria-label="复制当前章节链接"
-              onClick={() => {
-                void navigator.clipboard.writeText(window.location.href);
-                setActionMessage("当前链接已复制");
-              }}
+              onClick={() => void copyCurrentLink()}
             >
               <Copy />
             </Button>
