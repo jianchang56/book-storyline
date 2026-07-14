@@ -28,9 +28,9 @@ export const catalog: CatalogBook[] = [
     author: "罗贯中",
     tagline: "从群雄并起到三分归晋，理清一百二十回兴亡脉络。",
     genres: ["古典小说", "历史", "战争"],
-    readingMinutes: 48,
+    readingMinutes: 120,
     coverTone: "indigo",
-    status: "preparing",
+    status: "published",
   },
   {
     slug: "hongloumeng",
