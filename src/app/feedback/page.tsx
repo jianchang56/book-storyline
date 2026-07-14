@@ -46,10 +46,11 @@ export default async function FeedbackPage({
             </ul>
             <div className="mt-8 flex items-start gap-3 border-t border-border pt-6 text-sm leading-6 text-muted-foreground">
               <MessageSquareWarning className="mt-0.5 size-5 shrink-0 text-story-cinnabar" />
-              版权或下架请求请说明权利身份和具体页面，避免在公开描述中提交敏感信息。
+              GitHub Issue
+              会公开显示。版权或下架请求请说明权利身份和具体页面，但不要提交联系方式或其他敏感信息。
             </div>
           </aside>
-          <FeedbackForm initialBook={book} feedbackEmail={process.env.NEXT_PUBLIC_FEEDBACK_EMAIL} />
+          <FeedbackForm initialBook={book} />
         </div>
       </main>
     </div>
