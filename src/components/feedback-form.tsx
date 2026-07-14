@@ -4,6 +4,7 @@ import { MessageSquarePlus } from "lucide-react";
 import type { FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { createFeedbackIssueUrl, feedbackFieldLimits } from "@/lib/github-feedback";
 
 type FeedbackFormProps = {
   initialBook?: string;
@@ -17,27 +18,7 @@ export function FeedbackForm({ initialBook = "" }: FeedbackFormProps) {
     const location = String(form.get("location") ?? "").trim();
     const type = String(form.get("type") ?? "").trim();
     const details = String(form.get("details") ?? "").trim();
-    const issueUrl = new URL("https://github.com/jianchang56/book-storyline/issues/new");
-    issueUrl.searchParams.set("title", `[内容纠错] ${book || "未注明书名"}`);
-    issueUrl.searchParams.set(
-      "body",
-      [
-        "## 书籍与位置",
-        "",
-        `- 书名：${book}`,
-        `- 章节或故事阶段：${location || "未注明"}`,
-        `- 问题类型：${type}`,
-        "",
-        "## 具体说明",
-        "",
-        details,
-        "",
-        "## 核对依据",
-        "",
-        "<!-- 如方便，请补充可以核对的原文章节、版本或其他可靠依据。 -->",
-      ].join("\n"),
-    );
-    window.location.assign(issueUrl);
+    window.location.assign(createFeedbackIssueUrl({ book, location, type, details }));
   };
 
   return (
@@ -51,10 +32,10 @@ export function FeedbackForm({ initialBook = "" }: FeedbackFormProps) {
           <Input
             id="feedback-book"
             name="book"
-            defaultValue={initialBook}
+            defaultValue={initialBook.slice(0, feedbackFieldLimits.book)}
             className="mt-2 h-12"
             autoComplete="off"
-            maxLength={100}
+            maxLength={feedbackFieldLimits.book}
             required
           />
         </label>
@@ -65,7 +46,7 @@ export function FeedbackForm({ initialBook = "" }: FeedbackFormProps) {
             name="location"
             className="mt-2 h-12"
             autoComplete="off"
-            maxLength={200}
+            maxLength={feedbackFieldLimits.location}
             placeholder="例如：第四十回…"
           />
         </label>
@@ -93,7 +74,7 @@ export function FeedbackForm({ initialBook = "" }: FeedbackFormProps) {
           id="feedback-details"
           name="details"
           autoComplete="off"
-          maxLength={3000}
+          maxLength={feedbackFieldLimits.details}
           required
           rows={7}
           placeholder="请说明哪里不准确，以及建议如何修改…"
