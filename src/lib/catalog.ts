@@ -62,6 +62,16 @@ export const catalog: CatalogBook[] = [
     coverTone: "jade",
     status: "published",
   },
+  {
+    slug: "laorenyuhai",
+    title: "老人与海",
+    author: "海明威",
+    tagline: "一个老人、一条大鱼与一片大海的独自搏斗。",
+    genres: ["外国文学", "小说", "经典"],
+    readingMinutes: 10,
+    coverTone: "indigo",
+    status: "published",
+  },
 ];
 
 export function filterCatalog(books: CatalogBook[], query: string) {
