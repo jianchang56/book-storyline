@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BookCard } from "@/components/book-card";
 import { BookSearch } from "@/components/book-search";
-import { SearchAnalytics } from "@/components/search-analytics";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { catalog, filterCatalog, paginateCatalog } from "@/lib/catalog";
@@ -54,7 +53,6 @@ export default async function BooksPage({
         tabIndex={-1}
         className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
       >
-        <SearchAnalytics query={query} resultCount={pagination.totalBooks} />
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-primary">故事书库</p>
           <h1 className="mt-4 font-display text-4xl font-semibold tracking-wide sm:text-5xl">

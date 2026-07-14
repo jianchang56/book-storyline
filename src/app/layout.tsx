@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { AnalyticsScript } from "@/components/analytics-script";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/lib/site";
@@ -59,7 +58,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           {children}
           <SiteFooter />
-          <AnalyticsScript />
         </ThemeProvider>
       </body>
     </html>

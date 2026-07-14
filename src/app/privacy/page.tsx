@@ -3,7 +3,7 @@ import { PolicyPage } from "@/components/policy-page";
 
 export const metadata: Metadata = {
   title: "隐私政策",
-  description: "了解书脉如何处理本地阅读状态、反馈信息和匿名访问统计。",
+  description: "了解书脉如何处理本地阅读状态和反馈信息。",
   alternates: { canonical: "/privacy" },
 };
 
@@ -20,14 +20,6 @@ export default function PrivacyPage() {
           paragraphs: [
             "阅读进度、续读位置、阅读档位、收藏、已读状态和排版设置默认保存在浏览器 localStorage 中，不会因为访问页面而自动上传到书脉服务器。",
             "清除浏览器站点数据、使用无痕模式或更换设备可能导致这些本地记录丢失。",
-          ],
-        },
-        {
-          title: "访问统计",
-          paragraphs: [
-            "站点可以选择启用隐私友好的匿名访问统计，用于了解页面访问、搜索结果和阅读模式使用情况。未配置统计服务时不会加载对应脚本。",
-            "启用统计后，书库搜索词和结果数量可能被记录，用于发现尚未收录的作品。请不要在搜索框中输入个人身份、联系方式或其他敏感信息。",
-            "书脉不以建立广告画像或出售个人信息为目的使用统计数据。",
           ],
         },
         {

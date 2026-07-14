@@ -4,7 +4,6 @@ import { Check, Copy, Mail } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { trackEvent } from "@/lib/analytics";
 
 type FeedbackFormProps = {
   initialBook?: string;
@@ -25,17 +24,14 @@ export function FeedbackForm({ initialBook = "", feedbackEmail = "" }: FeedbackF
     const body = [`书名：${book}`, `位置：${location}`, `类型：${type}`, "", details].join("\n");
     if (feedbackEmail) {
       window.location.href = `mailto:${feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      trackEvent("feedback_submitted", { type, has_email: true });
       setStatus("已打开邮件应用");
       return;
     }
 
     try {
       await navigator.clipboard.writeText(`${subject}\n\n${body}`);
-      trackEvent("feedback_submitted", { type, has_email: false });
       setStatus("反馈内容已复制");
     } catch {
-      trackEvent("feedback_failed", { type, has_email: false });
       setStatus("复制失败，请手动复制输入内容");
     }
   };
