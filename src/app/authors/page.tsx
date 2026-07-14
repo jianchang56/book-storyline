@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DiscoveryDirectory } from "@/components/discovery-directory";
 import { catalog } from "@/lib/catalog";
-import { getAuthorGroups } from "@/lib/discovery";
+import { authorPath, getAuthorGroups } from "@/lib/discovery";
 
 export const metadata: Metadata = {
   title: "作者",
@@ -20,7 +20,7 @@ export default function AuthorsPage() {
       items={authors.map((author) => ({
         name: author.name,
         count: author.books.length,
-        href: { pathname: "/authors/[author]", query: { author: author.name } },
+        href: authorPath(author.name),
       }))}
     />
   );

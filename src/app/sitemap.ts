@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { catalog } from "@/lib/catalog";
-import { getAuthorGroups, getGenreGroups } from "@/lib/discovery";
+import { authorPath, genrePath, getAuthorGroups, getGenreGroups } from "@/lib/discovery";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,12 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const authorPages: MetadataRoute.Sitemap = getAuthorGroups(catalog).map((author) => ({
-    url: absoluteUrl(`/authors/${encodeURIComponent(author.name)}`),
+    url: absoluteUrl(authorPath(author.name)),
     changeFrequency: "weekly",
     priority: 0.6,
   }));
   const genrePages: MetadataRoute.Sitemap = getGenreGroups(catalog).map((genre) => ({
-    url: absoluteUrl(`/genres/${encodeURIComponent(genre.name)}`),
+    url: absoluteUrl(genrePath(genre.name)),
     changeFrequency: "weekly",
     priority: 0.6,
   }));

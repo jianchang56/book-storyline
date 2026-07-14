@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DiscoveryDirectory } from "@/components/discovery-directory";
 import { catalog } from "@/lib/catalog";
-import { getGenreGroups } from "@/lib/discovery";
+import { genrePath, getGenreGroups } from "@/lib/discovery";
 
 export const metadata: Metadata = {
   title: "作品类型",
@@ -20,7 +20,7 @@ export default function GenresPage() {
       items={genres.map((genre) => ({
         name: genre.name,
         count: genre.books.length,
-        href: { pathname: "/genres/[genre]", query: { genre: genre.name } },
+        href: genrePath(genre.name),
       }))}
     />
   );

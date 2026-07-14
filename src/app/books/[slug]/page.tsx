@@ -10,7 +10,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { getBook } from "@/lib/books";
 import { catalog } from "@/lib/catalog";
-import { getRelatedBooks } from "@/lib/discovery";
+import { authorPath, genrePath, getRelatedBooks } from "@/lib/discovery";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 type BookPageProps = {
@@ -113,7 +113,7 @@ export default async function BookPage({ params }: BookPageProps) {
                   {book.metadata.genres.map((genre) => (
                     <Link
                       key={genre}
-                      href={{ pathname: "/genres/[genre]", query: { genre } }}
+                      href={genrePath(genre)}
                       className="inline-flex min-h-11 items-center rounded-full border border-border px-3 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       {genre}
@@ -127,10 +127,7 @@ export default async function BookPage({ params }: BookPageProps) {
                   <span>{book.metadata.era}</span>
                   <span aria-hidden="true">·</span>
                   <Link
-                    href={{
-                      pathname: "/authors/[author]",
-                      query: { author: book.metadata.author },
-                    }}
+                    href={authorPath(book.metadata.author)}
                     className="min-h-11 rounded-md py-2 underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     {book.metadata.author}

@@ -1,9 +1,26 @@
+import type { Route } from "next";
 import type { CatalogBook } from "@/lib/catalog";
 
 export type CatalogGroup = {
   name: string;
   books: CatalogBook[];
 };
+
+export function authorPath(author: string) {
+  return `/authors/${encodeURIComponent(author)}` as Route;
+}
+
+export function genrePath(genre: string) {
+  return `/genres/${encodeURIComponent(genre)}` as Route;
+}
+
+export function decodePathSegment(value: string) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
 
 function groupBooks(books: CatalogBook[], valuesForBook: (book: CatalogBook) => string[]) {
   const groups = new Map<string, CatalogBook[]>();

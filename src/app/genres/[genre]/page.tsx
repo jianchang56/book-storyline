@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BookCollectionPage } from "@/components/book-collection-page";
 import { catalog } from "@/lib/catalog";
-import { getGenreGroups } from "@/lib/discovery";
+import { decodePathSegment, genrePath, getGenreGroups } from "@/lib/discovery";
 
 type GenrePageProps = {
   params: Promise<{ genre: string }>;
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }: GenrePageProps): Promise<Metadata> {
-  const { genre } = await params;
+  const genre = decodePathSegment((await params).genre);
   const group = genres.find((item) => item.name === genre);
   if (!group) {
     return {};
@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: GenrePageProps): Promise<Meta
   return {
     title: `${genre}故事梗概`,
     description: `浏览书脉已经整理完成的 ${group.books.length} 本${genre}作品。`,
-    alternates: { canonical: `/genres/${encodeURIComponent(genre)}` },
+    alternates: { canonical: genrePath(genre) },
   };
 }
 
 export default async function GenrePage({ params }: GenrePageProps) {
-  const { genre } = await params;
+  const genre = decodePathSegment((await params).genre);
   const group = genres.find((item) => item.name === genre);
   if (!group) {
     notFound();

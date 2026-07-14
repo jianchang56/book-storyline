@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BookCollectionPage } from "@/components/book-collection-page";
 import { catalog } from "@/lib/catalog";
-import { getAuthorGroups } from "@/lib/discovery";
+import { authorPath, decodePathSegment, getAuthorGroups } from "@/lib/discovery";
 
 type AuthorPageProps = {
   params: Promise<{ author: string }>;
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }: AuthorPageProps): Promise<Metadata> {
-  const { author } = await params;
+  const author = decodePathSegment((await params).author);
   const group = authors.find((item) => item.name === author);
   if (!group) {
     return {};
@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
   return {
     title: `${author}作品故事梗概`,
     description: `阅读书脉已经整理完成的 ${group.books.length} 本${author}作品故事梗概。`,
-    alternates: { canonical: `/authors/${encodeURIComponent(author)}` },
+    alternates: { canonical: authorPath(author) },
   };
 }
 
 export default async function AuthorPage({ params }: AuthorPageProps) {
-  const { author } = await params;
+  const author = decodePathSegment((await params).author);
   const group = authors.find((item) => item.name === author);
   if (!group) {
     notFound();
