@@ -38,9 +38,9 @@ export const catalog: CatalogBook[] = [
     author: "曹雪芹",
     tagline: "沿人物关系与家族盛衰，读懂大观园里的情与命。",
     genres: ["古典小说", "世情", "家族"],
-    readingMinutes: 42,
+    readingMinutes: 150,
     coverTone: "plum",
-    status: "preparing",
+    status: "published",
   },
   {
     slug: "liaozhai",
