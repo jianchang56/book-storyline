@@ -164,8 +164,12 @@ def collect_text_sources(path: Path) -> list[tuple[str, str, str, str]]:
 def safe_output_dir(input_path: Path, output_path: Path, force: bool) -> None:
     input_resolved = input_path.resolve()
     output_resolved = output_path.resolve()
-    if output_resolved == input_resolved or input_resolved in output_resolved.parents:
-        raise ValueError("输出目录不能等于输入路径或位于输入目录内部")
+    if (
+        output_resolved == input_resolved
+        or input_resolved in output_resolved.parents
+        or output_resolved in input_resolved.parents
+    ):
+        raise ValueError("输出目录不能等于输入路径、位于输入目录内部或包含输入路径")
     if output_path.exists():
         if not force:
             raise FileExistsError(f"输出目录已存在，请使用 --force: {output_path}")
