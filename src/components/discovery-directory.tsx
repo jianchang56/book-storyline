@@ -37,7 +37,11 @@ export function DiscoveryDirectory({
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
+      >
         <header className="max-w-3xl">
           <p className="text-sm font-medium tracking-[0.2em] text-primary">{eyebrow}</p>
           <h1 className="mt-4 font-display text-4xl font-semibold tracking-wide sm:text-5xl">

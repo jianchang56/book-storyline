@@ -26,7 +26,11 @@ export function BookCollectionPage({
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
+      >
         <Button asChild variant="ghost" className="-ml-4">
           <Link href={backHref}>
             <ArrowLeft />

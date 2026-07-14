@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: "书脉｜沿故事主线读完一本书",
     description: siteConfig.description,
-    images: [{ url: "/icon.svg", alt: "书脉" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "书脉" }],
   },
   twitter: {
     card: "summary",
     title: "书脉｜沿故事主线读完一本书",
     description: siteConfig.description,
-    images: ["/icon.svg"],
+    images: ["/opengraph-image"],
   },
 };
 
@@ -45,6 +45,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <body>
+        <a
+          href="#main-content"
+          className="fixed top-3 left-3 z-50 -translate-y-24 rounded-md bg-primary px-4 py-3 text-sm font-medium text-primary-foreground shadow-lg transition-transform focus-visible:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none"
+        >
+          跳到正文
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

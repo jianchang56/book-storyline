@@ -49,7 +49,11 @@ export default async function BooksPage({
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
+      >
         <SearchAnalytics query={query} resultCount={pagination.totalBooks} />
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-primary">故事书库</p>

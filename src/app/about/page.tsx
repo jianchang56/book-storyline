@@ -34,7 +34,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="relative overflow-hidden border-b border-border/70">
           <div className="hero-grid pointer-events-none absolute inset-0 opacity-50" />
           <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">

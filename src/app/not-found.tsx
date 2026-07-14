@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen items-center justify-center px-4">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="flex min-h-screen items-center justify-center px-4"
+    >
       <div className="max-w-lg text-center">
         <p className="font-mono text-sm text-story-cinnabar">404</p>
         <h1 className="mt-5 font-display text-4xl font-semibold">这条故事线还没写到这里</h1>

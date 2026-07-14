@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="relative overflow-hidden border-b border-border/70">
           <div className="hero-grid pointer-events-none absolute inset-0 opacity-50" />
           <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-28">

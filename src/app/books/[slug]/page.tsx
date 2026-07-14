@@ -44,13 +44,20 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
       publishedTime: book.metadata.publishedAt,
       authors: [book.metadata.author],
       tags: book.metadata.genres,
-      images: [{ url: "/icon.svg", alt: `《${book.metadata.title}》故事梗概` }],
+      images: [
+        {
+          url: `/books/${slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `《${book.metadata.title}》故事梗概`,
+        },
+      ],
     },
     twitter: {
       card: "summary",
       title: `${book.metadata.title}故事梗概`,
       description: book.metadata.description,
-      images: ["/icon.svg"],
+      images: [`/books/${slug}/opengraph-image`],
     },
   };
 }
@@ -92,7 +99,7 @@ export default async function BookPage({ params }: BookPageProps) {
     <div className="min-h-screen">
       <JsonLd data={structuredData} />
       <SiteHeader />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section data-book-hero className="border-b border-border/70 bg-card/45">
           <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
             <Button asChild variant="ghost" className="-ml-4">
