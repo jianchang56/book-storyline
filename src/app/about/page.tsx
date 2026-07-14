@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "关于书脉",
   description: "了解书脉如何把一本书的故事主线整理成清晰、连续、可快速阅读的内容。",
+  alternates: { canonical: "/about" },
 };
 
 const principles = [

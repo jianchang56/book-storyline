@@ -4,11 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookCover } from "@/components/book-cover";
 import { BookReader } from "@/components/book-reader";
+import { JsonLd } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getBook } from "@/lib/books";
 import { catalog } from "@/lib/catalog";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 type BookPageProps = {
   params: Promise<{ slug: string }>;
@@ -30,6 +32,25 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
   return {
     title: `${book.metadata.title}故事梗概`,
     description: book.metadata.description,
+    alternates: { canonical: `/books/${slug}` },
+    openGraph: {
+      type: "article",
+      locale: "zh_CN",
+      siteName: siteConfig.name,
+      url: `/books/${slug}`,
+      title: `${book.metadata.title}故事梗概`,
+      description: book.metadata.description,
+      publishedTime: book.metadata.publishedAt,
+      authors: [book.metadata.author],
+      tags: book.metadata.genres,
+      images: [{ url: "/icon.svg", alt: `《${book.metadata.title}》故事梗概` }],
+    },
+    twitter: {
+      card: "summary",
+      title: `${book.metadata.title}故事梗概`,
+      description: book.metadata.description,
+      images: ["/icon.svg"],
+    },
   };
 }
 
@@ -39,9 +60,34 @@ export default async function BookPage({ params }: BookPageProps) {
   if (!book) {
     notFound();
   }
+  const bookUrl = absoluteUrl(`/books/${slug}`);
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      name: book.metadata.title,
+      author: { "@type": "Person", name: book.metadata.author },
+      description: book.metadata.description,
+      genre: book.metadata.genres,
+      inLanguage: "zh-CN",
+      datePublished: book.metadata.publishedAt,
+      url: bookUrl,
+      mainEntityOfPage: bookUrl,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "首页", item: absoluteUrl("/") },
+        { "@type": "ListItem", position: 2, name: "书库", item: absoluteUrl("/books") },
+        { "@type": "ListItem", position: 3, name: book.metadata.title, item: bookUrl },
+      ],
+    },
+  ];
 
   return (
     <div className="min-h-screen">
+      <JsonLd data={structuredData} />
       <SiteHeader />
       <main>
         <section data-book-hero className="border-b border-border/70 bg-card/45">

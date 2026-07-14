@@ -10,6 +10,12 @@ import { catalog, filterCatalog, paginateCatalog } from "@/lib/catalog";
 export const metadata: Metadata = {
   title: "书库",
   description: "搜索故事梗概，按书名、作者和题材快速找到想读的作品。",
+  alternates: { canonical: "/books" },
+  openGraph: {
+    title: "故事书库",
+    description: "按书名、作者和题材查找忠于原著的连续故事梗概。",
+    url: "/books",
+  },
 };
 
 const pageSize = 12;
