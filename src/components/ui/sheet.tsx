@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 
 const Sheet = SheetPrimitive.Root;
 const SheetTrigger = SheetPrimitive.Trigger;
-const SheetClose = SheetPrimitive.Close;
 const SheetPortal = SheetPrimitive.Portal;
 
 function SheetOverlay({
@@ -81,4 +80,4 @@ function SheetDescription({
   );
 }
 
-export { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger };
+export { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger };

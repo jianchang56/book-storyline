@@ -4,7 +4,7 @@ import type { CoverTone } from "@/lib/catalog";
 
 const contentDirectory = path.join(process.cwd(), "content");
 
-export type BookMetadata = {
+type BookMetadata = {
   slug: string;
   title: string;
   author: string;
