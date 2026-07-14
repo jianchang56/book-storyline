@@ -1,0 +1,33 @@
+{
+  "slug": "ouyenni",
+  "title": "欧也妮·葛朗台",
+  "author": "巴尔扎克",
+  "era": "法国近代",
+  "subtitle": "十节读完一笔被金钱吞噬的爱情与一生",
+  "description": "索缪城最富有的女继承人欧也妮，把全部真情献给破产落魄的巴黎堂弟夏尔，却在金钱与门第的冷酷法则中守了一辈子孤独。",
+  "genres": ["外国文学", "小说", "经典"],
+  "readingMinutes": 15,
+  "chapterCount": 10,
+  "coverTone": "sand",
+  "publishedAt": "2026-07-14",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 15
+    }
+  ]
+}

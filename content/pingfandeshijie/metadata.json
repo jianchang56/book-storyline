@@ -1,0 +1,33 @@
+{
+  "slug": "pingfandeshijie",
+  "title": "平凡的世界",
+  "author": "路遥",
+  "era": "当代",
+  "subtitle": "一百六十三章读完黄土高原上的劳动与尊严",
+  "description": "上世纪七十年代至八十年代，陕北双水村孙家两兄弟在贫困、变革与命运波折中坚守劳动与尊严。少安在土地上创业致富，少平在矿井里守护精神高地，共同书写了一部平凡人的生命史诗。",
+  "genres": ["当代小说", "现实主义", "农村"],
+  "readingMinutes": 120,
+  "chapterCount": 163,
+  "coverTone": "sand",
+  "publishedAt": "2026-07-14",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 20
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 120
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "beicanshijie",
+  "title": "悲惨世界",
+  "author": "雨果",
+  "era": "法国近代",
+  "subtitle": "四十三卷读完一个世纪的苦难与光辉",
+  "description": "冉阿让因一块面包入狱十九年，出狱后用一生行善赎罪；芳汀与珂赛特母女离散；马吕斯在街垒与爱情中成长。雨果以巴黎为背景，书写了法律、怜悯、革命与人性复活的不朽史诗。",
+  "genres": ["外国文学", "小说", "经典"],
+  "readingMinutes": 120,
+  "chapterCount": 43,
+  "coverTone": "indigo",
+  "publishedAt": "2026-07-14",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 20
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 120
+    }
+  ]
+}
