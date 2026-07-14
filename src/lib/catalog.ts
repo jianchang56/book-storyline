@@ -58,9 +58,9 @@ export const catalog: CatalogBook[] = [
     author: "施耐庵",
     tagline: "从个人逼上梁山，到一百单八将聚义与离散。",
     genres: ["古典小说", "英雄", "江湖"],
-    readingMinutes: 40,
+    readingMinutes: 120,
     coverTone: "sand",
-    status: "preparing",
+    status: "published",
   },
 ];
 
