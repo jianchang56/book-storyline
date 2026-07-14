@@ -3,10 +3,10 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://storyline.example.com"),
+  applicationName: "书脉",
   title: {
-    default: "故事线｜快速读懂一本小说",
-    template: "%s｜故事线",
+    default: "书脉｜沿故事主线读完一本书",
+    template: "%s｜书脉",
   },
   description: "按原著因果顺序整理的分章故事梗概，让你用更短时间读懂一本小说。",
 };

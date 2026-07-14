@@ -22,7 +22,7 @@ export default async function BooksPage({
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-primary">故事书库</p>
           <h1 className="mt-4 font-display text-4xl font-semibold tracking-wide sm:text-5xl">
-            找到下一条故事线
+            找到下一本想读的书
           </h1>
           <p className="mt-5 leading-7 text-muted-foreground">
             已发布作品可以直接阅读；筹备中的作品会在梗概完成校验后上线。

@@ -104,7 +104,7 @@ skills/book-storyline/
 
 本项目采用 [MIT License](LICENSE)。
 
-## 故事线网站
+## 书脉网站
 
 仓库根目录同时包含一个基于 Next.js 的阅读网站，用于展示经过 `book-storyline` skill 整理的故事梗概。内容可以按章节文件保存，但书籍页面会将全部章节合并为连续长文，并保留目录锚点、阅读进度和断点续读。
 

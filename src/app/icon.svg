@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>书脉</title>
+  <rect width="64" height="64" rx="15" fill="#275b5b"/>
+  <path d="M12 17.5c7.3-2.7 13.8-1.8 20 2.7v29c-6.2-4.5-12.7-5.4-20-2.7v-29Z" fill="#f8fbfa"/>
+  <path d="M52 17.5c-7.3-2.7-13.8-1.8-20 2.7v29c6.2-4.5 12.7-5.4 20-2.7v-29Z" fill="#e3eceb"/>
+  <path d="M32 20.2v29" stroke="#9fb9b5" stroke-width="2" stroke-linecap="round"/>
+  <path d="M39 26.5h6.5v7H42v7h5.5" fill="none" stroke="#cc684b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="39" cy="26.5" r="3.4" fill="#cc684b"/>
+  <circle cx="47.5" cy="40.5" r="3.4" fill="#cc684b"/>
+</svg>
