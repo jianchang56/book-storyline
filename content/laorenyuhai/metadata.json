@@ -1,0 +1,33 @@
+{
+  "slug": "laorenyuhai",
+  "title": "老人与海",
+  "author": "海明威",
+  "era": "现代",
+  "subtitle": "一个老人、一条大鱼与一片大海的独自搏斗",
+  "description": "古巴老渔夫桑提亚哥在连续八十四天空手而归后，独自驶向远海，与一条巨大的马林鱼展开两天两夜的对峙。归途中鲨群袭来，老人最终只带回一副白色脊骨，却在失败中证明了不可摧毁的尊严。",
+  "genres": ["外国文学", "小说", "经典"],
+  "readingMinutes": 10,
+  "chapterCount": 1,
+  "coverTone": "indigo",
+  "publishedAt": "2026-07-14",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 10
+    }
+  ]
+}
