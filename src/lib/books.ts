@@ -1,4 +1,4 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { CoverTone } from "@/lib/catalog";
 
@@ -99,13 +99,6 @@ export function parseBookChapters(source: string): BookSection[] {
       paragraphs: parseParagraphs(normalized.slice(bodyStart, bodyEnd)),
     };
   });
-}
-
-export async function getBookSlugs() {
-  const entries = await readdir(contentDirectory, { withFileTypes: true });
-  return entries
-    .filter((entry) => entry.isDirectory() && entry.name !== "books")
-    .map((entry) => entry.name);
 }
 
 export async function getBook(slug: string): Promise<Book | null> {

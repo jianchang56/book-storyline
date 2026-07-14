@@ -7,16 +7,18 @@ import { BookReader } from "@/components/book-reader";
 import { SiteHeader } from "@/components/site-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getBook, getBookSlugs } from "@/lib/books";
+import { getBook } from "@/lib/books";
+import { catalog } from "@/lib/catalog";
 
 type BookPageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  const slugs = await getBookSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return catalog.slice(0, 24).map((book) => ({ slug: book.slug }));
 }
+
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: BookPageProps): Promise<Metadata> {
   const { slug } = await params;

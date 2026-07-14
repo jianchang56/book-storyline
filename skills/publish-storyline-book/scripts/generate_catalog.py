@@ -40,10 +40,12 @@ def read_metadata(book_dir: Path) -> dict[str, Any]:
 
 def collect_books(content_dir: Path) -> list[dict[str, Any]]:
     books: list[dict[str, Any]] = []
-    for book_dir in sorted(path for path in content_dir.iterdir() if path.is_dir()):
+    for book_dir in sorted(
+        path for path in content_dir.iterdir() if path.is_dir() and not path.name.startswith((".", "_"))
+    ):
         metadata_path = book_dir / "metadata.json"
         if not metadata_path.is_file():
-            continue
+            raise ValueError(f"missing file: {metadata_path}")
         metadata = read_metadata(book_dir)
         books.append(
             {

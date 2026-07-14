@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { catalog, filterCatalog } from "@/lib/catalog";
+import { catalog, filterCatalog, paginateCatalog } from "@/lib/catalog";
 
 describe("filterCatalog", () => {
   it("returns all books for an empty query", () => {
@@ -27,5 +27,31 @@ describe("generated catalog", () => {
         .toSorted()
         .reverse(),
     );
+  });
+});
+
+describe("paginateCatalog", () => {
+  it("returns one bounded page without losing total counts", () => {
+    const result = paginateCatalog(catalog, 2, 12);
+
+    expect(result.page).toBe(2);
+    expect(result.books).toHaveLength(3);
+    expect(result.totalBooks).toBe(15);
+    expect(result.totalPages).toBe(2);
+    expect(result.startNumber).toBe(13);
+    expect(result.endNumber).toBe(15);
+  });
+
+  it("clamps invalid pages and handles empty results", () => {
+    expect(paginateCatalog(catalog, 999, 12).page).toBe(2);
+    expect(paginateCatalog(catalog, -5, 12).page).toBe(1);
+    expect(paginateCatalog([], 3, 12)).toMatchObject({
+      books: [],
+      page: 1,
+      totalBooks: 0,
+      totalPages: 1,
+      startNumber: 0,
+      endNumber: 0,
+    });
   });
 });
