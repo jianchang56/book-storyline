@@ -45,7 +45,6 @@ import {
   type ReaderWidth,
   type ReadingMode,
   readerStateVersion,
-  readingModeLabels,
   readReaderState,
 } from "@/lib/reader-storage";
 import { cn } from "@/lib/utils";
@@ -116,15 +115,17 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
 
 function ModePicker({
   mode,
+  labels,
   onChange,
 }: {
   mode: ReadingMode;
+  labels: Record<ReadingMode, { label: string; minutes: string }>;
   onChange: (mode: ReadingMode) => void;
 }) {
   return (
     <div className="grid grid-cols-3 gap-1 rounded-2xl border border-border bg-card/70 p-1">
-      {(Object.keys(readingModeLabels) as ReadingMode[]).map((value) => {
-        const item = readingModeLabels[value];
+      {(["overview", "journey", "complete"] as ReadingMode[]).map((value) => {
+        const item = labels[value];
         return (
           <button
             key={value}
@@ -386,6 +387,16 @@ function ActionMessage({ children }: { children: ReactNode }) {
 
 export function BookReader({ book }: { book: Book }) {
   const defaultState = useMemo(() => createDefaultReaderState(), []);
+  const modeLabels = useMemo(
+    () =>
+      Object.fromEntries(
+        book.metadata.readingModes.map((item) => [
+          item.id,
+          { label: item.title, minutes: `${item.readingMinutes} 分钟` },
+        ]),
+      ) as Record<ReadingMode, { label: string; minutes: string }>,
+    [book.metadata.readingModes],
+  );
   const [mode, setMode] = useState<ReadingMode>(defaultState.mode);
   const [activeId, setActiveId] = useState(defaultState.lastSectionId);
   const [progress, setProgress] = useState(defaultState.progress);
@@ -531,17 +542,37 @@ export function BookReader({ book }: { book: Book }) {
     if (mode !== targetMode) {
       return;
     }
+    const targetId = pendingScrollId;
     let secondFrame = 0;
+    let retryFrame = 0;
+    let retryTimer = 0;
+    let attempts = 0;
+    const alignTarget = () => {
+      const target = document.getElementById(targetId);
+      if (!target) {
+        return;
+      }
+      target.scrollIntoView({ block: "start" });
+      attempts += 1;
+      if (attempts < 3) {
+        retryTimer = window.setTimeout(() => {
+          retryFrame = window.requestAnimationFrame(alignTarget);
+        }, 120);
+        return;
+      }
+      setActiveId(targetId);
+      setPendingScrollId(null);
+    };
     const firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
-        document.getElementById(pendingScrollId)?.scrollIntoView({ block: "start" });
-        setActiveId(pendingScrollId);
-        setPendingScrollId(null);
+        alignTarget();
       });
     });
     return () => {
       window.cancelAnimationFrame(firstFrame);
       window.cancelAnimationFrame(secondFrame);
+      window.cancelAnimationFrame(retryFrame);
+      window.clearTimeout(retryTimer);
     };
   }, [mode, pendingScrollId]);
 
@@ -551,6 +582,9 @@ export function BookReader({ book }: { book: Book }) {
       .filter((element): element is HTMLElement => element !== null);
     const observer = new IntersectionObserver(
       (entries) => {
+        if (pendingScrollId) {
+          return;
+        }
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .toSorted((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
@@ -564,7 +598,7 @@ export function BookReader({ book }: { book: Book }) {
       observer.observe(element);
     }
     return () => observer.disconnect();
-  }, [visibleSections]);
+  }, [pendingScrollId, visibleSections]);
 
   useEffect(() => {
     if (visibleSections.length === 0) {
@@ -627,11 +661,11 @@ export function BookReader({ book }: { book: Book }) {
   ]);
 
   useEffect(() => {
-    if (!hydrated || !titleById.has(activeId)) {
+    if (!hydrated || pendingScrollId || !titleById.has(activeId)) {
       return;
     }
     window.history.replaceState(null, "", `#${activeId}`);
-  }, [activeId, hydrated, titleById]);
+  }, [activeId, hydrated, pendingScrollId, titleById]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("reader-focus-mode", focusMode);
@@ -757,7 +791,7 @@ export function BookReader({ book }: { book: Book }) {
           data-reader-sidebar
           className="sticky top-24 hidden h-[calc(100vh-7rem)] w-80 shrink-0 flex-col self-start xl:flex"
         >
-          <ModePicker mode={mode} onChange={changeMode} />
+          <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
           <div className="mt-5 flex items-center justify-between px-3">
             <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">阅读路线</p>
             {mode === "complete" ? (
@@ -775,7 +809,7 @@ export function BookReader({ book }: { book: Book }) {
               <p className="mb-3 text-xs font-medium tracking-[0.18em] text-primary">
                 选择阅读深度
               </p>
-              <ModePicker mode={mode} onChange={changeMode} />
+              <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
             </div>
 
             {deferredQuery && mode === "complete" ? (
@@ -810,10 +844,10 @@ export function BookReader({ book }: { book: Book }) {
                         <div className="flex flex-wrap items-center justify-between gap-3">
                           <p className="text-xs font-medium tracking-[0.18em] text-primary">
                             {section.kind === "overview"
-                              ? "5 分钟 · 全书速览"
+                              ? `${modeLabels.overview.minutes} · ${modeLabels.overview.label}`
                               : section.kind === "journey"
-                                ? `20 分钟路线 · 第 ${index + 1} 段 · 第 ${section.arc?.startChapter}–${section.arc?.endChapter} 回`
-                                : `完整梗概 · 第 ${section.chapterNumber} 回`}
+                                ? `${modeLabels.journey.minutes} · ${modeLabels.journey.label} · 第 ${index + 1} 段 · 第 ${section.arc?.startChapter}–${section.arc?.endChapter} 回`
+                                : `${modeLabels.complete.label} · 第 ${section.chapterNumber} 回`}
                           </p>
                           <div className="flex items-center gap-1">
                             {isChapter ? (
@@ -890,12 +924,12 @@ export function BookReader({ book }: { book: Book }) {
                 {mode === "overview"
                   ? "已经掌握全书主线"
                   : mode === "journey"
-                    ? "已经走完十段取经路线"
-                    : "一百回取经故事至此圆满"}
+                    ? `已经走完 ${book.storyArcs.length} 段故事路线`
+                    : `${book.metadata.chapterCount} 回故事至此读完`}
               </h2>
               <p className="mt-4 leading-7 text-muted-foreground">
                 {mode === "complete"
-                  ? `已标记 ${readChapters.size}/100 回。可以收藏关键回目，或沿十段路线回看整本书。`
+                  ? `已标记 ${readChapters.size}/${book.metadata.chapterCount} 回。可以收藏关键回目，或沿故事路线回看整本书。`
                   : "继续进入下一档，可以看到更完整的因果、误会、斗法与人物选择。"}
               </p>
               {mode === "complete" ? (
@@ -920,7 +954,10 @@ export function BookReader({ book }: { book: Book }) {
                   className="mt-7"
                   onClick={() => changeMode(mode === "overview" ? "journey" : "complete")}
                 >
-                  继续读 {mode === "overview" ? "20 分钟路线" : "完整一百回"}
+                  继续读{" "}
+                  {mode === "overview"
+                    ? `${modeLabels.journey.minutes} ${modeLabels.journey.label}`
+                    : `${modeLabels.complete.label}（${book.metadata.chapterCount} 回）`}
                 </Button>
               )}
               {mode === "complete" && readChapters.size < book.chapters.length ? (
@@ -997,10 +1034,12 @@ export function BookReader({ book }: { book: Book }) {
               <SheetContent side="bottom">
                 <SheetHeader className="pr-12">
                   <SheetTitle>选择阅读深度</SheetTitle>
-                  <SheetDescription>从全书速览开始，也可以直接进入完整一百回。</SheetDescription>
+                  <SheetDescription>
+                    从全书速览开始，也可以直接进入完整 {book.metadata.chapterCount} 回。
+                  </SheetDescription>
                 </SheetHeader>
                 <div className="mt-5">
-                  <ModePicker mode={mode} onChange={changeMode} />
+                  <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
                 </div>
               </SheetContent>
             </Sheet>

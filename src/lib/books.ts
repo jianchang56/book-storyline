@@ -16,6 +16,12 @@ export type BookMetadata = {
   chapterCount: number;
   coverTone: CoverTone;
   publishedAt: string;
+  readingModes: Array<{
+    id: "overview" | "journey" | "complete";
+    file: string;
+    title: string;
+    readingMinutes: number;
+  }>;
 };
 
 export type BookSection = {

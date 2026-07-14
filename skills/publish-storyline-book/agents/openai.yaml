@@ -1,4 +1,4 @@
 interface:
   display_name: "发布故事线书籍"
-  short_description: "将分章梗概发布为带故事阶段、阅读档位与严格校验的网站内容"
-  default_prompt: "Use $publish-storyline-book to publish these generated chapter summaries as a validated Storyline website book."
+  short_description: "将分章梗概发布为网站与 GitHub 可连续阅读的内容包"
+  default_prompt: "Use $publish-storyline-book to publish these generated chapter summaries as a validated continuous-Markdown Storyline book."

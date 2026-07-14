@@ -2,7 +2,7 @@
 
 ## 项目目标
 
-本仓库把 Codex 生成的分章故事梗概发布成可连续阅读的网站。内容生产与网站发布必须分成两个阶段：
+本仓库把 Codex 生成的故事梗概发布成网站和 GitHub 都可连续阅读的内容。内容生产与网站发布必须分成两个阶段：
 
 1. 使用 `skills/book-storyline` 从用户指定原文中生成忠于原著的分章梗概。
 2. 使用 `skills/publish-storyline-book` 将梗概整理成网站需要的元数据、全书速览、故事阶段和可校验目录。
@@ -14,26 +14,28 @@
 每本已发布书籍必须包含：
 
 ```text
-content/books/<slug>/
+content/<slug>/
+├── README.md
+├── 00-overview.md
+├── 10-route.md
+├── 20-full.md
 ├── metadata.json
-├── overview.md
-├── story-arcs.json
-└── chapters/
-    ├── 0001.md
-    └── ...
+├── assets/        # 可选
+└── source/        # 可选
 ```
 
-- `chapters/` 是生产、校验、锚点导航和失败重试单位。
-- 读者端默认在一个页面连续展示，不按回目分页。
-- `overview.md` 对应约 5 分钟阅读档。
-- `story-arcs.json` 对应约 20 分钟阅读档，同时驱动折叠目录。
-- 全部章节对应约 60 分钟或 metadata 指定的完整阅读档。
+- 分章文件可以继续作为内容生产、校验和失败重试的中间单位，但不放入最终发布目录。
+- `README.md` 是 GitHub 入口页，链接三种阅读档。
+- `00-overview.md` 是全书速览；`10-route.md` 是故事阶段路线；`20-full.md` 用 H2 连续包含全部回目。
+- `00/10/20` 只表达 GitHub 展示顺序。实际阅读时间写入 `metadata.json`，不同书籍可以不同。
+- 网站从三份 Markdown 解析内容，读者端仍在一个页面连续展示，不按回目分页。
+- 完整档按回目顺序生成 `chapter-1` 等稳定锚点；路线档按注释中的 `arc-id` 生成稳定阶段锚点。
 - 故事阶段必须连续覆盖全部章节，不得重叠、跳章或提前泄露后续阶段信息。
 
 新增或更新书籍后运行：
 
 ```powershell
-python skills/publish-storyline-book/scripts/validate_book.py content/books/<slug>
+python skills/publish-storyline-book/scripts/validate_book.py content/<slug>
 pnpm check
 pnpm typecheck
 pnpm test

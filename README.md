@@ -129,12 +129,14 @@ pnpm build
 ### 网站内容结构
 
 ```text
-content/books/<slug>/
+content/<slug>/
+├── README.md
+├── 00-overview.md
+├── 10-route.md
+├── 20-full.md
 ├── metadata.json
-├── overview.md
-└── chapters/
-    ├── 0001.md
-    └── 0002.md
+├── assets/        # 可选
+└── source/        # 可选
 ```
 
-当前网站内置《西游记》一百回完整故事梗概，后台按回目文件管理，读者端以单页长文连续展示。
+`README.md` 方便在 GitHub 直接进入三种阅读档；`00/10/20` 前缀只用于稳定文件顺序，实际预计阅读时间保存在 `metadata.json`。当前网站内置《西游记》一百回完整故事梗概，内容集中在三份 Markdown 中，读者端仍保留阶段目录、回目锚点和单页连续阅读体验。
