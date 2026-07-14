@@ -24,6 +24,7 @@ import {
   useDeferredValue,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import type { Book, BookSection, StoryArc } from "@/lib/books";
+import { calculateReaderProgress } from "@/lib/reader-progress";
 import {
   createDefaultReaderState,
   getReaderStorageKey,
@@ -414,6 +416,7 @@ export function BookReader({ book }: { book: Book }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [actionMessage, setActionMessage] = useState("");
+  const readerRef = useRef<HTMLDivElement>(null);
   const deferredQuery = useDeferredValue(query.trim());
 
   const arcSections = useMemo<ReaderSection[]>(
@@ -601,22 +604,34 @@ export function BookReader({ book }: { book: Book }) {
   }, [pendingScrollId, visibleSections]);
 
   useEffect(() => {
-    if (visibleSections.length === 0) {
+    const reader = readerRef.current;
+    if (visibleSections.length === 0 || !reader) {
       return;
     }
     let animationFrame = 0;
     const updateProgress = () => {
       window.cancelAnimationFrame(animationFrame);
       animationFrame = window.requestAnimationFrame(() => {
-        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const next = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
-        setProgress(Math.min(100, Math.max(0, next)));
+        const bounds = reader.getBoundingClientRect();
+        setProgress(
+          calculateReaderProgress({
+            scrollY: window.scrollY,
+            viewportHeight: window.innerHeight,
+            readerTop: bounds.top + window.scrollY,
+            readerHeight: bounds.height,
+          }),
+        );
       });
     };
+    const resizeObserver = new ResizeObserver(updateProgress);
+    resizeObserver.observe(reader);
     updateProgress();
     window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress, { passive: true });
     return () => {
+      resizeObserver.disconnect();
       window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
       window.cancelAnimationFrame(animationFrame);
     };
   }, [visibleSections]);
@@ -778,7 +793,7 @@ export function BookReader({ book }: { book: Book }) {
   );
 
   return (
-    <div className="reader-shell" style={readerStyle}>
+    <div ref={readerRef} className="reader-shell" style={readerStyle}>
       <div className="fixed top-16 right-0 left-0 z-30 h-0.5 bg-primary/10" aria-hidden="true">
         <div
           className="h-full bg-story-cinnabar transition-[width] duration-100"
