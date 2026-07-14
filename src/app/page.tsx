@@ -123,22 +123,6 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-
-        <section id="about" className="border-y border-border/70 bg-card/55">
-          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-20 sm:px-6 lg:grid-cols-3 lg:px-8">
-            {[
-              ["01", "按因果保留", "谁做了什么、为何发生、造成什么变化，始终沿原著顺序展开。"],
-              ["02", "按章节校验", "章节是内容生产单位，用来检查人物、物品、能力和伏笔的一致性。"],
-              ["03", "按整本阅读", "网页将章节连续呈现，以目录锚点定位，不把短内容切成零碎分页。"],
-            ].map(([number, title, description]) => (
-              <article key={number} className="border-t border-border pt-6">
-                <span className="font-mono text-xs text-story-cinnabar">{number}</span>
-                <h3 className="mt-6 font-display text-2xl font-semibold">{title}</h3>
-                <p className="mt-4 leading-7 text-muted-foreground">{description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
       </main>
       <footer className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <p>© 2026 书脉</p>

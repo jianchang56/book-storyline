@@ -17,7 +17,7 @@ export function SiteHeader() {
             <Link href="/books">书库</Link>
           </Button>
           <Button asChild variant="ghost">
-            <Link href="/#about">关于书脉</Link>
+            <Link href={{ pathname: "/about" }}>关于书脉</Link>
           </Button>
         </nav>
         <div className="flex items-center gap-1">
