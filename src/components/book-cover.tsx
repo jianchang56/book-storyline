@@ -17,10 +17,16 @@ type BookCoverProps = {
 };
 
 export function BookCover({ title, author, tone, className }: BookCoverProps) {
+  const titleLength = Array.from(title.trim()).length;
+  const titleTypography =
+    titleLength >= 7
+      ? "text-[clamp(1.5rem,15cqw,2rem)] leading-[1.18] tracking-[0.08em]"
+      : "text-[clamp(1.75rem,22cqw,2.5rem)] leading-[1.15] tracking-[0.12em]";
+
   return (
     <div
       className={cn(
-        "book-cover relative isolate aspect-[3/4.2] overflow-hidden rounded-r-md rounded-l-[0.8rem] bg-gradient-to-br shadow-[0_22px_50px_-24px_rgba(21,30,35,0.55)]",
+        "book-cover relative isolate aspect-[3/4.2] overflow-hidden rounded-r-md rounded-l-[0.8rem] bg-gradient-to-br shadow-[0_22px_50px_-24px_rgba(21,30,35,0.55)] [container-type:inline-size]",
         toneClasses[tone],
         className,
       )}
@@ -33,7 +39,7 @@ export function BookCover({ title, author, tone, className }: BookCoverProps) {
         故事梗概
       </div>
       <div className="absolute right-5 bottom-6 left-7">
-        <p className="font-display text-[clamp(1.5rem,4vw,2.5rem)] leading-[1.15] font-semibold tracking-[0.12em] [text-wrap:balance]">
+        <p className={cn("font-display font-semibold [text-wrap:balance]", titleTypography)}>
           {title}
         </p>
         <div className="mt-4 h-px w-10 bg-current opacity-50" />
