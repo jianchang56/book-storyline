@@ -192,6 +192,18 @@
     "status": "published"
   },
   {
+    "slug": "waerdenguhu",
+    "title": "瓦尔登湖",
+    "author": "亨利·戴维·梭罗",
+    "tagline": "在瓦尔登湖畔独居两年，重新发现简单生活的可能",
+    "genres": ["散文", "哲学", "自然"],
+    "readingMinutes": 40,
+    "chapterCount": 18,
+    "coverTone": "forest",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "wanouzhijia",
     "title": "玩偶之家",
     "author": "[挪威]亨利克·易卜生",

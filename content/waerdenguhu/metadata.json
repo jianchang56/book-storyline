@@ -1,0 +1,33 @@
+{
+  "slug": "waerdenguhu",
+  "title": "瓦尔登湖",
+  "author": "亨利·戴维·梭罗",
+  "era": "近代",
+  "subtitle": "在瓦尔登湖畔独居两年，重新发现简单生活的可能",
+  "description": "梭罗在瓦尔登湖畔自建小屋，独居两年又两个月。他用亲身的实验追问：人究竟需要多少物质才能生活？在四季的轮换中，他观察湖、森林、鸟兽与村民，思考经济、孤独、阅读、自然与更高的规律，最终呼吁每个人转向内心，去过一种更清醒、更自由的生活。",
+  "genres": ["散文", "哲学", "自然"],
+  "readingMinutes": 40,
+  "chapterCount": 18,
+  "coverTone": "forest",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 10
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 40
+    }
+  ]
+}
