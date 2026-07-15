@@ -56,10 +56,12 @@ export function BookCover({ title, author, tone, className }: BookCoverProps) {
       <div className="absolute top-6 right-5 text-[10px] tracking-[0.3em] opacity-70 [writing-mode:vertical-rl]">
         故事梗概
       </div>
-      <div className="absolute right-5 bottom-6 left-7">
+      <div className="absolute top-[42%] right-12 left-7 -translate-y-1/2">
         <p className={cn("font-display font-semibold [text-wrap:balance]", titleTypography)}>
           {title}
         </p>
+      </div>
+      <div className="absolute right-5 bottom-6 left-7">
         <div className="mt-4 h-px w-10 bg-current opacity-50" />
         <p className="mt-3 text-xs tracking-[0.2em] opacity-80">{author}</p>
       </div>

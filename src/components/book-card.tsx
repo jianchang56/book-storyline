@@ -37,11 +37,15 @@ export function BookCard({ book }: { book: CatalogBook }) {
         tone={book.coverTone}
         className="w-full transition-transform duration-300 group-hover:-translate-y-1"
       />
-      <div className="mt-5">
+      <div className="mt-3 sm:mt-5">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h3 className="font-display text-xl font-semibold tracking-wide">{book.title}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{book.author}</p>
+            <h3 className="font-display text-base leading-snug font-semibold tracking-wide sm:text-xl">
+              {book.title}
+            </h3>
+            <p className="mt-1 line-clamp-1 text-xs text-muted-foreground sm:text-sm">
+              {book.author}
+            </p>
           </div>
           {book.status === "published" ? (
             <ArrowUpRight className="mt-1 size-5 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
@@ -49,7 +53,9 @@ export function BookCard({ book }: { book: CatalogBook }) {
             <Badge variant="outline">筹备中</Badge>
           )}
         </div>
-        <p className="mt-3 line-clamp-2 text-sm leading-6 text-muted-foreground">{book.tagline}</p>
+        <p className="mt-3 hidden line-clamp-2 text-sm leading-6 text-muted-foreground sm:block">
+          {book.tagline}
+        </p>
         {readerState ? (
           <div className="mt-4">
             <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
@@ -68,7 +74,7 @@ export function BookCard({ book }: { book: CatalogBook }) {
             </p>
           </div>
         ) : (
-          <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+          <div className="mt-3 flex items-center gap-1.5 text-[11px] text-muted-foreground sm:mt-4 sm:gap-2 sm:text-xs">
             <Clock3 className="size-3.5" />约 {book.readingMinutes} 分钟
           </div>
         )}

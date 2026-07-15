@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { catalog } from "@/lib/catalog";
+import { collectionPath, getBookCollections } from "@/lib/collections";
 import { authorPath, genrePath, getAuthorGroups, getGenreGroups } from "@/lib/discovery";
 import { absoluteUrl } from "@/lib/site";
 
@@ -7,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: absoluteUrl("/"), changeFrequency: "weekly", priority: 1 },
     { url: absoluteUrl("/books"), changeFrequency: "daily", priority: 0.9 },
+    { url: absoluteUrl("/collections"), changeFrequency: "weekly", priority: 0.8 },
     { url: absoluteUrl("/authors"), changeFrequency: "weekly", priority: 0.7 },
     { url: absoluteUrl("/genres"), changeFrequency: "weekly", priority: 0.7 },
     { url: absoluteUrl("/about"), changeFrequency: "monthly", priority: 0.5 },
@@ -32,6 +34,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly",
     priority: 0.6,
   }));
+  const collectionPages: MetadataRoute.Sitemap = getBookCollections(catalog).map((collection) => ({
+    url: absoluteUrl(collectionPath(collection.slug)),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
 
-  return [...staticPages, ...bookPages, ...authorPages, ...genrePages];
+  return [...staticPages, ...bookPages, ...collectionPages, ...authorPages, ...genrePages];
 }

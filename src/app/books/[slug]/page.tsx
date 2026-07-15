@@ -108,12 +108,12 @@ export default async function BookPage({ params }: BookPageProps) {
                 返回书库
               </Link>
             </Button>
-            <div className="mt-8 grid gap-8 sm:grid-cols-[10rem_1fr] sm:items-end lg:grid-cols-[12rem_1fr]">
+            <div className="mt-6 grid grid-cols-[7.5rem_1fr] items-end gap-5 sm:mt-8 sm:grid-cols-[10rem_1fr] sm:gap-8 lg:grid-cols-[12rem_1fr]">
               <BookCover
                 title={book.metadata.title}
                 author={book.metadata.author}
                 tone={book.metadata.coverTone}
-                className="w-40 sm:w-full"
+                className="w-full"
               />
               <div className="pb-1">
                 <div className="flex flex-wrap gap-2">
@@ -127,7 +127,7 @@ export default async function BookPage({ params }: BookPageProps) {
                     </Link>
                   ))}
                 </div>
-                <h1 className="mt-5 font-display text-4xl font-semibold tracking-[0.08em] sm:text-5xl">
+                <h1 className="mt-4 font-display text-3xl font-semibold tracking-[0.06em] sm:mt-5 sm:text-5xl sm:tracking-[0.08em]">
                   {book.metadata.title}
                 </h1>
                 <p className="mt-3 flex flex-wrap items-center gap-2 text-muted-foreground">
@@ -140,7 +140,9 @@ export default async function BookPage({ params }: BookPageProps) {
                     {book.metadata.author}
                   </Link>
                 </p>
-                <p className="mt-5 max-w-2xl text-lg leading-8">{book.metadata.subtitle}</p>
+                <p className="mt-4 hidden max-w-2xl text-lg leading-8 sm:block">
+                  {book.metadata.subtitle}
+                </p>
                 <div className="mt-6 flex flex-wrap gap-5 text-sm text-muted-foreground">
                   <span className="inline-flex items-center gap-2">
                     <Clock3 className="size-4 text-primary" />约 {book.metadata.readingMinutes} 分钟
@@ -187,7 +189,7 @@ export default async function BookPage({ params }: BookPageProps) {
                   查看书库
                 </Link>
               </div>
-              <div className="mt-9 grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-9 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-7 sm:gap-y-12 lg:grid-cols-4">
                 {relatedBooks.map((relatedBook) => (
                   <BookCard key={relatedBook.slug} book={relatedBook} />
                 ))}

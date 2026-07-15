@@ -40,27 +40,31 @@ export function DiscoveryDirectory({
       <main
         id="main-content"
         tabIndex={-1}
-        className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
+        className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-20 lg:px-8"
       >
         <header className="max-w-3xl">
           <p className="text-sm font-medium tracking-[0.2em] text-primary">{eyebrow}</p>
-          <h1 className="mt-4 font-display text-4xl font-semibold tracking-wide sm:text-5xl">
+          <h1 className="mt-4 font-display text-3xl font-semibold tracking-wide sm:text-5xl">
             {title}
           </h1>
-          <p className="mt-5 text-lg leading-8 text-muted-foreground">{description}</p>
+          <p className="mt-5 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+            {description}
+          </p>
         </header>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
             <Link
               key={item.name}
               href={item.href}
-              className="group flex min-h-32 items-center justify-between gap-5 rounded-2xl border border-border bg-card/65 p-6 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="group flex min-h-28 items-center justify-between gap-5 rounded-2xl border border-border bg-card/65 p-5 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-32 sm:p-6"
             >
               <span>
                 <span className="font-mono text-xs text-story-cinnabar">
                   {String(startIndex + index + 1).padStart(2, "0")}
                 </span>
-                <span className="mt-3 block font-display text-2xl font-semibold">{item.name}</span>
+                <span className="mt-3 block font-display text-xl font-semibold sm:text-2xl">
+                  {item.name}
+                </span>
                 <span className="mt-2 block text-sm text-muted-foreground">
                   {item.count} 本作品
                 </span>

@@ -15,6 +15,7 @@ function normalizeSiteUrl(value: string | undefined) {
 export const siteConfig = {
   name: "书脉",
   description: "按原著因果顺序整理故事梗概，让你沿一条清楚的故事线读懂一本书。",
+  githubUrl: "https://github.com/jianchang56/book-storyline",
   url: normalizeSiteUrl(deployedHost),
 };
 

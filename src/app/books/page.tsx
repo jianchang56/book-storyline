@@ -51,11 +51,11 @@ export default async function BooksPage({
       <main
         id="main-content"
         tabIndex={-1}
-        className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
+        className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-20 lg:px-8"
       >
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-primary">故事书库</p>
-          <h1 className="mt-4 font-display text-4xl font-semibold tracking-wide sm:text-5xl">
+          <h1 className="mt-4 font-display text-3xl font-semibold tracking-wide sm:text-5xl">
             找到下一本想读的书
           </h1>
           <p className="mt-5 leading-7 text-muted-foreground">
@@ -68,7 +68,7 @@ export default async function BooksPage({
 
           {pagination.books.length > 0 ? (
             <>
-              <div className="mt-6 grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
+              <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 xl:grid-cols-6">
                 {pagination.books.map((book) => (
                   <BookCard key={book.slug} book={book} />
                 ))}
