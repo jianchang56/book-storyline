@@ -43,18 +43,19 @@ describe("paginateCatalog", () => {
   });
 
   it("returns one bounded page without losing total counts", () => {
-    const result = paginateCatalog(catalog, 2, 12);
+    const pageSize = 12;
+    const result = paginateCatalog(catalog, 2, pageSize);
 
     expect(result.page).toBe(2);
-    expect(result.books).toHaveLength(catalog.length - 12);
+    expect(result.books).toHaveLength(Math.min(pageSize, Math.max(0, catalog.length - pageSize)));
     expect(result.totalBooks).toBe(catalog.length);
-    expect(result.totalPages).toBe(2);
-    expect(result.startNumber).toBe(13);
-    expect(result.endNumber).toBe(catalog.length);
+    expect(result.totalPages).toBe(Math.ceil(catalog.length / pageSize));
+    expect(result.startNumber).toBe(pageSize + 1);
+    expect(result.endNumber).toBe(Math.min(catalog.length, pageSize * 2));
   });
 
   it("clamps invalid pages and handles empty results", () => {
-    expect(paginateCatalog(catalog, 999, 12).page).toBe(2);
+    expect(paginateCatalog(catalog, 999, 12).page).toBe(Math.ceil(catalog.length / 12));
     expect(paginateCatalog(catalog, -5, 12).page).toBe(1);
     expect(paginateCatalog([], 3, 12)).toMatchObject({
       books: [],

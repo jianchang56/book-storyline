@@ -72,6 +72,18 @@
     "status": "published"
   },
   {
+    "slug": "shenqu",
+    "title": "神曲",
+    "author": "但丁",
+    "tagline": "一百首读完地狱、炼狱与天堂的灵魂旅程",
+    "genres": ["史诗", "宗教文学", "寓言"],
+    "readingMinutes": 60,
+    "chapterCount": 100,
+    "coverTone": "indigo",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "wuduguer",
     "title": "雾都孤儿",
     "author": "查尔斯·狄更斯",
