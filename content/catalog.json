@@ -72,6 +72,18 @@
     "status": "published"
   },
   {
+    "slug": "huozhe",
+    "title": "活着",
+    "author": "余华",
+    "tagline": "一个老人与一头老牛，走完时代落在个人身上的全部重量",
+    "genres": ["小说", "当代文学", "现实主义"],
+    "readingMinutes": 55,
+    "chapterCount": 7,
+    "coverTone": "sand",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "huxiaoshanzhuang",
     "title": "呼啸山庄",
     "author": "艾米莉·勃朗特",
@@ -108,6 +120,18 @@
     "status": "published"
   },
   {
+    "slug": "jinghuayuan",
+    "title": "镜花缘",
+    "author": "李汝珍",
+    "tagline": "九十八回读完百花谪贬、海外寻亲与才女聚宴",
+    "genres": ["古典小说", "神魔", "才女", "海外游记"],
+    "readingMinutes": 75,
+    "chapterCount": 98,
+    "coverTone": "jade",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "lbx",
     "title": "鲁宾逊漂流记",
     "author": "丹尼尔·笛福",
@@ -128,6 +152,30 @@
     "readingMinutes": 20,
     "chapterCount": 6,
     "coverTone": "indigo",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "maitianlideshouwangzhe",
+    "title": "麦田里的守望者",
+    "author": "J.D.塞林格",
+    "tagline": "一个十六岁少年被开除后的纽约两日游荡与内心风暴",
+    "genres": ["现代小说", "成长", "经典"],
+    "readingMinutes": 45,
+    "chapterCount": 26,
+    "coverTone": "amber",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "nuoweidesenlin",
+    "title": "挪威的森林",
+    "author": "村上春树",
+    "tagline": "关于青春、死亡与爱的长篇",
+    "genres": ["小说", "爱情", "成长", "青春"],
+    "readingMinutes": 40,
+    "chapterCount": 13,
+    "coverTone": "forest",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
@@ -333,6 +381,18 @@
     "readingMinutes": 20,
     "chapterCount": 4,
     "coverTone": "forest",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "ziye",
+    "title": "子夜",
+    "author": "茅盾",
+    "tagline": "十九章读完吴荪甫在公债、实业与工潮中的背水一战",
+    "genres": ["现代小说", "社会", "经典"],
+    "readingMinutes": 45,
+    "chapterCount": 19,
+    "coverTone": "slate",
     "publishedAt": "2026-07-15",
     "status": "published"
   },

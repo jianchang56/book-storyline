@@ -1,0 +1,33 @@
+{
+  "slug": "ziye",
+  "title": "子夜",
+  "author": "茅盾",
+  "era": "现代",
+  "subtitle": "十九章读完吴荪甫在公债、实业与工潮中的背水一战",
+  "description": "1930 年代的上海，民族资本家吴荪甫试图用益中信托公司整合实业、对抗买办金融势力，却在公债投机、工人罢工与同乡战乱的夹击下步步失控，最终在一夜之间输掉了全部筹码。",
+  "genres": ["现代小说", "社会", "经典"],
+  "readingMinutes": 45,
+  "chapterCount": 19,
+  "coverTone": "slate",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 10
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 45
+    }
+  ]
+}
