@@ -1,5 +1,17 @@
 [
   {
+    "slug": "aomanpianjian",
+    "title": "傲慢与偏见",
+    "author": "简·奥斯汀",
+    "tagline": "六十一章读完偏见如何消融、傲慢如何低头",
+    "genres": ["外国文学", "小说", "经典", "爱情"],
+    "readingMinutes": 45,
+    "chapterCount": 61,
+    "coverTone": "rose",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "gangtie",
     "title": "钢铁是怎样炼成的",
     "author": "尼古拉·奥斯特洛夫斯基",

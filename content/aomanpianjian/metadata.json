@@ -1,0 +1,33 @@
+{
+  "slug": "aomanpianjian",
+  "title": "傲慢与偏见",
+  "author": "简·奥斯汀",
+  "era": "19世纪英国",
+  "subtitle": "六十一章读完偏见如何消融、傲慢如何低头",
+  "description": "班纳特家五姐妹的婚事牵动整个浪博恩。伊丽莎白因偏见误解达西，达西因傲慢险些错过真爱；一对有情人历经误会、书信、私奔风波与家族压力，最终学会看清彼此与本心。",
+  "genres": ["外国文学", "小说", "经典", "爱情"],
+  "readingMinutes": 45,
+  "chapterCount": 61,
+  "coverTone": "rose",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 10
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 45
+    }
+  ]
+}
