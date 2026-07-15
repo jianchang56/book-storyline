@@ -21,7 +21,7 @@ export function PwaRegistration() {
     };
     navigator.serviceWorker.addEventListener("controllerchange", handleControllerChange);
 
-    const handleOfflineBookNavigation = (event: MouseEvent) => {
+    const handleLocalFirstNavigation = (event: MouseEvent) => {
       if (event.defaultPrevented || event.button !== 0 || !navigator.serviceWorker.controller) {
         return;
       }
@@ -39,16 +39,20 @@ export function PwaRegistration() {
         return;
       }
       const url = new URL(anchor.href, window.location.href);
-      if (url.origin !== window.location.origin || !url.pathname.startsWith("/books/")) {
+      if (url.origin !== window.location.origin) {
         return;
       }
       if (url.pathname === window.location.pathname) {
         return;
       }
+      const standalone = window.matchMedia("(display-mode: standalone)").matches;
+      if (!url.pathname.startsWith("/books/") && navigator.onLine && !standalone) {
+        return;
+      }
       event.preventDefault();
       window.location.assign(url);
     };
-    document.addEventListener("click", handleOfflineBookNavigation);
+    document.addEventListener("click", handleLocalFirstNavigation);
 
     void navigator.serviceWorker
       .register("/sw.js", { scope: "/" })
@@ -78,7 +82,7 @@ export function PwaRegistration() {
 
     return () => {
       navigator.serviceWorker.removeEventListener("controllerchange", handleControllerChange);
-      document.removeEventListener("click", handleOfflineBookNavigation);
+      document.removeEventListener("click", handleLocalFirstNavigation);
     };
   }, []);
 

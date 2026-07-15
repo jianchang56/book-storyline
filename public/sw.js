@@ -93,16 +93,22 @@ async function cacheBook(url) {
   }
   const request = new Request(bookUrl, { credentials: "same-origin" });
   try {
+    const bookCache = await caches.open(BOOK_CACHE);
+    const cachedBook = await bookCache.match(request);
+    if (cachedBook) {
+      await bookCache.delete(request);
+      await bookCache.put(request, cachedBook);
+      await trimCache(bookCache, MAX_BOOKS);
+      return { ok: true };
+    }
     const response = await fetch(request);
     if (!isCacheableResponse(response, "text/html")) {
       return { ok: false, reason: "invalid-response" };
     }
     const assetUrls = extractAssetUrls(await response.clone().text(), bookUrl);
     await cacheAssets(assetUrls);
-    const cache = await caches.open(BOOK_CACHE);
-    await cache.delete(request);
-    await cache.put(request, response);
-    await trimCache(cache, MAX_BOOKS);
+    await bookCache.put(request, response);
+    await trimCache(bookCache, MAX_BOOKS);
     return { ok: true };
   } catch {
     return { ok: false, reason: "network" };
@@ -132,9 +138,10 @@ async function localFirstBook(event, request) {
 
 async function networkFirst(request, cacheName = SHELL_CACHE, maximum) {
   const cache = await caches.open(cacheName);
+  const shouldCache = !new URL(request.url).search;
   try {
     const response = await fetch(request);
-    if (isCacheableResponse(response, "text/html")) {
+    if (shouldCache && isCacheableResponse(response, "text/html")) {
       await cache.delete(request);
       await cache.put(request, response.clone());
       if (maximum) {
@@ -143,7 +150,7 @@ async function networkFirst(request, cacheName = SHELL_CACHE, maximum) {
     }
     return response;
   } catch {
-    return (await cache.match(request)) ?? (await caches.match("/offline"));
+    return (shouldCache ? await cache.match(request) : null) ?? (await caches.match("/offline"));
   }
 }
 
@@ -164,10 +171,13 @@ async function cacheFirst(request) {
 
 async function cacheAssets(urls) {
   const cache = await caches.open(ASSET_CACHE);
-  const allowed = [...new Set(urls.map(parseAssetUrl).filter(Boolean))];
+  const allowed = [...new Set(urls.map(parseAssetUrl).filter(Boolean))].slice(0, MAX_ASSETS);
   await Promise.allSettled(
     allowed.map(async (url) => {
       const request = new Request(url, { credentials: "same-origin" });
+      if (await cache.match(request)) {
+        return;
+      }
       const response = await fetch(request);
       if (response.ok && response.type === "basic") {
         await cache.delete(request);
@@ -188,8 +198,9 @@ async function getCacheStatus() {
 }
 
 async function clearOfflineCaches() {
-  await Promise.all([BOOK_CACHE, ASSET_CACHE, RUNTIME_CACHE].map((name) => caches.delete(name)));
-  return { ok: true, books: 0, assets: 0, pages: 0 };
+  await Promise.all([BOOK_CACHE, RUNTIME_CACHE].map((name) => caches.delete(name)));
+  const assets = await caches.open(ASSET_CACHE).then((cache) => cache.keys());
+  return { ok: true, books: 0, assets: assets.length, pages: 0 };
 }
 
 function parseBookUrl(value) {

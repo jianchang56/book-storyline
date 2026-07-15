@@ -54,14 +54,17 @@ export function OfflineStorageControls() {
       <Button
         type="button"
         variant="outline"
-        disabled={clearing || (status.books === 0 && status.assets === 0 && status.pages === 0)}
+        disabled={clearing || (status.books === 0 && status.pages === 0)}
         onClick={() => {
           setClearing(true);
           void sendServiceWorkerMessage<CacheStatus>({ type: "CLEAR_OFFLINE" })
-            .then(setStatus)
+            .then(async (nextStatus) => {
+              setStatus(nextStatus);
+              const estimate = await navigator.storage?.estimate();
+              setUsage(estimate?.usage ?? null);
+            })
             .catch(() => setStatus(null))
             .finally(() => {
-              setUsage(0);
               setClearing(false);
             });
         }}
