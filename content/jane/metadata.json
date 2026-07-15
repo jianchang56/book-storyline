@@ -1,0 +1,18 @@
+{
+  "slug": "jane",
+  "title": "简·爱",
+  "author": "夏洛蒂·勃朗特",
+  "era": "古典",
+  "subtitle": "不漂亮、没地位、没钱——但她的尊严从不打折",
+  "description": "孤女简·爱受尽欺凌却从不低头。她来到桑菲尔德庄园当家庭教师，与罗切斯特相爱。婚礼上发现罗切斯特有疯妻之后，简拒绝做情妇，毅然出走。她流浪荒野、继承遗产、拒绝无爱的求婚——最终回到失明的罗切斯特身边，在平等的爱中找到了归宿。",
+  "genres": ["古典小说", "爱情", "经典"],
+  "readingMinutes": 25,
+  "chapterCount": 5,
+  "coverTone": "heather",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 5 },
+    { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+    { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 25 }
+  ]
+}

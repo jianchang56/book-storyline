@@ -1,0 +1,33 @@
+{
+  "slug": "jdsbj",
+  "title": "基督山伯爵",
+  "author": "大仲马",
+  "era": "古典",
+  "subtitle": "十四年黑牢炼狱，一纸宝藏卷起滔天复仇",
+  "description": "青年水手爱德蒙·唐太斯遭人诬陷被囚伊夫堡十四年。他在狱中结识法利亚神甫获知基督山宝藏秘密，越狱后化名基督山伯爵，用天量财富和精密筹划向四个仇人一一展开报复。这是关于等待、希望与人性极限的史诗。",
+  "genres": ["古典小说", "冒险", "复仇"],
+  "readingMinutes": 45,
+  "chapterCount": 106,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 8
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 12
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 45
+    }
+  ]
+}

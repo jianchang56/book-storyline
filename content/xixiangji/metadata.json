@@ -1,0 +1,33 @@
+{
+  "slug": "xixiangji",
+  "title": "西厢记",
+  "author": "王实甫",
+  "era": "元代",
+  "subtitle": "五本杂剧读完张生与崔莺莺的西厢姻缘",
+  "description": "唐代贞元年间，书生张君瑞赴京应试，于普救寺偶遇崔相国之女莺莺，二人隔墙酬和、诗心暗许。贼兵围寺时张生搬兵解围，老夫人却赖婚悔约；经红娘传书递简、西厢待月，崔张终成眷属，却又被功名拆散。郑恒谗毁、夫人再悔，最终张生状元及第、衣锦还乡，有情人历尽波折，终成眷属。",
+  "genres": ["元曲", "杂剧", "爱情"],
+  "readingMinutes": 55,
+  "chapterCount": 26,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 10
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 55
+    }
+  ]
+}

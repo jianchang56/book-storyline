@@ -1,0 +1,33 @@
+{
+  "slug": "hamuleite",
+  "title": "哈姆雷特",
+  "author": "莎士比亚",
+  "era": "文艺复兴",
+  "subtitle": "丹麦王子的复仇与延宕",
+  "description": "先王鬼魂深夜现身，揭开一桩弑兄篡位的血案；哈姆雷特在复仇与思虑之间徘徊，最终以整个王室的毁灭完成了正义的清算。",
+  "genres": ["戏剧", "悲剧", "复仇"],
+  "readingMinutes": 35,
+  "chapterCount": 6,
+  "coverTone": "slate",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 35
+    }
+  ]
+}

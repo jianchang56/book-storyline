@@ -1,0 +1,33 @@
+{
+  "slug": "wuduguer",
+  "title": "雾都孤儿",
+  "author": "查尔斯·狄更斯",
+  "era": "19世纪英国",
+  "subtitle": "五十三章读完孤儿的伦敦历险与身世之谜",
+  "description": "弃婴奥立弗·退斯特在济贫院与伦敦贼窝中挣扎求生，在布朗罗先生、梅莱夫人与露丝的善意帮助下，最终揭开身世、战胜罪恶，获得幸福。",
+  "genres": ["社会小说", "成长", "批判现实主义"],
+  "readingMinutes": 70,
+  "chapterCount": 53,
+  "coverTone": "slate",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 15
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 70
+    }
+  ]
+}

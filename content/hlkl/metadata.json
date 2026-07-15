@@ -1,0 +1,18 @@
+{
+  "slug": "hlkl",
+  "title": "假如给我三天光明",
+  "author": "海伦·凯勒",
+  "era": "现代",
+  "subtitle": "一个人可以被剥夺视觉和听觉，但没有人能剥夺她选择怎样活着的权利",
+  "description": "海伦·凯勒在一岁半时因病失明失聪。莎莉文老师的到来唤醒了她的灵魂，她学会了盲文、打字、说话，考入哈佛大学，成为作家和演说家。她的自传是一个终极命题的回答：当命运把你关进牢笼，你是选择在黑暗中腐烂，还是找到出口。",
+  "genres": ["非虚构", "自传", "励志"],
+  "readingMinutes": 20,
+  "chapterCount": 5,
+  "coverTone": "sunset",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 5 },
+    { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+    { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 20 }
+  ]
+}
