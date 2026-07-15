@@ -1,0 +1,33 @@
+{
+  "slug": "piao",
+  "title": "飘",
+  "author": "玛格丽特·米切尔",
+  "era": "现代",
+  "subtitle": "六十三章读完思嘉·奥哈拉与旧南方的盛衰",
+  "description": "以美国南北战争与战后重建时期的佐治亚州为背景，讲述塔拉农场主之女思嘉·奥哈拉在旧世界毁灭与新秩序崛起中的生存、爱情与成长。",
+  "genres": ["外国文学", "小说", "经典", "爱情"],
+  "readingMinutes": 90,
+  "chapterCount": 63,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 15
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 90
+    }
+  ]
+}

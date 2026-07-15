@@ -12,6 +12,18 @@
     "status": "published"
   },
   {
+    "slug": "geliefo",
+    "title": "格列佛游记",
+    "author": "乔纳森·斯威夫特",
+    "tagline": "四段奇旅看尽人性百态——从小人国到慧洇国的讽刺之旅",
+    "genres": ["古典小说", "讽刺", "幻想"],
+    "readingMinutes": 30,
+    "chapterCount": 34,
+    "coverTone": "sage",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "hamuleite",
     "title": "哈姆雷特",
     "author": "莎士比亚",
@@ -24,6 +36,18 @@
     "status": "published"
   },
   {
+    "slug": "jdsbj",
+    "title": "基督山伯爵",
+    "author": "大仲马",
+    "tagline": "十四年黑牢炼狱，一纸宝藏卷起滔天复仇",
+    "genres": ["古典小说", "冒险", "复仇"],
+    "readingMinutes": 45,
+    "chapterCount": 106,
+    "coverTone": "midnight",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "leiyu",
     "title": "雷雨",
     "author": "曹禺",
@@ -32,6 +56,18 @@
     "readingMinutes": 20,
     "chapterCount": 6,
     "coverTone": "indigo",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "piao",
+    "title": "飘",
+    "author": "玛格丽特·米切尔",
+    "tagline": "六十三章读完思嘉·奥哈拉与旧南方的盛衰",
+    "genres": ["外国文学", "小说", "经典", "爱情"],
+    "readingMinutes": 90,
+    "chapterCount": 63,
+    "coverTone": "cinnabar",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
