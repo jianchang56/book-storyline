@@ -156,6 +156,66 @@
     "status": "published"
   },
   {
+    "slug": "shuangchengji",
+    "title": "双城记",
+    "author": "查尔斯·狄更斯",
+    "tagline": "四十五章读完一个关于复活、爱与牺牲的故事",
+    "genres": ["外国文学", "小说", "经典", "历史"],
+    "readingMinutes": 55,
+    "chapterCount": 45,
+    "coverTone": "midnight",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "shuyi",
+    "title": "鼠疫",
+    "author": "阿尔贝·加缪",
+    "tagline": "五部曲读完奥兰城的瘟疫、囚禁与抗争",
+    "genres": ["外国文学", "小说", "经典", "存在主义"],
+    "readingMinutes": 35,
+    "chapterCount": 5,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "tongnian",
+    "title": "童年",
+    "author": "高尔基",
+    "tagline": "一个孩子在苦难中俄国底层的成长",
+    "genres": ["外国文学", "小说", "自传", "经典"],
+    "readingMinutes": 40,
+    "chapterCount": 12,
+    "coverTone": "stone",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "wanouzhijia",
+    "title": "玩偶之家",
+    "author": "[挪威]亨利克·易卜生",
+    "tagline": "三幕社会问题剧：一个“泥娃娃妻子”的觉醒与出走",
+    "genres": ["外国文学", "戏剧", "经典", "社会问题剧"],
+    "readingMinutes": 12,
+    "chapterCount": 3,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "weinasidedansheng",
+    "title": "维纳斯的诞生",
+    "author": "莎拉·杜楠特",
+    "tagline": "一个佛罗伦萨女子在艺术、信仰与命运之间的自白",
+    "genres": ["外国文学", "小说", "历史小说"],
+    "readingMinutes": 50,
+    "chapterCount": 51,
+    "coverTone": "rose",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "wuduguer",
     "title": "雾都孤儿",
     "author": "查尔斯·狄更斯",
