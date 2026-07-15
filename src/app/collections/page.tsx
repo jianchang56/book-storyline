@@ -6,7 +6,7 @@ import { getBookCollections } from "@/lib/collections";
 
 export const metadata: Metadata = {
   title: "阅读专题",
-  description: "按阅读时长、故事规模和核心冲突浏览由书籍元数据自动生成的阅读专题。",
+  description: "按题材、专题标签和阅读时长浏览由书籍元数据自动生成的阅读专题。",
   alternates: { canonical: "/collections" },
 };
 
@@ -27,7 +27,7 @@ export default function CollectionsPage() {
             不只按书名找书，也按问题进入故事
           </h1>
           <p className="mt-5 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-            专题成员由每本书的题材、章节数和阅读时长自动计算。新书发布后，会自然进入符合条件的专题。
+            专题成员由每本书的题材、专题标签和阅读时长自动计算。新书发布后，会自然进入符合条件的专题。
           </p>
         </header>
         <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">

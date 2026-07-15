@@ -104,6 +104,16 @@ def validate_metadata(book_dir: Path) -> dict[str, Any]:
         raise ValueError("metadata readingMinutes must be a positive integer")
     if not isinstance(metadata["genres"], list) or not metadata["genres"]:
         raise ValueError("metadata genres must be a non-empty array")
+    collection_tags = metadata.get("collectionTags")
+    if collection_tags is not None:
+        if (
+            not isinstance(collection_tags, list)
+            or not collection_tags
+            or any(not isinstance(tag, str) or not tag.strip() for tag in collection_tags)
+        ):
+            raise ValueError("metadata collectionTags must be a non-empty array of strings")
+        if len(collection_tags) != len(set(collection_tags)):
+            raise ValueError("metadata collectionTags must not contain duplicates")
     if metadata["coverTone"] not in COVER_TONES:
         raise ValueError(f"metadata coverTone must be one of: {', '.join(sorted(COVER_TONES))}")
 

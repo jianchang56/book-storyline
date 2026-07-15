@@ -29,6 +29,7 @@ export type CatalogBook = {
   author: string;
   tagline: string;
   genres: string[];
+  collectionTags?: string[];
   readingMinutes: number;
   chapterCount: number;
   coverTone: CoverTone;
