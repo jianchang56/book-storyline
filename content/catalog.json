@@ -60,6 +60,18 @@
     "status": "published"
   },
   {
+    "slug": "hlkl",
+    "title": "假如给我三天光明",
+    "author": "海伦·凯勒",
+    "tagline": "一个人可以被剥夺视觉和听觉，但没有人能剥夺她选择怎样活着的权利",
+    "genres": ["非虚构", "自传", "励志"],
+    "readingMinutes": 20,
+    "chapterCount": 5,
+    "coverTone": "sunset",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "huxiaoshanzhuang",
     "title": "呼啸山庄",
     "author": "艾米莉·勃朗特",
@@ -67,6 +79,18 @@
     "genres": ["英国小说", "哥特", "爱情", "复仇"],
     "readingMinutes": 60,
     "chapterCount": 34,
+    "coverTone": "heather",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "jane",
+    "title": "简·爱",
+    "author": "夏洛蒂·勃朗特",
+    "tagline": "不漂亮、没地位、没钱——但她的尊严从不打折",
+    "genres": ["古典小说", "爱情", "经典"],
+    "readingMinutes": 25,
+    "chapterCount": 5,
     "coverTone": "heather",
     "publishedAt": "2026-07-15",
     "status": "published"
@@ -80,6 +104,18 @@
     "readingMinutes": 45,
     "chapterCount": 106,
     "coverTone": "midnight",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "lbx",
+    "title": "鲁宾逊漂流记",
+    "author": "丹尼尔·笛福",
+    "tagline": "一个人在荒岛上住了二十八年，然后他把这活成了日常",
+    "genres": ["古典小说", "冒险", "经典"],
+    "readingMinutes": 25,
+    "chapterCount": 10,
+    "coverTone": "ocean",
     "publishedAt": "2026-07-15",
     "status": "published"
   },

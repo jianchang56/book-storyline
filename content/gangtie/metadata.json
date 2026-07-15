@@ -1,0 +1,33 @@
+{
+  "slug": "gangtie",
+  "title": "钢铁是怎样炼成的",
+  "author": "尼古拉·奥斯特洛夫斯基",
+  "era": "苏联",
+  "subtitle": "从车站童工到百炼成钢——保尔·柯察金的革命人生",
+  "description": "保尔·柯察金出身贫苦，在布尔什维克的启蒙下走上革命道路。他经历了国内战争的枪林弹雨、战后建设的严寒酷暑、党内斗争的激流险滩，又在瘫痪失明后以文学创作续写人生。钢铁是在烈火与骤冷中炼成的，保尔正是这样一块钢铁。",
+  "genres": ["现代小说", "革命文学"],
+  "readingMinutes": 30,
+  "chapterCount": 18,
+  "coverTone": "steel",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 8
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 10
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 30
+    }
+  ]
+}
