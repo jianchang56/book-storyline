@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Copy,
+  Download,
   Focus,
   ListTree,
   Maximize2,
@@ -50,6 +51,7 @@ import {
   readerStateVersion,
   readReaderState,
 } from "@/lib/reader-storage";
+import { sendServiceWorkerMessage } from "@/lib/service-worker-client";
 import { cn } from "@/lib/utils";
 
 type ReaderSection = BookSection & {
@@ -63,6 +65,8 @@ type SearchResult = {
   title: string;
   excerpt: string;
 };
+
+type OfflineStatus = "idle" | "saving" | "ready" | "failed";
 
 const lineHeightValues: Record<ReaderLineHeight, string> = {
   compact: "1.72",
@@ -388,6 +392,28 @@ function ActionMessage({ children }: { children: ReactNode }) {
   );
 }
 
+function OfflineReadingStatus({ status }: { status: OfflineStatus }) {
+  if (status === "idle") {
+    return null;
+  }
+  return (
+    <p
+      className={cn(
+        "mt-3 flex items-center gap-2 px-2 text-xs",
+        status === "failed" ? "text-destructive" : "text-muted-foreground",
+      )}
+      aria-live="polite"
+    >
+      {status === "ready" ? <Check /> : <Download />}
+      {status === "saving"
+        ? "正在保存离线内容…"
+        : status === "ready"
+          ? "已保存，可离线阅读"
+          : "离线保存失败，联网后会重试"}
+    </p>
+  );
+}
+
 export function BookReader({ book }: { book: Book }) {
   const defaultState = useMemo(() => createDefaultReaderState(), []);
   const modeLabels = useMemo(
@@ -416,6 +442,7 @@ export function BookReader({ book }: { book: Book }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [actionMessage, setActionMessage] = useState("");
+  const [offlineStatus, setOfflineStatus] = useState<OfflineStatus>("idle");
   const readerRef = useRef<HTMLDivElement>(null);
   const deferredQuery = useDeferredValue(query.trim());
 
@@ -533,6 +560,24 @@ export function BookReader({ book }: { book: Book }) {
     }
     setHydrated(true);
   }, [book.metadata.slug, titleById]);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production" || !hydrated) {
+      return;
+    }
+    let cancelled = false;
+    setOfflineStatus("saving");
+    void sendServiceWorkerMessage<{ ok: boolean }>({
+      type: "CACHE_BOOK",
+      url: `${window.location.origin}/books/${book.metadata.slug}`,
+    }).then(
+      (result) => !cancelled && setOfflineStatus(result.ok ? "ready" : "failed"),
+      () => !cancelled && setOfflineStatus("failed"),
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [book.metadata.slug, hydrated]);
 
   useEffect(() => {
     if (!pendingScrollId) {
@@ -818,6 +863,7 @@ export function BookReader({ book }: { book: Book }) {
           className="sticky top-24 hidden h-[calc(100vh-7rem)] w-80 shrink-0 flex-col self-start xl:flex"
         >
           <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
+          <OfflineReadingStatus status={offlineStatus} />
           <div className="mt-5 flex items-center justify-between px-3">
             <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">阅读路线</p>
             {mode === "complete" ? (
@@ -836,6 +882,7 @@ export function BookReader({ book }: { book: Book }) {
                 选择阅读深度
               </p>
               <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
+              <OfflineReadingStatus status={offlineStatus} />
             </div>
 
             {deferredQuery && mode === "complete" ? (

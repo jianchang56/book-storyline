@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OfflineStorageControls } from "@/components/offline-storage-controls";
 import { PersonalShelf } from "@/components/personal-shelf";
 import { SiteHeader } from "@/components/site-header";
 import { catalog } from "@/lib/catalog";
@@ -27,6 +28,7 @@ export default function ShelfPage() {
             不需要账号。阅读进度、收藏与已读状态保存在浏览器中，清除网站数据后也会随之删除。
           </p>
         </header>
+        <OfflineStorageControls />
         <PersonalShelf books={catalog} />
       </main>
     </div>
