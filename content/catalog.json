@@ -289,6 +289,18 @@
     "status": "published"
   },
   {
+    "slug": "sishengtongtang",
+    "title": "四世同堂",
+    "author": "老舍",
+    "tagline": "一百段读完北平小羊圈胡同八年沦陷中的四世同堂",
+    "genres": ["中国文学", "小说", "经典"],
+    "readingMinutes": 40,
+    "chapterCount": 100,
+    "coverTone": "stone",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "tongnian",
     "title": "童年",
     "author": "高尔基",
