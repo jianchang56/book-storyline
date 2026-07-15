@@ -46,11 +46,11 @@ describe("paginateCatalog", () => {
     const result = paginateCatalog(catalog, 2, 12);
 
     expect(result.page).toBe(2);
-    expect(result.books).toHaveLength(3);
-    expect(result.totalBooks).toBe(15);
+    expect(result.books).toHaveLength(catalog.length - 12);
+    expect(result.totalBooks).toBe(catalog.length);
     expect(result.totalPages).toBe(2);
     expect(result.startNumber).toBe(13);
-    expect(result.endNumber).toBe(15);
+    expect(result.endNumber).toBe(catalog.length);
   });
 
   it("clamps invalid pages and handles empty results", () => {
