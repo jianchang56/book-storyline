@@ -1,0 +1,33 @@
+{
+  "slug": "weinasidedansheng",
+  "title": "维纳斯的诞生",
+  "author": "莎拉·杜楠特",
+  "era": "文艺复兴时期的佛罗伦萨",
+  "subtitle": "一个佛罗伦萨女子在艺术、信仰与命运之间的自白",
+  "description": "文艺复兴时期的佛罗伦萨，布商之女亚历山德拉·塞奇渴望成为画家，却被时代与家庭推向一桩交易的婚姻。她在政治动荡、萨伏那罗拉的宗教狂热、瘟疫与谋杀的阴影中，与一位北方画家相遇、分离、重逢，最终以修女路克丽西娅的身份，把一生的秘密刺在身上。",
+  "genres": ["外国文学", "小说", "历史小说"],
+  "readingMinutes": 50,
+  "chapterCount": 51,
+  "coverTone": "rose",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 8
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 10
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 50
+    }
+  ]
+}
