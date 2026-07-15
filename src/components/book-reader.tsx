@@ -6,7 +6,8 @@ import {
   Check,
   CheckCircle2,
   ChevronDown,
-  Clock3,
+  ChevronLeft,
+  ChevronRight,
   Copy,
   Focus,
   ListTree,
@@ -412,7 +413,6 @@ export function BookReader({ book }: { book: Book }) {
   const [pendingScrollId, setPendingScrollId] = useState<string | null>(null);
   const [tocOpen, setTocOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [modeOpen, setModeOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [actionMessage, setActionMessage] = useState("");
@@ -445,6 +445,9 @@ export function BookReader({ book }: { book: Book }) {
     }
     return mode === "journey" ? arcSections : chapterSections;
   }, [arcSections, book.overview, chapterSections, mode]);
+  const activeVisibleIndex = visibleSections.findIndex((section) => section.id === activeId);
+  const previousVisibleSection = visibleSections[activeVisibleIndex - 1];
+  const nextVisibleSection = visibleSections[activeVisibleIndex + 1];
   const titleById = useMemo(() => {
     const entries: Array<[string, string]> = [
       ["overview", book.overview.title],
@@ -499,7 +502,6 @@ export function BookReader({ book }: { book: Book }) {
             ? arcSections[0]?.id
             : chapterSections[0]?.id;
       startTransition(() => setMode(nextMode));
-      setModeOpen(false);
       if (targetId) {
         setPendingScrollId(targetId);
       }
@@ -1007,8 +1009,19 @@ export function BookReader({ book }: { book: Book }) {
         <>
           <div
             data-reader-mobile-toolbar
-            className="fixed right-3 bottom-3 left-3 z-40 grid grid-cols-4 rounded-2xl border border-border bg-background/92 p-1.5 shadow-2xl backdrop-blur-xl md:hidden"
+            className="fixed right-3 bottom-3 left-3 z-40 grid grid-cols-5 rounded-2xl border border-border bg-background/92 p-1.5 shadow-2xl backdrop-blur-xl md:hidden"
           >
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-12 rounded-xl px-1 text-[11px]"
+              aria-label="阅读上一节"
+              disabled={!previousVisibleSection}
+              onClick={() => previousVisibleSection && navigateTo(previousVisibleSection.id)}
+            >
+              <ChevronLeft />
+              上一节
+            </Button>
             <Sheet open={tocOpen} onOpenChange={setTocOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -1035,6 +1048,18 @@ export function BookReader({ book }: { book: Book }) {
             <Button
               type="button"
               variant="ghost"
+              className="h-12 rounded-xl px-1 text-[11px]"
+              aria-label="阅读下一节"
+              disabled={!nextVisibleSection}
+              onClick={() => nextVisibleSection && navigateTo(nextVisibleSection.id)}
+            >
+              <ChevronRight />
+              下一节
+            </Button>
+
+            <Button
+              type="button"
+              variant="ghost"
               className="h-12 rounded-xl px-2 text-xs"
               aria-label="搜索书内内容"
               onClick={() => setSearchOpen(true)}
@@ -1042,31 +1067,6 @@ export function BookReader({ book }: { book: Book }) {
               <Search />
               搜索
             </Button>
-
-            <Sheet open={modeOpen} onOpenChange={setModeOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  className="h-12 rounded-xl px-2 text-xs"
-                  aria-label="切换阅读档位"
-                >
-                  <Clock3 />
-                  档位
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="bottom">
-                <SheetHeader className="pr-12">
-                  <SheetTitle>选择阅读深度</SheetTitle>
-                  <SheetDescription>
-                    从全书速览开始，也可以直接进入完整 {book.metadata.chapterCount} 回。
-                  </SheetDescription>
-                </SheetHeader>
-                <div className="mt-5">
-                  <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
-                </div>
-              </SheetContent>
-            </Sheet>
 
             <Button
               type="button"

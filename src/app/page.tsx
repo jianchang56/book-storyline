@@ -2,6 +2,7 @@ import { ArrowRight, BookOpen, Clock3, Route, Search, Sparkles } from "lucide-re
 import Link from "next/link";
 import { BookCard } from "@/components/book-card";
 import { BookCover } from "@/components/book-cover";
+import { ContinueReadingCard } from "@/components/continue-reading-card";
 import { ResumeReadingLink } from "@/components/resume-reading-link";
 import { SiteHeader } from "@/components/site-header";
 import { TopicCard } from "@/components/topic-card";
@@ -108,6 +109,7 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+          <ContinueReadingCard books={catalog} />
           <div className="flex items-end justify-between gap-6">
             <div>
               <p className="text-sm font-medium tracking-[0.2em] text-primary">书架</p>

@@ -1,7 +1,8 @@
-import { BookOpenText, Info, Layers3, Menu, Tags, Users } from "lucide-react";
+import { BookMarked, BookOpenText, Info, Layers3, Menu, Tags, Users } from "lucide-react";
 import Link from "next/link";
 
 const links = [
+  { label: "我的书架", href: "/shelf", icon: BookMarked },
   { label: "书库", href: "/books", icon: BookOpenText },
   { label: "专题", href: "/collections", icon: Layers3 },
   { label: "作者", href: "/authors", icon: Users },

@@ -18,6 +18,11 @@ export type ReaderState = {
   updatedAt: string;
 };
 
+export type LibraryReaderState = {
+  slug: string;
+  state: ReaderState;
+};
+
 type StorageReader = Pick<Storage, "getItem" | "removeItem">;
 
 export const readingModeLabels: Record<ReadingMode, { label: string; minutes: string }> = {
@@ -80,4 +85,18 @@ export function readReaderState(storage: StorageReader, bookSlug: string): Reade
     storage.removeItem(key);
     return null;
   }
+}
+
+export function readLibraryReaderStates(
+  storage: StorageReader,
+  bookSlugs: readonly string[],
+): LibraryReaderState[] {
+  const states: LibraryReaderState[] = [];
+  for (const slug of bookSlugs) {
+    const state = readReaderState(storage, slug);
+    if (state) {
+      states.push({ slug, state });
+    }
+  }
+  return states.toSorted((a, b) => b.state.updatedAt.localeCompare(a.state.updatedAt));
 }
