@@ -9,7 +9,11 @@ describe("filterCatalog", () => {
   it("matches titles, authors and genres", () => {
     expect(filterCatalog(catalog, "西游").map((book) => book.slug)).toEqual(["xiyouji"]);
     expect(filterCatalog(catalog, "曹雪芹").map((book) => book.slug)).toEqual(["hongloumeng"]);
-    expect(filterCatalog(catalog, "历史").map((book) => book.slug)).toEqual(["sanguoyanyi"]);
+    expect(filterCatalog(catalog, "历史").map((book) => book.slug)).toEqual([
+      "shuangchengji",
+      "weinasidedansheng",
+      "sanguoyanyi",
+    ]);
   });
 
   it("returns an empty list when nothing matches", () => {
