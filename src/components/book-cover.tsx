@@ -29,8 +29,10 @@ export function BookCover({ title, author, tone, className }: BookCoverProps) {
   const titleLength = Array.from(title.trim()).length;
   const titleTypography =
     titleLength >= 7
-      ? "text-[clamp(1.5rem,15cqw,2rem)] leading-[1.18] tracking-[0.08em]"
-      : "text-[clamp(1.75rem,22cqw,2.5rem)] leading-[1.15] tracking-[0.12em]";
+      ? "text-[clamp(1.2rem,12cqw,1.65rem)] leading-[1.2] tracking-[0.06em]"
+      : titleLength >= 5
+        ? "text-[clamp(1.35rem,15cqw,1.9rem)] leading-[1.18] tracking-[0.08em]"
+        : "text-[clamp(1.5rem,18cqw,2.15rem)] leading-[1.16] tracking-[0.1em]";
 
   return (
     <div
