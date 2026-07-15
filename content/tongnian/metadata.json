@@ -1,0 +1,33 @@
+{
+  "slug": "tongnian",
+  "title": "童年",
+  "author": "高尔基",
+  "era": "俄国近代",
+  "subtitle": "一个孩子在苦难中俄国底层的成长",
+  "description": "阿列克塞幼年丧父后投奔外祖父家，在贪婪、暴力和贫困中目睹俄国底层家庭的崩解，也在外祖母的慈爱与伙伴的真情中学会坚韧，最终告别童年走向人间。",
+  "genres": ["外国文学", "小说", "自传", "经典"],
+  "readingMinutes": 40,
+  "chapterCount": 12,
+  "coverTone": "stone",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 10
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 40
+    }
+  ]
+}
