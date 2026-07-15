@@ -615,5 +615,17 @@
     "coverTone": "cinnabar",
     "publishedAt": "2026-07-13",
     "status": "published"
+  },
+  {
+    "slug": "sufedeshijie",
+    "title": "苏菲的世界",
+    "author": "乔斯坦·贾德",
+    "tagline": "一部关于哲学史的小说",
+    "genres": ["哲学", "小说", "青少年文学"],
+    "readingMinutes": 240,
+    "chapterCount": 35,
+    "coverTone": "indigo",
+    "publishedAt": "1991",
+    "status": "published"
   }
 ]

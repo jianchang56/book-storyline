@@ -1,0 +1,33 @@
+{
+  "slug": "sufedeshijie",
+  "title": "苏菲的世界",
+  "author": "乔斯坦·贾德",
+  "era": "1991",
+  "subtitle": "一部关于哲学史的小说",
+  "description": "十四岁少女苏菲在神秘哲学导师艾伯特的引导下，从古希腊一路走到二十世纪，遍历西方哲学史；与此同时，她逐渐发现自己只是联合国少校艾勃特写给女儿席德的生日礼物书中的人物，并试图挣脱作者的掌控。",
+  "genres": ["哲学", "小说", "青少年文学"],
+  "readingMinutes": 240,
+  "chapterCount": 35,
+  "coverTone": "indigo",
+  "publishedAt": "1991",
+  "readingModes": [
+    {
+      "id": "overview",
+      "title": "全书速览",
+      "file": "00-overview.md",
+      "readingMinutes": 10
+    },
+    {
+      "id": "journey",
+      "title": "哲学之旅",
+      "file": "10-route.md",
+      "readingMinutes": 30
+    },
+    {
+      "id": "complete",
+      "title": "完整阅读",
+      "file": "20-full.md",
+      "readingMinutes": 240
+    }
+  ]
+}
