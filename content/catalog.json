@@ -72,6 +72,18 @@
     "status": "published"
   },
   {
+    "slug": "wuduguer",
+    "title": "雾都孤儿",
+    "author": "查尔斯·狄更斯",
+    "tagline": "五十三章读完孤儿的伦敦历险与身世之谜",
+    "genres": ["社会小说", "成长", "批判现实主义"],
+    "readingMinutes": 70,
+    "chapterCount": 53,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "xixiangji",
     "title": "西厢记",
     "author": "王实甫",
