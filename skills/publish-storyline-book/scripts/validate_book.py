@@ -30,6 +30,29 @@ READING_MODE_FILES = {
     "journey": "10-route.md",
     "complete": "20-full.md",
 }
+COVER_TONES = {
+    "amber",
+    "charcoal",
+    "cinnabar",
+    "forest",
+    "heather",
+    "indigo",
+    "ivory",
+    "jade",
+    "lilac",
+    "midnight",
+    "ocean",
+    "ochre",
+    "plum",
+    "rose",
+    "sage",
+    "sand",
+    "slate",
+    "steel",
+    "stone",
+    "sunset",
+    "teal",
+}
 ARC_HEADING_PATTERN = re.compile(
     r"^###\s+(.+?)\s+<!--\s*arc-id=([a-z0-9]+(?:-[a-z0-9]+)*)\s+start=(\d+)\s+end=(\d+)\s*-->\s*$",
     re.MULTILINE,
@@ -81,6 +104,8 @@ def validate_metadata(book_dir: Path) -> dict[str, Any]:
         raise ValueError("metadata readingMinutes must be a positive integer")
     if not isinstance(metadata["genres"], list) or not metadata["genres"]:
         raise ValueError("metadata genres must be a non-empty array")
+    if metadata["coverTone"] not in COVER_TONES:
+        raise ValueError(f"metadata coverTone must be one of: {', '.join(sorted(COVER_TONES))}")
 
     modes = metadata["readingModes"]
     mode_ids = [mode.get("id") for mode in modes if isinstance(mode, dict)] if isinstance(modes, list) else []

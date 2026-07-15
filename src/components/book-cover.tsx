@@ -2,12 +2,18 @@ import type { CoverTone } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
 const toneClasses: Record<CoverTone, string> = {
+  amber: "from-[#895a2c] via-[#b67a39] to-[#d9aa62] text-[#fffaf0]",
+  charcoal: "from-[#38444d] via-[#596970] to-[#8a9795] text-[#f8fbfa]",
   cinnabar: "from-[#bf5b43] via-[#d97958] to-[#e6a36f] text-[#fffaf2]",
+  forest: "from-[#285145] via-[#49745b] to-[#88a47a] text-[#f7fff8]",
   heather: "from-[#59445f] via-[#80617c] to-[#b08c9b] text-[#fff8fc]",
   indigo: "from-[#263b57] via-[#315675] to-[#5c7d91] text-[#f4f8fa]",
+  ivory: "from-[#bfa772] via-[#dac794] to-[#eee1ba] text-[#302a20]",
   jade: "from-[#245c59] via-[#3d7770] to-[#86a696] text-[#f5fbf7]",
+  lilac: "from-[#66517a] via-[#8b70a0] to-[#b8a0c5] text-[#fff9ff]",
   midnight: "from-[#182c4d] via-[#294f78] to-[#557ea0] text-[#f5f9ff]",
   ocean: "from-[#12566b] via-[#24798a] to-[#69a9a6] text-[#f3ffff]",
+  ochre: "from-[#80601f] via-[#ad812d] to-[#d2aa58] text-[#fffbed]",
   plum: "from-[#56374b] via-[#80516d] to-[#aa7d8d] text-[#fff8fb]",
   rose: "from-[#844c62] via-[#ad6678] to-[#d79a9e] text-[#fff8f8]",
   sage: "from-[#48644f] via-[#708769] to-[#a9b28a] text-[#fbfff6]",
@@ -16,6 +22,7 @@ const toneClasses: Record<CoverTone, string> = {
   steel: "from-[#344b5b] via-[#527080] to-[#8ca0a5] text-[#f7fbfc]",
   stone: "from-[#665d48] via-[#8a8062] to-[#b6aa82] text-[#fffdf4]",
   sunset: "from-[#a94f4c] via-[#d47059] to-[#e9aa78] text-[#fff9f3]",
+  teal: "from-[#18565a] via-[#28777a] to-[#6ba2a0] text-[#f3ffff]",
 };
 
 type BookCoverProps = {
