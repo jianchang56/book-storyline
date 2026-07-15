@@ -1,6 +1,20 @@
 import catalogSource from "../../content/catalog.json";
 
-export type CoverTone = "cinnabar" | "indigo" | "jade" | "plum" | "sand";
+export type CoverTone =
+  | "cinnabar"
+  | "heather"
+  | "indigo"
+  | "jade"
+  | "midnight"
+  | "ocean"
+  | "plum"
+  | "rose"
+  | "sage"
+  | "sand"
+  | "slate"
+  | "steel"
+  | "stone"
+  | "sunset";
 
 export type CatalogBook = {
   slug: string;
