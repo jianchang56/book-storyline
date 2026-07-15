@@ -1,0 +1,33 @@
+{
+  "slug": "wanouzhijia",
+  "title": "玩偶之家",
+  "author": "[挪威]亨利克·易卜生",
+  "era": "1879年 挪威",
+  "subtitle": "三幕社会问题剧：一个“泥娃娃妻子”的觉醒与出走",
+  "description": "圣诞前夕，娜拉为救丈夫秘密伪造父亲签名借债；当旧事被翻出、丈夫的真实面目暴露后，她终于意识到自己只是家庭和婚姻中的玩偶，选择走出大门去寻找独立的自我。",
+  "genres": ["外国文学", "戏剧", "经典", "社会问题剧"],
+  "readingMinutes": 12,
+  "chapterCount": 3,
+  "coverTone": "slate",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 3
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 6
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 12
+    }
+  ]
+}
