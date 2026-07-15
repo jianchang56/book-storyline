@@ -1,0 +1,33 @@
+{
+  "slug": "shuangchengji",
+  "title": "双城记",
+  "author": "查尔斯·狄更斯",
+  "era": "18世纪法国与英国",
+  "subtitle": "四十五章读完一个关于复活、爱与牺牲的故事",
+  "description": "法国医生曼内特被秘密监禁十八年后获释，女儿露西带他回到伦敦。与此同时，一位名叫查尔斯·达尔内的法国贵族后裔因叛国嫌疑受审，他与曼内特一家逐渐交织在一起。巴黎革命的浪潮席卷而来，旧日的恩怨与血债将所有人推向命运的终点，而爱却以最惨烈的方式完成了救赎。",
+  "genres": ["外国文学", "小说", "经典", "历史"],
+  "readingMinutes": 55,
+  "chapterCount": 45,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 12
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 55
+    }
+  ]
+}
