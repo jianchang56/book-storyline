@@ -20,66 +20,63 @@ function hasAnyGenre(book: CatalogBook, genres: ReadonlySet<string>) {
 
 const relationshipGenres = new Set(["爱情", "家庭", "家族", "世情"]);
 const adventureGenres = new Set(["冒险", "史诗", "神魔", "江湖", "英雄", "战争"]);
-const tragedyGenres = new Set(["悲剧", "复仇", "哥特"]);
-const societyGenres = new Set([
-  "成长",
-  "现实主义",
-  "批判现实主义",
-  "社会小说",
-  "社会问题剧",
-  "革命文学",
-  "存在主义",
-  "心理",
-]);
+const tragedyGenres = new Set(["悲剧", "复仇", "战争", "宗教文学", "哥特"]);
+const identityGenres = new Set(["成长", "自传", "存在主义", "心理", "励志"]);
 
 const collectionDefinitions: CollectionDefinition[] = [
   {
-    slug: "one-evening",
-    eyebrow: "轻量阅读",
-    title: "一晚读完",
-    description: "从短篇、戏剧和高度凝练的长篇中，挑选约二十五分钟内可以读完主线的作品。",
-    shortDescription: "约二十五分钟内，完整走过一本书的主线。",
-    matches: (book) => book.readingMinutes <= 25,
+    slug: "four-classics",
+    eyebrow: "中国古典",
+    title: "四大名著",
+    description:
+      "从群雄逐鹿、梁山聚义、西天取经到大观园盛衰，沿四部长篇读懂中国古典小说最辽阔的人情与世界。",
+    shortDescription: "四部长篇，四种理解中国古典世界的入口。",
+    matches: (book) => book.collectionTags?.includes("四大名著") ?? false,
   },
   {
-    slug: "long-journeys",
-    eyebrow: "长篇纵览",
-    title: "百章长卷",
-    description: "面向章节众多、人物关系庞杂的长篇巨著，用连续梗概保留完整因果与命运转折。",
-    shortDescription: "把百章长卷压成一条仍然清楚的故事线。",
-    matches: (book) => book.chapterCount >= 60 || book.readingMinutes >= 90,
+    slug: "beyond-the-classroom",
+    eyebrow: "学生书单",
+    title: "课堂之外",
+    description:
+      "从熟悉的经典出发，不为考试划重点，只沿人物、选择与命运重新走进那些值得认真读完的故事。",
+    shortDescription: "课堂之外，也值得认真读完的经典。",
+    matches: (book) => book.genres.includes("经典") && book.readingMinutes <= 60,
   },
   {
-    slug: "love-and-family",
+    slug: "before-becoming-yourself",
+    eyebrow: "成长专题",
+    title: "成为自己之前",
+    description:
+      "在成长、心理与存在困境中，看一个人如何穿过他人的期待、生活的挫折与内心的迷雾，逐渐辨认自己。",
+    shortDescription: "成为自己之前，先要穿过别人定义的世界。",
+    matches: (book) => hasAnyGenre(book, identityGenres),
+  },
+  {
+    slug: "love-is-not-the-answer",
     eyebrow: "关系专题",
-    title: "爱、婚姻与家庭",
-    description: "从爱情、婚姻、家庭与世情出发，比较人物如何在亲密关系与社会规则之间作出选择。",
-    shortDescription: "爱情之外，还有婚姻、家庭与时代的压力。",
+    title: "爱不是答案",
+    description:
+      "爱情能够照亮生活，却未必能解决婚姻、家庭、阶层与时代留下的问题。读懂相爱之后仍要面对的一切。",
+    shortDescription: "相爱之后，真正的问题才刚刚开始。",
     matches: (book) => hasAnyGenre(book, relationshipGenres),
   },
   {
-    slug: "adventure-and-epic",
-    eyebrow: "行动专题",
-    title: "冒险、远行与史诗",
-    description: "沿海洋、战场、江湖与神魔世界远行，看人物如何在陌生秩序中寻找道路和归宿。",
-    shortDescription: "从荒岛到战场，从江湖到神话世界。",
-    matches: (book) => hasAnyGenre(book, adventureGenres),
-  },
-  {
-    slug: "fate-and-tragedy",
+    slug: "will-fate-spare-anyone",
     eyebrow: "命运专题",
-    title: "悲剧、复仇与命运",
-    description: "聚焦无法撤回的选择、迟来的真相与复仇代价，追踪悲剧如何一步步成为必然。",
-    shortDescription: "看一次选择，如何把所有人推向无法挽回的结局。",
+    title: "命运会放过谁",
+    description:
+      "战争、复仇、信仰与无法撤回的选择交织在一起。追踪人物如何反抗命运，又如何一步步走进早已张开的网。",
+    shortDescription: "当命运收紧它的网，谁能真正全身而退？",
     matches: (book) => hasAnyGenre(book, tragedyGenres),
   },
   {
-    slug: "society-and-awakening",
-    eyebrow: "社会专题",
-    title: "社会、成长与觉醒",
-    description: "从现实主义、成长、革命与心理困境切入，阅读个人如何认识自己所处的社会。",
-    shortDescription: "个人成长背后，是阶层、制度与时代的塑形。",
-    matches: (book) => hasAnyGenre(book, societyGenres),
+    slug: "into-the-wider-world",
+    eyebrow: "远行专题",
+    title: "去更大的世界",
+    description:
+      "离开熟悉的日常，进入海洋、战场、江湖与神话。每一次远行，既是在发现世界，也是在重新认识自己。",
+    shortDescription: "离开日常，去海洋、江湖与神话深处。",
+    matches: (book) => hasAnyGenre(book, adventureGenres),
   },
 ];
 

@@ -47,20 +47,21 @@ def collect_books(content_dir: Path) -> list[dict[str, Any]]:
         if not metadata_path.is_file():
             raise ValueError(f"missing file: {metadata_path}")
         metadata = read_metadata(book_dir)
-        books.append(
-            {
-                "slug": metadata["slug"],
-                "title": metadata["title"],
-                "author": metadata["author"],
-                "tagline": metadata["subtitle"],
-                "genres": metadata["genres"],
-                "readingMinutes": metadata["readingMinutes"],
-                "chapterCount": metadata["chapterCount"],
-                "coverTone": metadata["coverTone"],
-                "publishedAt": metadata["publishedAt"],
-                "status": "published",
-            }
-        )
+        book = {
+            "slug": metadata["slug"],
+            "title": metadata["title"],
+            "author": metadata["author"],
+            "tagline": metadata["subtitle"],
+            "genres": metadata["genres"],
+            "readingMinutes": metadata["readingMinutes"],
+            "chapterCount": metadata["chapterCount"],
+            "coverTone": metadata["coverTone"],
+            "publishedAt": metadata["publishedAt"],
+            "status": "published",
+        }
+        if "collectionTags" in metadata:
+            book["collectionTags"] = metadata["collectionTags"]
+        books.append(book)
     books.sort(key=lambda book: book["slug"])
     books.sort(key=lambda book: book["publishedAt"], reverse=True)
     return books
@@ -74,6 +75,7 @@ def format_catalog(books: list[dict[str, Any]]) -> str:
         "author",
         "tagline",
         "genres",
+        "collectionTags",
         "readingMinutes",
         "chapterCount",
         "coverTone",
@@ -82,8 +84,9 @@ def format_catalog(books: list[dict[str, Any]]) -> str:
     ]
     for book_index, book in enumerate(books):
         lines.append("  {")
-        for field_index, field in enumerate(fields):
-            comma = "," if field_index < len(fields) - 1 else ""
+        present_fields = [field for field in fields if field in book]
+        for field_index, field in enumerate(present_fields):
+            comma = "," if field_index < len(present_fields) - 1 else ""
             value = json.dumps(book[field], ensure_ascii=False)
             lines.append(f"    {json.dumps(field)}: {value}{comma}")
         lines.append("  }," if book_index < len(books) - 1 else "  }")
