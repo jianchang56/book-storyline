@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PwaRegistration } from "@/components/pwa-registration";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/lib/site";
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
     title: "书脉｜沿故事主线读完一本书",
     description: siteConfig.description,
     images: ["/opengraph-image"],
+  },
+  icons: {
+    apple: "/pwa-icon/192",
   },
 };
 
@@ -59,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           {children}
           <SiteFooter />
+          <PwaRegistration />
         </ThemeProvider>
         <SpeedInsights />
       </body>
