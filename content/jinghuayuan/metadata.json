@@ -1,0 +1,33 @@
+{
+  "slug": "jinghuayuan",
+  "title": "镜花缘",
+  "author": "李汝珍",
+  "era": "清代",
+  "subtitle": "九十八回读完百花谪贬、海外寻亲与才女聚宴",
+  "description": "百花仙子因赌约被贬红尘，唐小山海外寻父，百名才女应诏赴试、结社宴集，终以勤王复国与泣红亭碑记流传作结。",
+  "genres": ["古典小说", "神魔", "才女", "海外游记"],
+  "readingMinutes": 75,
+  "chapterCount": 98,
+  "coverTone": "jade",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 15
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 75
+    }
+  ]
+}
