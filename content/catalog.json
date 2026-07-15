@@ -1,5 +1,29 @@
 [
   {
+    "slug": "gangtie",
+    "title": "钢铁是怎样炼成的",
+    "author": "尼古拉·奥斯特洛夫斯基",
+    "tagline": "从车站童工到百炼成钢——保尔·柯察金的革命人生",
+    "genres": ["现代小说", "革命文学"],
+    "readingMinutes": 30,
+    "chapterCount": 18,
+    "coverTone": "steel",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "hamuleite",
+    "title": "哈姆雷特",
+    "author": "莎士比亚",
+    "tagline": "丹麦王子的复仇与延宕",
+    "genres": ["戏剧", "悲剧", "复仇"],
+    "readingMinutes": 35,
+    "chapterCount": 6,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "leiyu",
     "title": "雷雨",
     "author": "曹禺",
