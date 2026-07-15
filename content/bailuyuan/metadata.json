@@ -1,0 +1,33 @@
+{
+  "slug": "bailuyuan",
+  "title": "白鹿原",
+  "author": "陈忠实",
+  "era": "中国近现代",
+  "subtitle": "三十四章读完渭河平原五十年家族恩怨与时代巨轮",
+  "description": "清末至新中国成立前夕，白鹿原上白、鹿两大家族在土地、宗族、革命与战争的漩涡中反复碰撞。族长白嘉轩以族规乡约守正立身，却挡不住儿子堕落、女儿出走、长工之子黑娃从农协到土匪再到保安团的多舛命运；鹿子霖则在官场与情欲中起伏，最终家破人亡。",
+  "genres": ["中国文学", "小说", "经典", "乡土"],
+  "readingMinutes": 75,
+  "chapterCount": 34,
+  "coverTone": "sand",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 15
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 75
+    }
+  ]
+}

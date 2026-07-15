@@ -12,6 +12,18 @@
     "status": "published"
   },
   {
+    "slug": "bailuyuan",
+    "title": "白鹿原",
+    "author": "陈忠实",
+    "tagline": "三十四章读完渭河平原五十年家族恩怨与时代巨轮",
+    "genres": ["中国文学", "小说", "经典", "乡土"],
+    "readingMinutes": 75,
+    "chapterCount": 34,
+    "coverTone": "sand",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "debojia-detaisi",
     "title": "德伯家的苔丝",
     "author": "托马斯·哈代",
@@ -20,6 +32,18 @@
     "readingMinutes": 50,
     "chapterCount": 59,
     "coverTone": "heather",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "fengrufeitun",
+    "title": "丰乳肥臀",
+    "author": "莫言",
+    "tagline": "一位母亲以乳房哺育九个孩子，也承受了百年动荡的全部重量",
+    "genres": ["小说", "当代文学", "魔幻现实主义"],
+    "readingMinutes": 90,
+    "chapterCount": 63,
+    "coverTone": "ochre",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
@@ -156,6 +180,18 @@
     "status": "published"
   },
   {
+    "slug": "luotuoxiangzi",
+    "title": "骆驼祥子",
+    "author": "老舍",
+    "tagline": "二十四章看尽北平车夫的三起三落",
+    "genres": ["现代小说", "现实主义", "都市底层"],
+    "readingMinutes": 15,
+    "chapterCount": 24,
+    "coverTone": "ochre",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "maitianlideshouwangzhe",
     "title": "麦田里的守望者",
     "author": "J.D.塞林格",
@@ -188,6 +224,18 @@
     "readingMinutes": 90,
     "chapterCount": 63,
     "coverTone": "cinnabar",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "shaonianweitedefannao",
+    "title": "少年维特的烦恼",
+    "author": "歌德",
+    "tagline": "一段无法实现的炽热之爱，如何将一个敏感灵魂推向毁灭",
+    "genres": ["小说", "德国文学", "书信体小说", "爱情悲剧"],
+    "readingMinutes": 35,
+    "chapterCount": 88,
+    "coverTone": "forest",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
