@@ -1,5 +1,29 @@
 [
   {
+    "slug": "leiyu",
+    "title": "雷雨",
+    "author": "曹禺",
+    "tagline": "一个闷热的夏日，两代人的罪与罚在一夜之间倾泻殆尽",
+    "genres": ["话剧", "悲剧", "家庭"],
+    "readingMinutes": 20,
+    "chapterCount": 6,
+    "coverTone": "indigo",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "xixiangji",
+    "title": "西厢记",
+    "author": "王实甫",
+    "tagline": "五本杂剧读完张生与崔莺莺的西厢姻缘",
+    "genres": ["元曲", "杂剧", "爱情"],
+    "readingMinutes": 55,
+    "chapterCount": 26,
+    "coverTone": "cinnabar",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "balishumuyuan",
     "title": "巴黎圣母院",
     "author": "雨果",
