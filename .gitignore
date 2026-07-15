@@ -35,3 +35,4 @@ next-env.d.ts
 
 # work-in-progress books and preprocessing output
 /work/
+/output/
