@@ -140,10 +140,11 @@ a:hover .book-cover::after {
   position: absolute;
   top: 2rem;
   bottom: 2rem;
-  left: 0.68rem;
+  left: var(--story-spine-axis, 50%);
   width: 1px;
   background: linear-gradient(var(--story-cinnabar), var(--story-jade), transparent);
   content: "";
+  transform: translateX(-50%);
 }
 
 .chapter-section {

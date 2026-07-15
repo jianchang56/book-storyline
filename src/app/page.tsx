@@ -84,7 +84,7 @@ export default function HomePage() {
                     author={featuredBook.author}
                     tone={featuredBook.coverTone}
                   />
-                  <div className="story-spine py-1 pl-7">
+                  <div className="story-spine py-1 pl-7 [--story-spine-axis:0.375rem]">
                     <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
                       百回主线
                     </p>
