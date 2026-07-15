@@ -12,6 +12,18 @@
     "status": "published"
   },
   {
+    "slug": "debojia-detaisi",
+    "title": "德伯家的苔丝",
+    "author": "托马斯·哈代",
+    "tagline": "五十九章读完一个乡村少女的纯洁与毁灭",
+    "genres": ["长篇小说", "现实主义", "悲剧", "乡土"],
+    "readingMinutes": 50,
+    "chapterCount": 59,
+    "coverTone": "heather",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "gangtie",
     "title": "钢铁是怎样炼成的",
     "author": "尼古拉·奥斯特洛夫斯基",
@@ -44,6 +56,18 @@
     "readingMinutes": 35,
     "chapterCount": 6,
     "coverTone": "slate",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "huxiaoshanzhuang",
+    "title": "呼啸山庄",
+    "author": "艾米莉·勃朗特",
+    "tagline": "一段跨越两代人的荒原爱恨与复仇轮回",
+    "genres": ["英国小说", "哥特", "爱情", "复仇"],
+    "readingMinutes": 60,
+    "chapterCount": 34,
+    "coverTone": "heather",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
