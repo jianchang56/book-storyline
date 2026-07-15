@@ -1,0 +1,33 @@
+{
+  "slug": "huozhe",
+  "title": "活着",
+  "author": "余华",
+  "era": "当代",
+  "subtitle": "一个老人与一头老牛，走完时代落在个人身上的全部重量",
+  "description": "《活着》讲述地主少爷徐福贵如何在赌光家产后，历经战争、土改、大跃进、文革与接连丧亲，最终与一头老牛相依为命的故事。余华以冷静的笔触，把时代的苦难压缩进一个普通人的生命，让人看到人在极致的失去中如何继续活着。",
+  "genres": ["小说", "当代文学", "现实主义"],
+  "readingMinutes": 55,
+  "chapterCount": 7,
+  "coverTone": "sand",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 15
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 55
+    }
+  ]
+}
