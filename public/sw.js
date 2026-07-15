@@ -150,7 +150,8 @@ async function networkFirst(request, cacheName = SHELL_CACHE, maximum) {
     }
     return response;
   } catch {
-    return (shouldCache ? await cache.match(request) : null) ?? (await caches.match("/offline"));
+    const runtimeMatch = shouldCache ? await cache.match(request) : null;
+    return runtimeMatch ?? (await caches.match(request)) ?? (await caches.match("/offline"));
   }
 }
 
