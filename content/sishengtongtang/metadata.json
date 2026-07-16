@@ -1,0 +1,33 @@
+{
+  "slug": "sishengtongtang",
+  "title": "四世同堂",
+  "author": "老舍",
+  "era": "中国近现代",
+  "subtitle": "一百段读完北平小羊圈胡同八年沦陷中的四世同堂",
+  "description": "卢沟桥事变后，北平小羊圈胡同的祁家四世同堂在八年沦陷中历经惶惑、偷生与饥荒。小说以祁、钱、冠等几家命运为轴，写出普通中国人在侵略者铁蹄下的屈辱、分化、觉醒与牺牲，也写出汉奸的可耻与不屈者的坚守，最终在胜利来临时留下无法弥补的代价。",
+  "genres": ["中国文学", "小说", "经典"],
+  "readingMinutes": 40,
+  "chapterCount": 100,
+  "coverTone": "stone",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 15
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 40
+    }
+  ]
+}

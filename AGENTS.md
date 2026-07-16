@@ -69,6 +69,13 @@ pnpm build
 - 当前章节变化时更新 URL 锚点，分享链接必须能直接定位。
 - 所有图标使用现有 Lucide 图标，交互目标至少 44px，并保留键盘焦点与 reduced-motion 支持。
 - 长章节继续使用 `content-visibility`，避免一次交互导致整本书重复执行昂贵计算。
+
+## Next.js 与 AI 开发工具
+
+- 项目跟随 `16.3` 官方 preview，并通过根目录 `.mcp.json` 接入 `next-devtools-mcp`。
+- 调试页面、路由、构建或缓存问题时，优先启动 `pnpm dev`，使用 Next.js MCP 提供的版本对应文档、编译问题、运行时错误和 Request Insights。
+- `requestInsights`、RSC HMR cancellation、Turbopack Rust React Compiler 与 TypeScript 7 CLI 已启用；升级后必须同时运行类型检查、测试、生产构建和离线浏览器回归。
+- 不要仅为追新启用 `cacheComponents` 或 Partial Prefetching；它们会改变 RSC 与预取缓存语义，启用前必须重新设计并验证 Service Worker 策略。
 - 阅读专题根据 `catalog.json` 中的题材、章节数和阅读时长等元数据规则自动计算；专题定义不得保存书籍 slug 清单，新增书籍应在重新生成目录后自动进入符合条件的专题。
 
 ## 修改与提交
@@ -86,3 +93,11 @@ pnpm build
 - 其他目录使用 GitHub 账号 `justjavac`，验证登录名为 `justjavac`。预期提交身份为 `迷渡 <justjavac@gmail.com>`。
 
 该规则适用于远程 Git 操作以及所有 `gh` 操作。不要输出认证 Token，不要擅自改写身份配置；账号切换或验证失败时停止远程操作。
+
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+<!-- END:nextjs-agent-rules -->

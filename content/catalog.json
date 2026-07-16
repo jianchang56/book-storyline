@@ -12,6 +12,18 @@
     "status": "published"
   },
   {
+    "slug": "bailuyuan",
+    "title": "白鹿原",
+    "author": "陈忠实",
+    "tagline": "三十四章读完渭河平原五十年家族恩怨与时代巨轮",
+    "genres": ["中国文学", "小说", "经典", "乡土"],
+    "readingMinutes": 75,
+    "chapterCount": 34,
+    "coverTone": "sand",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "debojia-detaisi",
     "title": "德伯家的苔丝",
     "author": "托马斯·哈代",
@@ -20,6 +32,18 @@
     "readingMinutes": 50,
     "chapterCount": 59,
     "coverTone": "heather",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "fengrufeitun",
+    "title": "丰乳肥臀",
+    "author": "莫言",
+    "tagline": "一位母亲以乳房哺育九个孩子，也承受了百年动荡的全部重量",
+    "genres": ["小说", "当代文学", "魔幻现实主义"],
+    "readingMinutes": 90,
+    "chapterCount": 63,
+    "coverTone": "ochre",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
@@ -72,6 +96,18 @@
     "status": "published"
   },
   {
+    "slug": "huozhe",
+    "title": "活着",
+    "author": "余华",
+    "tagline": "一个老人与一头老牛，走完时代落在个人身上的全部重量",
+    "genres": ["小说", "当代文学", "现实主义"],
+    "readingMinutes": 55,
+    "chapterCount": 7,
+    "coverTone": "sand",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "huxiaoshanzhuang",
     "title": "呼啸山庄",
     "author": "艾米莉·勃朗特",
@@ -108,6 +144,18 @@
     "status": "published"
   },
   {
+    "slug": "jinghuayuan",
+    "title": "镜花缘",
+    "author": "李汝珍",
+    "tagline": "一百回读完百花谪贬、海外寻亲与才女聚宴",
+    "genres": ["古典小说", "神魔", "才女", "海外游记"],
+    "readingMinutes": 75,
+    "chapterCount": 100,
+    "coverTone": "jade",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "lbx",
     "title": "鲁宾逊漂流记",
     "author": "丹尼尔·笛福",
@@ -132,6 +180,42 @@
     "status": "published"
   },
   {
+    "slug": "luotuoxiangzi",
+    "title": "骆驼祥子",
+    "author": "老舍",
+    "tagline": "二十四章看尽北平车夫的三起三落",
+    "genres": ["现代小说", "现实主义", "都市底层"],
+    "readingMinutes": 15,
+    "chapterCount": 24,
+    "coverTone": "ochre",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "maitianlideshouwangzhe",
+    "title": "麦田里的守望者",
+    "author": "J.D.塞林格",
+    "tagline": "一个十六岁少年被开除后的纽约两日游荡与内心风暴",
+    "genres": ["现代小说", "成长", "经典"],
+    "readingMinutes": 45,
+    "chapterCount": 26,
+    "coverTone": "amber",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "nuoweidesenlin",
+    "title": "挪威的森林",
+    "author": "村上春树",
+    "tagline": "关于青春、死亡与爱的长篇",
+    "genres": ["小说", "爱情", "成长", "青春"],
+    "readingMinutes": 40,
+    "chapterCount": 13,
+    "coverTone": "forest",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "piao",
     "title": "飘",
     "author": "玛格丽特·米切尔",
@@ -144,6 +228,18 @@
     "status": "published"
   },
   {
+    "slug": "shaonianweitedefannao",
+    "title": "少年维特的烦恼",
+    "author": "歌德",
+    "tagline": "一段无法实现的炽热之爱，如何将一个敏感灵魂推向毁灭",
+    "genres": ["小说", "德国文学", "书信体小说", "爱情悲剧"],
+    "readingMinutes": 35,
+    "chapterCount": 88,
+    "coverTone": "forest",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
     "slug": "shenqu",
     "title": "神曲",
     "author": "但丁",
@@ -152,6 +248,19 @@
     "readingMinutes": 60,
     "chapterCount": 100,
     "coverTone": "indigo",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "shiji",
+    "title": "史记",
+    "author": "司马迁",
+    "tagline": "中国第一部纪传体通史",
+    "genres": ["历史", "纪传体", "通史"],
+    "collectionTags": ["二十四史", "史传经典"],
+    "readingMinutes": 180,
+    "chapterCount": 130,
+    "coverTone": "stone",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
@@ -176,6 +285,18 @@
     "readingMinutes": 35,
     "chapterCount": 5,
     "coverTone": "slate",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "sishengtongtang",
+    "title": "四世同堂",
+    "author": "老舍",
+    "tagline": "一百段读完北平小羊圈胡同八年沦陷中的四世同堂",
+    "genres": ["中国文学", "小说", "经典"],
+    "readingMinutes": 40,
+    "chapterCount": 100,
+    "coverTone": "stone",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
@@ -320,6 +441,18 @@
     "readingMinutes": 20,
     "chapterCount": 4,
     "coverTone": "forest",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "ziye",
+    "title": "子夜",
+    "author": "茅盾",
+    "tagline": "十九章读完吴荪甫在公债、实业与工潮中的背水一战",
+    "genres": ["现代小说", "社会", "经典"],
+    "readingMinutes": 45,
+    "chapterCount": 19,
+    "coverTone": "slate",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
@@ -541,6 +674,18 @@
     "chapterCount": 100,
     "coverTone": "cinnabar",
     "publishedAt": "2026-07-13",
+    "status": "published"
+  },
+  {
+    "slug": "sufedeshijie",
+    "title": "苏菲的世界",
+    "author": "乔斯坦·贾德",
+    "tagline": "一部关于哲学史的小说",
+    "genres": ["哲学", "小说", "青少年文学"],
+    "readingMinutes": 240,
+    "chapterCount": 35,
+    "coverTone": "indigo",
+    "publishedAt": "1991",
     "status": "published"
   }
 ]

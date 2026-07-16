@@ -3,6 +3,7 @@ import {
   createDefaultReaderState,
   getReaderStorageKey,
   readerStateVersion,
+  readLibraryReaderStates,
   readReaderState,
 } from "@/lib/reader-storage";
 
@@ -43,5 +44,33 @@ describe("reader storage", () => {
 
     expect(readReaderState(storage, "xiyouji")).toBeNull();
     expect(storage.removeItem).toHaveBeenCalledWith(getReaderStorageKey("xiyouji"));
+  });
+
+  it("loads library states in most-recently-read order", () => {
+    const states = new Map([
+      [
+        getReaderStorageKey("xiyouji"),
+        JSON.stringify({
+          ...createDefaultReaderState(),
+          updatedAt: "2026-07-15T09:00:00.000Z",
+        }),
+      ],
+      [
+        getReaderStorageKey("hongloumeng"),
+        JSON.stringify({
+          ...createDefaultReaderState(),
+          updatedAt: "2026-07-15T10:00:00.000Z",
+        }),
+      ],
+    ]);
+    const storage = {
+      getItem: vi.fn((key: string) => states.get(key) ?? null),
+      removeItem: vi.fn(),
+    };
+
+    expect(readLibraryReaderStates(storage, ["xiyouji", "hongloumeng"])).toMatchObject([
+      { slug: "hongloumeng" },
+      { slug: "xiyouji" },
+    ]);
   });
 });

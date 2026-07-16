@@ -175,6 +175,8 @@ def validate_full(book_dir: Path, chapter_count: int) -> list[str]:
     full_path = book_dir / READING_MODE_FILES["complete"]
     source = read_markdown(full_path)
     heading_and_body(full_path)
+    if len(re.findall(r"^#\s+.+$", source, re.MULTILINE)) != 1:
+        raise ValueError("20-full.md must contain exactly one level-one heading")
     matches = list(CHAPTER_HEADING_PATTERN.finditer(source))
     if len(matches) != chapter_count:
         raise ValueError(f"20-full.md must contain exactly {chapter_count} level-two chapter headings")

@@ -6,8 +6,10 @@ import {
   Check,
   CheckCircle2,
   ChevronDown,
-  Clock3,
+  ChevronLeft,
+  ChevronRight,
   Copy,
+  Download,
   Focus,
   ListTree,
   Maximize2,
@@ -49,6 +51,7 @@ import {
   readerStateVersion,
   readReaderState,
 } from "@/lib/reader-storage";
+import { sendServiceWorkerMessage } from "@/lib/service-worker-client";
 import { cn } from "@/lib/utils";
 
 type ReaderSection = BookSection & {
@@ -62,6 +65,8 @@ type SearchResult = {
   title: string;
   excerpt: string;
 };
+
+type OfflineStatus = "idle" | "saving" | "ready" | "failed";
 
 const lineHeightValues: Record<ReaderLineHeight, string> = {
   compact: "1.72",
@@ -387,6 +392,28 @@ function ActionMessage({ children }: { children: ReactNode }) {
   );
 }
 
+function OfflineReadingStatus({ status }: { status: OfflineStatus }) {
+  if (status === "idle") {
+    return null;
+  }
+  return (
+    <p
+      className={cn(
+        "mt-3 flex items-center gap-2 px-2 text-xs",
+        status === "failed" ? "text-destructive" : "text-muted-foreground",
+      )}
+      aria-live="polite"
+    >
+      {status === "ready" ? <Check /> : <Download />}
+      {status === "saving"
+        ? "正在保存离线内容…"
+        : status === "ready"
+          ? "已保存，可离线阅读"
+          : "离线保存失败，联网后会重试"}
+    </p>
+  );
+}
+
 export function BookReader({ book }: { book: Book }) {
   const defaultState = useMemo(() => createDefaultReaderState(), []);
   const modeLabels = useMemo(
@@ -412,10 +439,10 @@ export function BookReader({ book }: { book: Book }) {
   const [pendingScrollId, setPendingScrollId] = useState<string | null>(null);
   const [tocOpen, setTocOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [modeOpen, setModeOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [actionMessage, setActionMessage] = useState("");
+  const [offlineStatus, setOfflineStatus] = useState<OfflineStatus>("idle");
   const readerRef = useRef<HTMLDivElement>(null);
   const deferredQuery = useDeferredValue(query.trim());
 
@@ -445,6 +472,9 @@ export function BookReader({ book }: { book: Book }) {
     }
     return mode === "journey" ? arcSections : chapterSections;
   }, [arcSections, book.overview, chapterSections, mode]);
+  const activeVisibleIndex = visibleSections.findIndex((section) => section.id === activeId);
+  const previousVisibleSection = visibleSections[activeVisibleIndex - 1];
+  const nextVisibleSection = visibleSections[activeVisibleIndex + 1];
   const titleById = useMemo(() => {
     const entries: Array<[string, string]> = [
       ["overview", book.overview.title],
@@ -499,7 +529,6 @@ export function BookReader({ book }: { book: Book }) {
             ? arcSections[0]?.id
             : chapterSections[0]?.id;
       startTransition(() => setMode(nextMode));
-      setModeOpen(false);
       if (targetId) {
         setPendingScrollId(targetId);
       }
@@ -531,6 +560,24 @@ export function BookReader({ book }: { book: Book }) {
     }
     setHydrated(true);
   }, [book.metadata.slug, titleById]);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production" || !hydrated) {
+      return;
+    }
+    let cancelled = false;
+    setOfflineStatus("saving");
+    void sendServiceWorkerMessage<{ ok: boolean }>({
+      type: "CACHE_BOOK",
+      url: `${window.location.origin}/books/${book.metadata.slug}`,
+    }).then(
+      (result) => !cancelled && setOfflineStatus(result.ok ? "ready" : "failed"),
+      () => !cancelled && setOfflineStatus("failed"),
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [book.metadata.slug, hydrated]);
 
   useEffect(() => {
     if (!pendingScrollId) {
@@ -816,6 +863,7 @@ export function BookReader({ book }: { book: Book }) {
           className="sticky top-24 hidden h-[calc(100vh-7rem)] w-80 shrink-0 flex-col self-start xl:flex"
         >
           <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
+          <OfflineReadingStatus status={offlineStatus} />
           <div className="mt-5 flex items-center justify-between px-3">
             <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">阅读路线</p>
             {mode === "complete" ? (
@@ -834,6 +882,7 @@ export function BookReader({ book }: { book: Book }) {
                 选择阅读深度
               </p>
               <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
+              <OfflineReadingStatus status={offlineStatus} />
             </div>
 
             {deferredQuery && mode === "complete" ? (
@@ -1007,8 +1056,19 @@ export function BookReader({ book }: { book: Book }) {
         <>
           <div
             data-reader-mobile-toolbar
-            className="fixed right-3 bottom-3 left-3 z-40 grid grid-cols-4 rounded-2xl border border-border bg-background/92 p-1.5 shadow-2xl backdrop-blur-xl md:hidden"
+            className="fixed right-3 bottom-3 left-3 z-40 grid grid-cols-5 rounded-2xl border border-border bg-background/92 p-1.5 shadow-2xl backdrop-blur-xl md:hidden"
           >
+            <Button
+              type="button"
+              variant="ghost"
+              className="h-12 rounded-xl px-1 text-[11px]"
+              aria-label="阅读上一节"
+              disabled={!previousVisibleSection}
+              onClick={() => previousVisibleSection && navigateTo(previousVisibleSection.id)}
+            >
+              <ChevronLeft />
+              上一节
+            </Button>
             <Sheet open={tocOpen} onOpenChange={setTocOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -1035,6 +1095,18 @@ export function BookReader({ book }: { book: Book }) {
             <Button
               type="button"
               variant="ghost"
+              className="h-12 rounded-xl px-1 text-[11px]"
+              aria-label="阅读下一节"
+              disabled={!nextVisibleSection}
+              onClick={() => nextVisibleSection && navigateTo(nextVisibleSection.id)}
+            >
+              <ChevronRight />
+              下一节
+            </Button>
+
+            <Button
+              type="button"
+              variant="ghost"
               className="h-12 rounded-xl px-2 text-xs"
               aria-label="搜索书内内容"
               onClick={() => setSearchOpen(true)}
@@ -1042,31 +1114,6 @@ export function BookReader({ book }: { book: Book }) {
               <Search />
               搜索
             </Button>
-
-            <Sheet open={modeOpen} onOpenChange={setModeOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  className="h-12 rounded-xl px-2 text-xs"
-                  aria-label="切换阅读档位"
-                >
-                  <Clock3 />
-                  档位
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="bottom">
-                <SheetHeader className="pr-12">
-                  <SheetTitle>选择阅读深度</SheetTitle>
-                  <SheetDescription>
-                    从全书速览开始，也可以直接进入完整 {book.metadata.chapterCount} 回。
-                  </SheetDescription>
-                </SheetHeader>
-                <div className="mt-5">
-                  <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
-                </div>
-              </SheetContent>
-            </Sheet>
 
             <Button
               type="button"

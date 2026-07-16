@@ -1,0 +1,33 @@
+{
+  "slug": "luotuoxiangzi",
+  "title": "骆驼祥子",
+  "author": "老舍",
+  "era": "现代",
+  "subtitle": "二十四章看尽北平车夫的三起三落",
+  "description": "乡下青年祥子来到北平，立志凭一辆自己的洋车安身立命。他三次买车、三次失去，在兵灾、敲诈、婚姻与疾病的连番打击下，从体面要强的车夫一步步沦为社会底层的末路鬼。",
+  "genres": ["现代小说", "现实主义", "都市底层"],
+  "readingMinutes": 15,
+  "chapterCount": 24,
+  "coverTone": "ochre",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 15
+    }
+  ]
+}

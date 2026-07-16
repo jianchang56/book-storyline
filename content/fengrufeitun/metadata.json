@@ -1,0 +1,33 @@
+{
+  "slug": "fengrufeitun",
+  "title": "丰乳肥臀",
+  "author": "莫言",
+  "era": "当代",
+  "subtitle": "一位母亲以乳房哺育九个孩子，也承受了百年动荡的全部重量",
+  "description": "《丰乳肥臀》以上官鲁氏的一生为轴，写她在清末屠村幸存、裹脚嫁入铁匠家、因丈夫不育而辗转借种、先后生下八女一男；又以金童玉女与七位姐姐的离散死亡为网，铺展高密东北乡从日军入侵、国共内战、土改、大跃进、文革到改革开放近百年的动荡与创伤。莫言以丰沛的感官与魔幻笔法，把母亲的坚韧、儿子的懦弱和民族记忆熔铸成一部关于生命、土地与欲望的史诗。",
+  "genres": ["小说", "当代文学", "魔幻现实主义"],
+  "readingMinutes": 90,
+  "chapterCount": 63,
+  "coverTone": "ochre",
+  "publishedAt": "2026-07-15",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 5
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 15
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 90
+    }
+  ]
+}
