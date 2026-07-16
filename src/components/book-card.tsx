@@ -38,6 +38,9 @@ export function BookCard({ book }: { book: CatalogBook }) {
         title={book.title}
         author={book.author}
         tone={book.coverTone}
+        era={book.era}
+        genres={book.genres}
+        chapterCount={book.chapterCount}
         className="w-full transition-transform duration-300 group-hover:-translate-y-1"
       />
       <div className="mt-3 sm:mt-5">
