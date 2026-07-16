@@ -25,12 +25,6 @@ export type LibraryReaderState = {
 
 type StorageReader = Pick<Storage, "getItem" | "removeItem">;
 
-export const readingModeLabels: Record<ReadingMode, { label: string; minutes: string }> = {
-  overview: { label: "全书速览", minutes: "5 分钟" },
-  journey: { label: "故事路线", minutes: "20 分钟" },
-  complete: { label: "完整梗概", minutes: "60 分钟" },
-};
-
 export function getReaderStorageKey(bookSlug: string) {
   return `storyline:reader:v${readerStateVersion}:${bookSlug}`;
 }

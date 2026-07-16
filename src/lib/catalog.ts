@@ -31,6 +31,12 @@ export type CatalogBook = {
   genres: string[];
   collectionTags?: string[];
   readingMinutes: number;
+  readingModes: Array<{
+    id: "overview" | "journey" | "complete";
+    file: string;
+    title: string;
+    readingMinutes: number;
+  }>;
   chapterCount: number;
   coverTone: CoverTone;
   publishedAt: string;

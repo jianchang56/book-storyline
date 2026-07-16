@@ -22,9 +22,9 @@ content/<slug>/
 必须包含：`slug`、`title`、`author`、`era`、`subtitle`、`description`、`genres`、`readingMinutes`、`chapterCount`、`coverTone`、`publishedAt`、`readingModes`。
 
 - `chapterCount` 必须与 `20-full.md` 中的二级回目标题数量一致。
-- `readingMinutes` 表示完整档预计阅读时间。
+- `readingMinutes` 表示完整档预计阅读时间，按有效正文每分钟 400 字、向上取整且最低 1 分钟估算。
 - `slug` 必须与目录名一致。
-- `readingModes` 按 `overview`、`journey`、`complete` 顺序列出文件、标题和实际预计阅读分钟数。
+- `readingModes` 按 `overview`、`journey`、`complete` 顺序列出文件、标题和预计阅读分钟数；正文变化后使用 `update_reading_minutes.py` 统一同步。
 - 分钟数可以因书籍而异，不能编码进文件名。
 
 ## README.md
