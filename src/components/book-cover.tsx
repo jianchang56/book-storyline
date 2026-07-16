@@ -141,9 +141,7 @@ export function BookCover({
   const titleTypography =
     titleLength >= 7
       ? "text-[clamp(1.05rem,10cqw,1.42rem)] leading-[1.18] tracking-[0.045em]"
-      : titleLength >= 5
-        ? "text-[clamp(1.25rem,13cqw,1.72rem)] leading-[1.18] tracking-[0.07em]"
-        : "text-[clamp(1.5rem,18cqw,2.15rem)] leading-[1.16] tracking-[0.1em]";
+      : "text-[clamp(1.25rem,13cqw,1.72rem)] leading-[1.18] tracking-[0.07em]";
 
   return (
     <div
