@@ -84,6 +84,9 @@ export default function HomePage() {
                     title={featuredBook.title}
                     author={featuredBook.author}
                     tone={featuredBook.coverTone}
+                    era={featuredBook.era}
+                    genres={featuredBook.genres}
+                    chapterCount={featuredBook.chapterCount}
                   />
                   <div className="story-spine py-1 pl-7 [--story-spine-axis:0.375rem]">
                     <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">

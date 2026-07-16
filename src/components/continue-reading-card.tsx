@@ -38,7 +38,14 @@ export function ContinueReadingCard({ books }: { books: CatalogBook[] }) {
   return (
     <section className="mb-12 overflow-hidden rounded-[2rem] border border-border bg-card/70 p-5 shadow-[0_24px_70px_-54px_rgba(18,38,40,0.7)] sm:mb-16 sm:p-7">
       <div className="grid grid-cols-[5rem_1fr] items-center gap-5 sm:grid-cols-[6.5rem_1fr_auto] sm:gap-7">
-        <BookCover title={book.title} author={book.author} tone={book.coverTone} />
+        <BookCover
+          title={book.title}
+          author={book.author}
+          tone={book.coverTone}
+          era={book.era}
+          genres={book.genres}
+          chapterCount={book.chapterCount}
+        />
         <div className="min-w-0">
           <p className="flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-primary">
             <Bookmark className="size-3.5" /> 最近阅读

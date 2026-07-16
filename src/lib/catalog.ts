@@ -27,6 +27,7 @@ export type CatalogBook = {
   slug: string;
   title: string;
   author: string;
+  era: string;
   tagline: string;
   genres: string[];
   collectionTags?: string[];
