@@ -86,6 +86,7 @@ export function BookCard({ book }: { book: CatalogBook }) {
     return (
       <Link
         href={href}
+        prefetch={false}
         className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       >
         {content}
