@@ -1194,7 +1194,15 @@ export function BookReader({ book }: { book: Book }) {
               variant="ghost"
               size="icon"
               aria-label="返回顶部"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              title="返回顶部"
+              className={cn(
+                "transition-[opacity,width]",
+                progress > 3 ? "opacity-100" : "pointer-events-none w-0 overflow-hidden opacity-0",
+              )}
+              onClick={() => {
+                const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+              }}
             >
               <ArrowUp />
             </Button>
