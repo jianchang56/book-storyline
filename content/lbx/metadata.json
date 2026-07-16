@@ -6,13 +6,13 @@
   "subtitle": "一个人在荒岛上住了二十八年，然后他把这活成了日常",
   "description": "鲁宾逊·克罗索不顾父母反对出海冒险，遭遇海难流落荒岛。他在岛上独自生活二十八年，从枪和火药开始重建了整个人类文明——种地、打猎、烧陶、驯养。而后救下一个野人取名星期五，最终帮助一位船长平叛得以重返文明世界。",
   "genres": ["古典小说", "冒险", "经典"],
-  "readingMinutes": 25,
+  "readingMinutes": 4,
   "chapterCount": 10,
   "coverTone": "ocean",
   "publishedAt": "2026-07-15",
   "readingModes": [
-    { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 5 },
-    { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
-    { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 25 }
+    { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+    { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+    { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 4 }
   ]
 }

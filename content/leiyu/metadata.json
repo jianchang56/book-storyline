@@ -6,7 +6,7 @@
   "subtitle": "一个闷热的夏日，两代人的罪与罚在一夜之间倾泻殆尽",
   "description": "周朴园一家表面秩序井然，实则窒息压抑。三十年前被赶走的侍萍改名鲁妈，带着女儿四凤重回周公馆；一个雷雨之夜，血缘秘密被揭开，三个年轻生命相继陨落。",
   "genres": ["话剧", "悲剧", "家庭"],
-  "readingMinutes": 20,
+  "readingMinutes": 7,
   "chapterCount": 6,
   "coverTone": "indigo",
   "publishedAt": "2026-07-15",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 3
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 20
+      "readingMinutes": 7
     }
   ]
 }

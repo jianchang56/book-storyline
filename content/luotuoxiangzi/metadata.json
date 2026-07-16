@@ -15,13 +15,13 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 5
+      "readingMinutes": 3
     },
     {
       "id": "complete",

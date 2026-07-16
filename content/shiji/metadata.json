@@ -7,7 +7,7 @@
   "description": "西汉司马迁撰，上起黄帝，下迄汉武帝，分本纪、表、书、世家、列传五体，共一百三十篇，记述约三千年间政治、军事、制度、文化之兴衰与重要人物事迹。",
   "genres": ["历史", "纪传体", "通史"],
   "collectionTags": ["二十四史", "史传经典"],
-  "readingMinutes": 180,
+  "readingMinutes": 49,
   "chapterCount": 130,
   "coverTone": "stone",
   "publishedAt": "2026-07-15",
@@ -16,19 +16,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 10
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "历史路线",
-      "readingMinutes": 25
+      "readingMinutes": 5
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 180
+      "readingMinutes": 49
     }
   ]
 }

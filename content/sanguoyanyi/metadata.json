@@ -7,7 +7,7 @@
   "description": "以东汉末年至西晋初年近百年的政治军事动荡为背景，讲述魏、蜀、吴三国由群雄并起、鼎足而立到终归一统的历史传奇。",
   "genres": ["古典小说", "历史", "战争"],
   "collectionTags": ["四大名著"],
-  "readingMinutes": 120,
+  "readingMinutes": 194,
   "chapterCount": 120,
   "coverTone": "indigo",
   "publishedAt": "2026-07-14",
@@ -16,19 +16,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 1
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 20
+      "readingMinutes": 5
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 120
+      "readingMinutes": 194
     }
   ]
 }

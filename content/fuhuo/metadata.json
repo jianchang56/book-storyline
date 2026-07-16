@@ -6,7 +6,7 @@
   "subtitle": "一章读完聂赫留道夫与玛丝洛娃的灵魂复活",
   "description": "贵族青年聂赫留道夫在法庭上认出沦落风尘的玛丝洛娃，正是自己当年抛弃的卡秋莎。他为赎罪放弃财产与地位，陪她踏上流放之路，两人在苦难与宽恕中完成了灵魂的复活。",
   "genres": ["外国文学", "小说", "经典"],
-  "readingMinutes": 15,
+  "readingMinutes": 4,
   "chapterCount": 1,
   "coverTone": "jade",
   "publishedAt": "2026-07-14",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 1
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 5
+      "readingMinutes": 1
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 15
+      "readingMinutes": 4
     }
   ]
 }

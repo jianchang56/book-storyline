@@ -6,7 +6,7 @@
   "subtitle": "六十五章读完一个男孩的成长、漂泊与归宿",
   "description": "大卫·科波菲尔幼年丧父、受继父虐待，独自闯荡伦敦，在姨奶奶、朋友与爱人扶持下成长为作家。狄更斯以半自传体式写尽 Victorian 时代底层与中产阶层的苦乐悲欢。",
   "genres": ["外国文学", "小说", "成长"],
-  "readingMinutes": 60,
+  "readingMinutes": 53,
   "chapterCount": 65,
   "coverTone": "sand",
   "publishedAt": "2026-07-14",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 20
+      "readingMinutes": 5
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 60
+      "readingMinutes": 53
     }
   ]
 }

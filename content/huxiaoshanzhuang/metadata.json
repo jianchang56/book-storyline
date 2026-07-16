@@ -6,7 +6,7 @@
   "subtitle": "一段跨越两代人的荒原爱恨与复仇轮回",
   "description": "弃儿希刺克厉夫与恩萧家女儿凯瑟琳在荒原上长大，因身份与误解分离。希刺克厉夫带着仇恨归来，摧毁了两个家族，却在第二代凯瑟琳与哈里顿身上看见了往昔的幻影，最终走向自我终结。",
   "genres": ["英国小说", "哥特", "爱情", "复仇"],
-  "readingMinutes": 60,
+  "readingMinutes": 14,
   "chapterCount": 34,
   "coverTone": "heather",
   "publishedAt": "2026-07-15",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 20
+      "readingMinutes": 8
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 60
+      "readingMinutes": 14
     }
   ]
 }
