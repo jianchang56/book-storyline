@@ -6,7 +6,7 @@
   "subtitle": "五十九章读完一个乡村少女的纯洁与毁灭",
   "description": "英国威塞克斯乡村少女苔丝·德北菲尔德因家族虚荣心被送往特兰里奇，遭阿历克·德贝维尔诱骗失身；她在泰波塞斯奶牛场重获新生，与安琪儿·克莱尔相爱成婚，却在新婚之夜因坦白过去而被抛弃。苔丝在贫困与流言中挣扎求生，最终在阿历克再度纠缠、安琪儿迟来的悔悟之间，走向毁灭性的悲剧结局。",
   "genres": ["长篇小说", "现实主义", "悲剧", "乡土"],
-  "readingMinutes": 50,
+  "readingMinutes": 29,
   "chapterCount": 59,
   "coverTone": "heather",
   "publishedAt": "2026-07-15",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 8
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 12
+      "readingMinutes": 3
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 50
+      "readingMinutes": 29
     }
   ]
 }

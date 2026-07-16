@@ -6,7 +6,7 @@
   "subtitle": "一段无法实现的炽热之爱，如何将一个敏感灵魂推向毁灭",
   "description": "《少年维特的烦恼》是歌德的书信体小说代表作。青年维特逃离城市的感情纠葛，在乡间瓦尔海姆爱上已订婚的绿蒂；阿尔贝特归来后，维特陷入无望的爱情，继而投身仕途、遭遇等级偏见，最终回到绿蒂身边，在痛苦与绝望中开枪自尽。小说以诗化的内心独白，刻画了一个崇尚自然、敏感多情的青年与封建世俗之间的悲剧冲突。",
   "genres": ["小说", "德国文学", "书信体小说", "爱情悲剧"],
-  "readingMinutes": 35,
+  "readingMinutes": 16,
   "chapterCount": 88,
   "coverTone": "forest",
   "publishedAt": "2026-07-15",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 1
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 10
+      "readingMinutes": 2
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 35
+      "readingMinutes": 16
     }
   ]
 }

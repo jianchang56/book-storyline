@@ -19,7 +19,7 @@ description: 将 Codex 或其他 Agent 生成的分章故事梗概发布为 Stor
    - `metadata.json`
 4. 保留章节作为内容生产、失败重试和 manifest 校验单位，但把发布成品合并到 `20-full.md`。每回使用 H2，确保网站仍能生成稳定的 `chapter-N` 锚点。
 5. 让故事阶段连续覆盖全部章节。阶段边界来自目标、地点、队伍状态或长期冲突的变化，不按固定章数机械切分。
-6. 把三档实际阅读时间写入 `metadata.json`。保持 `00/10/20` 顺序前缀稳定，不把分钟数写进文件名。
+6. 按每分钟 400 个有效文字、向上取整且最低 1 分钟估算三档阅读时间。运行 `scripts/update_reading_minutes.py content/<slug 的上级目录>` 同步 `metadata.json` 和 Markdown 中展示的分钟数。保持 `00/10/20` 顺序前缀稳定，不把分钟数写进文件名。
 7. 运行单本确定性校验：
 
    ```powershell
@@ -37,6 +37,13 @@ description: 将 Codex 或其他 Agent 生成的分章故事梗概发布为 Stor
    ```powershell
    python skills/publish-storyline-book/scripts/generate_catalog.py content
    python skills/publish-storyline-book/scripts/validate_library.py content
+   ```
+
+   批量发布或正文有改动时，生成目录前先同步并检查阅读时间：
+
+   ```powershell
+   python skills/publish-storyline-book/scripts/update_reading_minutes.py content
+   python skills/publish-storyline-book/scripts/update_reading_minutes.py content --check
    ```
 
 9. 修改网站代码时，再运行仓库规定的格式、类型、测试和构建命令。

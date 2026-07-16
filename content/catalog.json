@@ -5,7 +5,12 @@
     "author": "简·奥斯汀",
     "tagline": "六十一章读完偏见如何消融、傲慢如何低头",
     "genres": ["外国文学", "小说", "经典", "爱情"],
-    "readingMinutes": 45,
+    "readingMinutes": 19,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 19 }
+    ],
     "chapterCount": 61,
     "coverTone": "rose",
     "publishedAt": "2026-07-15",
@@ -17,7 +22,12 @@
     "author": "陈忠实",
     "tagline": "三十四章读完渭河平原五十年家族恩怨与时代巨轮",
     "genres": ["中国文学", "小说", "经典", "乡土"],
-    "readingMinutes": 75,
+    "readingMinutes": 15,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 15 }
+    ],
     "chapterCount": 34,
     "coverTone": "sand",
     "publishedAt": "2026-07-15",
@@ -29,7 +39,12 @@
     "author": "托马斯·哈代",
     "tagline": "五十九章读完一个乡村少女的纯洁与毁灭",
     "genres": ["长篇小说", "现实主义", "悲剧", "乡土"],
-    "readingMinutes": 50,
+    "readingMinutes": 29,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 29 }
+    ],
     "chapterCount": 59,
     "coverTone": "heather",
     "publishedAt": "2026-07-15",
@@ -41,7 +56,12 @@
     "author": "莫言",
     "tagline": "一位母亲以乳房哺育九个孩子，也承受了百年动荡的全部重量",
     "genres": ["小说", "当代文学", "魔幻现实主义"],
-    "readingMinutes": 90,
+    "readingMinutes": 30,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 30 }
+    ],
     "chapterCount": 63,
     "coverTone": "ochre",
     "publishedAt": "2026-07-15",
@@ -53,7 +73,12 @@
     "author": "尼古拉·奥斯特洛夫斯基",
     "tagline": "从车站童工到百炼成钢——保尔·柯察金的革命人生",
     "genres": ["现代小说", "革命文学"],
-    "readingMinutes": 30,
+    "readingMinutes": 13,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 13 }
+    ],
     "chapterCount": 18,
     "coverTone": "steel",
     "publishedAt": "2026-07-15",
@@ -65,7 +90,12 @@
     "author": "乔纳森·斯威夫特",
     "tagline": "四段奇旅看尽人性百态——从小人国到慧洇国的讽刺之旅",
     "genres": ["古典小说", "讽刺", "幻想"],
-    "readingMinutes": 30,
+    "readingMinutes": 8,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 8 }
+    ],
     "chapterCount": 34,
     "coverTone": "sage",
     "publishedAt": "2026-07-15",
@@ -77,7 +107,12 @@
     "author": "莎士比亚",
     "tagline": "丹麦王子的复仇与延宕",
     "genres": ["戏剧", "悲剧", "复仇"],
-    "readingMinutes": 35,
+    "readingMinutes": 9,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 9 }
+    ],
     "chapterCount": 5,
     "coverTone": "slate",
     "publishedAt": "2026-07-15",
@@ -89,7 +124,12 @@
     "author": "海伦·凯勒",
     "tagline": "一个人可以被剥夺视觉和听觉，但没有人能剥夺她选择怎样活着的权利",
     "genres": ["非虚构", "自传", "励志"],
-    "readingMinutes": 20,
+    "readingMinutes": 4,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 4 }
+    ],
     "chapterCount": 5,
     "coverTone": "sunset",
     "publishedAt": "2026-07-15",
@@ -101,7 +141,12 @@
     "author": "余华",
     "tagline": "一个老人与一头老牛，走完时代落在个人身上的全部重量",
     "genres": ["小说", "当代文学", "现实主义"],
-    "readingMinutes": 55,
+    "readingMinutes": 15,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 15 }
+    ],
     "chapterCount": 7,
     "coverTone": "sand",
     "publishedAt": "2026-07-15",
@@ -113,7 +158,12 @@
     "author": "艾米莉·勃朗特",
     "tagline": "一段跨越两代人的荒原爱恨与复仇轮回",
     "genres": ["英国小说", "哥特", "爱情", "复仇"],
-    "readingMinutes": 60,
+    "readingMinutes": 14,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 8 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 14 }
+    ],
     "chapterCount": 34,
     "coverTone": "heather",
     "publishedAt": "2026-07-15",
@@ -125,7 +175,12 @@
     "author": "夏洛蒂·勃朗特",
     "tagline": "不漂亮、没地位、没钱——但她的尊严从不打折",
     "genres": ["古典小说", "爱情", "经典"],
-    "readingMinutes": 25,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 5,
     "coverTone": "heather",
     "publishedAt": "2026-07-15",
@@ -137,7 +192,12 @@
     "author": "大仲马",
     "tagline": "十四年黑牢炼狱，一纸宝藏卷起滔天复仇",
     "genres": ["古典小说", "冒险", "复仇"],
-    "readingMinutes": 45,
+    "readingMinutes": 16,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 16 }
+    ],
     "chapterCount": 106,
     "coverTone": "midnight",
     "publishedAt": "2026-07-15",
@@ -149,7 +209,12 @@
     "author": "李汝珍",
     "tagline": "一百回读完百花谪贬、海外寻亲与才女聚宴",
     "genres": ["古典小说", "神魔", "才女", "海外游记"],
-    "readingMinutes": 75,
+    "readingMinutes": 32,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 32 }
+    ],
     "chapterCount": 100,
     "coverTone": "jade",
     "publishedAt": "2026-07-15",
@@ -161,7 +226,12 @@
     "author": "丹尼尔·笛福",
     "tagline": "一个人在荒岛上住了二十八年，然后他把这活成了日常",
     "genres": ["古典小说", "冒险", "经典"],
-    "readingMinutes": 25,
+    "readingMinutes": 4,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 4 }
+    ],
     "chapterCount": 10,
     "coverTone": "ocean",
     "publishedAt": "2026-07-15",
@@ -173,7 +243,12 @@
     "author": "曹禺",
     "tagline": "一个闷热的夏日，两代人的罪与罚在一夜之间倾泻殆尽",
     "genres": ["话剧", "悲剧", "家庭"],
-    "readingMinutes": 20,
+    "readingMinutes": 7,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 3 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 7 }
+    ],
     "chapterCount": 6,
     "coverTone": "indigo",
     "publishedAt": "2026-07-15",
@@ -186,6 +261,11 @@
     "tagline": "二十四章看尽北平车夫的三起三落",
     "genres": ["现代小说", "现实主义", "都市底层"],
     "readingMinutes": 15,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 15 }
+    ],
     "chapterCount": 24,
     "coverTone": "ochre",
     "publishedAt": "2026-07-15",
@@ -197,7 +277,12 @@
     "author": "J.D.塞林格",
     "tagline": "一个十六岁少年被开除后的纽约两日游荡与内心风暴",
     "genres": ["现代小说", "成长", "经典"],
-    "readingMinutes": 45,
+    "readingMinutes": 14,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 14 }
+    ],
     "chapterCount": 26,
     "coverTone": "amber",
     "publishedAt": "2026-07-15",
@@ -209,7 +294,12 @@
     "author": "村上春树",
     "tagline": "关于青春、死亡与爱的长篇",
     "genres": ["小说", "爱情", "成长", "青春"],
-    "readingMinutes": 40,
+    "readingMinutes": 11,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 11 }
+    ],
     "chapterCount": 13,
     "coverTone": "forest",
     "publishedAt": "2026-07-15",
@@ -221,7 +311,12 @@
     "author": "玛格丽特·米切尔",
     "tagline": "六十三章读完思嘉·奥哈拉与旧南方的盛衰",
     "genres": ["外国文学", "小说", "经典", "爱情"],
-    "readingMinutes": 90,
+    "readingMinutes": 38,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 3 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 38 }
+    ],
     "chapterCount": 63,
     "coverTone": "cinnabar",
     "publishedAt": "2026-07-15",
@@ -233,7 +328,12 @@
     "author": "歌德",
     "tagline": "一段无法实现的炽热之爱，如何将一个敏感灵魂推向毁灭",
     "genres": ["小说", "德国文学", "书信体小说", "爱情悲剧"],
-    "readingMinutes": 35,
+    "readingMinutes": 16,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 16 }
+    ],
     "chapterCount": 88,
     "coverTone": "forest",
     "publishedAt": "2026-07-15",
@@ -245,7 +345,12 @@
     "author": "但丁",
     "tagline": "一百首读完地狱、炼狱与天堂的灵魂旅程",
     "genres": ["史诗", "宗教文学", "寓言"],
-    "readingMinutes": 60,
+    "readingMinutes": 33,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 33 }
+    ],
     "chapterCount": 100,
     "coverTone": "indigo",
     "publishedAt": "2026-07-15",
@@ -258,7 +363,12 @@
     "tagline": "中国第一部纪传体通史",
     "genres": ["历史", "纪传体", "通史"],
     "collectionTags": ["二十四史", "史传经典"],
-    "readingMinutes": 180,
+    "readingMinutes": 49,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "历史路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 49 }
+    ],
     "chapterCount": 130,
     "coverTone": "stone",
     "publishedAt": "2026-07-15",
@@ -270,7 +380,12 @@
     "author": "查尔斯·狄更斯",
     "tagline": "四十五章读完一个关于复活、爱与牺牲的故事",
     "genres": ["外国文学", "小说", "经典", "历史"],
-    "readingMinutes": 55,
+    "readingMinutes": 16,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 16 }
+    ],
     "chapterCount": 45,
     "coverTone": "midnight",
     "publishedAt": "2026-07-15",
@@ -282,7 +397,12 @@
     "author": "阿尔贝·加缪",
     "tagline": "五部曲读完奥兰城的瘟疫、囚禁与抗争",
     "genres": ["外国文学", "小说", "经典", "存在主义"],
-    "readingMinutes": 35,
+    "readingMinutes": 11,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 11 }
+    ],
     "chapterCount": 5,
     "coverTone": "slate",
     "publishedAt": "2026-07-15",
@@ -294,7 +414,12 @@
     "author": "老舍",
     "tagline": "一百段读完北平小羊圈胡同八年沦陷中的四世同堂",
     "genres": ["中国文学", "小说", "经典"],
-    "readingMinutes": 40,
+    "readingMinutes": 47,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 47 }
+    ],
     "chapterCount": 100,
     "coverTone": "stone",
     "publishedAt": "2026-07-15",
@@ -306,7 +431,12 @@
     "author": "高尔基",
     "tagline": "一个孩子在苦难中俄国底层的成长",
     "genres": ["外国文学", "小说", "自传", "经典"],
-    "readingMinutes": 40,
+    "readingMinutes": 7,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 7 }
+    ],
     "chapterCount": 12,
     "coverTone": "stone",
     "publishedAt": "2026-07-15",
@@ -318,7 +448,12 @@
     "author": "亨利·戴维·梭罗",
     "tagline": "在瓦尔登湖畔独居两年，重新发现简单生活的可能",
     "genres": ["散文", "哲学", "自然"],
-    "readingMinutes": 40,
+    "readingMinutes": 10,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 10 }
+    ],
     "chapterCount": 18,
     "coverTone": "forest",
     "publishedAt": "2026-07-15",
@@ -330,7 +465,12 @@
     "author": "[挪威]亨利克·易卜生",
     "tagline": "三幕社会问题剧：一个“泥娃娃妻子”的觉醒与出走",
     "genres": ["外国文学", "戏剧", "经典", "社会问题剧"],
-    "readingMinutes": 12,
+    "readingMinutes": 4,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 4 }
+    ],
     "chapterCount": 3,
     "coverTone": "slate",
     "publishedAt": "2026-07-15",
@@ -342,7 +482,12 @@
     "author": "莎拉·杜楠特",
     "tagline": "一个佛罗伦萨女子在艺术、信仰与命运之间的自白",
     "genres": ["外国文学", "小说", "历史小说"],
-    "readingMinutes": 50,
+    "readingMinutes": 15,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 15 }
+    ],
     "chapterCount": 51,
     "coverTone": "rose",
     "publishedAt": "2026-07-15",
@@ -354,7 +499,12 @@
     "author": "托马斯·莫尔",
     "tagline": "只要私有制存在，社会就不可能真正公正——1516年的书，到今天还是预言",
     "genres": ["古典小说", "哲学", "经典"],
-    "readingMinutes": 20,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 2,
     "coverTone": "forest",
     "publishedAt": "2026-07-15",
@@ -366,7 +516,12 @@
     "author": "查尔斯·狄更斯",
     "tagline": "五十三章读完孤儿的伦敦历险与身世之谜",
     "genres": ["社会小说", "成长", "批判现实主义"],
-    "readingMinutes": 70,
+    "readingMinutes": 10,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 10 }
+    ],
     "chapterCount": 53,
     "coverTone": "slate",
     "publishedAt": "2026-07-15",
@@ -378,7 +533,12 @@
     "author": "王实甫",
     "tagline": "五本杂剧读完张生与崔莺莺的西厢姻缘",
     "genres": ["元曲", "杂剧", "爱情"],
-    "readingMinutes": 55,
+    "readingMinutes": 11,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 3 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 11 }
+    ],
     "chapterCount": 26,
     "coverTone": "cinnabar",
     "publishedAt": "2026-07-15",
@@ -390,7 +550,12 @@
     "author": "查尔斯·狄更斯",
     "tagline": "他的前程来自一个逃犯的钱——真相大白后，他才真正长大",
     "genres": ["古典小说", "成长", "经典"],
-    "readingMinutes": 25,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 4,
     "coverTone": "teal",
     "publishedAt": "2026-07-15",
@@ -402,7 +567,12 @@
     "author": "罗曼·罗兰",
     "tagline": "真正的英雄主义不是战无不胜，而是在认清了生活的全部残酷之后，仍然燃烧了一辈子",
     "genres": ["现代小说", "成长", "经典"],
-    "readingMinutes": 25,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 5,
     "coverTone": "amber",
     "publishedAt": "2026-07-15",
@@ -414,7 +584,12 @@
     "author": "荷马",
     "tagline": "英雄的愤怒和无可挽回的毁灭——史诗的起点",
     "genres": ["古典小说", "史诗", "经典"],
-    "readingMinutes": 30,
+    "readingMinutes": 4,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 4 }
+    ],
     "chapterCount": 5,
     "coverTone": "ochre",
     "publishedAt": "2026-07-15",
@@ -426,7 +601,12 @@
     "author": "紫式部",
     "tagline": "他追逐了一辈子的东西叫\"不可能之爱\"——正因为得不到，他才那么想要",
     "genres": ["古典小说", "爱情", "经典"],
-    "readingMinutes": 35,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 6,
     "coverTone": "plum",
     "publishedAt": "2026-07-15",
@@ -438,7 +618,12 @@
     "author": "詹姆斯·费尼莫尔·库珀",
     "tagline": "一个种族的背影——文明在推进，森林在后退，莫希干人在消失",
     "genres": ["古典小说", "冒险", "经典"],
-    "readingMinutes": 20,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 4,
     "coverTone": "forest",
     "publishedAt": "2026-07-15",
@@ -450,7 +635,12 @@
     "author": "茅盾",
     "tagline": "十九章读完吴荪甫在公债、实业与工潮中的背水一战",
     "genres": ["现代小说", "社会", "经典"],
-    "readingMinutes": 45,
+    "readingMinutes": 6,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 6 }
+    ],
     "chapterCount": 19,
     "coverTone": "slate",
     "publishedAt": "2026-07-15",
@@ -462,7 +652,12 @@
     "author": "费奥多尔·陀思妥耶夫斯基",
     "tagline": "他以为人可以像上帝一样裁决生死——杀人之后，真正的惩罚才开始",
     "genres": ["古典小说", "心理", "经典"],
-    "readingMinutes": 30,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 5,
     "coverTone": "charcoal",
     "publishedAt": "2026-07-15",
@@ -474,7 +669,12 @@
     "author": "马塞尔·普鲁斯特",
     "tagline": "逝去的并没有真正消失——它们藏在味道和触感里，等你踩上去就全部回来",
     "genres": ["现代小说", "文学", "经典"],
-    "readingMinutes": 30,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 4,
     "coverTone": "lilac",
     "publishedAt": "2026-07-15",
@@ -486,7 +686,12 @@
     "author": "列夫·托尔斯泰",
     "tagline": "伟人不创造历史，历史的潮流推动伟人",
     "genres": ["古典小说", "历史", "经典"],
-    "readingMinutes": 35,
+    "readingMinutes": 3,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
+    ],
     "chapterCount": 5,
     "coverTone": "ivory",
     "publishedAt": "2026-07-15",
@@ -498,7 +703,12 @@
     "author": "雨果",
     "tagline": "圣母院钟楼里的一段美与罪的纠葛",
     "genres": ["外国文学", "小说", "经典"],
-    "readingMinutes": 10,
+    "readingMinutes": 5,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 5 }
+    ],
     "chapterCount": 1,
     "coverTone": "cinnabar",
     "publishedAt": "2026-07-14",
@@ -510,7 +720,12 @@
     "author": "雨果",
     "tagline": "四十三卷读完一个世纪的苦难与光辉",
     "genres": ["外国文学", "小说", "经典"],
-    "readingMinutes": 120,
+    "readingMinutes": 12,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 12 }
+    ],
     "chapterCount": 43,
     "coverTone": "indigo",
     "publishedAt": "2026-07-14",
@@ -522,7 +737,12 @@
     "author": "沈从文",
     "tagline": "八章读完茶峒渡口的爱与等待",
     "genres": ["现代小说", "乡土", "爱情"],
-    "readingMinutes": 15,
+    "readingMinutes": 7,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 7 }
+    ],
     "chapterCount": 8,
     "coverTone": "jade",
     "publishedAt": "2026-07-14",
@@ -534,7 +754,12 @@
     "author": "狄更斯",
     "tagline": "六十五章读完一个男孩的成长、漂泊与归宿",
     "genres": ["外国文学", "小说", "成长"],
-    "readingMinutes": 60,
+    "readingMinutes": 53,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 53 }
+    ],
     "chapterCount": 65,
     "coverTone": "sand",
     "publishedAt": "2026-07-14",
@@ -546,7 +771,12 @@
     "author": "列夫·托尔斯泰",
     "tagline": "一章读完聂赫留道夫与玛丝洛娃的灵魂复活",
     "genres": ["外国文学", "小说", "经典"],
-    "readingMinutes": 15,
+    "readingMinutes": 4,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 4 }
+    ],
     "chapterCount": 1,
     "coverTone": "jade",
     "publishedAt": "2026-07-14",
@@ -558,7 +788,12 @@
     "author": "巴尔扎克",
     "tagline": "六章读完一个父亲的倾尽与巴黎的冷酷",
     "genres": ["外国文学", "小说", "经典"],
-    "readingMinutes": 15,
+    "readingMinutes": 4,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 4 }
+    ],
     "chapterCount": 6,
     "coverTone": "sand",
     "publishedAt": "2026-07-14",
@@ -571,7 +806,12 @@
     "tagline": "一百二十回读完大观园的盛衰与木石前盟",
     "genres": ["古典小说", "世情", "家族"],
     "collectionTags": ["四大名著"],
-    "readingMinutes": 150,
+    "readingMinutes": 148,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 148 }
+    ],
     "chapterCount": 120,
     "coverTone": "plum",
     "publishedAt": "2026-07-14",
@@ -583,7 +823,12 @@
     "author": "海明威",
     "tagline": "一个老人、一条大鱼与一片大海的独自搏斗",
     "genres": ["外国文学", "小说", "经典"],
-    "readingMinutes": 10,
+    "readingMinutes": 5,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 5 }
+    ],
     "chapterCount": 1,
     "coverTone": "indigo",
     "publishedAt": "2026-07-14",
@@ -595,7 +840,12 @@
     "author": "巴尔扎克",
     "tagline": "十节读完一笔被金钱吞噬的爱情与一生",
     "genres": ["外国文学", "小说", "经典"],
-    "readingMinutes": 15,
+    "readingMinutes": 5,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 5 }
+    ],
     "chapterCount": 10,
     "coverTone": "sand",
     "publishedAt": "2026-07-14",
@@ -607,7 +857,12 @@
     "author": "路遥",
     "tagline": "一百六十三章读完黄土高原上的劳动与尊严",
     "genres": ["当代小说", "现实主义", "农村"],
-    "readingMinutes": 120,
+    "readingMinutes": 138,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 138 }
+    ],
     "chapterCount": 163,
     "coverTone": "sand",
     "publishedAt": "2026-07-14",
@@ -620,7 +875,12 @@
     "tagline": "一百二十回读完群雄并起、三分天下与三国归晋",
     "genres": ["古典小说", "历史", "战争"],
     "collectionTags": ["四大名著"],
-    "readingMinutes": 120,
+    "readingMinutes": 194,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 194 }
+    ],
     "chapterCount": 120,
     "coverTone": "indigo",
     "publishedAt": "2026-07-14",
@@ -634,6 +894,11 @@
     "genres": ["古典小说", "英雄", "江湖"],
     "collectionTags": ["四大名著"],
     "readingMinutes": 120,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 3 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 120 }
+    ],
     "chapterCount": 120,
     "coverTone": "sand",
     "publishedAt": "2026-07-14",
@@ -645,7 +910,12 @@
     "author": "塞万提斯",
     "tagline": "一百二十五章读完骑士的诞生、冒险与消逝",
     "genres": ["外国文学", "小说", "经典"],
-    "readingMinutes": 120,
+    "readingMinutes": 117,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 117 }
+    ],
     "chapterCount": 125,
     "coverTone": "indigo",
     "publishedAt": "2026-07-14",
@@ -657,7 +927,12 @@
     "author": "钱锺书",
     "tagline": "五章读完方鸿渐的文凭、情场与婚姻困局",
     "genres": ["现代小说", "讽刺", "爱情"],
-    "readingMinutes": 15,
+    "readingMinutes": 6,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 6 }
+    ],
     "chapterCount": 5,
     "coverTone": "plum",
     "publishedAt": "2026-07-14",
@@ -670,7 +945,12 @@
     "tagline": "一百回读完取经起因、八十一难与五圣成真",
     "genres": ["古典小说", "神魔", "冒险"],
     "collectionTags": ["四大名著"],
-    "readingMinutes": 60,
+    "readingMinutes": 39,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 9 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 39 }
+    ],
     "chapterCount": 100,
     "coverTone": "cinnabar",
     "publishedAt": "2026-07-13",
@@ -682,7 +962,12 @@
     "author": "乔斯坦·贾德",
     "tagline": "一部关于哲学史的小说",
     "genres": ["哲学", "小说", "青少年文学"],
-    "readingMinutes": 240,
+    "readingMinutes": 23,
+    "readingModes": [
+      { "id": "overview", "title": "全书速览", "file": "00-overview.md", "readingMinutes": 1 },
+      { "id": "journey", "title": "哲学之旅", "file": "10-route.md", "readingMinutes": 3 },
+      { "id": "complete", "title": "完整阅读", "file": "20-full.md", "readingMinutes": 23 }
+    ],
     "chapterCount": 35,
     "coverTone": "indigo",
     "publishedAt": "1991",

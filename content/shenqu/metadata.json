@@ -6,7 +6,7 @@
   "subtitle": "一百首读完地狱、炼狱与天堂的灵魂旅程",
   "description": "但丁在人生中途迷失于幽暗森林，由维吉尔引导穿越地狱与炼狱，再由贝阿特丽切接引升入天堂，遍历一百首叙事诗构成的灵魂救赎之路。",
   "genres": ["史诗", "宗教文学", "寓言"],
-  "readingMinutes": 60,
+  "readingMinutes": 33,
   "chapterCount": 100,
   "coverTone": "indigo",
   "publishedAt": "2026-07-15",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 15
+      "readingMinutes": 4
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 60
+      "readingMinutes": 33
     }
   ]
 }

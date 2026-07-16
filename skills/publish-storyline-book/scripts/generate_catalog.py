@@ -54,6 +54,7 @@ def collect_books(content_dir: Path) -> list[dict[str, Any]]:
             "tagline": metadata["subtitle"],
             "genres": metadata["genres"],
             "readingMinutes": metadata["readingMinutes"],
+            "readingModes": metadata["readingModes"],
             "chapterCount": metadata["chapterCount"],
             "coverTone": metadata["coverTone"],
             "publishedAt": metadata["publishedAt"],
@@ -77,6 +78,7 @@ def format_catalog(books: list[dict[str, Any]]) -> str:
         "genres",
         "collectionTags",
         "readingMinutes",
+        "readingModes",
         "chapterCount",
         "coverTone",
         "publishedAt",
@@ -87,6 +89,18 @@ def format_catalog(books: list[dict[str, Any]]) -> str:
         present_fields = [field for field in fields if field in book]
         for field_index, field in enumerate(present_fields):
             comma = "," if field_index < len(present_fields) - 1 else ""
+            if field == "readingModes":
+                lines.append(f'    "readingModes": [')
+                for mode_index, mode in enumerate(book[field]):
+                    mode_comma = "," if mode_index < len(book[field]) - 1 else ""
+                    properties = ", ".join(
+                        f"{json.dumps(key)}: {json.dumps(value, ensure_ascii=False)}"
+                        for key, value in mode.items()
+                    )
+                    value = f"{{ {properties} }}"
+                    lines.append(f"      {value}{mode_comma}")
+                lines.append(f"    ]{comma}")
+                continue
             value = json.dumps(book[field], ensure_ascii=False)
             lines.append(f"    {json.dumps(field)}: {value}{comma}")
         lines.append("  }," if book_index < len(books) - 1 else "  }")

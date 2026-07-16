@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { BookCover } from "@/components/book-cover";
 import { Badge } from "@/components/ui/badge";
 import type { CatalogBook } from "@/lib/catalog";
-import { type ReaderState, readingModeLabels, readReaderState } from "@/lib/reader-storage";
+import { type ReaderState, readReaderState } from "@/lib/reader-storage";
 
 export function BookCard({ book }: { book: CatalogBook }) {
   const [readerState, setReaderState] = useState<ReaderState | null>(null);
@@ -29,6 +29,9 @@ export function BookCard({ book }: { book: CatalogBook }) {
     pathname: `/books/${book.slug}`,
     hash: readerState?.lastSectionId,
   };
+  const activeReadingMode = readerState
+    ? book.readingModes.find((mode) => mode.id === readerState.mode)
+    : null;
   const content = (
     <>
       <BookCover
@@ -69,8 +72,8 @@ export function BookCard({ book }: { book: CatalogBook }) {
               />
             </div>
             <p className="mt-2 text-[11px] text-muted-foreground">
-              {readingModeLabels[readerState.mode].minutes} ·{" "}
-              {readingModeLabels[readerState.mode].label}
+              {activeReadingMode?.readingMinutes ?? book.readingMinutes} 分钟 ·{" "}
+              {activeReadingMode?.title ?? "完整梗概"}
             </p>
           </div>
         ) : (

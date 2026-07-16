@@ -6,13 +6,13 @@
   "subtitle": "一个十六岁少年被开除后的纽约两日游荡与内心风暴",
   "description": "霍尔顿·考尔菲德因四门功课不及格被潘西中学开除。他不敢立刻回家，于是在纽约城独自游荡将近两昼夜：住进怪人云集的旅馆，约女友看戏溜冰，深夜醉酒，偷偷回家向妹妹菲芘告别，又在他敬重的老师家借宿。在这场混乱的旅程中，他不断撞见成人世界的虚伪、欲望与暴力，也逐渐说出自己唯一的梦想——做“麦田里的守望者”，在悬崖边把奔向危险的孩子捉住。",
   "genres": ["现代小说", "成长", "经典"],
-  "readingMinutes": 45,
+  "readingMinutes": 14,
   "chapterCount": 26,
   "coverTone": "amber",
   "publishedAt": "2026-07-15",
   "readingModes": [
-    { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 5 },
-    { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
-    { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 45 }
+    { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+    { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+    { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 14 }
   ]
 }

@@ -7,7 +7,7 @@
   "description": "以女娲遗石下凡历劫为框架，写贾宝玉、林黛玉、薛宝钗等人在大观园中由盛转衰的爱情与家族故事。",
   "genres": ["古典小说", "世情", "家族"],
   "collectionTags": ["四大名著"],
-  "readingMinutes": 150,
+  "readingMinutes": 148,
   "chapterCount": 120,
   "coverTone": "plum",
   "publishedAt": "2026-07-14",
@@ -16,19 +16,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 20
+      "readingMinutes": 7
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 150
+      "readingMinutes": 148
     }
   ]
 }

@@ -6,7 +6,7 @@
   "subtitle": "四段奇旅看尽人性百态——从小人国到慧洇国的讽刺之旅",
   "description": "外科医生格列佛四次出海，先后漂流到小人国、大人国、飞岛国和慧洇国。他在小人国成为巨人，在大人国沦为玩物，在飞岛国目睹荒谬的学术，在慧洇国体会理性与兽性的对立。斯威夫特以荒诞离奇的旅行见闻，尖刻地讽刺了十八世纪英国的政治、法律、科学与人性。",
   "genres": ["古典小说", "讽刺", "幻想"],
-  "readingMinutes": 30,
+  "readingMinutes": 8,
   "chapterCount": 34,
   "coverTone": "sage",
   "publishedAt": "2026-07-15",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 8
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 10
+      "readingMinutes": 2
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 30
+      "readingMinutes": 8
     }
   ]
 }

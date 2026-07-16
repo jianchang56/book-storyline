@@ -6,7 +6,7 @@
   "subtitle": "五章读完方鸿渐的文凭、情场与婚姻困局",
   "description": "留学生方鸿渐带着买来的博士文凭回国，在战乱年代的上海与内地三闾大学之间辗转。他在情场、职场与婚姻中不断碰壁，最终发现自己也困在了一座无形的围城里。",
   "genres": ["现代小说", "讽刺", "爱情"],
-  "readingMinutes": 15,
+  "readingMinutes": 6,
   "chapterCount": 5,
   "coverTone": "plum",
   "publishedAt": "2026-07-14",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 15
+      "readingMinutes": 6
     }
   ]
 }

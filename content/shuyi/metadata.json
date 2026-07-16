@@ -6,7 +6,7 @@
   "subtitle": "五部曲读完奥兰城的瘟疫、囚禁与抗争",
   "description": "法属阿尔及利亚的奥兰城突发鼠疫，城市被封，居民陷入隔绝与流放。里厄医生、塔鲁、朗贝尔、格朗、帕纳卢神甫等人在死亡与分离中各自选择，以不同的方式与瘟疫抗争，见证人性的脆弱与尊严。",
   "genres": ["外国文学", "小说", "经典", "存在主义"],
-  "readingMinutes": 35,
+  "readingMinutes": 11,
   "chapterCount": 5,
   "coverTone": "slate",
   "publishedAt": "2026-07-15",
@@ -15,19 +15,19 @@
       "id": "overview",
       "file": "00-overview.md",
       "title": "全书速览",
-      "readingMinutes": 5
+      "readingMinutes": 2
     },
     {
       "id": "journey",
       "file": "10-route.md",
       "title": "故事路线",
-      "readingMinutes": 10
+      "readingMinutes": 3
     },
     {
       "id": "complete",
       "file": "20-full.md",
       "title": "完整梗概",
-      "readingMinutes": 35
+      "readingMinutes": 11
     }
   ]
 }
