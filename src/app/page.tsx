@@ -84,7 +84,6 @@ export default function HomePage() {
                     title={featuredBook.title}
                     author={featuredBook.author}
                     tone={featuredBook.coverTone}
-                    era={featuredBook.era}
                     genres={featuredBook.genres}
                     chapterCount={featuredBook.chapterCount}
                   />

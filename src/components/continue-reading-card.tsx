@@ -42,7 +42,6 @@ export function ContinueReadingCard({ books }: { books: CatalogBook[] }) {
           title={book.title}
           author={book.author}
           tone={book.coverTone}
-          era={book.era}
           genres={book.genres}
           chapterCount={book.chapterCount}
         />

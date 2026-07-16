@@ -113,7 +113,6 @@ export default async function BookPage({ params }: BookPageProps) {
                 title={book.metadata.title}
                 author={book.metadata.author}
                 tone={book.metadata.coverTone}
-                era={book.metadata.era}
                 genres={book.metadata.genres}
                 chapterCount={book.metadata.chapterCount}
                 className="w-full"
