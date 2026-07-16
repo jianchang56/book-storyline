@@ -1,4 +1,4 @@
-const CACHE_VERSION = "storyline-v2";
+const CACHE_VERSION = "storyline-v3";
 const SHELL_CACHE = `${CACHE_VERSION}:shell`;
 const BOOK_CACHE = `${CACHE_VERSION}:books`;
 const ASSET_CACHE = `${CACHE_VERSION}:assets`;
