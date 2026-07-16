@@ -2,13 +2,16 @@
 
 import { ArrowUpRight, Clock3 } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { BookCover } from "@/components/book-cover";
 import { Badge } from "@/components/ui/badge";
 import type { CatalogBook } from "@/lib/catalog";
 import { type ReaderState, readReaderState } from "@/lib/reader-storage";
 
 export function BookCard({ book }: { book: CatalogBook }) {
+  const router = useRouter();
+  const prefetched = useRef(false);
   const [readerState, setReaderState] = useState<ReaderState | null>(null);
   const updateReaderState = useCallback(() => {
     setReaderState(readReaderState(window.localStorage, book.slug));
@@ -29,6 +32,13 @@ export function BookCard({ book }: { book: CatalogBook }) {
     pathname: `/books/${book.slug}`,
     hash: readerState?.lastSectionId,
   };
+  const prefetchBook = useCallback(() => {
+    if (prefetched.current || !navigator.onLine) {
+      return;
+    }
+    prefetched.current = true;
+    router.prefetch(`/books/${book.slug}`);
+  }, [book.slug, router]);
   const activeReadingMode = readerState
     ? book.readingModes.find((mode) => mode.id === readerState.mode)
     : null;
@@ -92,6 +102,9 @@ export function BookCard({ book }: { book: CatalogBook }) {
       <Link
         href={href}
         prefetch={false}
+        onMouseEnter={prefetchBook}
+        onFocus={prefetchBook}
+        onTouchStart={prefetchBook}
         className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       >
         {content}

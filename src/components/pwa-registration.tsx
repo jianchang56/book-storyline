@@ -45,8 +45,7 @@ export function PwaRegistration() {
       if (url.pathname === window.location.pathname) {
         return;
       }
-      const standalone = window.matchMedia("(display-mode: standalone)").matches;
-      if (!url.pathname.startsWith("/books/") && navigator.onLine && !standalone) {
+      if (navigator.onLine || !url.pathname.startsWith("/books/")) {
         return;
       }
       event.preventDefault();
