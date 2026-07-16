@@ -175,7 +175,7 @@ export function BookCover({
       </div>
       <div className="absolute inset-3 rounded-[0.55rem] border border-white/25" />
       <div className="absolute top-5 right-5 text-[8px] tracking-[0.24em] opacity-65 [writing-mode:vertical-rl]">
-        {genres[0] ?? "故事梗概"}
+        故事梗概
       </div>
       <div className="absolute top-5 left-6 text-[8px] tracking-[0.18em] opacity-55">
         书脉 · 故事档案
