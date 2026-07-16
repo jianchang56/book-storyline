@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const bookPages: MetadataRoute.Sitemap = catalog.map((book) => ({
     url: absoluteUrl(`/books/${book.slug}`),
-    lastModified: book.publishedAt,
+    lastModified: /^\d{4}-\d{2}-\d{2}$/.test(book.publishedAt) ? book.publishedAt : undefined,
     changeFrequency: "monthly",
     priority: 0.8,
   }));

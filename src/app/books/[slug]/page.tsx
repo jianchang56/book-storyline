@@ -74,15 +74,25 @@ export default async function BookPage({ params }: BookPageProps) {
   const structuredData = [
     {
       "@context": "https://schema.org",
-      "@type": "Book",
-      name: book.metadata.title,
-      author: { "@type": "Person", name: book.metadata.author },
+      "@type": "Article",
+      headline: `${book.metadata.title}故事梗概`,
       description: book.metadata.description,
-      genre: book.metadata.genres,
       inLanguage: "zh-CN",
-      datePublished: book.metadata.publishedAt,
+      ...(/^\d{4}-\d{2}-\d{2}$/.test(book.metadata.publishedAt)
+        ? { datePublished: book.metadata.publishedAt }
+        : {}),
+      author: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      publisher: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
       url: bookUrl,
       mainEntityOfPage: bookUrl,
+      image: absoluteUrl(`/books/${slug}/opengraph-image`),
+      about: {
+        "@type": "Book",
+        name: book.metadata.title,
+        author: { "@type": "Person", name: book.metadata.author },
+        genre: book.metadata.genres,
+        inLanguage: "zh-CN",
+      },
     },
     {
       "@context": "https://schema.org",

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BookCard } from "@/components/book-card";
 import { BookCover } from "@/components/book-cover";
 import { ContinueReadingCard } from "@/components/continue-reading-card";
+import { JsonLd } from "@/components/json-ld";
 import { ResumeReadingLink } from "@/components/resume-reading-link";
 import { SiteHeader } from "@/components/site-header";
 import { TopicCard } from "@/components/topic-card";
@@ -11,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { catalog } from "@/lib/catalog";
 import { getBookCollections } from "@/lib/collections";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 const featuredBook = catalog.find((book) => book.slug === "xiyouji") ?? catalog[0];
 const shelfBooks = catalog.slice(0, 5);
@@ -26,8 +28,23 @@ const plotStops = [
 ];
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: absoluteUrl("/"),
+    description: siteConfig.description,
+    inLanguage: "zh-CN",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${absoluteUrl("/books")}?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <div className="min-h-screen">
+      <JsonLd data={structuredData} />
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
         <section className="relative overflow-hidden border-b border-border/70">

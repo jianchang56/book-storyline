@@ -15,6 +15,12 @@ export const metadata: Metadata = {
     template: "%s｜书脉",
   },
   description: siteConfig.description,
+  category: "文学",
+  keywords: ["故事梗概", "小说梗概", "名著梗概", "文学", "连续阅读"],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  referrer: "origin-when-cross-origin",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -26,7 +32,7 @@ export const metadata: Metadata = {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "书脉" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "书脉｜沿故事主线读完一本书",
     description: siteConfig.description,
     images: ["/opengraph-image"],
