@@ -1,15 +1,17 @@
 "use client";
 
-import { BookMarked, BookOpenCheck, History } from "lucide-react";
+import { BookMarked, BookOpenCheck, Download, History } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { BookCard } from "@/components/book-card";
 import { Button } from "@/components/ui/button";
 import type { CatalogBook } from "@/lib/catalog";
 import { type LibraryReaderState, readLibraryReaderStates } from "@/lib/reader-storage";
+import { type OfflineCacheStatus, sendServiceWorkerMessage } from "@/lib/service-worker-client";
 
 export function PersonalShelf({ books }: { books: CatalogBook[] }) {
   const [entries, setEntries] = useState<LibraryReaderState[]>([]);
+  const [savedSlugs, setSavedSlugs] = useState<string[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const update = useCallback(() => {
     setEntries(
@@ -31,6 +33,20 @@ export function PersonalShelf({ books }: { books: CatalogBook[] }) {
     };
   }, [update]);
 
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) {
+      return;
+    }
+    const updateOfflineBooks = () => {
+      void sendServiceWorkerMessage<OfflineCacheStatus>({ type: "GET_CACHE_STATUS" })
+        .then((status) => setSavedSlugs(status.savedSlugs))
+        .catch(() => setSavedSlugs([]));
+    };
+    updateOfflineBooks();
+    window.addEventListener("storyline:offline-updated", updateOfflineBooks);
+    return () => window.removeEventListener("storyline:offline-updated", updateOfflineBooks);
+  }, []);
+
   const bookBySlug = useMemo(() => new Map(books.map((book) => [book.slug, book])), [books]);
   const reading = entries.flatMap((entry) => {
     const book = bookBySlug.get(entry.slug);
@@ -46,6 +62,10 @@ export function PersonalShelf({ books }: { books: CatalogBook[] }) {
       (entry.state.progress >= 99 || entry.state.readChapters.length >= book.chapterCount)
       ? [book]
       : [];
+  });
+  const offline = savedSlugs.flatMap((slug) => {
+    const book = bookBySlug.get(slug);
+    return book ? [book] : [];
   });
 
   if (!hydrated) {
@@ -68,6 +88,12 @@ export function PersonalShelf({ books }: { books: CatalogBook[] }) {
 
   return (
     <div className="mt-10 space-y-16">
+      <ShelfSection
+        icon={Download}
+        title="离线书架"
+        books={offline}
+        empty="在阅读页选择“固定保存”，即可长期离线阅读。"
+      />
       <ShelfSection
         icon={History}
         title="正在阅读"

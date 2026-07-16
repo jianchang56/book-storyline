@@ -3,12 +3,10 @@
 import { HardDrive, Trash2 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { sendServiceWorkerMessage } from "@/lib/service-worker-client";
-
-type CacheStatus = { ok: boolean; books: number; assets: number; pages: number };
+import { type OfflineCacheStatus, sendServiceWorkerMessage } from "@/lib/service-worker-client";
 
 export function OfflineStorageControls() {
-  const [status, setStatus] = useState<CacheStatus | null>(null);
+  const [status, setStatus] = useState<OfflineCacheStatus | null>(null);
   const [usage, setUsage] = useState<number | null>(null);
   const [clearing, setClearing] = useState(false);
 
@@ -18,7 +16,7 @@ export function OfflineStorageControls() {
     }
     try {
       const [nextStatus, estimate] = await Promise.all([
-        sendServiceWorkerMessage<CacheStatus>({ type: "GET_CACHE_STATUS" }),
+        sendServiceWorkerMessage<OfflineCacheStatus>({ type: "GET_CACHE_STATUS" }),
         navigator.storage?.estimate(),
       ]);
       setStatus(nextStatus);
@@ -46,7 +44,7 @@ export function OfflineStorageControls() {
         <div>
           <h2 className="font-medium">离线内容</h2>
           <p className="mt-1 text-sm leading-6 text-muted-foreground">
-            已保存 {status.books} 本书，最多保留最近阅读的 8 本
+            离线书架 {status.savedBooks} 本 · 最近阅读缓存 {status.recentBooks} 本（最多 8 本）
             {megabytes ? ` · 当前站点约占 ${megabytes} MB` : ""}
           </p>
         </div>
@@ -56,10 +54,14 @@ export function OfflineStorageControls() {
         variant="outline"
         disabled={clearing || (status.books === 0 && status.pages === 0)}
         onClick={() => {
+          if (!window.confirm("确定清除全部离线图书和页面缓存吗？阅读进度与收藏不会删除。")) {
+            return;
+          }
           setClearing(true);
-          void sendServiceWorkerMessage<CacheStatus>({ type: "CLEAR_OFFLINE" })
+          void sendServiceWorkerMessage<OfflineCacheStatus>({ type: "CLEAR_OFFLINE" })
             .then(async (nextStatus) => {
               setStatus(nextStatus);
+              window.dispatchEvent(new CustomEvent("storyline:offline-updated"));
               const estimate = await navigator.storage?.estimate();
               setUsage(estimate?.usage ?? null);
             })

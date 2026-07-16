@@ -1,6 +1,7 @@
-const CACHE_VERSION = "storyline-v3";
+const CACHE_VERSION = "storyline-v4";
 const SHELL_CACHE = `${CACHE_VERSION}:shell`;
-const BOOK_CACHE = `${CACHE_VERSION}:books`;
+const RECENT_BOOK_CACHE = `${CACHE_VERSION}:recent-books`;
+const SAVED_BOOK_CACHE = `${CACHE_VERSION}:saved-books`;
 const ASSET_CACHE = `${CACHE_VERSION}:assets`;
 const RUNTIME_CACHE = `${CACHE_VERSION}:runtime`;
 const CACHE_PREFIX = "storyline-";
@@ -42,7 +43,19 @@ self.addEventListener("message", (event) => {
   }
   if (event.data?.type === "CACHE_BOOK" && typeof event.data.url === "string") {
     event.waitUntil(
-      cacheBook(event.data.url).then((result) => event.ports[0]?.postMessage(result)),
+      cacheBook(event.data.url, false).then((result) => event.ports[0]?.postMessage(result)),
+    );
+    return;
+  }
+  if (event.data?.type === "SAVE_BOOK" && typeof event.data.url === "string") {
+    event.waitUntil(
+      cacheBook(event.data.url, true).then((result) => event.ports[0]?.postMessage(result)),
+    );
+    return;
+  }
+  if (event.data?.type === "REMOVE_SAVED_BOOK" && typeof event.data.url === "string") {
+    event.waitUntil(
+      removeSavedBook(event.data.url).then((result) => event.ports[0]?.postMessage(result)),
     );
     return;
   }
@@ -86,20 +99,32 @@ self.addEventListener("fetch", (event) => {
   }
 });
 
-async function cacheBook(url) {
+async function cacheBook(url, savePermanently) {
   const bookUrl = parseBookUrl(url);
   if (!bookUrl) {
     return { ok: false, reason: "invalid-url" };
   }
   const request = new Request(bookUrl, { credentials: "same-origin" });
   try {
-    const bookCache = await caches.open(BOOK_CACHE);
-    const cachedBook = await bookCache.match(request);
+    const [recentCache, savedCache] = await Promise.all([
+      caches.open(RECENT_BOOK_CACHE),
+      caches.open(SAVED_BOOK_CACHE),
+    ]);
+    const savedBook = await savedCache.match(request);
+    if (savedBook && !savePermanently) {
+      return { ok: true, saved: true };
+    }
+    const targetCache = savePermanently ? savedCache : recentCache;
+    const cachedBook = savedBook ?? (await recentCache.match(request));
     if (cachedBook) {
-      await bookCache.delete(request);
-      await bookCache.put(request, cachedBook);
-      await trimCache(bookCache, MAX_BOOKS);
-      return { ok: true };
+      await targetCache.delete(request);
+      await targetCache.put(request, cachedBook);
+      if (savePermanently) {
+        await recentCache.delete(request);
+      } else {
+        await trimCache(recentCache, MAX_BOOKS);
+      }
+      return { ok: true, saved: savePermanently };
     }
     const response = await fetch(request);
     if (!isCacheableResponse(response, "text/html")) {
@@ -107,23 +132,32 @@ async function cacheBook(url) {
     }
     const assetUrls = extractAssetUrls(await response.clone().text(), bookUrl);
     await cacheAssets(assetUrls);
-    await bookCache.put(request, response);
-    await trimCache(bookCache, MAX_BOOKS);
-    return { ok: true };
+    await targetCache.put(request, response);
+    if (!savePermanently) {
+      await trimCache(recentCache, MAX_BOOKS);
+    }
+    return { ok: true, saved: savePermanently };
   } catch {
     return { ok: false, reason: "network" };
   }
 }
 
 async function localFirstBook(event, request) {
-  const cache = await caches.open(BOOK_CACHE);
-  const cached = await cache.match(request);
+  const [savedCache, recentCache] = await Promise.all([
+    caches.open(SAVED_BOOK_CACHE),
+    caches.open(RECENT_BOOK_CACHE),
+  ]);
+  const saved = await savedCache.match(request);
+  const cached = saved ?? (await recentCache.match(request));
+  const targetCache = saved ? savedCache : recentCache;
   const update = fetch(request)
     .then(async (response) => {
       if (isCacheableResponse(response, "text/html")) {
-        await cache.delete(request);
-        await cache.put(request, response.clone());
-        await trimCache(cache, MAX_BOOKS);
+        await targetCache.delete(request);
+        await targetCache.put(request, response.clone());
+        if (!saved) {
+          await trimCache(recentCache, MAX_BOOKS);
+        }
       }
       return response;
     })
@@ -190,18 +224,58 @@ async function cacheAssets(urls) {
 }
 
 async function getCacheStatus() {
-  const [books, assets, runtime] = await Promise.all([
-    caches.open(BOOK_CACHE).then((cache) => cache.keys()),
+  const [recentBooks, savedBooks, assets, runtime] = await Promise.all([
+    caches.open(RECENT_BOOK_CACHE).then((cache) => cache.keys()),
+    caches.open(SAVED_BOOK_CACHE).then((cache) => cache.keys()),
     caches.open(ASSET_CACHE).then((cache) => cache.keys()),
     caches.open(RUNTIME_CACHE).then((cache) => cache.keys()),
   ]);
-  return { ok: true, books: books.length, assets: assets.length, pages: runtime.length };
+  return {
+    ok: true,
+    books: recentBooks.length + savedBooks.length,
+    recentBooks: recentBooks.length,
+    savedBooks: savedBooks.length,
+    savedSlugs: savedBooks.map(
+      (request) => new URL(request.url).pathname.split("/").filter(Boolean)[1],
+    ),
+    assets: assets.length,
+    pages: runtime.length,
+  };
 }
 
 async function clearOfflineCaches() {
-  await Promise.all([BOOK_CACHE, RUNTIME_CACHE].map((name) => caches.delete(name)));
+  await Promise.all(
+    [RECENT_BOOK_CACHE, SAVED_BOOK_CACHE, RUNTIME_CACHE].map((name) => caches.delete(name)),
+  );
   const assets = await caches.open(ASSET_CACHE).then((cache) => cache.keys());
-  return { ok: true, books: 0, assets: assets.length, pages: 0 };
+  return {
+    ok: true,
+    books: 0,
+    recentBooks: 0,
+    savedBooks: 0,
+    savedSlugs: [],
+    assets: assets.length,
+    pages: 0,
+  };
+}
+
+async function removeSavedBook(url) {
+  const bookUrl = parseBookUrl(url);
+  if (!bookUrl) {
+    return { ok: false, reason: "invalid-url" };
+  }
+  const request = new Request(bookUrl, { credentials: "same-origin" });
+  const [savedCache, recentCache] = await Promise.all([
+    caches.open(SAVED_BOOK_CACHE),
+    caches.open(RECENT_BOOK_CACHE),
+  ]);
+  const savedBook = await savedCache.match(request);
+  if (savedBook) {
+    await recentCache.put(request, savedBook);
+    await trimCache(recentCache, MAX_BOOKS);
+  }
+  await savedCache.delete(request);
+  return { ok: true, saved: false };
 }
 
 function parseBookUrl(value) {
