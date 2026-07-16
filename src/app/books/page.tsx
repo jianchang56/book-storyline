@@ -7,17 +7,6 @@ import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { catalog, filterCatalog, paginateCatalog } from "@/lib/catalog";
 
-export const metadata: Metadata = {
-  title: "书库",
-  description: "搜索故事梗概，按书名、作者和题材快速找到想读的作品。",
-  alternates: { canonical: "/books" },
-  openGraph: {
-    title: "故事书库",
-    description: "按书名、作者和题材查找忠于原著的连续故事梗概。",
-    url: "/books",
-  },
-};
-
 const pageSize = 12;
 
 function firstValue(value: string | string[] | undefined) {
@@ -30,6 +19,31 @@ function booksHref(page: number, query: string) {
     query: {
       ...(query ? { q: query } : {}),
       ...(page > 1 ? { page: String(page) } : {}),
+    },
+  };
+}
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string | string[]; page?: string | string[] }>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const query = firstValue(params.q).trim();
+  const requestedPage = Number.parseInt(firstValue(params.page), 10);
+  const pagination = paginateCatalog(filterCatalog(catalog, query), requestedPage, pageSize);
+  const canonical = pagination.page > 1 ? `/books?page=${pagination.page}` : "/books";
+  const description = "搜索故事梗概，按书名、作者和题材快速找到想读的作品。";
+
+  return {
+    title: pagination.page > 1 ? `书库第 ${pagination.page} 页` : "书库",
+    description,
+    alternates: { canonical },
+    robots: query ? { index: false, follow: true } : undefined,
+    openGraph: {
+      title: pagination.page > 1 ? `故事书库第 ${pagination.page} 页` : "故事书库",
+      description,
+      url: canonical,
     },
   };
 }

@@ -3,16 +3,26 @@ import { DiscoveryDirectory } from "@/components/discovery-directory";
 import { catalog, paginateItems } from "@/lib/catalog";
 import { authorPath, getAuthorGroups } from "@/lib/discovery";
 
-export const metadata: Metadata = {
-  title: "作者",
-  description: "按作者查找书脉已经整理完成的小说和故事梗概。",
-  alternates: { canonical: "/authors" },
-};
-
 const pageSize = 48;
 
 function firstValue(value: string | string[] | undefined) {
   return Array.isArray(value) ? (value[0] ?? "") : (value ?? "");
+}
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string | string[] }>;
+}): Promise<Metadata> {
+  const requestedPage = Number.parseInt(firstValue((await searchParams).page), 10);
+  const page = paginateItems(getAuthorGroups(catalog), requestedPage, pageSize).page;
+  const canonical = page > 1 ? `/authors?page=${page}` : "/authors";
+
+  return {
+    title: page > 1 ? `作者索引第 ${page} 页` : "作者",
+    description: "按作者查找书脉已经整理完成的小说和故事梗概。",
+    alternates: { canonical },
+  };
 }
 
 export default async function AuthorsPage({

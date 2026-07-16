@@ -5,7 +5,7 @@ const deployedHost =
 
 function normalizeSiteUrl(value: string | undefined) {
   if (!value) {
-    return new URL("http://localhost:3000");
+    return new URL("https://read.zeet.me");
   }
   return new URL(
     value.startsWith("http://") || value.startsWith("https://") ? value : `https://${value}`,
