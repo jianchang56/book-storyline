@@ -29,7 +29,6 @@ type BookCoverProps = {
   title: string;
   author: string;
   tone: CoverTone;
-  era: string;
   genres: string[];
   chapterCount: number;
   className?: string;
@@ -60,16 +59,6 @@ function getMotif(genres: string[]) {
     genreMotifs.find(([candidates]) => genres.some((genre) => candidates.has(genre)))?.[1] ??
     "rings"
   );
-}
-
-function getLayout(era: string) {
-  if (/古典|西汉|明|清|元|文艺复兴|13-14世纪/.test(era)) {
-    return "classical";
-  }
-  if (/现代|当代|20世纪|19\d{2}|苏联|中国近现代/.test(era)) {
-    return "modern";
-  }
-  return "heritage";
 }
 
 function CoverEmblem({ motif }: { motif: CoverMotif }) {
@@ -143,13 +132,11 @@ export function BookCover({
   title,
   author,
   tone,
-  era,
   genres,
   chapterCount,
   className,
 }: BookCoverProps) {
   const titleLength = Array.from(title.trim()).length;
-  const layout = getLayout(era);
   const motif = getMotif(genres);
   const titleTypography =
     titleLength >= 7
@@ -177,38 +164,12 @@ export function BookCover({
       <div className="absolute top-5 right-5 text-[8px] tracking-[0.24em] opacity-65 [writing-mode:vertical-rl]">
         故事梗概
       </div>
-      <div className="absolute top-5 left-6 text-[8px] tracking-[0.18em] opacity-55">
-        书脉 · 故事档案
-      </div>
-      <div
-        className={cn(
-          "absolute opacity-[0.22]",
-          layout === "classical"
-            ? "top-[18%] left-[18%] size-[58%]"
-            : layout === "modern"
-              ? "top-[12%] right-[12%] size-[52%]"
-              : "top-[17%] left-[24%] size-[54%]",
-        )}
-      >
+      <div className="absolute top-5 left-6 text-[8px] tracking-[0.18em] opacity-55">书脉</div>
+      <div className="absolute top-[16%] left-[23%] size-[54%] opacity-[0.22]">
         <CoverEmblem motif={motif} />
       </div>
-      <div
-        className={cn(
-          "absolute right-12 left-7",
-          layout === "classical"
-            ? "top-[46%] -translate-y-1/2 text-right"
-            : layout === "modern"
-              ? "top-[47%]"
-              : "top-[47%] -translate-y-1/2 text-center",
-        )}
-      >
-        <p
-          className={cn(
-            "font-display font-semibold [text-wrap:balance]",
-            titleTypography,
-            layout === "modern" ? "border-l border-current/45 pl-3" : "",
-          )}
-        >
+      <div className="absolute top-[47%] right-12 left-7 -translate-y-1/2 text-left">
+        <p className={cn("font-display font-semibold [text-wrap:balance]", titleTypography)}>
           {title}
         </p>
       </div>
