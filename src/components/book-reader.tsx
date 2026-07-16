@@ -25,6 +25,7 @@ import {
   useCallback,
   useDeferredValue,
   useEffect,
+  useEffectEvent,
   useMemo,
   useRef,
   useState,
@@ -66,7 +67,7 @@ type SearchResult = {
   excerpt: string;
 };
 
-type OfflineStatus = "idle" | "saving" | "ready" | "failed";
+type OfflineStatus = "idle" | "caching" | "recent" | "saving" | "saved" | "removing" | "failed";
 
 const lineHeightValues: Record<ReaderLineHeight, string> = {
   compact: "1.72",
@@ -392,25 +393,55 @@ function ActionMessage({ children }: { children: ReactNode }) {
   );
 }
 
-function OfflineReadingStatus({ status }: { status: OfflineStatus }) {
+function OfflineReadingStatus({
+  status,
+  onToggle,
+}: {
+  status: OfflineStatus;
+  onToggle: () => void;
+}) {
   if (status === "idle") {
     return null;
   }
+  const busy = status === "caching" || status === "saving" || status === "removing";
+  const saved = status === "saved";
   return (
-    <p
-      className={cn(
-        "mt-3 flex items-center gap-2 px-2 text-xs",
-        status === "failed" ? "text-destructive" : "text-muted-foreground",
-      )}
-      aria-live="polite"
-    >
-      {status === "ready" ? <Check /> : <Download />}
-      {status === "saving"
-        ? "正在保存离线内容…"
-        : status === "ready"
-          ? "已保存，可离线阅读"
-          : "离线保存失败，联网后会重试"}
-    </p>
+    <div className="mt-3 flex items-center justify-between gap-2 px-2 text-xs">
+      <p
+        className={cn(
+          "flex min-w-0 items-center gap-2",
+          status === "failed" ? "text-destructive" : "text-muted-foreground",
+        )}
+        aria-live="polite"
+      >
+        {saved ? <Check /> : <Download />}
+        <span>
+          {status === "caching"
+            ? "正在准备最近阅读缓存…"
+            : status === "saving"
+              ? "正在保存到离线书架…"
+              : status === "removing"
+                ? "正在移除离线保存…"
+                : saved
+                  ? "已保存到离线书架"
+                  : status === "recent"
+                    ? "最近阅读可离线打开"
+                    : "离线操作失败，请重试"}
+        </span>
+      </p>
+      {status !== "caching" ? (
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          className="h-8 shrink-0 px-2 text-xs"
+          disabled={busy}
+          onClick={onToggle}
+        >
+          {saved ? "移除" : status === "failed" ? "重试" : "固定保存"}
+        </Button>
+      ) : null}
+    </div>
   );
 }
 
@@ -566,18 +597,40 @@ export function BookReader({ book }: { book: Book }) {
       return;
     }
     let cancelled = false;
-    setOfflineStatus("saving");
-    void sendServiceWorkerMessage<{ ok: boolean }>({
+    setOfflineStatus("caching");
+    void sendServiceWorkerMessage<{ ok: boolean; saved?: boolean }>({
       type: "CACHE_BOOK",
       url: `${window.location.origin}/books/${book.metadata.slug}`,
     }).then(
-      (result) => !cancelled && setOfflineStatus(result.ok ? "ready" : "failed"),
+      (result) =>
+        !cancelled && setOfflineStatus(result.ok ? (result.saved ? "saved" : "recent") : "failed"),
       () => !cancelled && setOfflineStatus("failed"),
     );
     return () => {
       cancelled = true;
     };
   }, [book.metadata.slug, hydrated]);
+
+  const toggleOfflineSave = useCallback(() => {
+    const url = `${window.location.origin}/books/${book.metadata.slug}`;
+    const removing = offlineStatus === "saved";
+    setOfflineStatus(removing ? "removing" : "saving");
+    const prepareStorage = removing ? Promise.resolve() : navigator.storage?.persist?.();
+    void Promise.resolve(prepareStorage)
+      .then(() =>
+        sendServiceWorkerMessage<{ ok: boolean; saved?: boolean }>({
+          type: removing ? "REMOVE_SAVED_BOOK" : "SAVE_BOOK",
+          url,
+        }),
+      )
+      .then((result) => {
+        setOfflineStatus(result.ok ? (result.saved ? "saved" : "recent") : "failed");
+        if (result.ok) {
+          window.dispatchEvent(new CustomEvent("storyline:offline-updated"));
+        }
+      })
+      .catch(() => setOfflineStatus("failed"));
+  }, [book.metadata.slug, offlineStatus]);
 
   useEffect(() => {
     if (!pendingScrollId) {
@@ -683,34 +736,38 @@ export function BookReader({ book }: { book: Book }) {
     };
   }, [visibleSections]);
 
+  const persistReaderState = useEffectEvent(() => {
+    if (!hydrated) {
+      return;
+    }
+    const state = {
+      version: readerStateVersion,
+      mode,
+      lastSectionId: activeId,
+      lastSectionTitle: titleById.get(activeId) ?? book.metadata.title,
+      progress,
+      bookmarks: [...bookmarks],
+      readChapters: [...readChapters],
+      fontScale,
+      lineHeight,
+      contentWidth,
+      updatedAt: new Date().toISOString(),
+    };
+    window.localStorage.setItem(getReaderStorageKey(book.metadata.slug), JSON.stringify(state));
+    window.dispatchEvent(
+      new CustomEvent("storyline:reader-updated", { detail: { slug: book.metadata.slug } }),
+    );
+  });
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: reader state changes intentionally restart the debounce while the Effect Event reads the latest values.
   useEffect(() => {
     if (!hydrated) {
       return;
     }
-    const timer = window.setTimeout(() => {
-      const state = {
-        version: readerStateVersion,
-        mode,
-        lastSectionId: activeId,
-        lastSectionTitle: titleById.get(activeId) ?? book.metadata.title,
-        progress,
-        bookmarks: [...bookmarks],
-        readChapters: [...readChapters],
-        fontScale,
-        lineHeight,
-        contentWidth,
-        updatedAt: new Date().toISOString(),
-      };
-      window.localStorage.setItem(getReaderStorageKey(book.metadata.slug), JSON.stringify(state));
-      window.dispatchEvent(
-        new CustomEvent("storyline:reader-updated", { detail: { slug: book.metadata.slug } }),
-      );
-    }, 350);
+    const timer = window.setTimeout(persistReaderState, 350);
     return () => window.clearTimeout(timer);
   }, [
     activeId,
-    book.metadata.slug,
-    book.metadata.title,
     bookmarks,
     contentWidth,
     fontScale,
@@ -719,8 +776,22 @@ export function BookReader({ book }: { book: Book }) {
     mode,
     progress,
     readChapters,
-    titleById,
   ]);
+
+  useEffect(() => {
+    const flushState = () => persistReaderState();
+    const flushHiddenState = () => {
+      if (document.visibilityState === "hidden") {
+        persistReaderState();
+      }
+    };
+    window.addEventListener("pagehide", flushState);
+    document.addEventListener("visibilitychange", flushHiddenState);
+    return () => {
+      window.removeEventListener("pagehide", flushState);
+      document.removeEventListener("visibilitychange", flushHiddenState);
+    };
+  }, []);
 
   useEffect(() => {
     if (!hydrated || pendingScrollId || !titleById.has(activeId)) {
@@ -863,7 +934,7 @@ export function BookReader({ book }: { book: Book }) {
           className="sticky top-24 hidden h-[calc(100vh-7rem)] w-80 shrink-0 flex-col self-start xl:flex"
         >
           <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
-          <OfflineReadingStatus status={offlineStatus} />
+          <OfflineReadingStatus status={offlineStatus} onToggle={toggleOfflineSave} />
           <div className="mt-5 flex items-center justify-between px-3">
             <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">阅读路线</p>
             {mode === "complete" ? (
@@ -882,7 +953,7 @@ export function BookReader({ book }: { book: Book }) {
                 选择阅读深度
               </p>
               <ModePicker mode={mode} labels={modeLabels} onChange={changeMode} />
-              <OfflineReadingStatus status={offlineStatus} />
+              <OfflineReadingStatus status={offlineStatus} onToggle={toggleOfflineSave} />
             </div>
 
             {deferredQuery && mode === "complete" ? (

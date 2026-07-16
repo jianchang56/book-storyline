@@ -1,3 +1,13 @@
+export type OfflineCacheStatus = {
+  ok: boolean;
+  books: number;
+  recentBooks: number;
+  savedBooks: number;
+  savedSlugs: string[];
+  assets: number;
+  pages: number;
+};
+
 export async function sendServiceWorkerMessage<T>(message: unknown, timeoutMs = 15000) {
   if (!("serviceWorker" in navigator)) {
     throw new Error("service worker unavailable");
