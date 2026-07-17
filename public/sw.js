@@ -1,7 +1,7 @@
-const CACHE_VERSION = "storyline-v4";
+const CACHE_VERSION = "storyline-v5";
 const SHELL_CACHE = `${CACHE_VERSION}:shell`;
 const RECENT_BOOK_CACHE = `${CACHE_VERSION}:recent-books`;
-const SAVED_BOOK_CACHE = `${CACHE_VERSION}:saved-books`;
+const SAVED_BOOK_CACHE = "storyline-saved-books";
 const ASSET_CACHE = `${CACHE_VERSION}:assets`;
 const RUNTIME_CACHE = `${CACHE_VERSION}:runtime`;
 const CACHE_PREFIX = "storyline-";
@@ -25,13 +25,20 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) =>
-        Promise.all(
+      .then(async (keys) => {
+        await migrateSavedBookCaches(keys);
+        await Promise.all(
           keys
-            .filter((key) => key.startsWith(CACHE_PREFIX) && !key.startsWith(CACHE_VERSION))
+            .filter(
+              (key) =>
+                key !== SAVED_BOOK_CACHE &&
+                !key.endsWith(":saved-books") &&
+                key.startsWith(CACHE_PREFIX) &&
+                !key.startsWith(CACHE_VERSION),
+            )
             .map((key) => caches.delete(key)),
-        ),
-      )
+        );
+      })
       .then(() => self.clients.claim()),
   );
 });
@@ -89,6 +96,10 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(cacheFirst(request));
     return;
   }
+  if (isRscRequest(request)) {
+    event.respondWith(networkFirstRsc(request));
+    return;
+  }
   if (request.mode === "navigate") {
     event.respondWith(
       isBookPath(url)
@@ -98,6 +109,31 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 });
+
+async function migrateSavedBookCaches(cacheNames) {
+  const legacyNames = cacheNames.filter(
+    (name) =>
+      name !== SAVED_BOOK_CACHE && name.startsWith(CACHE_PREFIX) && name.endsWith(":saved-books"),
+  );
+  if (legacyNames.length === 0) {
+    return;
+  }
+
+  const target = await caches.open(SAVED_BOOK_CACHE);
+  for (const cacheName of legacyNames) {
+    const legacy = await caches.open(cacheName);
+    for (const request of await legacy.keys()) {
+      if (await target.match(request)) {
+        continue;
+      }
+      const response = await legacy.match(request);
+      if (response) {
+        await target.put(request, response);
+      }
+    }
+    await caches.delete(cacheName);
+  }
+}
 
 async function cacheBook(url, savePermanently) {
   const bookUrl = parseBookUrl(url);
@@ -187,6 +223,23 @@ async function networkFirst(request, cacheName = SHELL_CACHE, maximum) {
     const runtimeMatch = shouldCache ? await cache.match(request) : null;
     return runtimeMatch ?? (await caches.match(request)) ?? (await caches.match("/offline"));
   }
+}
+
+async function networkFirstRsc(request) {
+  try {
+    const response = await fetch(request);
+    if (response.status < 500) {
+      return response;
+    }
+    return (await matchDocumentForRsc(request)) ?? response;
+  } catch {
+    return (await matchDocumentForRsc(request)) ?? (await caches.match("/offline"));
+  }
+}
+
+async function matchDocumentForRsc(request) {
+  const documentRequest = documentRequestForRsc(request);
+  return documentRequest ? await caches.match(documentRequest) : null;
 }
 
 async function cacheFirst(request) {
@@ -286,6 +339,24 @@ function parseBookUrl(value) {
     }
     url.hash = "";
     return url.href;
+  } catch {
+    return null;
+  }
+}
+
+function isRscRequest(request) {
+  return request.headers.get("RSC") === "1" || request.headers.has("Next-Router-State-Tree");
+}
+
+function documentRequestForRsc(request) {
+  try {
+    const url = new URL(request.url);
+    url.searchParams.delete("_rsc");
+    url.hash = "";
+    return new Request(url, {
+      credentials: "same-origin",
+      headers: { accept: "text/html" },
+    });
   } catch {
     return null;
   }
