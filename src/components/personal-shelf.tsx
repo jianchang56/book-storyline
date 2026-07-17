@@ -6,7 +6,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { BookCard } from "@/components/book-card";
 import { Button } from "@/components/ui/button";
 import type { CatalogBook } from "@/lib/catalog";
-import { type LibraryReaderState, readLibraryReaderStates } from "@/lib/reader-storage";
+import {
+  getBrowserStorage,
+  isReaderStateFinished,
+  type LibraryReaderState,
+  readLibraryReaderStates,
+} from "@/lib/reader-storage";
 import { type OfflineCacheStatus, sendServiceWorkerMessage } from "@/lib/service-worker-client";
 
 export function PersonalShelf({ books }: { books: CatalogBook[] }) {
@@ -16,7 +21,7 @@ export function PersonalShelf({ books }: { books: CatalogBook[] }) {
   const update = useCallback(() => {
     setEntries(
       readLibraryReaderStates(
-        window.localStorage,
+        getBrowserStorage(),
         books.map((book) => book.slug),
       ),
     );
@@ -50,7 +55,7 @@ export function PersonalShelf({ books }: { books: CatalogBook[] }) {
   const bookBySlug = useMemo(() => new Map(books.map((book) => [book.slug, book])), [books]);
   const reading = entries.flatMap((entry) => {
     const book = bookBySlug.get(entry.slug);
-    return book && entry.state.progress < 99 ? [book] : [];
+    return book && !isReaderStateFinished(entry.state, book.chapterCount) ? [book] : [];
   });
   const saved = entries.flatMap((entry) => {
     const book = bookBySlug.get(entry.slug);
@@ -58,10 +63,7 @@ export function PersonalShelf({ books }: { books: CatalogBook[] }) {
   });
   const finished = entries.flatMap((entry) => {
     const book = bookBySlug.get(entry.slug);
-    return book &&
-      (entry.state.progress >= 99 || entry.state.readChapters.length >= book.chapterCount)
-      ? [book]
-      : [];
+    return book && isReaderStateFinished(entry.state, book.chapterCount) ? [book] : [];
   });
   const offline = savedSlugs.flatMap((slug) => {
     const book = bookBySlug.get(slug);

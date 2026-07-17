@@ -7,14 +7,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { BookCover } from "@/components/book-cover";
 import { Badge } from "@/components/ui/badge";
 import type { CatalogBook } from "@/lib/catalog";
-import { type ReaderState, readReaderState } from "@/lib/reader-storage";
+import { getBrowserStorage, type ReaderState, readReaderState } from "@/lib/reader-storage";
 
 export function BookCard({ book }: { book: CatalogBook }) {
   const router = useRouter();
   const prefetched = useRef(false);
   const [readerState, setReaderState] = useState<ReaderState | null>(null);
   const updateReaderState = useCallback(() => {
-    setReaderState(readReaderState(window.localStorage, book.slug));
+    setReaderState(readReaderState(getBrowserStorage(), book.slug));
   }, [book.slug]);
 
   useEffect(() => {

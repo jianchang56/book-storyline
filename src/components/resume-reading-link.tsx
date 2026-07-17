@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { type ReaderState, readReaderState } from "@/lib/reader-storage";
+import { getBrowserStorage, type ReaderState, readReaderState } from "@/lib/reader-storage";
 
 export function ResumeReadingLink({
   bookSlug,
@@ -16,7 +16,7 @@ export function ResumeReadingLink({
   const [readerState, setReaderState] = useState<ReaderState | null>(null);
 
   useEffect(() => {
-    setReaderState(readReaderState(window.localStorage, bookSlug));
+    setReaderState(readReaderState(getBrowserStorage(), bookSlug));
   }, [bookSlug]);
 
   const href = {

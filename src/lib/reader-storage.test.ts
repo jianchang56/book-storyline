@@ -2,9 +2,12 @@ import { describe, expect, it, vi } from "vitest";
 import {
   createDefaultReaderState,
   getReaderStorageKey,
+  isReaderStateFinished,
+  normalizeReaderState,
   readerStateVersion,
   readLibraryReaderStates,
   readReaderState,
+  writeReaderState,
 } from "@/lib/reader-storage";
 
 describe("reader storage", () => {
@@ -44,6 +47,65 @@ describe("reader storage", () => {
 
     expect(readReaderState(storage, "xiyouji")).toBeNull();
     expect(storage.removeItem).toHaveBeenCalledWith(getReaderStorageKey("xiyouji"));
+  });
+
+  it("degrades when storage access is blocked", () => {
+    const storage = {
+      getItem: vi.fn(() => {
+        throw new DOMException("blocked", "SecurityError");
+      }),
+      removeItem: vi.fn(() => {
+        throw new DOMException("blocked", "SecurityError");
+      }),
+    };
+
+    expect(readReaderState(storage, "xiyouji")).toBeNull();
+    expect(storage.removeItem).toHaveBeenCalled();
+  });
+
+  it("reports a failed write without throwing", () => {
+    const storage = {
+      setItem: vi.fn(() => {
+        throw new DOMException("full", "QuotaExceededError");
+      }),
+    };
+
+    expect(writeReaderState(storage, "xiyouji", createDefaultReaderState())).toBe(false);
+  });
+
+  it("normalizes stale locations and chapter ids against current content", () => {
+    const normalized = normalizeReaderState(
+      {
+        ...createDefaultReaderState(),
+        mode: "journey",
+        lastSectionId: "chapter-99",
+        bookmarks: ["chapter-1", "chapter-99", "chapter-1"],
+        readChapters: ["chapter-2", "chapter-99"],
+      },
+      {
+        overview: ["overview"],
+        journey: ["arc-opening", "arc-ending"],
+        complete: ["chapter-1", "chapter-2"],
+      },
+    );
+
+    expect(normalized).toMatchObject({
+      mode: "journey",
+      lastSectionId: "arc-opening",
+      bookmarks: ["chapter-1"],
+      readChapters: ["chapter-2"],
+    });
+  });
+
+  it("treats manually completed chapters as finished without changing scroll progress", () => {
+    const state = {
+      ...createDefaultReaderState(),
+      progress: 50,
+      readChapters: ["chapter-1", "chapter-2"],
+    };
+
+    expect(isReaderStateFinished(state, 2)).toBe(true);
+    expect(isReaderStateFinished({ ...state, readChapters: ["chapter-1"] }, 2)).toBe(false);
   });
 
   it("loads library states in most-recently-read order", () => {

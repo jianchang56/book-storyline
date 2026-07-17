@@ -6,14 +6,18 @@ import { useCallback, useEffect, useState } from "react";
 import { BookCover } from "@/components/book-cover";
 import { Button } from "@/components/ui/button";
 import type { CatalogBook } from "@/lib/catalog";
-import { type LibraryReaderState, readLibraryReaderStates } from "@/lib/reader-storage";
+import {
+  getBrowserStorage,
+  type LibraryReaderState,
+  readLibraryReaderStates,
+} from "@/lib/reader-storage";
 
 export function ContinueReadingCard({ books }: { books: CatalogBook[] }) {
   const [latest, setLatest] = useState<LibraryReaderState | null>(null);
   const update = useCallback(() => {
     setLatest(
       readLibraryReaderStates(
-        window.localStorage,
+        getBrowserStorage(),
         books.map((book) => book.slug),
       )[0] ?? null,
     );
