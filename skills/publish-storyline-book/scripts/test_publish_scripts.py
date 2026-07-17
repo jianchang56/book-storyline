@@ -13,7 +13,13 @@ if str(SCRIPT_DIR) not in sys.path:
 from migrate_legacy_book import format_route
 from script_utils import iter_book_dirs
 from update_reading_minutes import update_book
-from validate_book import validate_book, validate_full, validate_manifest, validate_metadata
+from validate_book import (
+    validate_book,
+    validate_full,
+    validate_manifest,
+    validate_metadata,
+    validate_route,
+)
 
 
 def valid_metadata(slug: str) -> dict[str, object]:
@@ -107,6 +113,31 @@ class PublishScriptsTest(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "metadata era"):
                 validate_metadata(book_dir)
+
+            metadata["era"] = "现代"
+            metadata["publishedAt"] = "1991"
+            (book_dir / "metadata.json").write_text(json.dumps(metadata), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "YYYY-MM-DD"):
+                validate_metadata(book_dir)
+
+    def test_route_requires_h3_arcs_with_continuous_display_numbers(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            book_dir = Path(temp_dir) / "example"
+            write_valid_book(book_dir)
+            (book_dir / "10-route.md").write_text(
+                "# 路线\n\n## 故事路线\n\n### 开端 <!-- arc-id=start start=1 end=1 -->\n\n正文。\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "level-two"):
+                validate_route(book_dir, 1)
+
+            (book_dir / "10-route.md").write_text(
+                "# 路线\n\n### 开端 <!-- arc-id=start start=1 end=1 -->\n\n正文。\n",
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, "display number 01"):
+                validate_route(book_dir, 1)
 
     def test_fenced_code_headings_do_not_count_as_chapters(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

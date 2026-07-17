@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import json
 import re
 import sys
@@ -125,6 +126,10 @@ def validate_metadata(book_dir: Path) -> dict[str, Any]:
     for field in ("slug", "title", "author", "era", "subtitle", "description", "publishedAt"):
         if not isinstance(metadata[field], str) or not metadata[field].strip():
             raise ValueError(f"metadata {field} must be a non-empty string")
+    try:
+        date.fromisoformat(metadata["publishedAt"])
+    except ValueError:
+        raise ValueError("metadata publishedAt must use YYYY-MM-DD") from None
     if not isinstance(metadata["chapterCount"], int) or metadata["chapterCount"] < 1:
         raise ValueError("metadata chapterCount must be a positive integer")
     if not isinstance(metadata["readingMinutes"], int) or metadata["readingMinutes"] < 1:
@@ -182,6 +187,8 @@ def validate_route(book_dir: Path, chapter_count: int) -> None:
     source = read_markdown(route_path)
     heading_and_body(route_path)
     structural_source = without_fenced_code(source)
+    if CHAPTER_HEADING_PATTERN.search(structural_source):
+        raise ValueError("10-route.md must not contain level-two headings")
     matches = list(ARC_HEADING_PATTERN.finditer(structural_source))
     if not matches:
         raise ValueError("10-route.md must contain at least one arc heading with metadata")
@@ -193,6 +200,8 @@ def validate_route(book_dir: Path, chapter_count: int) -> None:
         if not paragraphs(source[match.end() : body_end]):
             raise ValueError(f"story arc {index} must contain a summary")
         arc_id = match.group(2)
+        if not match.group(1).startswith(f"{index:02d} "):
+            raise ValueError(f"story arc {index} must use display number {index:02d}")
         start = int(match.group(3))
         end = int(match.group(4))
         if arc_id in seen_ids:
