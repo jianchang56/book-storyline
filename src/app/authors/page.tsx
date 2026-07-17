@@ -2,19 +2,16 @@ import type { Metadata } from "next";
 import { DiscoveryDirectory } from "@/components/discovery-directory";
 import { catalog, paginateItems } from "@/lib/catalog";
 import { authorPath, getAuthorGroups } from "@/lib/discovery";
+import { firstSearchParam } from "@/lib/search-params";
 
 const pageSize = 48;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? (value[0] ?? "") : (value ?? "");
-}
 
 export async function generateMetadata({
   searchParams,
 }: {
   searchParams: Promise<{ page?: string | string[] }>;
 }): Promise<Metadata> {
-  const requestedPage = Number.parseInt(firstValue((await searchParams).page), 10);
+  const requestedPage = Number.parseInt(firstSearchParam((await searchParams).page), 10);
   const page = paginateItems(getAuthorGroups(catalog), requestedPage, pageSize).page;
   const canonical = page > 1 ? `/authors?page=${page}` : "/authors";
 
@@ -32,7 +29,7 @@ export default async function AuthorsPage({
 }) {
   const params = await searchParams;
   const authors = getAuthorGroups(catalog);
-  const requestedPage = Number.parseInt(firstValue(params.page), 10);
+  const requestedPage = Number.parseInt(firstSearchParam(params.page), 10);
   const pagination = paginateItems(authors, requestedPage, pageSize);
 
   return (

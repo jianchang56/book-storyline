@@ -6,12 +6,9 @@ import { BookSearch } from "@/components/book-search";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { catalog, filterCatalog, paginateCatalog } from "@/lib/catalog";
+import { firstSearchParam } from "@/lib/search-params";
 
 const pageSize = 12;
-
-function firstValue(value: string | string[] | undefined) {
-  return Array.isArray(value) ? (value[0] ?? "") : (value ?? "");
-}
 
 function booksHref(page: number, query: string) {
   return {
@@ -29,8 +26,8 @@ export async function generateMetadata({
   searchParams: Promise<{ q?: string | string[]; page?: string | string[] }>;
 }): Promise<Metadata> {
   const params = await searchParams;
-  const query = firstValue(params.q).trim();
-  const requestedPage = Number.parseInt(firstValue(params.page), 10);
+  const query = firstSearchParam(params.q).trim();
+  const requestedPage = Number.parseInt(firstSearchParam(params.page), 10);
   const pagination = paginateCatalog(filterCatalog(catalog, query), requestedPage, pageSize);
   const canonical = pagination.page > 1 ? `/books?page=${pagination.page}` : "/books";
   const description = "搜索故事梗概，按书名、作者和题材快速找到想读的作品。";
@@ -54,8 +51,8 @@ export default async function BooksPage({
   searchParams: Promise<{ q?: string | string[]; page?: string | string[] }>;
 }) {
   const params = await searchParams;
-  const query = firstValue(params.q).trim();
-  const requestedPage = Number.parseInt(firstValue(params.page), 10);
+  const query = firstSearchParam(params.q).trim();
+  const requestedPage = Number.parseInt(firstSearchParam(params.page), 10);
   const filteredBooks = filterCatalog(catalog, query);
   const pagination = paginateCatalog(filteredBooks, requestedPage, pageSize);
 

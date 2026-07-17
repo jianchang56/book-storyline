@@ -41,7 +41,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import type { Book, BookSection, StoryArc } from "@/lib/books";
+import type { BookSection, ReaderBook, StoryArc } from "@/lib/books";
 import { calculateReaderProgress } from "@/lib/reader-progress";
 import {
   createDefaultReaderState,
@@ -55,6 +55,7 @@ import {
   readReaderState,
   writeReaderState,
 } from "@/lib/reader-storage";
+import { scrollPageToTop } from "@/lib/scroll";
 import { sendServiceWorkerMessage } from "@/lib/service-worker-client";
 import { cn } from "@/lib/utils";
 
@@ -83,13 +84,6 @@ const widthValues: Record<ReaderWidth, string> = {
   standard: "46rem",
   wide: "54rem",
 };
-
-function splitSummary(summary: string) {
-  return summary
-    .split(/\n\s*\n/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean);
-}
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -306,7 +300,7 @@ function ReaderToc({
   readChapters,
   onNavigate,
 }: {
-  book: Book;
+  book: ReaderBook;
   mode: ReadingMode;
   activeId: string;
   bookmarks: Set<string>;
@@ -448,16 +442,22 @@ function OfflineReadingStatus({
   );
 }
 
-export function BookReader({ book }: { book: Book }) {
+function createModeLabels(readingModes: ReaderBook["metadata"]["readingModes"]) {
+  const labels: Record<ReadingMode, { label: string; minutes: string }> = {
+    overview: { label: "全书速览", minutes: "" },
+    journey: { label: "故事路线", minutes: "" },
+    complete: { label: "完整梗概", minutes: "" },
+  };
+  for (const item of readingModes) {
+    labels[item.id] = { label: item.title, minutes: `${item.readingMinutes} 分钟` };
+  }
+  return labels;
+}
+
+export function BookReader({ book }: { book: ReaderBook }) {
   const defaultState = useMemo(() => createDefaultReaderState(), []);
   const modeLabels = useMemo(
-    () =>
-      Object.fromEntries(
-        book.metadata.readingModes.map((item) => [
-          item.id,
-          { label: item.title, minutes: `${item.readingMinutes} 分钟` },
-        ]),
-      ) as Record<ReadingMode, { label: string; minutes: string }>,
+    () => createModeLabels(book.metadata.readingModes),
     [book.metadata.readingModes],
   );
   const [mode, setMode] = useState<ReadingMode>(defaultState.mode);
@@ -486,7 +486,7 @@ export function BookReader({ book }: { book: Book }) {
       book.storyArcs.map((arc) => ({
         id: `arc-${arc.id}`,
         title: arc.title,
-        paragraphs: splitSummary(arc.summary),
+        paragraphs: arc.paragraphs,
         kind: "journey",
         arc,
       })),
@@ -1298,10 +1298,7 @@ export function BookReader({ book }: { book: Book }) {
                 "transition-[opacity,width]",
                 progress > 3 ? "opacity-100" : "pointer-events-none w-0 overflow-hidden opacity-0",
               )}
-              onClick={() => {
-                const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-                window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-              }}
+              onClick={scrollPageToTop}
             >
               <ArrowUp />
             </Button>
