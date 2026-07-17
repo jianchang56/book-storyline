@@ -32,6 +32,8 @@ description: 将 Codex 或其他 Agent 生成的分章故事梗概发布为 Stor
    --manifest <工作目录>/manifest.json
    ```
 
+   由 `prepare_book.py` 处理的新书必须追加 `--require-manifest`；没有原文清单时不得把精简阶段自报成原书章节。
+
 8. 更新自动目录并校验全书库：
 
    ```powershell
@@ -62,7 +64,7 @@ python skills/publish-storyline-book/scripts/migrate_legacy_book.py content/book
 
 ## 故事阶段规则
 
-- 通常创建 6–12 个阶段；以读者能否快速理解全书路线为准。
+- 长篇通常创建 6–12 个阶段，且阶段数不得超过章节数；短篇、戏剧或章节较少的作品按实际结构减少，以读者能否快速理解全书路线为准。
 - 在阶段 H3 注释中保存稳定 `arc-id`、起止章节；正文保存一段独立可读的摘要。
 - 摘要保留阶段目标、主要阻碍、关键转折和结束状态，不复述每回细节。
 - 相邻阶段不得重叠或缺章；最后阶段必须覆盖最终章。

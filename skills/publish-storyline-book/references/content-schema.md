@@ -22,6 +22,7 @@ content/<slug>/
 必须包含：`slug`、`title`、`author`、`era`、`subtitle`、`description`、`genres`、`readingMinutes`、`chapterCount`、`coverTone`、`publishedAt`、`readingModes`。
 
 - `chapterCount` 必须与 `20-full.md` 中的二级回目标题数量一致。
+- 由预处理脚本生成的书籍必须使用 `manifest.json` 核对原文章节总数、顺序和标题；`chapterCount` 不能只由发布内容自报。
 - `readingMinutes` 表示完整档预计阅读时间，按有效正文每分钟 400 字、向上取整且最低 1 分钟估算。
 - `slug` 必须与目录名一致。
 - `readingModes` 按 `overview`、`journey`、`complete` 顺序列出文件、标题和预计阅读分钟数；正文变化后使用 `update_reading_minutes.py` 统一同步。
@@ -50,6 +51,7 @@ content/<slug>/
 - `arc-id` 使用小写字母、数字和连字符，书内唯一。
 - 第一项从第 1 章开始，后一项紧接前一项，最后一项结束于 `metadata.chapterCount`。
 - 标题和摘要不得为空。
+- 阶段显示序号从 `01` 连续递增，不添加重复的 `## 故事路线` 二级标题。
 - 只保存语义数据；颜色、图标、展开状态由前端决定。
 
 ## 20-full.md

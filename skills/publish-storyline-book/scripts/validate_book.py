@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from script_utils import configure_utf8_stdio
+
 
 REQUIRED_METADATA = {
     "slug",
@@ -60,6 +62,28 @@ ARC_HEADING_PATTERN = re.compile(
 CHAPTER_HEADING_PATTERN = re.compile(r"^##\s+(.+?)\s*$", re.MULTILINE)
 
 
+def without_fenced_code(source: str) -> str:
+    result: list[str] = []
+    fence_character: str | None = None
+    fence_length = 0
+    for line in source.splitlines(keepends=True):
+        match = re.match(r"^\s*(`{3,}|~{3,})", line)
+        if fence_character is None and match:
+            fence_character = match.group(1)[0]
+            fence_length = len(match.group(1))
+        elif (
+            fence_character is not None
+            and re.match(rf"^\s*{re.escape(fence_character)}{{{fence_length},}}\s*$", line.rstrip("\r\n"))
+        ):
+            fence_character = None
+            fence_length = 0
+        if fence_character is not None or match:
+            result.append("".join("\n" if character == "\n" else " " for character in line))
+        else:
+            result.append(line)
+    return "".join(result)
+
+
 def read_json(path: Path) -> Any:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -98,12 +122,21 @@ def validate_metadata(book_dir: Path) -> dict[str, Any]:
         raise ValueError(f"metadata.json missing fields: {', '.join(missing)}")
     if metadata["slug"] != book_dir.name:
         raise ValueError("metadata slug must match the book directory name")
+    for field in ("slug", "title", "author", "era", "subtitle", "description", "publishedAt"):
+        if not isinstance(metadata[field], str) or not metadata[field].strip():
+            raise ValueError(f"metadata {field} must be a non-empty string")
     if not isinstance(metadata["chapterCount"], int) or metadata["chapterCount"] < 1:
         raise ValueError("metadata chapterCount must be a positive integer")
     if not isinstance(metadata["readingMinutes"], int) or metadata["readingMinutes"] < 1:
         raise ValueError("metadata readingMinutes must be a positive integer")
-    if not isinstance(metadata["genres"], list) or not metadata["genres"]:
-        raise ValueError("metadata genres must be a non-empty array")
+    if (
+        not isinstance(metadata["genres"], list)
+        or not metadata["genres"]
+        or any(not isinstance(genre, str) or not genre.strip() for genre in metadata["genres"])
+    ):
+        raise ValueError("metadata genres must be a non-empty array of strings")
+    if len(metadata["genres"]) != len(set(metadata["genres"])):
+        raise ValueError("metadata genres must not contain duplicates")
     collection_tags = metadata.get("collectionTags")
     if collection_tags is not None:
         if (
@@ -148,7 +181,8 @@ def validate_route(book_dir: Path, chapter_count: int) -> None:
     route_path = book_dir / READING_MODE_FILES["journey"]
     source = read_markdown(route_path)
     heading_and_body(route_path)
-    matches = list(ARC_HEADING_PATTERN.finditer(source))
+    structural_source = without_fenced_code(source)
+    matches = list(ARC_HEADING_PATTERN.finditer(structural_source))
     if not matches:
         raise ValueError("10-route.md must contain at least one arc heading with metadata")
 
@@ -175,9 +209,10 @@ def validate_full(book_dir: Path, chapter_count: int) -> list[str]:
     full_path = book_dir / READING_MODE_FILES["complete"]
     source = read_markdown(full_path)
     heading_and_body(full_path)
-    if len(re.findall(r"^#\s+.+$", source, re.MULTILINE)) != 1:
+    structural_source = without_fenced_code(source)
+    if len(re.findall(r"^#\s+.+$", structural_source, re.MULTILINE)) != 1:
         raise ValueError("20-full.md must contain exactly one level-one heading")
-    matches = list(CHAPTER_HEADING_PATTERN.finditer(source))
+    matches = list(CHAPTER_HEADING_PATTERN.finditer(structural_source))
     if len(matches) != chapter_count:
         raise ValueError(f"20-full.md must contain exactly {chapter_count} level-two chapter headings")
     headings: list[str] = []
@@ -189,12 +224,29 @@ def validate_full(book_dir: Path, chapter_count: int) -> list[str]:
     return headings
 
 
-def validate_manifest(manifest_path: Path, headings: list[str]) -> None:
+def validate_manifest(
+    manifest_path: Path,
+    headings: list[str],
+    *,
+    require_detection: bool = False,
+) -> None:
     manifest = read_json(manifest_path)
     chapters = manifest.get("chapters") if isinstance(manifest, dict) else None
+    chapter_count = manifest.get("chapter_count") if isinstance(manifest, dict) else None
+    if chapter_count != len(headings):
+        raise ValueError("manifest chapter_count does not match published chapters")
+    if require_detection and manifest.get("chapter_detection") not in {
+        "epub-spine",
+        "file-boundaries",
+        "single-chapter-opt-in",
+        "text-headings",
+    }:
+        raise ValueError("manifest must record a supported chapter_detection method")
     if not isinstance(chapters, list) or len(chapters) != len(headings):
         raise ValueError("manifest chapter count does not match published chapters")
     for index, (chapter, heading) in enumerate(zip(chapters, headings, strict=True), start=1):
+        if not isinstance(chapter, dict) or chapter.get("index") != index:
+            raise ValueError(f"manifest chapter index mismatch at chapter {index}")
         expected = chapter.get("title") if isinstance(chapter, dict) else None
         normalized_heading = re.sub(r"[\s\u3000]+", " ", heading).strip()
         normalized_expected = (
@@ -204,7 +256,12 @@ def validate_manifest(manifest_path: Path, headings: list[str]) -> None:
             raise ValueError(f"manifest title mismatch at chapter {index}: {heading!r} != {expected!r}")
 
 
-def validate_book(book_dir: Path, manifest_path: Path | None) -> None:
+def validate_book(
+    book_dir: Path,
+    manifest_path: Path | None,
+    *,
+    require_manifest: bool = False,
+) -> None:
     if not book_dir.is_dir():
         raise ValueError(f"book directory not found: {book_dir}")
     metadata = validate_metadata(book_dir)
@@ -215,17 +272,27 @@ def validate_book(book_dir: Path, manifest_path: Path | None) -> None:
     heading_and_body(book_dir / READING_MODE_FILES["overview"])
     validate_route(book_dir, metadata["chapterCount"])
     headings = validate_full(book_dir, metadata["chapterCount"])
-    if manifest_path is not None:
-        validate_manifest(manifest_path, headings)
+    embedded_manifest = book_dir / "source" / "manifest.json"
+    effective_manifest = manifest_path or (embedded_manifest if embedded_manifest.is_file() else None)
+    if require_manifest and effective_manifest is None:
+        raise ValueError("a source manifest is required for this publication")
+    if effective_manifest is not None:
+        validate_manifest(effective_manifest, headings, require_detection=require_manifest)
 
 
 def main() -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("book_dir", type=Path)
     parser.add_argument("--manifest", type=Path)
+    parser.add_argument("--require-manifest", action="store_true")
     args = parser.parse_args()
     try:
-        validate_book(args.book_dir.resolve(), args.manifest.resolve() if args.manifest else None)
+        validate_book(
+            args.book_dir.resolve(),
+            args.manifest.resolve() if args.manifest else None,
+            require_manifest=args.require_manifest,
+        )
     except (OSError, ValueError) as error:
         print(f"[ERROR] {error}", file=sys.stderr)
         return 1

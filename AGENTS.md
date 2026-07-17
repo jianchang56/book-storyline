@@ -58,6 +58,7 @@ pnpm build
 ```
 
 若有预处理生成的 `manifest.json`，额外传入 `--manifest`，严格核对章节顺序和标题。
+由 `prepare_book.py` 处理的新书还必须传入 `--require-manifest`；单文件未识别章节时只有确认原书确为单章才能使用 `--allow-single-chapter`。
 
 `content/catalog.json` 必须由所有书籍的 `metadata.json` 自动生成，不要手工维护。批量发布时先逐书校验，再生成目录，最后运行全书库校验。
 

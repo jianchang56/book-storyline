@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from script_utils import configure_utf8_stdio, iter_book_dirs
+
 
 REQUIRED_FIELDS = {
     "slug",
@@ -40,9 +42,7 @@ def read_metadata(book_dir: Path) -> dict[str, Any]:
 
 def collect_books(content_dir: Path) -> list[dict[str, Any]]:
     books: list[dict[str, Any]] = []
-    for book_dir in sorted(
-        path for path in content_dir.iterdir() if path.is_dir() and not path.name.startswith((".", "_"))
-    ):
+    for book_dir in iter_book_dirs(content_dir):
         metadata_path = book_dir / "metadata.json"
         if not metadata_path.is_file():
             raise ValueError(f"missing file: {metadata_path}")
@@ -109,6 +109,7 @@ def format_catalog(books: list[dict[str, Any]]) -> str:
 
 
 def main() -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("content_dir", nargs="?", type=Path, default=Path("content"))
     parser.add_argument("--output", type=Path)

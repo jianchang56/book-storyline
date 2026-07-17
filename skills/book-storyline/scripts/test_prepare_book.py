@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from prepare_book import safe_output_dir
+from prepare_book import safe_output_dir, split_chapters
 
 
 class SafeOutputDirTest(unittest.TestCase):
@@ -19,6 +19,30 @@ class SafeOutputDirTest(unittest.TestCase):
                 safe_output_dir(input_path, output, force=True)
 
             self.assertEqual(input_path.read_text(encoding="utf-8"), "source")
+
+
+class SplitChaptersTest(unittest.TestCase):
+    def test_recognizes_part_book_and_act_headings(self) -> None:
+        chapters, used_fallback = split_chapters(
+            "Part I\nFirst\n\nBook II: Return\nSecond\n\n第三幕\nThird",
+            "fallback",
+            allow_single_chapter=False,
+        )
+
+        self.assertFalse(used_fallback)
+        self.assertEqual([title for title, _ in chapters], ["Part I", "Book II: Return", "第三幕"])
+
+    def test_requires_explicit_single_chapter_confirmation(self) -> None:
+        with self.assertRaisesRegex(ValueError, "allow-single-chapter"):
+            split_chapters("没有章节标题的正文", "单章", allow_single_chapter=False)
+
+        chapters, used_fallback = split_chapters(
+            "没有章节标题的正文",
+            "单章",
+            allow_single_chapter=True,
+        )
+        self.assertTrue(used_fallback)
+        self.assertEqual(chapters[0][0], "单章")
 
 
 if __name__ == "__main__":
