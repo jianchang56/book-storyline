@@ -417,11 +417,28 @@
     "readingMinutes": 47,
     "readingModes": [
       { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
-      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
       { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 47 }
     ],
     "chapterCount": 100,
     "coverTone": "stone",
+    "publishedAt": "2026-07-15",
+    "status": "published"
+  },
+  {
+    "slug": "sufedeshijie",
+    "title": "苏菲的世界",
+    "author": "乔斯坦·贾德",
+    "tagline": "一部关于哲学史的小说",
+    "genres": ["哲学", "小说", "青少年文学"],
+    "readingMinutes": 23,
+    "readingModes": [
+      { "id": "overview", "title": "全书速览", "file": "00-overview.md", "readingMinutes": 1 },
+      { "id": "journey", "title": "哲学之旅", "file": "10-route.md", "readingMinutes": 3 },
+      { "id": "complete", "title": "完整阅读", "file": "20-full.md", "readingMinutes": 23 }
+    ],
+    "chapterCount": 35,
+    "coverTone": "indigo",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
@@ -954,23 +971,6 @@
     "chapterCount": 100,
     "coverTone": "cinnabar",
     "publishedAt": "2026-07-13",
-    "status": "published"
-  },
-  {
-    "slug": "sufedeshijie",
-    "title": "苏菲的世界",
-    "author": "乔斯坦·贾德",
-    "tagline": "一部关于哲学史的小说",
-    "genres": ["哲学", "小说", "青少年文学"],
-    "readingMinutes": 23,
-    "readingModes": [
-      { "id": "overview", "title": "全书速览", "file": "00-overview.md", "readingMinutes": 1 },
-      { "id": "journey", "title": "哲学之旅", "file": "10-route.md", "readingMinutes": 3 },
-      { "id": "complete", "title": "完整阅读", "file": "20-full.md", "readingMinutes": 23 }
-    ],
-    "chapterCount": 35,
-    "coverTone": "indigo",
-    "publishedAt": "1991",
     "status": "published"
   }
 ]

@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { getBook, parseBookChapters, parseBookSection, parseStoryArcs } from "@/lib/books";
+import {
+  getBook,
+  parseBookChapters,
+  parseBookMetadata,
+  parseBookSection,
+  parseStoryArcs,
+} from "@/lib/books";
 
 describe("parseBookSection", () => {
   it("extracts the markdown heading and paragraphs", () => {
@@ -27,7 +33,9 @@ describe("parseStoryArcs", () => {
 
 ### 01 石猴出世 <!-- arc-id=wukong-origin start=1 end=7 -->
 
-第一段。\n仍在同一段。
+第一段。
+
+仍在同一段。
 
 ### 02 取经缘起 <!-- arc-id=pilgrimage-begins start=8 end=14 -->
 
@@ -40,6 +48,7 @@ describe("parseStoryArcs", () => {
         startChapter: 1,
         endChapter: 7,
         summary: "第一段。 仍在同一段。",
+        paragraphs: ["第一段。", "仍在同一段。"],
       },
       {
         id: "pilgrimage-begins",
@@ -47,8 +56,33 @@ describe("parseStoryArcs", () => {
         startChapter: 8,
         endChapter: 14,
         summary: "第二阶段。",
+        paragraphs: ["第二阶段。"],
       },
     ]);
+  });
+});
+
+describe("parseBookMetadata", () => {
+  it("rejects metadata that would crash the page at render time", () => {
+    const metadata = {
+      slug: "example",
+      title: "示例",
+      author: "作者",
+      era: "现代",
+      subtitle: "副标题",
+      description: "描述",
+      readingMinutes: 1,
+      chapterCount: 1,
+      coverTone: "jade",
+      publishedAt: "2026-07-18",
+      readingModes: [
+        { id: "overview", file: "00-overview.md", title: "速览", readingMinutes: 1 },
+        { id: "journey", file: "10-route.md", title: "路线", readingMinutes: 1 },
+        { id: "complete", file: "20-full.md", title: "完整", readingMinutes: 1 },
+      ],
+    };
+
+    expect(() => parseBookMetadata(JSON.stringify(metadata))).toThrow("genres");
   });
 });
 

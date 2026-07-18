@@ -3,6 +3,7 @@
 import { ArrowUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { scrollPageToTop } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
 
 const SHOW_AFTER_PX = 640;
@@ -54,10 +55,7 @@ export function ScrollToTop() {
         className="flex size-11 cursor-pointer items-center justify-center rounded-full bg-background/95 text-foreground backdrop-blur-xl transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]"
         aria-label={`返回页面顶部，当前已浏览 ${roundedProgress}%`}
         title="返回顶部"
-        onClick={() => {
-          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-        }}
+        onClick={scrollPageToTop}
       >
         <ArrowUp className="size-4" aria-hidden="true" />
       </button>

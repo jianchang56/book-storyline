@@ -24,6 +24,9 @@ export type LibraryReaderState = {
 };
 
 type StorageReader = Pick<Storage, "getItem" | "removeItem">;
+type StorageWriter = Pick<Storage, "setItem">;
+
+export type ReaderSectionIds = Record<ReadingMode, readonly string[]>;
 
 export function getReaderStorageKey(bookSlug: string) {
   return `storyline:reader:v${readerStateVersion}:${bookSlug}`;
@@ -45,14 +48,66 @@ export function createDefaultReaderState(): ReaderState {
   };
 }
 
-export function readReaderState(storage: StorageReader, bookSlug: string): ReaderState | null {
-  const key = getReaderStorageKey(bookSlug);
-  const value = storage.getItem(key);
-  if (!value) {
+export function getBrowserStorage(): Storage | null {
+  try {
+    return window.localStorage;
+  } catch {
     return null;
   }
+}
+
+export function getReadingModeForSectionId(sectionId: string): ReadingMode {
+  if (sectionId === "overview") {
+    return "overview";
+  }
+  return sectionId.startsWith("arc-") ? "journey" : "complete";
+}
+
+export function normalizeReaderState(
+  state: ReaderState,
+  sectionIds: ReaderSectionIds,
+): ReaderState {
+  const availableIds = sectionIds[state.mode];
+  const fallback = (
+    [
+      [state.mode, availableIds[0]],
+      ["complete", sectionIds.complete[0]],
+      ["journey", sectionIds.journey[0]],
+      ["overview", sectionIds.overview[0]],
+    ] as const
+  ).find((entry): entry is readonly [ReadingMode, string] => typeof entry[1] === "string");
+  const validChapterIds = new Set(sectionIds.complete);
+  const locationIsValid = availableIds.includes(state.lastSectionId);
+
+  return {
+    ...state,
+    mode: locationIsValid ? state.mode : (fallback?.[0] ?? state.mode),
+    lastSectionId: locationIsValid ? state.lastSectionId : (fallback?.[1] ?? state.lastSectionId),
+    bookmarks: [...new Set(state.bookmarks.filter((id) => validChapterIds.has(id)))],
+    readChapters: [...new Set(state.readChapters.filter((id) => validChapterIds.has(id)))],
+  };
+}
+
+export function isReaderStateFinished(state: ReaderState, chapterCount: number) {
+  return (
+    state.progress >= 99 || (chapterCount > 0 && new Set(state.readChapters).size >= chapterCount)
+  );
+}
+
+export function readReaderState(
+  storage: StorageReader | null | undefined,
+  bookSlug: string,
+): ReaderState | null {
+  if (!storage) {
+    return null;
+  }
+  const key = getReaderStorageKey(bookSlug);
 
   try {
+    const value = storage.getItem(key);
+    if (!value) {
+      return null;
+    }
     const parsed = JSON.parse(value) as Partial<ReaderState>;
     if (
       parsed.version !== readerStateVersion ||
@@ -76,13 +131,33 @@ export function readReaderState(storage: StorageReader, bookSlug: string): Reade
       readChapters: parsed.readChapters.filter((item): item is string => typeof item === "string"),
     };
   } catch {
-    storage.removeItem(key);
+    try {
+      storage.removeItem(key);
+    } catch {
+      // Storage can be unavailable even when a Storage object was obtained earlier.
+    }
     return null;
   }
 }
 
+export function writeReaderState(
+  storage: StorageWriter | null | undefined,
+  bookSlug: string,
+  state: ReaderState,
+) {
+  if (!storage) {
+    return false;
+  }
+  try {
+    storage.setItem(getReaderStorageKey(bookSlug), JSON.stringify(state));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function readLibraryReaderStates(
-  storage: StorageReader,
+  storage: StorageReader | null | undefined,
   bookSlugs: readonly string[],
 ): LibraryReaderState[] {
   const states: LibraryReaderState[] = [];

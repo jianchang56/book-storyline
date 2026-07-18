@@ -14,7 +14,15 @@ import { catalog } from "@/lib/catalog";
 import { getBookCollections } from "@/lib/collections";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
-const featuredBook = catalog.find((book) => book.slug === "xiyouji") ?? catalog[0];
+function requireCatalogBook(slug: string) {
+  const book = catalog.find((item) => item.slug === slug);
+  if (!book) {
+    throw new Error(`The home page feature requires the published ${slug} catalog entry`);
+  }
+  return book;
+}
+
+const featuredBook = requireCatalogBook("xiyouji");
 const shelfBooks = catalog.slice(0, 5);
 const featuredCollections = getBookCollections(catalog).slice(0, 3);
 const plotStops = [

@@ -42,16 +42,17 @@ export function PwaRegistration() {
       if (url.origin !== window.location.origin) {
         return;
       }
-      if (url.pathname === window.location.pathname) {
+      if (url.pathname === window.location.pathname && url.search === window.location.search) {
         return;
       }
-      if (navigator.onLine || !url.pathname.startsWith("/books/")) {
+      if (navigator.onLine) {
         return;
       }
       event.preventDefault();
+      event.stopPropagation();
       window.location.assign(url);
     };
-    document.addEventListener("click", handleLocalFirstNavigation);
+    document.addEventListener("click", handleLocalFirstNavigation, { capture: true });
 
     void navigator.serviceWorker
       .register("/sw.js", { scope: "/" })
@@ -81,7 +82,7 @@ export function PwaRegistration() {
 
     return () => {
       navigator.serviceWorker.removeEventListener("controllerchange", handleControllerChange);
-      document.removeEventListener("click", handleLocalFirstNavigation);
+      document.removeEventListener("click", handleLocalFirstNavigation, { capture: true });
     };
   }, []);
 

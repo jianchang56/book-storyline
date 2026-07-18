@@ -41,17 +41,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import type { Book, BookSection, StoryArc } from "@/lib/books";
+import type { BookSection, ReaderBook, StoryArc } from "@/lib/books";
 import { calculateReaderProgress } from "@/lib/reader-progress";
 import {
   createDefaultReaderState,
-  getReaderStorageKey,
+  getBrowserStorage,
+  getReadingModeForSectionId,
+  normalizeReaderState,
   type ReaderLineHeight,
   type ReaderWidth,
   type ReadingMode,
   readerStateVersion,
   readReaderState,
+  writeReaderState,
 } from "@/lib/reader-storage";
+import { scrollPageToTop } from "@/lib/scroll";
 import { sendServiceWorkerMessage } from "@/lib/service-worker-client";
 import { cn } from "@/lib/utils";
 
@@ -80,13 +84,6 @@ const widthValues: Record<ReaderWidth, string> = {
   standard: "46rem",
   wide: "54rem",
 };
-
-function splitSummary(summary: string) {
-  return summary
-    .split(/\n\s*\n/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean);
-}
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -303,7 +300,7 @@ function ReaderToc({
   readChapters,
   onNavigate,
 }: {
-  book: Book;
+  book: ReaderBook;
   mode: ReadingMode;
   activeId: string;
   bookmarks: Set<string>;
@@ -445,16 +442,22 @@ function OfflineReadingStatus({
   );
 }
 
-export function BookReader({ book }: { book: Book }) {
+function createModeLabels(readingModes: ReaderBook["metadata"]["readingModes"]) {
+  const labels: Record<ReadingMode, { label: string; minutes: string }> = {
+    overview: { label: "全书速览", minutes: "" },
+    journey: { label: "故事路线", minutes: "" },
+    complete: { label: "完整梗概", minutes: "" },
+  };
+  for (const item of readingModes) {
+    labels[item.id] = { label: item.title, minutes: `${item.readingMinutes} 分钟` };
+  }
+  return labels;
+}
+
+export function BookReader({ book }: { book: ReaderBook }) {
   const defaultState = useMemo(() => createDefaultReaderState(), []);
   const modeLabels = useMemo(
-    () =>
-      Object.fromEntries(
-        book.metadata.readingModes.map((item) => [
-          item.id,
-          { label: item.title, minutes: `${item.readingMinutes} 分钟` },
-        ]),
-      ) as Record<ReadingMode, { label: string; minutes: string }>,
+    () => createModeLabels(book.metadata.readingModes),
     [book.metadata.readingModes],
   );
   const [mode, setMode] = useState<ReadingMode>(defaultState.mode);
@@ -475,6 +478,7 @@ export function BookReader({ book }: { book: Book }) {
   const [actionMessage, setActionMessage] = useState("");
   const [offlineStatus, setOfflineStatus] = useState<OfflineStatus>("idle");
   const readerRef = useRef<HTMLDivElement>(null);
+  const storageRef = useRef<Storage | null>(null);
   const deferredQuery = useDeferredValue(query.trim());
 
   const arcSections = useMemo<ReaderSection[]>(
@@ -482,7 +486,7 @@ export function BookReader({ book }: { book: Book }) {
       book.storyArcs.map((arc) => ({
         id: `arc-${arc.id}`,
         title: arc.title,
-        paragraphs: splitSummary(arc.summary),
+        paragraphs: arc.paragraphs,
         kind: "journey",
         arc,
       })),
@@ -514,6 +518,14 @@ export function BookReader({ book }: { book: Book }) {
     ];
     return new Map<string, string>(entries);
   }, [arcSections, book.overview.title, chapterSections]);
+  const sectionIdsByMode = useMemo(
+    () => ({
+      overview: ["overview"],
+      journey: arcSections.map((section) => section.id),
+      complete: chapterSections.map((section) => section.id),
+    }),
+    [arcSections, chapterSections],
+  );
 
   const searchResults = useMemo<SearchResult[]>(() => {
     if (!deferredQuery) {
@@ -569,7 +581,9 @@ export function BookReader({ book }: { book: Book }) {
 
   useEffect(() => {
     const hashId = window.location.hash.slice(1);
-    const saved = readReaderState(window.localStorage, book.metadata.slug);
+    storageRef.current = getBrowserStorage();
+    const stored = readReaderState(storageRef.current, book.metadata.slug);
+    const saved = stored ? normalizeReaderState(stored, sectionIdsByMode) : null;
     if (saved) {
       setMode(saved.mode);
       setActiveId(saved.lastSectionId);
@@ -581,8 +595,7 @@ export function BookReader({ book }: { book: Book }) {
       setContentWidth(saved.contentWidth);
     }
     if (hashId && titleById.has(hashId)) {
-      const hashMode: ReadingMode =
-        hashId === "overview" ? "overview" : hashId.startsWith("arc-") ? "journey" : "complete";
+      const hashMode = getReadingModeForSectionId(hashId);
       setMode(hashMode);
       setActiveId(hashId);
       setPendingScrollId(hashId);
@@ -590,7 +603,7 @@ export function BookReader({ book }: { book: Book }) {
       setPendingScrollId(saved.lastSectionId);
     }
     setHydrated(true);
-  }, [book.metadata.slug, titleById]);
+  }, [book.metadata.slug, sectionIdsByMode, titleById]);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== "production" || !hydrated) {
@@ -636,13 +649,9 @@ export function BookReader({ book }: { book: Book }) {
     if (!pendingScrollId) {
       return;
     }
-    const targetMode: ReadingMode =
-      pendingScrollId === "overview"
-        ? "overview"
-        : pendingScrollId.startsWith("arc-")
-          ? "journey"
-          : "complete";
+    const targetMode: ReadingMode = getReadingModeForSectionId(pendingScrollId);
     if (mode !== targetMode) {
+      startTransition(() => setMode(targetMode));
       return;
     }
     const targetId = pendingScrollId;
@@ -650,17 +659,29 @@ export function BookReader({ book }: { book: Book }) {
     let retryFrame = 0;
     let retryTimer = 0;
     let attempts = 0;
+    const scheduleRetry = () => {
+      retryTimer = window.setTimeout(() => {
+        retryFrame = window.requestAnimationFrame(alignTarget);
+      }, 120);
+    };
     const alignTarget = () => {
+      attempts += 1;
       const target = document.getElementById(targetId);
       if (!target) {
+        if (attempts < 3) {
+          scheduleRetry();
+          return;
+        }
+        const fallbackId = visibleSections[0]?.id;
+        if (fallbackId) {
+          setActiveId(fallbackId);
+        }
+        setPendingScrollId(null);
         return;
       }
       target.scrollIntoView({ block: "start" });
-      attempts += 1;
       if (attempts < 3) {
-        retryTimer = window.setTimeout(() => {
-          retryFrame = window.requestAnimationFrame(alignTarget);
-        }, 120);
+        scheduleRetry();
         return;
       }
       setActiveId(targetId);
@@ -677,7 +698,7 @@ export function BookReader({ book }: { book: Book }) {
       window.cancelAnimationFrame(retryFrame);
       window.clearTimeout(retryTimer);
     };
-  }, [mode, pendingScrollId]);
+  }, [mode, pendingScrollId, visibleSections]);
 
   useEffect(() => {
     const elements = visibleSections
@@ -737,7 +758,7 @@ export function BookReader({ book }: { book: Book }) {
   }, [visibleSections]);
 
   const persistReaderState = useEffectEvent(() => {
-    if (!hydrated) {
+    if (!hydrated || pendingScrollId) {
       return;
     }
     const state = {
@@ -753,7 +774,9 @@ export function BookReader({ book }: { book: Book }) {
       contentWidth,
       updatedAt: new Date().toISOString(),
     };
-    window.localStorage.setItem(getReaderStorageKey(book.metadata.slug), JSON.stringify(state));
+    if (!writeReaderState(storageRef.current, book.metadata.slug, state)) {
+      return;
+    }
     window.dispatchEvent(
       new CustomEvent("storyline:reader-updated", { detail: { slug: book.metadata.slug } }),
     );
@@ -774,6 +797,7 @@ export function BookReader({ book }: { book: Book }) {
     hydrated,
     lineHeight,
     mode,
+    pendingScrollId,
     progress,
     readChapters,
   ]);
@@ -809,6 +833,9 @@ export function BookReader({ book }: { book: Book }) {
     const handleKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       if (target?.matches("input, textarea, [contenteditable='true']")) {
+        return;
+      }
+      if (event.isComposing || event.ctrlKey || event.metaKey || event.altKey) {
         return;
       }
       if (event.key === "/") {
@@ -906,7 +933,8 @@ export function BookReader({ book }: { book: Book }) {
     "--reader-line-height": lineHeightValues[lineHeight],
     "--reader-measure": widthValues[contentWidth],
   } as CSSProperties;
-  const readPercentage = Math.round((readChapters.size / book.chapters.length) * 100);
+  const readPercentage =
+    book.chapters.length > 0 ? Math.round((readChapters.size / book.chapters.length) * 100) : 0;
 
   const tocContent = (
     <ReaderToc
@@ -1270,10 +1298,7 @@ export function BookReader({ book }: { book: Book }) {
                 "transition-[opacity,width]",
                 progress > 3 ? "opacity-100" : "pointer-events-none w-0 overflow-hidden opacity-0",
               )}
-              onClick={() => {
-                const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-                window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-              }}
+              onClick={scrollPageToTop}
             >
               <ArrowUp />
             </Button>

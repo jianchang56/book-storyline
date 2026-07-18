@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from generate_catalog import collect_books
+from script_utils import configure_utf8_stdio
 from validate_book import validate_book
 
 
@@ -46,6 +47,7 @@ def validate_library(content_dir: Path, catalog_path: Path) -> int:
 
 
 def main() -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("content_dir", nargs="?", type=Path, default=Path("content"))
     parser.add_argument("--catalog", type=Path)

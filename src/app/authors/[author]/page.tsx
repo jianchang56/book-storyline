@@ -11,6 +11,7 @@ type AuthorPageProps = {
 const authors = getAuthorGroups(catalog);
 
 export function generateStaticParams() {
+  // Pre-render the largest collections; dynamicParams handles the long tail on demand.
   return authors.slice(0, 50).map((author) => ({ author: author.name }));
 }
 

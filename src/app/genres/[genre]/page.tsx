@@ -11,6 +11,7 @@ type GenrePageProps = {
 const genres = getGenreGroups(catalog);
 
 export function generateStaticParams() {
+  // Pre-render the largest collections; dynamicParams handles the long tail on demand.
   return genres.slice(0, 50).map((genre) => ({ genre: genre.name }));
 }
 

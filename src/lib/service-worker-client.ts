@@ -8,27 +8,53 @@ export type OfflineCacheStatus = {
   pages: number;
 };
 
-export async function sendServiceWorkerMessage<T>(message: unknown, timeoutMs = 15000) {
+export function sendServiceWorkerMessage<T>(message: unknown, timeoutMs = 15000) {
   if (!("serviceWorker" in navigator)) {
-    throw new Error("service worker unavailable");
-  }
-  const registration = await navigator.serviceWorker.ready;
-  const worker = registration.active;
-  if (!worker) {
-    throw new Error("service worker inactive");
+    return Promise.reject(new Error("service worker unavailable"));
   }
 
   return new Promise<T>((resolve, reject) => {
-    const channel = new MessageChannel();
+    let channel: MessageChannel | null = null;
+    let settled = false;
     const timer = window.setTimeout(() => {
-      channel.port1.close();
+      settled = true;
+      channel?.port1.close();
       reject(new Error("service worker response timed out"));
     }, timeoutMs);
-    channel.port1.onmessage = (event: MessageEvent<T>) => {
-      window.clearTimeout(timer);
-      channel.port1.close();
-      resolve(event.data);
-    };
-    worker.postMessage(message, [channel.port2]);
+
+    void navigator.serviceWorker.ready.then(
+      (registration) => {
+        if (settled) {
+          return;
+        }
+        const worker = registration.active;
+        if (!worker) {
+          window.clearTimeout(timer);
+          settled = true;
+          reject(new Error("service worker inactive"));
+          return;
+        }
+
+        channel = new MessageChannel();
+        channel.port1.onmessage = (event: MessageEvent<T>) => {
+          if (settled) {
+            return;
+          }
+          window.clearTimeout(timer);
+          settled = true;
+          channel?.port1.close();
+          resolve(event.data);
+        };
+        worker.postMessage(message, [channel.port2]);
+      },
+      (error: unknown) => {
+        if (settled) {
+          return;
+        }
+        window.clearTimeout(timer);
+        settled = true;
+        reject(error);
+      },
+    );
   });
 }

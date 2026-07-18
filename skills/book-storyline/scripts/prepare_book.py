@@ -20,8 +20,8 @@ from xml.etree import ElementTree as ET
 TEXT_SUFFIXES = {".txt", ".md", ".markdown"}
 CHAPTER_RE = re.compile(
     r"^(?:#{1,6}\s*)?(?:"
-    r"第[零〇一二三四五六七八九十百千万两\d]+(?:章|回|节|卷)(?:\s+.*)?|"
-    r"chapter\s+[\divxlcdm]+(?:\s*[:：.\-—]\s*.*)?|"
+    r"第[零〇一二三四五六七八九十百千万两\d]+(?:章|回|节|卷|部|幕)(?:\s+.*)?|"
+    r"(?:chapter|part|book|act)\s+[\divxlcdm]+(?:\s*[:：.\-—]\s*.*)?|"
     r"(?:prologue|epilogue|preface|introduction|序章|楔子|引子|尾声|后记|番外)(?:\s*[:：.\-—]\s*.*)?"
     r")\s*$",
     re.IGNORECASE,
@@ -51,18 +51,27 @@ def normalize_text(text: str) -> str:
     return "\n".join(lines).strip() + "\n"
 
 
-def split_chapters(text: str, fallback_title: str) -> list[tuple[str, str]]:
+def split_chapters(
+    text: str,
+    fallback_title: str,
+    *,
+    allow_single_chapter: bool,
+) -> tuple[list[tuple[str, str]], bool]:
     lines = text.splitlines()
     headings = [(index, line.strip().lstrip("#").strip()) for index, line in enumerate(lines) if CHAPTER_RE.match(line.strip())]
     if not headings:
-        return [(fallback_title, normalize_text(text))]
+        if not allow_single_chapter:
+            raise ValueError(
+                "未识别到章节标题；若原书确为单章，请显式传入 --allow-single-chapter"
+            )
+        return [(fallback_title, normalize_text(text))], True
 
     chapters: list[tuple[str, str]] = []
     for position, (start, title) in enumerate(headings):
         end = headings[position + 1][0] if position + 1 < len(headings) else len(lines)
         body = "\n".join(lines[start + 1 : end]).strip()
         chapters.append((title, normalize_text(body)))
-    return chapters
+    return chapters, False
 
 
 class XHTMLTextExtractor(HTMLParser):
@@ -144,8 +153,13 @@ def extract_epub(path: Path) -> list[tuple[str, str, str]]:
     return chapters
 
 
-def collect_text_sources(path: Path) -> list[tuple[str, str, str, str]]:
+def collect_text_sources(
+    path: Path,
+    *,
+    allow_single_chapter: bool,
+) -> tuple[list[tuple[str, str, str, str]], bool]:
     collected: list[tuple[str, str, str, str]] = []
+    used_fallback = False
     paths = [path] if path.is_file() else sorted(
         (item for item in path.rglob("*") if item.is_file() and item.suffix.lower() in TEXT_SUFFIXES),
         key=lambda item: natural_key(str(item.relative_to(path))),
@@ -154,11 +168,17 @@ def collect_text_sources(path: Path) -> list[tuple[str, str, str, str]]:
         if item.suffix.lower() not in TEXT_SUFFIXES:
             raise ValueError(f"不支持的文件类型: {item.suffix}")
         text, encoding = read_text(item)
-        for title, body in split_chapters(text, item.stem):
+        chapters, item_used_fallback = split_chapters(
+            text,
+            item.stem,
+            allow_single_chapter=allow_single_chapter or path.is_dir(),
+        )
+        used_fallback = used_fallback or item_used_fallback
+        for title, body in chapters:
             collected.append((title, body, str(item), encoding))
     if not collected:
         raise ValueError(f"没有找到支持的文本文件: {path}")
-    return collected
+    return collected, used_fallback
 
 
 def safe_output_dir(input_path: Path, output_path: Path, force: bool) -> None:
@@ -177,7 +197,13 @@ def safe_output_dir(input_path: Path, output_path: Path, force: bool) -> None:
     output_path.mkdir(parents=True)
 
 
-def prepare(input_path: Path, output_path: Path, compression: str, force: bool) -> None:
+def prepare(
+    input_path: Path,
+    output_path: Path,
+    compression: str,
+    force: bool,
+    allow_single_chapter: bool,
+) -> None:
     input_path = input_path.resolve()
     output_path = output_path.resolve()
     if not input_path.exists():
@@ -187,9 +213,20 @@ def prepare(input_path: Path, output_path: Path, compression: str, force: bool) 
     if input_path.is_file() and input_path.suffix.lower() == ".epub":
         raw_chapters = [(title, text, source, "utf-8") for title, text, source in extract_epub(input_path)]
         source_type = "epub"
+        chapter_detection = "epub-spine"
     else:
-        raw_chapters = collect_text_sources(input_path)
+        raw_chapters, used_fallback = collect_text_sources(
+            input_path,
+            allow_single_chapter=allow_single_chapter,
+        )
         source_type = "directory" if input_path.is_dir() else input_path.suffix.lower().lstrip(".")
+        chapter_detection = (
+            "file-boundaries"
+            if input_path.is_dir() and used_fallback
+            else "single-chapter-opt-in"
+            if used_fallback
+            else "text-headings"
+        )
 
     chapters_dir = output_path / "chapters"
     chapters_dir.mkdir()
@@ -197,7 +234,7 @@ def prepare(input_path: Path, output_path: Path, compression: str, force: bool) 
     for index, (title, text, source, encoding) in enumerate(raw_chapters, start=1):
         filename = f"{index:04d}.md"
         content = f"# {title}\n\n{text.strip()}\n"
-        (chapters_dir / filename).write_text(content, encoding="utf-8")
+        (chapters_dir / filename).write_text(content, encoding="utf-8", newline="\n")
         manifest_chapters.append(
             {
                 "index": index,
@@ -215,6 +252,7 @@ def prepare(input_path: Path, output_path: Path, compression: str, force: bool) 
         "schema_version": 1,
         "source": str(input_path),
         "source_type": source_type,
+        "chapter_detection": chapter_detection,
         "generated_at": generated_at,
         "chapter_count": len(manifest_chapters),
         "chapters": manifest_chapters,
@@ -232,8 +270,16 @@ def prepare(input_path: Path, output_path: Path, compression: str, force: bool) 
         "source_uncertainties": [],
         "last_updated": generated_at,
     }
-    (output_path / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (output_path / "state.json").write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output_path / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    (output_path / "state.json").write_text(
+        json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -242,6 +288,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("output", type=Path, help="标准化输出目录")
     parser.add_argument("--compression", choices=("brief", "standard", "detailed"), default="standard")
     parser.add_argument("--force", action="store_true", help="覆盖已存在的输出目录")
+    parser.add_argument(
+        "--allow-single-chapter",
+        action="store_true",
+        help="确认单文件原文确实没有章节边界，并允许按单章处理",
+    )
     return parser.parse_args()
 
 
@@ -251,7 +302,13 @@ def main() -> int:
         sys.stderr.reconfigure(encoding="utf-8")
     args = parse_args()
     try:
-        prepare(args.input, args.output, args.compression, args.force)
+        prepare(
+            args.input,
+            args.output,
+            args.compression,
+            args.force,
+            args.allow_single_chapter,
+        )
     except (OSError, ValueError, zipfile.BadZipFile, ET.ParseError) as error:
         print(f"错误: {error}", file=sys.stderr)
         return 1

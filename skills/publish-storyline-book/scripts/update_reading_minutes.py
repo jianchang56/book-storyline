@@ -4,11 +4,14 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import math
 import re
 from pathlib import Path
 from typing import Any
+
+from script_utils import configure_utf8_stdio, iter_book_dirs
 
 
 CHARS_PER_MINUTE = 400
@@ -27,20 +30,25 @@ def estimate_minutes(markdown: str) -> int:
     return max(1, math.ceil(count_readable_characters(markdown) / CHARS_PER_MINUTE))
 
 
-def replace_reading_minutes(metadata_text: str, minutes: list[int]) -> str:
-    replacements = [minutes[2], *minutes]
-    matches = list(re.finditer(r'("readingMinutes"\s*:\s*)\d+', metadata_text))
-    if len(matches) != len(replacements):
-        raise ValueError("metadata must contain top-level and three reading-mode minute values")
+def update_metadata_minutes(metadata: dict[str, Any], minutes: list[int]) -> dict[str, Any]:
+    updated = copy.deepcopy(metadata)
+    modes = updated.get("readingModes")
+    if (
+        not isinstance(modes, list)
+        or len(modes) != 3
+        or any(not isinstance(mode, dict) for mode in modes)
+    ):
+        raise ValueError("metadata readingModes must contain three objects")
+    modes_by_id = {
+        mode.get("id"): mode for mode in modes if isinstance(mode.get("id"), str)
+    }
+    if set(modes_by_id) != {"overview", "journey", "complete"}:
+        raise ValueError("metadata readingModes must contain overview, journey, complete")
 
-    parts: list[str] = []
-    previous_end = 0
-    for match, value in zip(matches, replacements, strict=True):
-        parts.append(metadata_text[previous_end : match.start()])
-        parts.append(f"{match.group(1)}{value}")
-        previous_end = match.end()
-    parts.append(metadata_text[previous_end:])
-    return "".join(parts)
+    updated["readingMinutes"] = minutes[2]
+    for mode_id, value in zip(("overview", "journey", "complete"), minutes, strict=True):
+        modes_by_id[mode_id]["readingMinutes"] = value
+    return updated
 
 
 def synchronize_markdown_minutes(book_dir: Path, minutes: list[int], *, check: bool) -> bool:
@@ -74,8 +82,7 @@ def synchronize_markdown_minutes(book_dir: Path, minutes: list[int], *, check: b
 
 def update_book(book_dir: Path, *, check: bool) -> tuple[bool, list[int]]:
     metadata_path = book_dir / "metadata.json"
-    metadata_text = metadata_path.read_text(encoding="utf-8")
-    metadata: dict[str, Any] = json.loads(metadata_text)
+    metadata: dict[str, Any] = json.loads(metadata_path.read_text(encoding="utf-8"))
     if metadata.get("slug") != book_dir.name:
         raise ValueError(f"metadata slug must match directory: {book_dir}")
 
@@ -83,15 +90,20 @@ def update_book(book_dir: Path, *, check: bool) -> tuple[bool, list[int]]:
         estimate_minutes((book_dir / filename).read_text(encoding="utf-8"))
         for filename in MODE_FILES
     ]
-    updated_metadata = replace_reading_minutes(metadata_text, minutes)
-    changed = updated_metadata != metadata_text
+    updated_metadata = update_metadata_minutes(metadata, minutes)
+    changed = updated_metadata != metadata
     if changed and not check:
-        metadata_path.write_text(updated_metadata, encoding="utf-8", newline="\n")
+        metadata_path.write_text(
+            json.dumps(updated_metadata, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
     changed = synchronize_markdown_minutes(book_dir, minutes, check=check) or changed
     return changed, minutes
 
 
 def main() -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("content_dir", nargs="?", type=Path, default=Path("content"))
     parser.add_argument("--check", action="store_true", help="fail when stored estimates are stale")
@@ -100,7 +112,7 @@ def main() -> int:
 
     changed_books: list[str] = []
     try:
-        book_dirs = sorted(path for path in content_dir.iterdir() if path.is_dir())
+        book_dirs = iter_book_dirs(content_dir)
         for book_dir in book_dirs:
             changed, minutes = update_book(book_dir, check=args.check)
             if changed:

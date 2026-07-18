@@ -8,7 +8,7 @@ import { BookReader } from "@/components/book-reader";
 import { JsonLd } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
-import { getBook } from "@/lib/books";
+import { getBook, toReaderBook } from "@/lib/books";
 import { catalog } from "@/lib/catalog";
 import { authorPath, genrePath, getRelatedBooks } from "@/lib/discovery";
 import { absoluteUrl, siteConfig } from "@/lib/site";
@@ -18,6 +18,7 @@ type BookPageProps = {
 };
 
 export async function generateStaticParams() {
+  // Bound build time while dynamicParams generates the remaining books on first request.
   return catalog.slice(0, 24).map((book) => ({ slug: book.slug }));
 }
 
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
       ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${book.metadata.title}故事梗概`,
       description: book.metadata.description,
       images: [`/books/${slug}/opengraph-image`],
@@ -188,7 +189,7 @@ export default async function BookPage({ params }: BookPageProps) {
           </div>
         </section>
 
-        <BookReader book={book} />
+        <BookReader book={toReaderBook(book)} />
         {relatedBooks.length > 0 ? (
           <section className="border-t border-border/70 bg-card/35">
             <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">

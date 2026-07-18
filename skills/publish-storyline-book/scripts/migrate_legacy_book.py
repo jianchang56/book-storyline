@@ -8,6 +8,8 @@ import json
 import re
 from pathlib import Path
 
+from script_utils import configure_utf8_stdio
+
 
 def write_output(path: Path, content: str) -> None:
     with path.open("w", encoding="utf-8", newline="\n") as handle:
@@ -20,7 +22,20 @@ def format_metadata(metadata: dict[str, object]) -> str:
     return re.sub(r'  "genres": \[\n(?:    .+\n)+  \]', f'  "genres": {compact_genres}', source) + "\n"
 
 
+def format_route(title: str, arcs: list[dict[str, object]]) -> str:
+    route_lines = [f"# 《{title}》：故事路线", ""]
+    for index, arc in enumerate(arcs, start=1):
+        route_lines.extend([
+            f"### {index:02d} {arc['title']} <!-- arc-id={arc['id']} start={arc['startChapter']} end={arc['endChapter']} -->",
+            "",
+            str(arc["summary"]),
+            "",
+        ])
+    return "\n".join(route_lines).rstrip() + "\n"
+
+
 def main() -> int:
+    configure_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("legacy_dir", type=Path)
     parser.add_argument("target_dir", type=Path)
@@ -56,15 +71,7 @@ def main() -> int:
         f"# 《{metadata['title']}》：{args.overview_minutes} 分钟全书速览\n\n{overview_body}\n",
     )
 
-    route_lines = [f"# 《{metadata['title']}》：故事路线", "", "## 故事路线", ""]
-    for index, arc in enumerate(arcs, start=1):
-        route_lines.extend([
-            f"### {index:02d} {arc['title']} <!-- arc-id={arc['id']} start={arc['startChapter']} end={arc['endChapter']} -->",
-            "",
-            arc["summary"],
-            "",
-        ])
-    write_output(target / "10-route.md", "\n".join(route_lines).rstrip() + "\n")
+    write_output(target / "10-route.md", format_route(str(metadata["title"]), arcs))
 
     full_lines = [f"# 《{metadata['title']}》：完整梗概", ""]
     for chapter_index in range(1, metadata["chapterCount"] + 1):
