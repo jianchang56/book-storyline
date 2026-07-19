@@ -140,8 +140,8 @@ export function BookCover({
   const motif = getMotif(genres);
   const titleTypography =
     titleLength >= 7
-      ? "text-[clamp(1.05rem,10cqw,1.42rem)] leading-[1.18] tracking-[0.045em]"
-      : "text-[clamp(1.25rem,13cqw,1.72rem)] leading-[1.18] tracking-[0.07em]";
+      ? "text-[clamp(0.7rem,10cqw,1.42rem)] leading-[1.18] tracking-[0.045em]"
+      : "text-[clamp(0.8rem,13cqw,1.72rem)] leading-[1.18] tracking-[0.07em]";
 
   return (
     <div
@@ -159,21 +159,23 @@ export function BookCover({
         </span>
       </div>
       <div className="absolute inset-3 rounded-[0.55rem] border border-white/25" />
-      <div className="absolute top-5 right-5 text-[8px] tracking-[0.24em] opacity-65 [writing-mode:vertical-rl]">
+      <div className="absolute top-5 right-5 hidden text-[8px] tracking-[0.24em] opacity-65 [writing-mode:vertical-rl] @min-[10rem]:block">
         故事梗概
       </div>
       <div className="absolute top-5 left-6 text-[8px] tracking-[0.18em] opacity-55">书脉</div>
       <div className="absolute top-[16%] left-[23%] size-[54%] opacity-[0.22]">
         <CoverEmblem motif={motif} />
       </div>
-      <div className="absolute top-[47%] right-12 left-7 -translate-y-1/2 text-left">
+      <div className="absolute top-[47%] right-4 left-5 -translate-y-1/2 text-left @min-[10rem]:right-12 @min-[10rem]:left-7">
         <p className={cn("font-display font-semibold [text-wrap:balance]", titleTypography)}>
           {title}
         </p>
       </div>
-      <div className="absolute right-5 bottom-6 left-7">
+      <div className="absolute right-3 bottom-6 left-5 @min-[10rem]:right-5 @min-[10rem]:left-7">
         <div className="mt-4 h-px w-10 bg-current opacity-50" />
-        <p className="mt-3 text-xs tracking-[0.2em] opacity-80">{author}</p>
+        <p className="mt-3 truncate text-[clamp(0.5rem,7.5cqw,0.75rem)] tracking-[0.12em] opacity-80 @min-[10rem]:tracking-[0.2em]">
+          {author}
+        </p>
       </div>
       <div className="absolute right-4 bottom-4 size-10 border-r border-b border-current/20" />
     </div>
