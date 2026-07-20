@@ -1,0 +1,36 @@
+{
+  "slug": "chahuanv",
+  "title": "茶花女",
+  "author": "小仲马",
+  "era": "古典",
+  "subtitle": "一段凄美的悲剧爱情",
+  "description": "巴黎名妓玛格丽特与青年阿尔芒之间一段感人至深的爱情悲剧。玛格丽特为成全爱人家庭名誉牺牲自己，在孤独与误解中香消玉殒。",
+  "genres": [
+    "古典小说",
+    "爱情"
+  ],
+  "readingMinutes": 2,
+  "chapterCount": 1,
+  "coverTone": "rose",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 1
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 1
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 2
+    }
+  ]
+}

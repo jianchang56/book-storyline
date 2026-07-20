@@ -1,0 +1,37 @@
+{
+  "slug": "fengshenyanyi",
+  "title": "封神演义",
+  "author": "许仲琳",
+  "era": "明",
+  "subtitle": "一百回看商周易代、诸仙入劫与三百六十五位正神归位",
+  "description": "纣王在女娲宫题诗招祸，轩辕坟三妖入宫惑主，商廷从砲烙、虿盆与忠臣死谏一步步走向崩解。姜子牙辅佐武王东征，阐教、截教群仙卷入封神杀劫；最终三妖伏诛、纣王自焚，三百六十五位正神各归其位。",
+  "genres": [
+    "古典小说",
+    "神魔",
+    "战争"
+  ],
+  "readingMinutes": 58,
+  "chapterCount": 100,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 3
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 58
+    }
+  ]
+}

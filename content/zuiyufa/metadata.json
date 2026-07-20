@@ -1,0 +1,37 @@
+{
+  "slug": "zuiyufa",
+  "title": "罪与罚",
+  "author": "陀思妥耶夫斯基",
+  "era": "近代",
+  "subtitle": "一个大学生杀人的精神炼狱",
+  "description": "穷大学生拉斯柯尔尼科夫杀人后，在良心与理论的煎熬中走向自首。",
+  "genres": [
+    "近代小说",
+    "心理",
+    "经典"
+  ],
+  "readingMinutes": 5,
+  "chapterCount": 5,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 1
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 1
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 5
+    }
+  ]
+}

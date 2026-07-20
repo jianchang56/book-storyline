@@ -1,0 +1,37 @@
+{
+  "slug": "jinpingmei",
+  "title": "金瓶梅",
+  "author": "兰陵笑笑生",
+  "era": "古典",
+  "subtitle": "一部明代社会的百科全书",
+  "description": "以《水浒传》中武松杀嫂为引子，写西门庆勾结官府、发迹暴富、纵欲身亡的兴衰史，铺陈明代市井百态与官场腐败的世情小说巅峰之作。",
+  "genres": [
+    "古典小说",
+    "世情",
+    "经典"
+  ],
+  "coverTone": "ivory",
+  "chapterCount": 100,
+  "readingMinutes": 28,
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 6
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 28
+    }
+  ]
+}

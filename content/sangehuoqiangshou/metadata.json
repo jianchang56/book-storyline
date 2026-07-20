@@ -1,0 +1,37 @@
+{
+  "slug": "sangehuoqiangshou",
+  "title": "三个火枪手",
+  "author": "大仲马",
+  "era": "古典",
+  "subtitle": "人人为我，我为人人——四个年轻人的热血与忠诚",
+  "description": "年轻的外省贵族达达尼昂只身前往巴黎，与国王火枪队的三个火枪手阿托斯、波托斯和阿拉米斯结为生死之交，卷入王后与红衣主教的明争暗斗，历经钻石扣件迷局、拉罗舍尔围城和与绝色女间谍米拉迪的殊死周旋。",
+  "genres": [
+    "古典小说",
+    "冒险",
+    "历史"
+  ],
+  "readingMinutes": 19,
+  "chapterCount": 68,
+  "coverTone": "amber",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 2
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 19
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "dongzhoulieguozhi",
+  "title": "东周列国志",
+  "author": "冯梦龙",
+  "era": "古典",
+  "subtitle": "五百余年春秋战国的风云画卷",
+  "description": "从周宣王到秦始皇统一六国前后五百余年的历史故事，包括烽火戏诸侯、齐桓公称霸、晋文公退避三舍、楚庄王问鼎中原、吴越争霸、商鞅变法、孙庞斗智、完璧归赵、荆轲刺秦等经典篇章。",
+  "genres": [
+    "古典小说",
+    "历史",
+    "演义"
+  ],
+  "coverTone": "stone",
+  "publishedAt": "2026-07-20",
+  "chapterCount": 108,
+  "readingMinutes": 28,
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 1
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 28
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "yangjiajiang",
+  "title": "杨家将",
+  "author": "熊大木",
+  "era": "明",
+  "subtitle": "忠烈满门，五代不衰的将门传奇",
+  "description": "讲述北宋杨家将五代人前赴后继、忠勇报国的英雄故事。从呼延赞复仇到杨业归宋，从血战金沙滩到大破天门阵，从杨六郎守边到杨门女将征西，一曲慷慨悲歌，满门忠烈风骨。",
+  "genres": [
+    "古典小说",
+    "历史",
+    "传奇",
+    "英雄"
+  ],
+  "readingMinutes": 13,
+  "chapterCount": 50,
+  "coverTone": "sunset",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 13
+    }
+  ]
+}
