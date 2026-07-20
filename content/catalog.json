@@ -156,8 +156,8 @@
   {
     "slug": "zuiyufa",
     "title": "罪与罚",
-    "author": "陀思妥耶夫斯基",
-    "tagline": "一个大学生杀人的精神炼狱",
+    "author": "费奥多尔·陀思妥耶夫斯基",
+    "tagline": "他以为非凡人可以跨越道德，真正的惩罚却从杀人后开始",
     "genres": ["近代小说", "心理", "经典"],
     "readingMinutes": 5,
     "readingModes": [
@@ -831,23 +831,6 @@
     ],
     "chapterCount": 19,
     "coverTone": "slate",
-    "publishedAt": "2026-07-15",
-    "status": "published"
-  },
-  {
-    "slug": "zyf",
-    "title": "罪与罚",
-    "author": "费奥多尔·陀思妥耶夫斯基",
-    "tagline": "他以为人可以像上帝一样裁决生死——杀人之后，真正的惩罚才开始",
-    "genres": ["古典小说", "心理", "经典"],
-    "readingMinutes": 3,
-    "readingModes": [
-      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
-      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 1 },
-      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 3 }
-    ],
-    "chapterCount": 5,
-    "coverTone": "charcoal",
     "publishedAt": "2026-07-15",
     "status": "published"
   },
