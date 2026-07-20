@@ -1,0 +1,36 @@
+{
+  "slug": "sibadakesi",
+  "title": "斯巴达克思",
+  "author": "乔万尼奥里",
+  "era": "古罗马",
+  "subtitle": "二十三章读完角斗士英雄的壮烈史诗",
+  "description": "公元前一世纪，色雷斯角斗士斯巴达克思不堪罗马奴役，率领角斗士和奴隶发动起义。从维苏威火山到布拉达纳斯河畔，他屡败罗马名将，终因内部分裂与叛徒出卖而兵败牺牲，但自由与平等的火炬从此点燃。",
+  "genres": [
+    "历史小说",
+    "外国经典"
+  ],
+  "readingMinutes": 10,
+  "chapterCount": 23,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 10
+    }
+  ]
+}

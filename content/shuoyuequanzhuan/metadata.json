@@ -1,0 +1,40 @@
+{
+  "slug": "shuoyuequanzhuan",
+  "title": "说岳全传",
+  "author": "钱彩、金丰",
+  "era": "清",
+  "subtitle": "七十九回读完岳飞精忠报国的一生与岳雷扫北的故事",
+  "description": "《说岳全传》全称《精忠演义说本岳王全传》，是一部以南宋抗金名将岳飞为主角的英雄传奇小说。全书从大鹏金翅鸟下凡、赤须龙降世的神话开篇，历经岳飞出生、拜师、枪挑小梁王、岳母刺字，到率领岳家军大破金兵、朱仙镇大捷，最终被秦桧以“莫须有”罪名陷害于风波亭，以及其子岳雷继承父志、扫北成功的故事。小说塑造了岳飞忠勇爱国的英雄形象，也刻画了牛皋、岳云、韩世忠等众多忠义之士，以及秦桧、王氏等奸佞之徒，歌颂了精忠报国的精神。",
+  "genres": [
+    "古典小说",
+    "英雄传奇",
+    "历史"
+  ],
+  "collectionTags": [
+    "古典名著"
+  ],
+  "readingMinutes": 23,
+  "chapterCount": 79,
+  "coverTone": "sunset",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 23
+    }
+  ]
+}

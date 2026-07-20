@@ -1,0 +1,37 @@
+{
+  "slug": "yigemoshengnvrendelaixin",
+  "title": "一个陌生女人的来信",
+  "author": "斯蒂芬·茨威格",
+  "era": "近代",
+  "subtitle": "一个临死女人写给她一生所爱的告白",
+  "description": "著名作家R在41岁生日收到一封匿名长信，一个临死女人向他倾诉了从13岁起持续一生的刻骨铭心的爱恋。",
+  "genres": [
+    "近代小说",
+    "心理",
+    "爱情"
+  ],
+  "readingMinutes": 8,
+  "chapterCount": 29,
+  "coverTone": "ivory",
+  "publishedAt": "2026-07-20",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 2
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 8
+    }
+  ]
+}
