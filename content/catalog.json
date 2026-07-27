@@ -1,5 +1,158 @@
 [
   {
+    "slug": "baofalifuren",
+    "title": "包法利夫人",
+    "author": "福楼拜",
+    "tagline": "三十五章读完爱玛·包法利的幻梦与毁灭",
+    "genres": ["外国文学", "批判现实主义", "经典", "爱情悲剧"],
+    "readingMinutes": 33,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 33 }
+    ],
+    "chapterCount": 35,
+    "coverTone": "rose",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "haidiliangwanli",
+    "title": "海底两万里",
+    "author": "儒勒·凡尔纳",
+    "tagline": "随鹦鹉螺号环球海底航行两万法里",
+    "genres": ["外国文学", "小说", "幻想", "冒险", "经典"],
+    "readingMinutes": 34,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 8 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 34 }
+    ],
+    "chapterCount": 46,
+    "coverTone": "ocean",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "hongyuhei",
+    "title": "红与黑",
+    "author": "司汤达",
+    "tagline": "七十五章读完于连·索雷尔的爱情、野心与毁灭",
+    "genres": ["外国文学", "小说", "批判现实主义", "经典", "爱情"],
+    "readingMinutes": 67,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 67 }
+    ],
+    "chapterCount": 75,
+    "coverTone": "cinnabar",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "laocanyouji",
+    "title": "老残游记",
+    "author": "刘鹗",
+    "tagline": "二十回读完走方郎中眼中的酷吏、水患与冤案",
+    "genres": ["古典小说", "近代小说", "社会", "中国文学"],
+    "readingMinutes": 56,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 56 }
+    ],
+    "chapterCount": 20,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "niehaihua",
+    "title": "孽海花",
+    "author": "曾朴",
+    "tagline": "状元与名花串起同治到甲午三十年朝野风云",
+    "genres": ["古典小说", "近代小说", "历史小说", "中国文学"],
+    "readingMinutes": 79,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 6 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 79 }
+    ],
+    "chapterCount": 35,
+    "coverTone": "plum",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "niumeng",
+    "title": "牛虻",
+    "author": "艾捷尔·丽莲·伏尼契",
+    "tagline": "假死出走十三年后，牛虻与红衣主教生父的生死对决",
+    "genres": ["外国文学", "小说", "革命文学", "爱情", "经典"],
+    "readingMinutes": 26,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 26 }
+    ],
+    "chapterCount": 27,
+    "coverTone": "steel",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "rulinwaishi",
+    "title": "儒林外史",
+    "author": "吴敬梓",
+    "tagline": "五十六回儒林群像，写尽科举功名下的世态人心",
+    "genres": ["古典小说", "讽刺", "中国文学", "长篇小说"],
+    "readingMinutes": 49,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 49 }
+    ],
+    "chapterCount": 56,
+    "coverTone": "sage",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "sihunling",
+    "title": "死魂灵",
+    "author": "果戈理",
+    "tagline": "一个骗子走遍乡野收购死农奴的讽刺长卷",
+    "genres": ["外国文学", "小说", "讽刺", "经典"],
+    "readingMinutes": 14,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 14 }
+    ],
+    "chapterCount": 15,
+    "coverTone": "ochre",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "tangmusuoya",
+    "title": "汤姆·索亚历险记",
+    "author": "马克·吐温",
+    "tagline": "刷墙、凶案、海盗、山洞与宝藏，三十六节读完顽童汤姆的成长传奇",
+    "genres": ["外国文学", "小说", "冒险", "成长", "青少年文学"],
+    "readingMinutes": 28,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 28 }
+    ],
+    "chapterCount": 36,
+    "coverTone": "amber",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "chahuanv",
     "title": "茶花女",
     "author": "小仲马",

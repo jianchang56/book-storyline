@@ -1,0 +1,39 @@
+{
+  "slug": "haidiliangwanli",
+  "title": "海底两万里",
+  "author": "儒勒·凡尔纳",
+  "era": "19世纪法国",
+  "subtitle": "随鹦鹉螺号环球海底航行两万法里",
+  "description": "阿龙纳斯教授、康塞尔与尼德·兰追捕海怪落水，被尼摩船长的鹦鹉螺号收留，从此随艇环球海底旅行：采珠场、阿拉伯隧道、亚特兰蒂斯、南极点、冰下缺氧、巨型枪乌贼一一经历。旅行以尼摩撞沉敌舰的复仇与三人在北极大漩涡中的死里逃生告终，鹦鹉螺号的下落成为永沉海底的谜。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "幻想",
+    "冒险",
+    "经典"
+  ],
+  "readingMinutes": 34,
+  "chapterCount": 46,
+  "coverTone": "ocean",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 8
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 34
+    }
+  ]
+}

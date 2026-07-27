@@ -1,0 +1,39 @@
+{
+  "slug": "tangmusuoya",
+  "title": "汤姆·索亚历险记",
+  "author": "马克·吐温",
+  "era": "19世纪美国",
+  "subtitle": "刷墙、凶案、海盗、山洞与宝藏，三十六节读完顽童汤姆的成长传奇",
+  "description": "密西西比河畔的圣彼得堡镇，顽童汤姆·索亚刷墙成名、恋爱闹翻，又在坟场目击印第安·乔行凶。他出庭作证救下蒙冤的穆夫·波特，与贝琪山洞迷路三天三夜，最终和哈克贝利·费恩寻得匪帮宝藏，成为全镇传奇。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "冒险",
+    "成长",
+    "青少年文学"
+  ],
+  "readingMinutes": 28,
+  "chapterCount": 36,
+  "coverTone": "amber",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 28
+    }
+  ]
+}

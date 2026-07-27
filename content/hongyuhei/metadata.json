@@ -1,0 +1,39 @@
+{
+  "slug": "hongyuhei",
+  "title": "红与黑",
+  "author": "司汤达",
+  "era": "19世纪法国",
+  "subtitle": "七十五章读完于连·索雷尔的爱情、野心与毁灭",
+  "description": "维里埃尔木匠之子于连·索雷尔从市长府家庭教师做到巴黎拉莫尔侯爵的秘书，与德·雷纳尔夫人和玛蒂尔德的两段爱情把他推向功名顶点。一封揭发信断送前程，他枪击昔日情人，在审判与处决中走完这个出身低微者反抗命运的一生。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "批判现实主义",
+    "经典",
+    "爱情"
+  ],
+  "readingMinutes": 67,
+  "chapterCount": 75,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 7
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 67
+    }
+  ]
+}

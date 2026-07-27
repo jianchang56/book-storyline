@@ -1,0 +1,39 @@
+{
+  "slug": "niumeng",
+  "title": "牛虻",
+  "author": "艾捷尔·丽莲·伏尼契",
+  "era": "19世纪英国",
+  "subtitle": "假死出走十三年后，牛虻与红衣主教生父的生死对决",
+  "description": "青年意大利党人亚瑟·伯顿因忏悔泄密被捕，又得知自己是蒙泰尼里神甫的私生子，假死出走南美。十三年后他化身讽刺作家牛虻归来，从事革命与军火走私，与已是红衣主教的生父狱中相认对决，最终推开十字架就义，蒙泰尼里也在祭坛前当众崩溃而死。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "革命文学",
+    "爱情",
+    "经典"
+  ],
+  "readingMinutes": 26,
+  "chapterCount": 27,
+  "coverTone": "steel",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 26
+    }
+  ]
+}
