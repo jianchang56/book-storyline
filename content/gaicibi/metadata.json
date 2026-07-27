@@ -1,0 +1,39 @@
+{
+  "slug": "gaicibi",
+  "title": "了不起的盖茨比",
+  "author": "F.S.菲茨杰拉德",
+  "era": "20世纪美国",
+  "subtitle": "九章读完爵士时代的绿灯与幻梦",
+  "description": "神秘富豪盖茨比在长岛西卵夜夜笙歌，只为与五年前的恋人黛西重逢。他逼黛西抹去四年婚姻、重演过去的幻梦，终在广场对峙与黄车惨剧中破碎，自己也死于寻仇的枪下。叙述者尼克看清了富家男女撞碎别人便缩回金钱里的本性，黯然离开纽约。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "爱情悲剧",
+    "爵士时代"
+  ],
+  "readingMinutes": 9,
+  "chapterCount": 9,
+  "coverTone": "amber",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 9
+    }
+  ]
+}

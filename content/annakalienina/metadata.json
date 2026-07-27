@@ -1,0 +1,39 @@
+{
+  "slug": "annakalienina",
+  "title": "安娜·卡列尼娜",
+  "author": "列夫·托尔斯泰",
+  "era": "19世纪俄国",
+  "subtitle": "安娜的毁灭与列文的安放：双线交织的俄国巨著",
+  "description": "安娜·卡列尼娜为弗龙斯基抛夫弃子，在上流社会的排斥与猜忌中一步步走向卧轨自尽；与之平行，地主列文求婚受挫后重返乡间，最终娶得基蒂，在劳作、婚姻与信仰追问中安放人生。两条线索交织出十九世纪俄国社会的广阔画卷，写尽爱情、家庭与生命的意义。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "爱情悲剧",
+    "批判现实主义"
+  ],
+  "readingMinutes": 186,
+  "chapterCount": 239,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 8
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 186
+    }
+  ]
+}

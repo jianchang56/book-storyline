@@ -1,0 +1,38 @@
+{
+  "slug": "fuermosi",
+  "title": "福尔摩斯冒险史",
+  "author": "阿瑟·柯南·道尔",
+  "era": "19世纪英国",
+  "subtitle": "十二个短篇读完福尔摩斯最经典的冒险",
+  "description": "婚后搬出贝克街的华生，因一桩桩离奇委托不断回到老友歇洛克·福尔摩斯身边：从波希米亚国王的合影风波，到红发会的荒唐骗局、斑点带子案的深夜毒蛇、五个橘核的越洋追杀。十二个短篇串起维多利亚时代伦敦的众生相，也写尽大侦探的冷静推理与偶尔宽容。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "侦探",
+    "经典"
+  ],
+  "readingMinutes": 16,
+  "chapterCount": 12,
+  "coverTone": "slate",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 16
+    }
+  ]
+}

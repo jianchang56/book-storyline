@@ -1,5 +1,39 @@
 [
   {
+    "slug": "aima",
+    "title": "爱玛",
+    "author": "简·奥斯汀",
+    "tagline": "热衷做媒的海伯里富家女，在误会迷局中看清真正守护她的人",
+    "genres": ["外国文学", "小说", "经典", "爱情"],
+    "readingMinutes": 42,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 8 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 42 }
+    ],
+    "chapterCount": 55,
+    "coverTone": "lilac",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "annakalienina",
+    "title": "安娜·卡列尼娜",
+    "author": "列夫·托尔斯泰",
+    "tagline": "安娜的毁灭与列文的安放：双线交织的俄国巨著",
+    "genres": ["外国文学", "小说", "经典", "爱情悲剧", "批判现实主义"],
+    "readingMinutes": 186,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 8 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 186 }
+    ],
+    "chapterCount": 239,
+    "coverTone": "midnight",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "aqzhengzhuan",
     "title": "阿Q正传",
     "author": "鲁迅",
@@ -64,6 +98,74 @@
     ],
     "chapterCount": 20,
     "coverTone": "heather",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "ernuyingxiong",
+    "title": "儿女英雄传",
+    "author": "文康",
+    "tagline": "四十回读完侠女十三妹与书生安骥的侠义姻缘",
+    "genres": ["古典小说", "侠义", "爱情", "中国文学"],
+    "readingMinutes": 41,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 41 }
+    ],
+    "chapterCount": 40,
+    "coverTone": "rose",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "fuermosi",
+    "title": "福尔摩斯冒险史",
+    "author": "阿瑟·柯南·道尔",
+    "tagline": "十二个短篇读完福尔摩斯最经典的冒险",
+    "genres": ["外国文学", "小说", "侦探", "经典"],
+    "readingMinutes": 16,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 16 }
+    ],
+    "chapterCount": 12,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "fushengliuji",
+    "title": "浮生六记",
+    "author": "沈复",
+    "tagline": "伉俪情深、闲情雅趣与坎坷流离的一生回忆录",
+    "genres": ["中国文学", "散文", "自传", "经典"],
+    "readingMinutes": 5,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 5 }
+    ],
+    "chapterCount": 4,
+    "coverTone": "sage",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "gaicibi",
+    "title": "了不起的盖茨比",
+    "author": "F.S.菲茨杰拉德",
+    "tagline": "九章读完爵士时代的绿灯与幻梦",
+    "genres": ["外国文学", "小说", "经典", "爱情悲剧", "爵士时代"],
+    "readingMinutes": 9,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 9 }
+    ],
+    "chapterCount": 9,
+    "coverTone": "amber",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -221,6 +323,23 @@
     "status": "published"
   },
   {
+    "slug": "minglichang",
+    "title": "名利场",
+    "author": "萨克雷",
+    "tagline": "孤女蓓基不择手段向上爬，滑铁卢前后名利场中众生浮沉",
+    "genres": ["外国文学", "小说", "经典", "讽刺", "批判现实主义"],
+    "readingMinutes": 57,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 57 }
+    ],
+    "chapterCount": 67,
+    "coverTone": "ochre",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "niehaihua",
     "title": "孽海花",
     "author": "曾朴",
@@ -272,6 +391,23 @@
     "status": "published"
   },
   {
+    "slug": "shijianjiqi",
+    "title": "时间机器",
+    "author": "赫伯特·乔治·威尔斯",
+    "tagline": "乘机器抵达八十万年后，见证人类的日落与地球的末日",
+    "genres": ["外国文学", "小说", "科幻", "经典"],
+    "readingMinutes": 14,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 14 }
+    ],
+    "chapterCount": 17,
+    "coverTone": "steel",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "sihunling",
     "title": "死魂灵",
     "author": "果戈理",
@@ -285,6 +421,23 @@
     ],
     "chapterCount": 15,
     "coverTone": "ochre",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "suitangyanyi",
+    "title": "隋唐演义",
+    "author": "褚人获",
+    "tagline": "一百回读完从隋主伐陈到明皇西内的百年兴亡",
+    "genres": ["古典小说", "演义", "历史小说", "中国文学"],
+    "readingMinutes": 96,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 6 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 96 }
+    ],
+    "chapterCount": 100,
+    "coverTone": "plum",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -319,6 +472,23 @@
     ],
     "chapterCount": 7,
     "coverTone": "midnight",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "zhigongmanan",
+    "title": "织工马南",
+    "author": "乔治·艾略特",
+    "tagline": "失金的雪夜，他捡到比金子更可靠的救赎",
+    "genres": ["外国文学", "小说", "经典", "乡村"],
+    "readingMinutes": 17,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 17 }
+    ],
+    "chapterCount": 22,
+    "coverTone": "jade",
     "publishedAt": "2026-07-27",
     "status": "published"
   },

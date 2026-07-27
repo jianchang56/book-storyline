@@ -1,0 +1,39 @@
+{
+  "slug": "minglichang",
+  "title": "名利场",
+  "author": "萨克雷",
+  "era": "19世纪英国",
+  "subtitle": "孤女蓓基不择手段向上爬，滑铁卢前后名利场中众生浮沉",
+  "description": "孤女蓓基·夏泼凭美貌与心机在伦敦上流社会一路钻营，从家庭教师到觐见国王的红人，又因私情败露而身败名裂。温顺的爱米丽亚·赛特笠家道中落、违命成婚，滑铁卢的炮火让她成了寡妇，在贫病中苦守多年才回头看见都宾的深情。滑铁卢前后，名利场中众生浮沉，人人都在为虚荣付账。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "讽刺",
+    "批判现实主义"
+  ],
+  "readingMinutes": 57,
+  "chapterCount": 67,
+  "coverTone": "ochre",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 7
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 57
+    }
+  ]
+}
