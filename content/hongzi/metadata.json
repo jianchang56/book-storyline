@@ -1,0 +1,39 @@
+{
+  "slug": "hongzi",
+  "title": "红字",
+  "author": "纳撒尼尔·霍桑",
+  "era": "19世纪美国",
+  "subtitle": "一枚红字 A 之下，罪、愧疚与复仇的二十四章",
+  "description": "清教徒殖民地的波士顿，海丝特·白兰因通奸被罚终生佩戴红字 A，独自抚养女儿珠儿，始终不肯供出孩子的父亲。化名医生归来的丈夫齐灵渥斯步步蚕食牧师丁梅斯代尔的灵魂，直到牧师在选举日登上海丝特七年前受辱的刑台，当众袒露心口的烙印，在忏悔中死去。多年后海丝特自愿重戴红字，最终与丁梅斯代尔合葬一碑。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "悲剧",
+    "爱情悲剧"
+  ],
+  "readingMinutes": 21,
+  "chapterCount": 24,
+  "coverTone": "sunset",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 21
+    }
+  ]
+}

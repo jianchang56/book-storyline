@@ -1,0 +1,39 @@
+{
+  "slug": "yexingdehuhuan",
+  "title": "野性的呼唤",
+  "author": "杰克·伦敦",
+  "era": "19世纪美国",
+  "subtitle": "七章读完家犬巴克回归荒野的一生",
+  "description": "家犬巴克被盗卖到阿拉斯加雪原，在棍棒与犬牙间学会生存，斗败斯皮茨成为雪橇队领袖。恩人约翰·桑顿救下他后，他在至爱与荒野呼唤之间徘徊；桑顿遇害后，最后的羁绊断绝，巴克彻底回归荒野，统领狼群。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "冒险",
+    "动物",
+    "经典"
+  ],
+  "readingMinutes": 7,
+  "chapterCount": 7,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 7
+    }
+  ]
+}

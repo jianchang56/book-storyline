@@ -1,0 +1,39 @@
+{
+  "slug": "hakebeili",
+  "title": "哈克贝利·费恩历险记",
+  "author": "马克·吐温",
+  "era": "19世纪美国",
+  "subtitle": "假死出逃的少年与逃亡黑奴，乘木筏漂过整条密西西比河",
+  "description": "哈克为躲酒鬼老爸假死出逃，与逃亡黑奴吉姆乘木筏顺密西西比河漂流，历经世仇火并、骗子横行。当吉姆被骗子卖掉，哈克撕掉告发信，说出\"那我就下地狱吧\"，最终在一场闹剧般的营救后帮助吉姆赢得自由。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "冒险",
+    "成长",
+    "经典"
+  ],
+  "readingMinutes": 39,
+  "chapterCount": 43,
+  "coverTone": "jade",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 7
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 39
+    }
+  ]
+}

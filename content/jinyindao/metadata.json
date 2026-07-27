@@ -1,0 +1,39 @@
+{
+  "slug": "jinyindao",
+  "title": "金银岛",
+  "author": "罗伯特·路易斯·斯蒂文森",
+  "era": "19世纪英国",
+  "subtitle": "一张藏宝图，一个少年与独腿海盗的荒岛博弈",
+  "description": "少年吉姆·霍金斯偶得海盗弗林特的藏宝图，随特里劳尼乡绅与利夫西医生乘伊斯帕尼奥拉号出海寻宝。他识破独腿厨子高个约翰·西尔弗的叛变阴谋，历经守寨血战、孤身夺船与荒岛周旋，最终与众人起获七十万镑宝藏，载宝归航。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "冒险",
+    "经典",
+    "青少年文学"
+  ],
+  "readingMinutes": 24,
+  "chapterCount": 34,
+  "coverTone": "forest",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 24
+    }
+  ]
+}
