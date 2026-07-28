@@ -1,0 +1,38 @@
+{
+  "slug": "zibuyu",
+  "title": "子不语",
+  "author": "袁枚",
+  "era": "清代",
+  "subtitle": "二十四卷数百则鬼狐精怪，看袁枚笔下的幽明两界与三分公道",
+  "description": "袁枚晚年志怪笔记，正集二十四卷收录数百则鬼狐精怪、因果冥司故事：凶宅缢鬼、借尸还魂、狐仙报恩、冤魂索命无所不包，至末卷《长乐奇冤》与“本书完”收束正集。每卷梗概点名代表作并概述全卷，看胆气胜鬼、冥报不爽，与“理不胜数”的人间三分公道。",
+  "genres": [
+    "古典小说",
+    "志怪",
+    "短篇",
+    "中国文学"
+  ],
+  "readingMinutes": 29,
+  "chapterCount": 24,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 29
+    }
+  ]
+}

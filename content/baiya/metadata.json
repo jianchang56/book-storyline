@@ -1,0 +1,39 @@
+{
+  "slug": "baiya",
+  "title": "白牙",
+  "author": "杰克·伦敦",
+  "era": "19世纪美国",
+  "subtitle": "一只狼犬从荒野、营地与斗狗场走向爱与家的救赎之路",
+  "description": "狼犬白牙生于育空荒野，幼年入印第安营地、失去母亲，又被卖给暴君美人史密斯成为斗狗场上的恶魔。斗牛犬切罗基之战濒死之际，矿业专家威登·斯科特救下他，用耐心与爱把他驯成忠犬；白牙随主人远走加州庄园，最终以血肉之躯护主咬死潜入的逃犯，成为全家口中的“神佑之狼”。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "动物",
+    "冒险",
+    "经典"
+  ],
+  "readingMinutes": 22,
+  "chapterCount": 25,
+  "coverTone": "forest",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 22
+    }
+  ]
+}

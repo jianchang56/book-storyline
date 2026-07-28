@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "D:\\jianchang56\\storyline\\output\\_sources\\chenlun.txt",
+  "source_type": "txt",
+  "chapter_detection": "single-chapter-opt-in",
+  "generated_at": "2026-07-28T02:23:27.022746+00:00",
+  "chapter_count": 1,
+  "chapters": [
+    {
+      "index": 1,
+      "title": "沉沦",
+      "source": "D:\\jianchang56\\storyline\\output\\_sources\\chenlun.txt",
+      "output_file": "chapters/0001.md",
+      "characters": 21521,
+      "sha256": "6b023b85833bd6b81877c1e2c8154054b26da775e937904832abd0653ac18813",
+      "detected_encoding": "utf-8"
+    }
+  ]
+}

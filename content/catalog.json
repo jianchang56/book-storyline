@@ -51,6 +51,23 @@
     "status": "published"
   },
   {
+    "slug": "baiya",
+    "title": "白牙",
+    "author": "杰克·伦敦",
+    "tagline": "一只狼犬从荒野、营地与斗狗场走向爱与家的救赎之路",
+    "genres": ["外国文学", "小说", "动物", "冒险", "经典"],
+    "readingMinutes": 22,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 22 }
+    ],
+    "chapterCount": 25,
+    "coverTone": "forest",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "baofalifuren",
     "title": "包法利夫人",
     "author": "福楼拜",
@@ -85,6 +102,40 @@
     "status": "published"
   },
   {
+    "slug": "basikeweier",
+    "title": "巴斯克维尔的猎犬",
+    "author": "阿瑟·柯南·道尔",
+    "tagline": "十五章读完达特穆尔魔犬传说背后的遗产阴谋",
+    "genres": ["外国文学", "小说", "侦探", "经典"],
+    "readingMinutes": 15,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 15 }
+    ],
+    "chapterCount": 15,
+    "coverTone": "forest",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "chenlun",
+    "title": "沉沦",
+    "author": "郁达夫",
+    "tagline": "留日青年的孤冷、性苦闷与投海前的祖国绝叫",
+    "genres": ["中国文学", "现代小说", "小说", "经典"],
+    "readingMinutes": 2,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 2 }
+    ],
+    "chapterCount": 1,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "daolingelei",
     "title": "道林·格雷的画像",
     "author": "奥斯卡·王尔德",
@@ -115,6 +166,23 @@
     ],
     "chapterCount": 40,
     "coverTone": "rose",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "ershinianhou",
+    "title": "二十年后",
+    "author": "大仲马",
+    "tagline": "四剑客二十年后重聚，在投石党风云与英王之死中再掀波澜",
+    "genres": ["外国文学", "小说", "历史小说", "冒险", "经典"],
+    "readingMinutes": 66,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 3 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 66 }
+    ],
+    "chapterCount": 90,
+    "coverTone": "cinnabar",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -238,6 +306,23 @@
     "status": "published"
   },
   {
+    "slug": "heiandexin",
+    "title": "黑暗的心",
+    "author": "约瑟夫·康拉德",
+    "tagline": "溯刚果河而上，直面殖民黑暗中心的疯狂",
+    "genres": ["外国文学", "小说", "经典", "现代主义"],
+    "readingMinutes": 5,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 5 }
+    ],
+    "chapterCount": 3,
+    "coverTone": "midnight",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "hongyuhei",
     "title": "红与黑",
     "author": "司汤达",
@@ -289,6 +374,40 @@
     "status": "published"
   },
   {
+    "slug": "jiannandeshishi",
+    "title": "艰难时世",
+    "author": "狄更斯",
+    "tagline": "“只要事实”的教育如何毁掉两代人",
+    "genres": ["外国文学", "小说", "批判现实主义", "经典"],
+    "readingMinutes": 28,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 6 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 28 }
+    ],
+    "chapterCount": 37,
+    "coverTone": "stone",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "jinguqiguan",
+    "title": "今古奇观",
+    "author": "抱瓮老人",
+    "tagline": "八十卷话本写尽市井奇情与人间果报",
+    "genres": ["古典小说", "短篇", "话本", "中国文学"],
+    "readingMinutes": 100,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 100 }
+    ],
+    "chapterCount": 80,
+    "coverTone": "teal",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "jinyindao",
     "title": "金银岛",
     "author": "罗伯特·路易斯·斯蒂文森",
@@ -319,6 +438,23 @@
     ],
     "chapterCount": 20,
     "coverTone": "slate",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "lizhiyuqinggan",
+    "title": "理智与情感",
+    "author": "简·奥斯汀",
+    "tagline": "克制的姐姐与奔放的妹妹，在财产与婚约的试炼中各自寻得归宿",
+    "genres": ["外国文学", "小说", "经典", "爱情"],
+    "readingMinutes": 43,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 43 }
+    ],
+    "chapterCount": 50,
+    "coverTone": "sage",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -476,6 +612,23 @@
     "status": "published"
   },
   {
+    "slug": "yinshenren",
+    "title": "隐身人",
+    "author": "赫伯特·乔治·威尔斯",
+    "tagline": "绷带怪客、恐怖统治与一场围捕显形",
+    "genres": ["外国文学", "小说", "科幻", "经典"],
+    "readingMinutes": 22,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 22 }
+    ],
+    "chapterCount": 29,
+    "coverTone": "indigo",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "zhigongmanan",
     "title": "织工马南",
     "author": "乔治·艾略特",
@@ -489,6 +642,23 @@
     ],
     "chapterCount": 22,
     "coverTone": "jade",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "zibuyu",
+    "title": "子不语",
+    "author": "袁枚",
+    "tagline": "二十四卷数百则鬼狐精怪，看袁枚笔下的幽明两界与三分公道",
+    "genres": ["古典小说", "志怪", "短篇", "中国文学"],
+    "readingMinutes": 29,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 29 }
+    ],
+    "chapterCount": 24,
+    "coverTone": "midnight",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
