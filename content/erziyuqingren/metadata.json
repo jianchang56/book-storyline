@@ -1,0 +1,39 @@
+{
+  "slug": "erziyuqingren",
+  "title": "儿子与情人",
+  "author": "D.H.劳伦斯",
+  "era": "20世纪英国",
+  "subtitle": "十五章读完莫雷尔家的母子羁绊与保罗的自我挣脱",
+  "description": "英国矿区莫雷尔家，婚姻破裂的母亲把全部的爱倾注给儿子保罗。保罗在米丽亚姆的灵魂之恋与克拉拉的激情之间挣扎，始终无法把自己交给任何女人。母亲患癌离世后，他拒绝旧爱的挽救，转身走向城市灯火，开始自己的生活。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "成长",
+    "心理"
+  ],
+  "readingMinutes": 21,
+  "chapterCount": 15,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-28",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 21
+    }
+  ]
+}

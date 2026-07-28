@@ -1,0 +1,39 @@
+{
+  "slug": "lierenbiji",
+  "title": "猎人笔记",
+  "author": "伊凡·屠格涅夫",
+  "era": "19世纪俄国",
+  "subtitle": "二十五幅速写读完农奴制俄国的乡村众生相",
+  "description": "猎人背着猎枪穿行俄罗斯乡村，从霍尔和卡利内奇、别任草原的孩子，到一曲唱哭满座的歌手雅什卡与爱马被盗的切尔托普哈诺夫，二十五幅速写记下农奴制下的乡村众生相。最终以《树林和草原》一整年四季田野的速写，与读者道别。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "短篇",
+    "经典",
+    "乡村"
+  ],
+  "readingMinutes": 21,
+  "chapterCount": 25,
+  "coverTone": "jade",
+  "publishedAt": "2026-07-28",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 21
+    }
+  ]
+}

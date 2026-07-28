@@ -1,0 +1,39 @@
+{
+  "slug": "shiluodeshijie",
+  "title": "失落的世界",
+  "author": "阿瑟·柯南·道尔",
+  "era": "19世纪英国",
+  "subtitle": "查林杰教授带队重返南美高原，恐龙、猿人与印第安部落之间的死里逃生",
+  "description": "记者马隆为赢得心上人的爱加入查林杰教授的远征队，深入亚马逊腹地登上一座被绝壁隔绝的高原，那里恐龙犹存、猿人与印第安部落血战不休。木桥被毁、同伴被掳，四位探险家在失落的世界里几经生死，最终绳降脱险，带着一只活翼手龙震动伦敦。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "科幻",
+    "冒险",
+    "经典"
+  ],
+  "readingMinutes": 17,
+  "chapterCount": 16,
+  "coverTone": "forest",
+  "publishedAt": "2026-07-28",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 17
+    }
+  ]
+}

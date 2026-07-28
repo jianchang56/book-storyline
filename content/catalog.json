@@ -1,5 +1,175 @@
 [
   {
+    "slug": "erziyuqingren",
+    "title": "儿子与情人",
+    "author": "D.H.劳伦斯",
+    "tagline": "十五章读完莫雷尔家的母子羁绊与保罗的自我挣脱",
+    "genres": ["外国文学", "小说", "经典", "成长", "心理"],
+    "readingMinutes": 21,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 21 }
+    ],
+    "chapterCount": 15,
+    "coverTone": "cinnabar",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "jurenzhuan",
+    "title": "巨人传",
+    "author": "弗朗索瓦·拉伯雷",
+    "tagline": "两代巨人的狂想史诗，直到神瓶答出一个“喝”字",
+    "genres": ["外国文学", "小说", "讽刺", "经典", "幻想"],
+    "readingMinutes": 168,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 8 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 168 }
+    ],
+    "chapterCount": 258,
+    "coverTone": "amber",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "lierenbiji",
+    "title": "猎人笔记",
+    "author": "伊凡·屠格涅夫",
+    "tagline": "二十五幅速写读完农奴制俄国的乡村众生相",
+    "genres": ["外国文学", "小说", "短篇", "经典", "乡村"],
+    "readingMinutes": 21,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 21 }
+    ],
+    "chapterCount": 25,
+    "coverTone": "jade",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "mansfeierde",
+    "title": "曼斯菲尔德庄园",
+    "author": "简·奥斯汀",
+    "tagline": "寄人篱下的范妮守住自尊，等到埃德蒙的回望",
+    "genres": ["外国文学", "小说", "经典", "爱情"],
+    "readingMinutes": 42,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 6 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 42 }
+    ],
+    "chapterCount": 48,
+    "coverTone": "sage",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "nuosangjuesi",
+    "title": "诺桑觉寺",
+    "author": "简·奥斯汀",
+    "tagline": "哥特小说迷的巴斯社交场成长记",
+    "genres": ["外国文学", "小说", "经典", "爱情"],
+    "readingMinutes": 25,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 6 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 25 }
+    ],
+    "chapterCount": 31,
+    "coverTone": "heather",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "shijiedazhan",
+    "title": "世界大战",
+    "author": "赫伯特·乔治·威尔斯",
+    "tagline": "火星圆筒坠落伦敦郊外，人类文明在三脚机下倾覆",
+    "genres": ["外国文学", "小说", "科幻", "经典"],
+    "readingMinutes": 20,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 20 }
+    ],
+    "chapterCount": 27,
+    "coverTone": "midnight",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "shiluodeshijie",
+    "title": "失落的世界",
+    "author": "阿瑟·柯南·道尔",
+    "tagline": "查林杰教授带队重返南美高原，恐龙、猿人与印第安部落之间的死里逃生",
+    "genres": ["外国文学", "小说", "科幻", "冒险", "经典"],
+    "readingMinutes": 17,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 17 }
+    ],
+    "chapterCount": 16,
+    "coverTone": "forest",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "siwushouji",
+    "title": "死屋手记",
+    "author": "陀思妥耶夫斯基",
+    "tagline": "十年苦役写成的狱中实录，看尽死屋众生未灭的人性",
+    "genres": ["外国文学", "小说", "经典", "自传", "批判现实主义"],
+    "readingMinutes": 21,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 21 }
+    ],
+    "chapterCount": 22,
+    "coverTone": "stone",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "wushengxi",
+    "title": "无声戏",
+    "author": "李渔",
+    "tagline": "十二回读完李渔笔下的世情喜剧与因果翻案",
+    "genres": ["古典小说", "短篇", "世情", "中国文学"],
+    "readingMinutes": 12,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 12 }
+    ],
+    "chapterCount": 12,
+    "coverTone": "rose",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
+    "slug": "yueweicaotang",
+    "title": "阅微草堂笔记",
+    "author": "纪昀",
+    "tagline": "五种二十四卷，狐鬼报应里的士林世相",
+    "genres": ["古典小说", "志怪", "短篇", "中国文学"],
+    "readingMinutes": 26,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 26 }
+    ],
+    "chapterCount": 24,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-28",
+    "status": "published"
+  },
+  {
     "slug": "aifanhe",
     "title": "艾凡赫",
     "author": "沃尔特·司各特",

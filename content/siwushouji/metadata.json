@@ -1,0 +1,39 @@
+{
+  "slug": "siwushouji",
+  "title": "死屋手记",
+  "author": "陀思妥耶夫斯基",
+  "era": "19世纪俄国",
+  "subtitle": "十年苦役写成的狱中实录，看尽死屋众生未灭的人性",
+  "description": "贵族戈梁奇科夫因嫉妒杀妻自首，在西伯利亚苦役监狱度过十年。他以冷静的观察记下死屋众生：藏锥子伺机刺杀少校的彼得罗夫、刀捅少校却无人惧怕的卢卡、自认无罪的阿基姆·阿基梅奇、犹太珠宝匠伊赛·福米奇，以及千百种苦难、残忍与未灭的人性。刑满之日，囚犯铁匠为他砸开脚镣，他在断续的“再见”声中走出死屋，死而复生。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "自传",
+    "批判现实主义"
+  ],
+  "readingMinutes": 21,
+  "chapterCount": 22,
+  "coverTone": "stone",
+  "publishedAt": "2026-07-28",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 21
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "jurenzhuan",
+  "title": "巨人传",
+  "author": "弗朗索瓦·拉伯雷",
+  "era": "16世纪法国",
+  "subtitle": "两代巨人的狂想史诗，直到神瓶答出一个“喝”字",
+  "description": "高康大与庞大固埃父子两代巨人的狂想史诗：高康大历经新式教育与皮克罗肖尔之战，建起院规只有“做你想做的”的特莱美修道院；庞大固埃平定渴人国后，又因巴努日的婚姻之惑率舰队远渡重洋，历经无数奇岛，最终在神瓶圣殿得到一个字的谕示——“喝”。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "讽刺",
+    "经典",
+    "幻想"
+  ],
+  "readingMinutes": 168,
+  "chapterCount": 258,
+  "coverTone": "amber",
+  "publishedAt": "2026-07-28",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 8
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 168
+    }
+  ]
+}
