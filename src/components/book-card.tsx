@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import type { CatalogBook } from "@/lib/catalog";
 import { getBrowserStorage, type ReaderState, readReaderState } from "@/lib/reader-storage";
 
-export function BookCard({ book }: { book: CatalogBook }) {
+export function BookCard({ book, isNew = false }: { book: CatalogBook; isNew?: boolean }) {
   const router = useRouter();
   const prefetched = useRef(false);
   const [readerState, setReaderState] = useState<ReaderState | null>(null);
@@ -62,11 +62,14 @@ export function BookCard({ book }: { book: CatalogBook }) {
               {book.author}
             </p>
           </div>
-          {book.status === "published" ? (
-            <ArrowUpRight className="mt-1 size-5 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
-          ) : (
-            <Badge variant="outline">筹备中</Badge>
-          )}
+          <div className="flex shrink-0 items-center gap-2">
+            {isNew ? <Badge variant="secondary">新上架</Badge> : null}
+            {book.status === "published" ? (
+              <ArrowUpRight className="mt-1 size-5 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
+            ) : (
+              <Badge variant="outline">筹备中</Badge>
+            )}
+          </div>
         </div>
         <p className="mt-3 hidden line-clamp-2 text-sm leading-6 text-muted-foreground sm:block">
           {book.tagline}

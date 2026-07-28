@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PwaRegistration } from "@/components/pwa-registration";
 import { ScrollToTop } from "@/components/scroll-to-top";
@@ -73,7 +74,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ScrollToTop />
           <PwaRegistration />
         </ThemeProvider>
-        {process.env.VERCEL ? <SpeedInsights /> : null}
+        {process.env.VERCEL ? (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        ) : null}
       </body>
     </html>
   );

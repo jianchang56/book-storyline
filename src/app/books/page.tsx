@@ -1,24 +1,10 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { BookCard } from "@/components/book-card";
-import { BookSearch } from "@/components/book-search";
+import { BooksBrowser } from "@/components/books-browser";
 import { SiteHeader } from "@/components/site-header";
-import { Button } from "@/components/ui/button";
 import { catalog, filterCatalog, paginateCatalog } from "@/lib/catalog";
 import { firstSearchParam } from "@/lib/search-params";
 
 const pageSize = 12;
-
-function booksHref(page: number, query: string) {
-  return {
-    pathname: "/books" as const,
-    query: {
-      ...(query ? { q: query } : {}),
-      ...(page > 1 ? { page: String(page) } : {}),
-    },
-  };
-}
 
 export async function generateMetadata({
   searchParams,
@@ -52,9 +38,7 @@ export default async function BooksPage({
 }) {
   const params = await searchParams;
   const query = firstSearchParam(params.q).trim();
-  const requestedPage = Number.parseInt(firstSearchParam(params.page), 10);
-  const filteredBooks = filterCatalog(catalog, query);
-  const pagination = paginateCatalog(filteredBooks, requestedPage, pageSize);
+  const requestedPage = Number.parseInt(firstSearchParam(params.page), 10) || 1;
 
   return (
     <div className="min-h-screen">
@@ -75,63 +59,12 @@ export default async function BooksPage({
         </div>
 
         <div className="mt-10 sm:mt-14">
-          <BookSearch initialQuery={query} resultCount={pagination.totalBooks} />
-
-          {pagination.books.length > 0 ? (
-            <>
-              <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 xl:grid-cols-6">
-                {pagination.books.map((book) => (
-                  <BookCard key={book.slug} book={book} />
-                ))}
-              </div>
-
-              <nav
-                aria-label="书库分页"
-                className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row"
-              >
-                <p className="text-sm text-muted-foreground">
-                  显示第 {pagination.startNumber}–{pagination.endNumber} 本，共{" "}
-                  {pagination.totalBooks} 本
-                </p>
-                <div className="flex items-center gap-3">
-                  {pagination.page > 1 ? (
-                    <Button asChild variant="outline">
-                      <Link href={booksHref(pagination.page - 1, query)}>
-                        <ChevronLeft />
-                        上一页
-                      </Link>
-                    </Button>
-                  ) : (
-                    <Button type="button" variant="outline" disabled>
-                      <ChevronLeft />
-                      上一页
-                    </Button>
-                  )}
-                  <span className="min-w-20 text-center font-mono text-sm text-muted-foreground">
-                    {pagination.page} / {pagination.totalPages}
-                  </span>
-                  {pagination.page < pagination.totalPages ? (
-                    <Button asChild variant="outline">
-                      <Link href={booksHref(pagination.page + 1, query)}>
-                        下一页
-                        <ChevronRight />
-                      </Link>
-                    </Button>
-                  ) : (
-                    <Button type="button" variant="outline" disabled>
-                      下一页
-                      <ChevronRight />
-                    </Button>
-                  )}
-                </div>
-              </nav>
-            </>
-          ) : (
-            <div className="mt-8 rounded-[2rem] border border-dashed border-border bg-card/60 px-6 py-20 text-center">
-              <p className="font-display text-2xl font-semibold">书架上还没有这本书</p>
-              <p className="mt-3 text-sm text-muted-foreground">换一个书名、作者或题材试试。</p>
-            </div>
-          )}
+          <BooksBrowser
+            books={catalog}
+            initialQuery={query}
+            initialPage={requestedPage}
+            referenceDate={new Date().toISOString()}
+          />
         </div>
       </main>
     </div>
