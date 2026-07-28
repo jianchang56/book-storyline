@@ -15,6 +15,7 @@ const linkGroups = [
     links: [
       ["关于书脉", "/about"],
       ["纠错反馈", "/feedback"],
+      ["RSS 订阅", "/feed.xml"],
     ],
   },
   {
