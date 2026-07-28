@@ -8,7 +8,8 @@
       "!coverage",
       "!work",
       "!output",
-      "!content/*/metadata.json"
+      "!content/*/metadata.json",
+      "!public/search-index.json"
     ]
   },
   "formatter": {

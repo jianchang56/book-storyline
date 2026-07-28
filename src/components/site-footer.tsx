@@ -5,6 +5,7 @@ const linkGroups = [
     title: "发现",
     links: [
       ["书库", "/books"],
+      ["全站搜索", "/search"],
       ["专题", "/collections"],
       ["作者", "/authors"],
       ["类型", "/genres"],

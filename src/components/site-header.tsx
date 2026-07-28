@@ -36,7 +36,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-1">
           <Button asChild variant="ghost" size="icon">
-            <Link href="/books" aria-label="搜索书籍">
+            <Link href="/search" aria-label="全站搜索">
               <Search />
             </Link>
           </Button>

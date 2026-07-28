@@ -51,11 +51,14 @@ content/<slug>/
 python skills/publish-storyline-book/scripts/validate_book.py content/<slug>
 python skills/publish-storyline-book/scripts/generate_catalog.py content
 python skills/publish-storyline-book/scripts/validate_library.py content
+node scripts/generate-search-index.mjs
 pnpm check
 pnpm typecheck
 pnpm test
 pnpm build
 ```
+
+全站搜索使用 `public/search-index.json` 静态索引（书名、作者、章节标题与完整梗概正文），由 `scripts/generate-search-index.mjs` 从 `content/` 重新生成；`pnpm build` 的 `prebuild` 钩子会自动执行，手工新增书籍后也可运行 `pnpm search-index` 单独刷新。不要把该索引手工编辑进版本库之外的其他用途。
 
 若有预处理生成的 `manifest.json`，额外传入 `--manifest`，严格核对章节顺序和标题。
 由 `prepare_book.py` 处理的新书还必须传入 `--require-manifest`；单文件未识别章节时只有确认原书确为单章才能使用 `--allow-single-chapter`。

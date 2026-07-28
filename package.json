@@ -10,7 +10,9 @@
     "check:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "search-index": "node scripts/generate-search-index.mjs",
+    "prebuild": "node scripts/generate-search-index.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.19",
