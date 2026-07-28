@@ -1,0 +1,39 @@
+{
+  "slug": "heiyujinxiang",
+  "title": "黑郁金香",
+  "author": "大仲马",
+  "era": "19世纪法国",
+  "subtitle": "一朵黑郁金香，为蒙冤的花农讨回公道",
+  "description": "荷兰郁金香狂潮年代，多特花农范·拜尔勒因德·维特兄弟案蒙冤入狱，死罪获赦改判终身监禁。狱卒之女罗莎与他隔墙培育出十万弗罗林悬赏的黑郁金香，花开当夜被邻居博克斯泰尔盗走冒领赏金。罗莎追到哈勒姆，在奥兰治亲王面前对质获胜，范·拜尔勒无罪释放，两人终成眷属。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "历史小说",
+    "爱情",
+    "经典"
+  ],
+  "readingMinutes": 25,
+  "chapterCount": 33,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 6
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 25
+    }
+  ]
+}

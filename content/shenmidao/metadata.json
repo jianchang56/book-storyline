@@ -1,0 +1,39 @@
+{
+  "slug": "shenmidao",
+  "title": "神秘岛",
+  "author": "儒勒·凡尔纳",
+  "era": "19世纪法国",
+  "subtitle": "荒岛白手起家，尼摩船长暗中守护",
+  "description": "五名北军俘虏乘气球坠落太平洋荒岛，从一片表蒙玻璃取火开始重建文明，把林肯岛建成兴旺的殖民地。海盗来袭、疟疾肆虐之际总有神秘力量暗中相助，谜底揭开时，守护者正是《海底两万里》的尼摩船长；他长眠海底之后，火山爆发吞没全岛，众人最终在邓肯号的救援下重返祖国。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "科幻",
+    "冒险",
+    "经典"
+  ],
+  "readingMinutes": 51,
+  "chapterCount": 62,
+  "coverTone": "ocean",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 6
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 51
+    }
+  ]
+}

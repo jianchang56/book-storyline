@@ -1,0 +1,39 @@
+{
+  "slug": "bianxingji",
+  "title": "变形记",
+  "author": "弗兰茨·卡夫卡",
+  "era": "20世纪奥地利",
+  "subtitle": "一觉醒来变成甲虫的推销员，与家人渐行渐远的三个部分",
+  "description": "推销员格里高尔·萨姆沙一觉醒来变成大甲虫，家人从照料到厌弃。当妹妹葛蕾特说出\"必须把它弄走\"，他怀着对家人的深情在凌晨静静死去，而家人如释重负地开始了新生活。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "现代主义",
+    "幻想"
+  ],
+  "readingMinutes": 5,
+  "chapterCount": 3,
+  "coverTone": "slate",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 1
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 2
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 5
+    }
+  ]
+}

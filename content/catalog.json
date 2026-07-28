@@ -1,5 +1,22 @@
 [
   {
+    "slug": "aifanhe",
+    "title": "艾凡赫",
+    "author": "沃尔特·司各特",
+    "tagline": "狮心王归国暗战中，被逐骑士与犹太女的生死决斗审判",
+    "genres": ["外国文学", "小说", "历史小说", "冒险", "经典"],
+    "readingMinutes": 36,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 8 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 36 }
+    ],
+    "chapterCount": 44,
+    "coverTone": "steel",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "aima",
     "title": "爱玛",
     "author": "简·奥斯汀",
@@ -119,6 +136,23 @@
     "status": "published"
   },
   {
+    "slug": "bianxingji",
+    "title": "变形记",
+    "author": "弗兰茨·卡夫卡",
+    "tagline": "一觉醒来变成甲虫的推销员，与家人渐行渐远的三个部分",
+    "genres": ["外国文学", "小说", "经典", "现代主义", "幻想"],
+    "readingMinutes": 5,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 1 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 2 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 5 }
+    ],
+    "chapterCount": 3,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "chenlun",
     "title": "沉沦",
     "author": "郁达夫",
@@ -221,6 +255,23 @@
     "status": "published"
   },
   {
+    "slug": "fuyuzi",
+    "title": "父与子",
+    "author": "伊凡·屠格涅夫",
+    "tagline": "虚无主义者巴扎罗夫与父辈之间无法跨越的沟壑",
+    "genres": ["外国文学", "小说", "经典", "批判现实主义"],
+    "readingMinutes": 23,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 23 }
+    ],
+    "chapterCount": 28,
+    "coverTone": "jade",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "gaicibi",
     "title": "了不起的盖茨比",
     "author": "F.S.菲茨杰拉德",
@@ -318,6 +369,23 @@
       { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 5 }
     ],
     "chapterCount": 3,
+    "coverTone": "midnight",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "heiyujinxiang",
+    "title": "黑郁金香",
+    "author": "大仲马",
+    "tagline": "一朵黑郁金香，为蒙冤的花农讨回公道",
+    "genres": ["外国文学", "小说", "历史小说", "爱情", "经典"],
+    "readingMinutes": 25,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 6 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 25 }
+    ],
+    "chapterCount": 33,
     "coverTone": "midnight",
     "publishedAt": "2026-07-27",
     "status": "published"
@@ -425,6 +493,23 @@
     "status": "published"
   },
   {
+    "slug": "laocanxuji",
+    "title": "老残游记续集",
+    "author": "刘鹗",
+    "tagline": "九回残稿：泰山问道与梦游阴司",
+    "genres": ["古典小说", "近代小说", "中国文学"],
+    "readingMinutes": 10,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 10 }
+    ],
+    "chapterCount": 9,
+    "coverTone": "slate",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "laocanyouji",
     "title": "老残游记",
     "author": "刘鹗",
@@ -438,6 +523,23 @@
     ],
     "chapterCount": 20,
     "coverTone": "slate",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "liaozhai",
+    "title": "聊斋志异",
+    "author": "蒲松龄",
+    "tagline": "十二卷读尽狐鬼花妖间的人情与公义",
+    "genres": ["古典小说", "志怪", "短篇", "中国文学"],
+    "readingMinutes": 21,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 21 }
+    ],
+    "chapterCount": 12,
+    "coverTone": "plum",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -510,6 +612,23 @@
     "status": "published"
   },
   {
+    "slug": "quandao",
+    "title": "劝导",
+    "author": "简·奥斯汀",
+    "tagline": "八年前被劝退婚的安妮，等来一封迟到八年半的表白信",
+    "genres": ["外国文学", "小说", "经典", "爱情"],
+    "readingMinutes": 20,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 20 }
+    ],
+    "chapterCount": 24,
+    "coverTone": "teal",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "rulinwaishi",
     "title": "儒林外史",
     "author": "吴敬梓",
@@ -523,6 +642,23 @@
     ],
     "chapterCount": 56,
     "coverTone": "sage",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "shenmidao",
+    "title": "神秘岛",
+    "author": "儒勒·凡尔纳",
+    "tagline": "荒岛白手起家，尼摩船长暗中守护",
+    "genres": ["外国文学", "小说", "科幻", "冒险", "经典"],
+    "readingMinutes": 51,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 6 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 51 }
+    ],
+    "chapterCount": 62,
+    "coverTone": "ocean",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -591,6 +727,40 @@
     ],
     "chapterCount": 36,
     "coverTone": "amber",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "wangziyupinner",
+    "title": "王子与贫儿",
+    "author": "马克·吐温",
+    "tagline": "王子与贫儿互换身份，一个流落民间，一个登上王位",
+    "genres": ["外国文学", "小说", "历史小说", "冒险", "青少年文学"],
+    "readingMinutes": 23,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 23 }
+    ],
+    "chapterCount": 33,
+    "coverTone": "amber",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "xuezideyanjiu",
+    "title": "血字的研究",
+    "author": "阿瑟·柯南·道尔",
+    "tagline": "福尔摩斯初遇华生，劳里斯顿花园血字牵出跨洲复仇",
+    "genres": ["外国文学", "小说", "侦探", "经典"],
+    "readingMinutes": 15,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 15 }
+    ],
+    "chapterCount": 14,
+    "coverTone": "cinnabar",
     "publishedAt": "2026-07-27",
     "status": "published"
   },

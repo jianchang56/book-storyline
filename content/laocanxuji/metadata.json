@@ -1,0 +1,37 @@
+{
+  "slug": "laocanxuji",
+  "title": "老残游记续集",
+  "author": "刘鹗",
+  "era": "清末",
+  "subtitle": "九回残稿：泰山问道与梦游阴司",
+  "description": "老残结伴京官德慧生游泰山，在斗姥宫听姑子逸云自述情劫与悟道，助她弹压逼宿恶少，又送环翠出家；后半笔锋转入幽冥，写老残梦游阴司、观地狱问案、游历阴间街市。原书为未完残稿，第九回檀香忽起、故事戛然而止，并无结局。",
+  "genres": [
+    "古典小说",
+    "近代小说",
+    "中国文学"
+  ],
+  "readingMinutes": 10,
+  "chapterCount": 9,
+  "coverTone": "slate",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 10
+    }
+  ]
+}

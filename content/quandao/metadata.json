@@ -1,0 +1,38 @@
+{
+  "slug": "quandao",
+  "title": "劝导",
+  "author": "简·奥斯汀",
+  "era": "19世纪英国",
+  "subtitle": "八年前被劝退婚的安妮，等来一封迟到八年半的表白信",
+  "description": "安妮·埃利奥特八年前听从拉塞尔夫人的劝导，解除了与温特沃斯舰长的婚约；待他战功累累、富有归来，两人形同陌路，误会与试探层层交错。路易莎的意外、埃利奥特先生的真面目与一场关于长情的争论之后，温特沃斯终于写下表白信，两人重修旧好，理智最终说服了等待。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "爱情"
+  ],
+  "readingMinutes": 20,
+  "chapterCount": 24,
+  "coverTone": "teal",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 20
+    }
+  ]
+}
