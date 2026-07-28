@@ -1,0 +1,38 @@
+{
+  "slug": "soushenji",
+  "title": "搜神记",
+  "author": "干宝",
+  "era": "东晋",
+  "subtitle": "志怪鼻祖二十卷，从董永遇仙到李寄斩蛇",
+  "description": "东晋干宝编撰的志怪小说集，二十卷汇集上古至魏晋的神仙方术、灾异符瑞、梦占鬼事与精怪变化，是董永遇仙、干将莫邪三王墓、韩凭夫妇相思树、李寄斩蛇等名篇的源头。全书从神人交通写到因果报应，每卷梗概点名代表作并概述全卷，末卷以善恶感应收束，补遗中刘晨阮肇遇仙留下余韵。",
+  "genres": [
+    "古典小说",
+    "志怪",
+    "短篇",
+    "中国文学"
+  ],
+  "readingMinutes": 21,
+  "chapterCount": 20,
+  "coverTone": "indigo",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 21
+    }
+  ]
+}

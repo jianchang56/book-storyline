@@ -1,0 +1,39 @@
+{
+  "slug": "dixinyouji",
+  "title": "地心游记",
+  "author": "儒勒·凡尔纳",
+  "era": "19世纪法国",
+  "subtitle": "一封密码信，一场从斯奈菲尔火山口直入地心的远征",
+  "description": "黎登布洛克教授破译古冰岛文密码，携侄儿阿克塞尔与向导汉斯自斯奈菲尔火山口下行，历经缺水、迷路、地心海与史前巨兽的重重考验。一场火山喷发最终把他们从一千二百里格外的斯特龙博利火山送回地表，留下未抵地心的遗憾与名噪一时的传奇。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "科幻",
+    "冒险",
+    "经典"
+  ],
+  "readingMinutes": 29,
+  "chapterCount": 44,
+  "coverTone": "ochre",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 29
+    }
+  ]
+}

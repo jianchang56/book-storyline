@@ -1,0 +1,39 @@
+{
+  "slug": "dixieshouji",
+  "title": "地下室手记",
+  "author": "陀思妥耶夫斯基",
+  "era": "19世纪俄国",
+  "subtitle": "一个地下室人的病态自白：向理性宣战，向丽莎施虐",
+  "description": "一个四十岁、蛰居彼得堡地下室的前八等文官写下这份自白：第一部《地下室》是独白议论，攻击理性利己主义与“水晶宫”乌托邦，宣称过度的自觉是一种病；第二部《湿雪》回到他二十四岁的往事——与军官的较劲、在旧同学饯行宴上的屈辱，以及对妓女丽莎既怜悯又伤害的虐心一幕，以雪夜永别和多年后的自我审判收尾。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "存在主义",
+    "心理"
+  ],
+  "readingMinutes": 16,
+  "chapterCount": 21,
+  "coverTone": "midnight",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 5
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 16
+    }
+  ]
+}

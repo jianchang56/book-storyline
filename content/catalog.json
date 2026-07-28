@@ -170,6 +170,23 @@
     "status": "published"
   },
   {
+    "slug": "conglinzhishu",
+    "title": "丛林之书",
+    "author": "拉迪亚德·吉卜林",
+    "tagline": "七个故事读完丛林法则与人孩莫格利",
+    "genres": ["外国文学", "小说", "动物", "经典", "青少年文学"],
+    "readingMinutes": 10,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 10 }
+    ],
+    "chapterCount": 7,
+    "coverTone": "forest",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "daolingelei",
     "title": "道林·格雷的画像",
     "author": "奥斯卡·王尔德",
@@ -183,6 +200,57 @@
     ],
     "chapterCount": 20,
     "coverTone": "heather",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "dixieshouji",
+    "title": "地下室手记",
+    "author": "陀思妥耶夫斯基",
+    "tagline": "一个地下室人的病态自白：向理性宣战，向丽莎施虐",
+    "genres": ["外国文学", "小说", "经典", "存在主义", "心理"],
+    "readingMinutes": 16,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 16 }
+    ],
+    "chapterCount": 21,
+    "coverTone": "midnight",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "dixinyouji",
+    "title": "地心游记",
+    "author": "儒勒·凡尔纳",
+    "tagline": "一封密码信，一场从斯奈菲尔火山口直入地心的远征",
+    "genres": ["外国文学", "小说", "科幻", "冒险", "经典"],
+    "readingMinutes": 29,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 29 }
+    ],
+    "chapterCount": 44,
+    "coverTone": "ochre",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "dubo",
+    "title": "赌徒",
+    "author": "陀思妥耶夫斯基",
+    "tagline": "鲁莱滕堡轮盘上的爱情、自尊与赌瘾",
+    "genres": ["外国文学", "小说", "经典", "心理"],
+    "readingMinutes": 13,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 3 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 13 }
+    ],
+    "chapterCount": 17,
+    "coverTone": "cinnabar",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -285,6 +353,23 @@
     ],
     "chapterCount": 9,
     "coverTone": "amber",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "gelante",
+    "title": "格兰特船长的儿女",
+    "author": "儒勒·凡尔纳",
+    "tagline": "一只漂流瓶引出的南纬37度环球搜救",
+    "genres": ["外国文学", "小说", "冒险", "经典"],
+    "readingMinutes": 59,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 5 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 59 }
+    ],
+    "chapterCount": 66,
+    "coverTone": "teal",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -459,6 +544,23 @@
     "status": "published"
   },
   {
+    "slug": "jimu",
+    "title": "吉姆",
+    "author": "拉迪亚德·吉卜林",
+    "tagline": "拉合尔孤儿陪喇嘛寻找箭河，又卷入大博弈的谍战旋涡",
+    "genres": ["外国文学", "小说", "冒险", "成长", "经典"],
+    "readingMinutes": 15,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 15 }
+    ],
+    "chapterCount": 15,
+    "coverTone": "sunset",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "jinguqiguan",
     "title": "今古奇观",
     "author": "抱瓮老人",
@@ -527,6 +629,23 @@
     "status": "published"
   },
   {
+    "slug": "laoguwandian",
+    "title": "老古玩店",
+    "author": "狄更斯",
+    "tagline": "小耐儿与外公为躲逼债浪迹乡间的悲剧旅程",
+    "genres": ["外国文学", "小说", "经典", "批判现实主义", "悲剧"],
+    "readingMinutes": 56,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 8 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 56 }
+    ],
+    "chapterCount": 73,
+    "coverTone": "lilac",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
     "slug": "liaozhai",
     "title": "聊斋志异",
     "author": "蒲松龄",
@@ -557,6 +676,23 @@
     ],
     "chapterCount": 50,
     "coverTone": "sage",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "lvyexianzong",
+    "title": "绿野仙踪",
+    "author": "李百川",
+    "tagline": "看破科场的冷于冰修仙度人，百回写尽神魔与世情",
+    "genres": ["古典小说", "神魔", "世情", "中国文学"],
+    "readingMinutes": 93,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 93 }
+    ],
+    "chapterCount": 100,
+    "coverTone": "jade",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -608,6 +744,23 @@
     ],
     "chapterCount": 27,
     "coverTone": "steel",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "qiqiu",
+    "title": "气球上的五星期",
+    "author": "儒勒·凡尔纳",
+    "tagline": "乘维多利亚号气球五星期横越非洲大陆",
+    "genres": ["外国文学", "小说", "科幻", "冒险", "经典"],
+    "readingMinutes": 34,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 7 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 34 }
+    ],
+    "chapterCount": 44,
+    "coverTone": "sand",
     "publishedAt": "2026-07-27",
     "status": "published"
   },
@@ -693,6 +846,23 @@
     ],
     "chapterCount": 15,
     "coverTone": "ochre",
+    "publishedAt": "2026-07-27",
+    "status": "published"
+  },
+  {
+    "slug": "soushenji",
+    "title": "搜神记",
+    "author": "干宝",
+    "tagline": "志怪鼻祖二十卷，从董永遇仙到李寄斩蛇",
+    "genres": ["古典小说", "志怪", "短篇", "中国文学"],
+    "readingMinutes": 21,
+    "readingModes": [
+      { "id": "overview", "file": "00-overview.md", "title": "全书速览", "readingMinutes": 2 },
+      { "id": "journey", "file": "10-route.md", "title": "故事路线", "readingMinutes": 4 },
+      { "id": "complete", "file": "20-full.md", "title": "完整梗概", "readingMinutes": 21 }
+    ],
+    "chapterCount": 20,
+    "coverTone": "indigo",
     "publishedAt": "2026-07-27",
     "status": "published"
   },

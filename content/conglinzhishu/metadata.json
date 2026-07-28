@@ -1,0 +1,39 @@
+{
+  "slug": "conglinzhishu",
+  "title": "丛林之书",
+  "author": "拉迪亚德·吉卜林",
+  "era": "19世纪英国",
+  "subtitle": "七个故事读完丛林法则与人孩莫格利",
+  "description": "狼群养大的人孩莫格利在丛林法则中成长，举起人类的火焰斗败老虎谢尔汗，却因人狼两族都不容他而独自狩猎。本书为《丛林之书》第一部的七个散文故事，另有白海豹科蒂克寻岛、猫鼬里基—蒂基—塔维战眼镜蛇、大象图迈观象舞等名篇。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "动物",
+    "经典",
+    "青少年文学"
+  ],
+  "readingMinutes": 10,
+  "chapterCount": 7,
+  "coverTone": "forest",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 10
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "jimu",
+  "title": "吉姆",
+  "author": "拉迪亚德·吉卜林",
+  "era": "19世纪英国",
+  "subtitle": "拉合尔孤儿陪喇嘛寻找箭河，又卷入大博弈的谍战旋涡",
+  "description": "拉合尔街头的爱尔兰孤儿吉姆陪西藏喇嘛踏上寻找箭河的朝圣之路，又因一封密报被卷入英俄“大博弈”，受训成为测量局最年轻的密探。雪山夺下俄国间谍的全部测绘文件后，喇嘛在平原的溪流里找到了箭河，师徒二人同获解脱，吉姆也在两种命运之间找到了自己的位置。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "冒险",
+    "成长",
+    "经典"
+  ],
+  "readingMinutes": 15,
+  "chapterCount": 15,
+  "coverTone": "sunset",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 4
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 15
+    }
+  ]
+}

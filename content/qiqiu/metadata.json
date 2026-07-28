@@ -1,0 +1,39 @@
+{
+  "slug": "qiqiu",
+  "title": "气球上的五星期",
+  "author": "儒勒·凡尔纳",
+  "era": "19世纪法国",
+  "subtitle": "乘维多利亚号气球五星期横越非洲大陆",
+  "description": "1862年，弗格森博士乘维多利亚号气球自桑给巴尔出发，带着迪克·肯尼迪和仆人乔横越非洲，把前人的探险成果连成一线。五星期里他们确认尼罗河源头、穿越风暴与食人部落、在沙漠断水濒死，乔两度舍身救友，最终三人在追兵的枪口下越过古伊纳瀑布抵达塞内加尔。这是凡尔纳的第一部长篇小说。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "科幻",
+    "冒险",
+    "经典"
+  ],
+  "readingMinutes": 34,
+  "chapterCount": 44,
+  "coverTone": "sand",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 7
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 34
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "dubo",
+  "title": "赌徒",
+  "author": "陀思妥耶夫斯基",
+  "era": "19世纪俄国",
+  "subtitle": "鲁莱滕堡轮盘上的爱情、自尊与赌瘾",
+  "description": "在德国赌城鲁莱滕堡，家庭教师阿列克谢为波琳娜走进赌场，在赢与输之间越陷越深。祖母突然驾到、亲自上阵通吃全场又输光家产，一夜狂赢的十万盾却买不来爱情。爱情与自尊在筹码间翻滚，最终尽数沉入欲罢不能的赌瘾。",
+  "genres": [
+    "外国文学",
+    "小说",
+    "经典",
+    "心理"
+  ],
+  "readingMinutes": 13,
+  "chapterCount": 17,
+  "coverTone": "cinnabar",
+  "publishedAt": "2026-07-27",
+  "readingModes": [
+    {
+      "id": "overview",
+      "file": "00-overview.md",
+      "title": "全书速览",
+      "readingMinutes": 2
+    },
+    {
+      "id": "journey",
+      "file": "10-route.md",
+      "title": "故事路线",
+      "readingMinutes": 3
+    },
+    {
+      "id": "complete",
+      "file": "20-full.md",
+      "title": "完整梗概",
+      "readingMinutes": 13
+    }
+  ]
+}
